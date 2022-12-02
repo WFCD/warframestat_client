@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'abstract_fixture.dart';
 
-class WorldstateFixture extends Fixture {
-  WorldstateFixture() : super(Directory('test/fixtures/worldstate'));
+class WarframestatFixture extends Fixture {
+  WarframestatFixture() : super(Directory('test/fixtures/worldstate'));
 
   Future<String> loadAlertFixture() {
     return fixture('alerts.json');

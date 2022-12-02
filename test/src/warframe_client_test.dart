@@ -13,12 +13,12 @@ class MockHttpClient extends Mock implements Client {}
 
 void main() {
   late Client mockClient;
-  late WorldstateFixture worldstateFixtures;
+  late WarframestatFixture worldstateFixtures;
   late WorldstateClient worldstateClient;
 
   setUp(() {
     mockClient = MockHttpClient();
-    worldstateFixtures = WorldstateFixture();
+    worldstateFixtures = WarframestatFixture();
 
     worldstateClient = WorldstateClient(
       platform: GamePlatform.pc,
