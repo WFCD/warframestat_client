@@ -268,7 +268,7 @@ class InterimStep extends Equatable {
 }
 
 /// {@template message}
-/// TODO.
+/// Don't know yet.
 /// {@endtemplate}
 @JsonSerializable()
 class Message extends Equatable {
@@ -281,25 +281,32 @@ class Message extends Equatable {
     required this.attachments,
   });
 
+  /// Creates a [Message] from a JSON map.
   factory Message.fromJson(Map<String, dynamic> json) {
     return _$MessageFromJson(json);
   }
 
+  ///
   @JsonKey(includeIfNull: false)
   final String? sender;
 
+  ///
   @JsonKey(includeIfNull: false)
   final String? subject;
 
+  ///
   @JsonKey(includeIfNull: false)
   final String? message;
 
+  ///
   @JsonKey(includeIfNull: false)
   final String? senderIcon;
 
+  ///
   @JsonKey(includeIfNull: false)
   final String? attachments;
 
+  /// Creates a JSON map from [Message].
   Map<String, dynamic> toJson() => _$MessageToJson(this);
 
   @override
