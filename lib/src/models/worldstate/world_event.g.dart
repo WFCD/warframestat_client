@@ -153,6 +153,8 @@ InterimStep _$InterimStepFromJson(Map json) => $checkedCreate(
           goal: $checkedConvert('goal', (v) => v as int),
           reward: $checkedConvert('reward',
               (v) => Reward.fromJson(Map<String, dynamic>.from(v as Map))),
+          message: $checkedConvert('message',
+              (v) => Message.fromJson(Map<String, dynamic>.from(v as Map))),
         );
         return val;
       },
@@ -162,7 +164,40 @@ Map<String, dynamic> _$InterimStepToJson(InterimStep instance) =>
     <String, dynamic>{
       'goal': instance.goal,
       'reward': instance.reward.toJson(),
+      'message': instance.message.toJson(),
     };
+
+Message _$MessageFromJson(Map json) => $checkedCreate(
+      'Message',
+      json,
+      ($checkedConvert) {
+        final val = Message(
+          sender: $checkedConvert('sender', (v) => v as String?),
+          subject: $checkedConvert('subject', (v) => v as String?),
+          message: $checkedConvert('message', (v) => v as String?),
+          senderIcon: $checkedConvert('senderIcon', (v) => v as String?),
+          attachments: $checkedConvert('attachments', (v) => v as String?),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$MessageToJson(Message instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('sender', instance.sender);
+  writeNotNull('subject', instance.subject);
+  writeNotNull('message', instance.message);
+  writeNotNull('senderIcon', instance.senderIcon);
+  writeNotNull('attachments', instance.attachments);
+  return val;
+}
 
 ProgressStep _$ProgressStepFromJson(Map json) => $checkedCreate(
       'ProgressStep',

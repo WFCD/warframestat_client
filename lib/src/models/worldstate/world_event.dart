@@ -240,7 +240,11 @@ class WorldEvent extends EphemeralState {
 @JsonSerializable()
 class InterimStep extends Equatable {
   /// {@macro interimstep}
-  const InterimStep({required this.goal, required this.reward});
+  const InterimStep({
+    required this.goal,
+    required this.reward,
+    required this.message,
+  });
 
   /// Creates an InterimStep from a json map.
   factory InterimStep.fromJson(Map<String, dynamic> json) {
@@ -253,11 +257,54 @@ class InterimStep extends Equatable {
   /// Reward for completing the step.
   final Reward reward;
 
+  /// Event message.
+  final Message message;
+
   /// Creates a json map from InterimStep.
   Map<String, dynamic> toJson() => _$InterimStepToJson(this);
 
   @override
   List<Object?> get props => [goal, reward];
+}
+
+/// {@template message}
+/// TODO.
+/// {@endtemplate}
+@JsonSerializable()
+class Message extends Equatable {
+  /// {@macro interimstep}
+  const Message({
+    required this.sender,
+    required this.subject,
+    required this.message,
+    required this.senderIcon,
+    required this.attachments,
+  });
+
+  factory Message.fromJson(Map<String, dynamic> json) {
+    return _$MessageFromJson(json);
+  }
+
+  @JsonKey(includeIfNull: false)
+  final String? sender;
+
+  @JsonKey(includeIfNull: false)
+  final String? subject;
+
+  @JsonKey(includeIfNull: false)
+  final String? message;
+
+  @JsonKey(includeIfNull: false)
+  final String? senderIcon;
+
+  @JsonKey(includeIfNull: false)
+  final String? attachments;
+
+  Map<String, dynamic> toJson() => _$MessageToJson(this);
+
+  @override
+  List<Object?> get props =>
+      [sender, subject, message, senderIcon, attachments];
 }
 
 /// {@template progressstep}
