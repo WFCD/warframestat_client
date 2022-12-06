@@ -9,5 +9,6 @@
 library warframestat_client;
 
 export 'src/clients/worldstate_client.dart';
+export 'src/enums.dart';
 export 'src/models.dart';
 export 'src/objects.dart';

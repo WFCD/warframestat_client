@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
-import 'package:warframestat_client/src/enums.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 import '../helpers/fixtures.dart';

@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 /// Game Platforms the API supports.
 enum GamePlatform {
@@ -55,4 +56,19 @@ extension on Language {
     return Language.values
         .firstWhereOrNull((e) => languageCode.contains(e.name));
   }
+}
+
+///
+enum Rarity {
+  /// [Item] drops commonly.
+  common,
+
+  /// [Item] drop is uncommon.
+  uncommon,
+
+  /// [Item] drop is harder to come by.
+  rare,
+
+  /// [Item] wow... that's shiny.
+  legendary,
 }

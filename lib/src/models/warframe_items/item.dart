@@ -1,21 +1,24 @@
 import 'package:equatable/equatable.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 /// {@template item}
-/// Base class for warframe-items
+/// Abstract class for warframe-items
 /// {@endtemplate}
 abstract class Item extends Equatable {
   /// {@macro item}
   const Item({
     required this.uniqueName,
     required this.name,
-    this.description,
+    required this.description,
     required this.type,
     required this.category,
-    this.tradable = false,
+    required this.tradable,
     this.patchlogs,
     this.imageName,
     this.releaseDate,
     this.excludeFromCodex,
+    this.wikiaThumbnail,
+    this.wikiaUrl,
   });
 
   /// Unique name used within the game.
@@ -28,7 +31,7 @@ abstract class Item extends Equatable {
   final String name;
 
   /// Item decription.
-  final String? description;
+  final String description;
 
   /// Item type.
   final String type;
@@ -40,7 +43,7 @@ abstract class Item extends Equatable {
   final bool tradable;
 
   /// Item changes throughout game version.
-  final List<dynamic>? patchlogs;
+  final List<Patchlog>? patchlogs;
 
   /// Item image name.
   final String? imageName;
@@ -50,4 +53,137 @@ abstract class Item extends Equatable {
 
   /// Whether the item is excluded from the codex or not.
   final bool? excludeFromCodex;
+
+  /// Wikia [Item] thumbnail url.
+  final String? wikiaThumbnail;
+
+  /// [Item] wikia url.
+  final String? wikiaUrl;
+
+  @override
+  List<Object?> get props => [
+        name,
+        description,
+        type,
+        category,
+        tradable,
+        patchlogs,
+        imageName,
+        releaseDate,
+        excludeFromCodex,
+        wikiaThumbnail,
+        wikiaUrl
+      ];
+}
+
+/// {@template droppableitem}
+/// Contains extra data for [Item]s that drop in-game.
+/// {@endtemplate}
+abstract class DroppableItem extends Item {
+  /// {@macro droppableitem}
+  const DroppableItem({
+    required super.uniqueName,
+    required super.name,
+    required super.description,
+    required super.type,
+    required super.category,
+    required super.tradable,
+    super.patchlogs,
+    super.imageName,
+    super.releaseDate,
+    super.excludeFromCodex,
+    this.rarity,
+    this.probability,
+    this.drops,
+    super.wikiaThumbnail,
+    super.wikiaUrl,
+  });
+
+  /// [Item] rarity.
+  final Rarity? rarity;
+
+  /// Chances of the [Item] dropping.
+  final num? probability;
+
+  /// List of drop [Item] locations.
+  final List<Drop>? drops;
+
+  @override
+  List<Object?> get props => super.props..addAll([rarity, probability, drops]);
+}
+
+/// {@template buildableitem}
+/// [Item]s that require building.
+/// {@endtemplate}
+abstract class BuildableItem extends Item {
+  /// {@macro buildableitem}
+  const BuildableItem({
+    required super.uniqueName,
+    required super.name,
+    required super.description,
+    required super.type,
+    required super.category,
+    required super.tradable,
+    super.patchlogs,
+    this.masterReq,
+    required this.buildPrice,
+    required this.buildQuantity,
+    required this.buildTime,
+    required this.skipBuildTimePrice,
+    required this.consumeOnBuild,
+    required this.components,
+    super.releaseDate,
+    this.marketCost,
+    this.bpCost,
+    this.itemCount,
+    super.wikiaThumbnail,
+    super.wikiaUrl,
+  });
+
+  /// Mastery requirement needed to build item.
+  final int? masterReq;
+
+  /// The credit price to start building.
+  final int buildPrice;
+
+  /// Amount of [Item]s built per blueprint.
+  final int buildQuantity;
+
+  /// Time it takes for the build to finish.
+  final int buildTime;
+
+  /// Platnuim needed to skip [buildTime].
+  final int skipBuildTimePrice;
+
+  /// Whether the blueprint is consumed after building.
+  final bool consumeOnBuild;
+
+  /// List of components.
+  final List<Component> components;
+
+  /// Platnuim price in the warframe market.
+  final int? marketCost;
+
+  /// Price of blueprint;
+  final int? bpCost;
+
+  /// Item count.
+  final int? itemCount;
+
+  @override
+  List<Object?> get props {
+    return super.props
+      ..addAll([
+        masterReq,
+        buildPrice,
+        buildQuantity,
+        buildTime,
+        skipBuildTimePrice,
+        consumeOnBuild,
+        components,
+        marketCost,
+        bpCost,
+        itemCount,
+      ]);
+  }
 }

@@ -104,7 +104,7 @@ class WorldEvent extends EphemeralState {
   final String? scoreLocTag;
 
   /// Reward for completing this event.
-  final List<Reward> rewards;
+  final List<RelicReward> rewards;
 
   /// Whether or not this is expired (at the time of the object creation).
   final bool expired;
@@ -255,7 +255,7 @@ class InterimStep extends Equatable {
   final int goal;
 
   /// Reward for completing the step.
-  final Reward reward;
+  final RelicReward reward;
 
   /// Event message.
   final Message message;

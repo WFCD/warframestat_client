@@ -42,7 +42,7 @@ class Invasion extends WorldstateObject {
   final InvasionFaction attacker;
 
   /// A description for attackerReward
-  final Reward attackerReward;
+  final RelicReward attackerReward;
 
   /// A description for attackingFaction
   final String attackingFaction;
@@ -60,7 +60,7 @@ class Invasion extends WorldstateObject {
   final InvasionFaction defender;
 
   /// A description for defenderReward
-  final Reward defenderReward;
+  final RelicReward defenderReward;
 
   /// A description for defendingFaction
   final String defendingFaction;
@@ -128,7 +128,7 @@ class InvasionFaction extends Equatable {
   }
 
   /// Reward awarded for siding with the faction.
-  final Reward reward;
+  final RelicReward reward;
 
   /// The faction name translated..
   final String faction;
