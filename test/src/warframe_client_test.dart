@@ -20,7 +20,6 @@ void main() {
     worldstateFixtures = WarframestatFixture();
 
     worldstateClient = WorldstateClient(
-      platform: GamePlatform.pc,
       language: Language.en,
       client: mockClient,
     );

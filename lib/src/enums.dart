@@ -1,18 +1,24 @@
 import 'package:collection/collection.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
+const _platformDeprecated =
+    'Due to crossplay all platforms now share one state';
+
 /// Game Platforms the API supports.
 enum GamePlatform {
   /// PC.
   pc,
 
   /// Playstation.
+  @Deprecated(_platformDeprecated)
   ps4,
 
   /// Xbox.
+  @Deprecated(_platformDeprecated)
   xb1,
 
   /// Nintendo Switch.
+  @Deprecated(_platformDeprecated)
   swi,
 }
 

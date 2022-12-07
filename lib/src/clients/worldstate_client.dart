@@ -11,14 +11,10 @@ import 'package:warframestat_client/src/models.dart';
 class WorldstateClient {
   /// {@macro warframestat_client}
   WorldstateClient({
-    required this.platform,
     required this.language,
     this.ua,
     http.Client? client,
   }) : _client = client ?? http.Client();
-
-  /// The game platform all request will be made for.
-  final GamePlatform platform;
 
   /// The language results will be returned in.
   ///
@@ -256,7 +252,7 @@ class WorldstateClient {
 
   Future<T> _get<T>(String path, [String? ua]) async {
     final headers = {'language': language.name, if (ua != null) 'ua': ua};
-    final uri = Uri.https(_authority, '${platform.name}$path', headers);
+    final uri = Uri.https(_authority, '${GamePlatform.pc.name}$path', headers);
     final response = await _client.get(uri).timeout(const Duration(seconds: 5));
 
     return json.decode(response.body) as T;
