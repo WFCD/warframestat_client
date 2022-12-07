@@ -83,6 +83,7 @@ class GunAttack extends Attack {
     required this.flight,
   });
 
+  /// Create a GunAttack from a json map
   factory GunAttack.fromJson(Map<String, dynamic> json) {
     return _$GunAttackFromJson(json);
   }
