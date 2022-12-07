@@ -107,6 +107,8 @@ MeleeAttack _$MeleeAttackFromJson(Map json) => $checkedCreate(
           damage: $checkedConvert('damage',
               (v) => Damage.fromJson(Map<String, dynamic>.from(v as Map))),
           slide: $checkedConvert('slide', (v) => v as num),
+          slam: $checkedConvert('slam',
+              (v) => Slam.fromJson(Map<String, dynamic>.from(v as Map))),
         );
         return val;
       },
@@ -126,4 +128,42 @@ Map<String, dynamic> _$MeleeAttackToJson(MeleeAttack instance) =>
       'status_chance': instance.statusChance,
       'damage': instance.damage.toJson(),
       'slide': instance.slide,
+      'slam': instance.slam.toJson(),
+    };
+
+Slam _$SlamFromJson(Map json) => $checkedCreate(
+      'Slam',
+      json,
+      ($checkedConvert) {
+        final val = Slam(
+          damage: $checkedConvert('damage', (v) => v as num),
+          radial: $checkedConvert('radial',
+              (v) => Radial.fromJson(Map<String, dynamic>.from(v as Map))),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$SlamToJson(Slam instance) => <String, dynamic>{
+      'damage': instance.damage,
+      'radial': instance.radial.toJson(),
+    };
+
+Radial _$RadialFromJson(Map json) => $checkedCreate(
+      'Radial',
+      json,
+      ($checkedConvert) {
+        final val = Radial(
+          damage: $checkedConvert('damage', (v) => v as String),
+          element: $checkedConvert('element', (v) => v as String),
+          radius: $checkedConvert('radius', (v) => v as num),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$RadialToJson(Radial instance) => <String, dynamic>{
+      'damage': instance.damage,
+      'element': instance.element,
+      'radius': instance.radius,
     };

@@ -62,16 +62,74 @@ class MeleeAttack extends Attack {
     required super.statusChance,
     required super.damage,
     required this.slide,
+    required this.slam,
   });
 
   /// Creates a MeleeAttack from Json map
   factory MeleeAttack.fromJson(Map<String, dynamic> data) =>
       _$MeleeAttackFromJson(data);
 
+  /// Slide damage.
   final num slide;
+
+  /// Slam damage.
+  final Slam slam;
 
   @override
   Map<String, dynamic> toJson() => _$MeleeAttackToJson(this);
 }
 
-class Slam extends Equatable {}
+/// {@template slam}
+/// Represents a melee slam attack.
+/// {@endtemplate}
+@JsonSerializable()
+class Slam extends Equatable {
+  /// {@macro slam}
+  const Slam({required this.damage, required this.radial});
+
+  /// Creates a [Slam] from a json map.
+  factory Slam.fromJson(Map<String, dynamic> json) => _$SlamFromJson(json);
+
+  /// Total slam damage;
+  final num damage;
+
+  /// Slam radial damage.
+  final Radial radial;
+
+  /// Creates json map from [Slam].
+  Map<String, dynamic> toJson() => _$SlamToJson(this);
+
+  @override
+  List<Object?> get props => [damage, radial];
+}
+
+/// {@template radial}
+/// [Slam] radial damage.
+/// {@endtemplate}
+@JsonSerializable()
+class Radial extends Equatable {
+  /// {@macro radial}
+  const Radial({
+    required this.damage,
+    required this.element,
+    required this.radius,
+  });
+
+  /// Creates [Radial] from a json map.
+  factory Radial.fromJson(Map<String, dynamic> json) => _$RadialFromJson(json);
+
+  /// Radial damage.
+  final String damage;
+
+  /// Element type.
+  final String element;
+
+  /// Radius.
+  final num radius;
+
+  /// Creates a json map from [Radial].
+  Map<String, dynamic> toJson() => _$RadialToJson(this);
+
+  @override
+  List<Object?> get props => [damage, element, radius];
+}
