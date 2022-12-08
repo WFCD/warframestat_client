@@ -55,7 +55,7 @@ class Worldstate extends Equatable {
   final List<Alert> alerts;
 
   /// Currently active arbitration.
-  final Arbitration arbitration;
+  final Arbitration? arbitration;
 
   /// Conclave weekly challenges data.
   final List<ConclaveChallenge> weeklyChallenges;

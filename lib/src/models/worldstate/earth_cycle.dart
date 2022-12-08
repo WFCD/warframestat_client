@@ -16,7 +16,6 @@ class EarthCycle extends CycleObject {
     required this.isDay,
     required super.state,
     required super.timeLeft,
-    required super.shortString,
   });
 
   /// Creates a EarthCycle from Json map

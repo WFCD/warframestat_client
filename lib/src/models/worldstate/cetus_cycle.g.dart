@@ -19,7 +19,6 @@ CetusCycle _$CetusCycleFromJson(Map json) => $checkedCreate(
           isCetus: $checkedConvert('isCetus', (v) => v as bool),
           state: $checkedConvert('state', (v) => v as String),
           timeLeft: $checkedConvert('timeLeft', (v) => v as String),
-          shortString: $checkedConvert('shortString', (v) => v as String),
         );
         return val;
       },
@@ -32,7 +31,6 @@ Map<String, dynamic> _$CetusCycleToJson(CetusCycle instance) =>
       'expiry': instance.expiry?.toIso8601String(),
       'state': instance.state,
       'timeLeft': instance.timeLeft,
-      'shortString': instance.shortString,
       'isDay': instance.isDay,
       'isCetus': instance.isCetus,
     };

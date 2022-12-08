@@ -20,7 +20,6 @@ ZarimanCycle _$ZarimanCycleFromJson(Map json) => $checkedCreate(
           isCorpus: $checkedConvert('isCorpus', (v) => v as bool),
           state: $checkedConvert('state', (v) => v as String),
           timeLeft: $checkedConvert('timeLeft', (v) => v as String),
-          shortString: $checkedConvert('shortString', (v) => v as String),
         );
         return val;
       },
@@ -33,7 +32,6 @@ Map<String, dynamic> _$ZarimanCycleToJson(ZarimanCycle instance) =>
       'expiry': instance.expiry?.toIso8601String(),
       'state': instance.state,
       'timeLeft': instance.timeLeft,
-      'shortString': instance.shortString,
       'bountiesEndDate': instance.bountiesEndDate.toIso8601String(),
       'isCorpus': instance.isCorpus,
     };

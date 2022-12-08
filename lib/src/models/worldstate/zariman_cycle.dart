@@ -17,7 +17,6 @@ class ZarimanCycle extends CycleObject {
     required this.isCorpus,
     required super.state,
     required super.timeLeft,
-    required super.shortString,
   });
 
   /// Creates a ZarimanCycle from Json map

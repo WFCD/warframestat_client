@@ -11,7 +11,6 @@ abstract class CycleObject extends WorldstateObject {
     required DateTime super.expiry,
     required this.state,
     required this.timeLeft,
-    required this.shortString,
   });
 
   /// The state of the [CycleObject].
@@ -23,12 +22,8 @@ abstract class CycleObject extends WorldstateObject {
   /// String representation of time left in the current cycle.
   final String timeLeft;
 
-  /// String representtation of the eta before next state.
-  final String shortString;
-
   @override
-  List<Object?> get props =>
-      super.props..addAll([stateBool, state, timeLeft, shortString]);
+  List<Object?> get props => super.props..addAll([stateBool, state, timeLeft]);
 
   @override
   bool? get stringify => false;

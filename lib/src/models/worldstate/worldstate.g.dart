@@ -19,8 +19,11 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       Alert.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          arbitration: $checkedConvert('arbitration',
-              (v) => Arbitration.fromJson(Map<String, dynamic>.from(v as Map))),
+          arbitration: $checkedConvert(
+              'arbitration',
+              (v) => v == null
+                  ? null
+                  : Arbitration.fromJson(Map<String, dynamic>.from(v as Map))),
           weeklyChallenges: $checkedConvert(
               'weeklyChallenges',
               (v) => (v as List<dynamic>)
@@ -143,7 +146,7 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   final val = <String, dynamic>{
     'timestamp': instance.timestamp.toIso8601String(),
     'alerts': instance.alerts.map((e) => e.toJson()).toList(),
-    'arbitration': instance.arbitration.toJson(),
+    'arbitration': instance.arbitration?.toJson(),
     'weeklyChallenges':
         instance.weeklyChallenges.map((e) => e.toJson()).toList(),
     'archonHunt': instance.archonHunt.toJson(),

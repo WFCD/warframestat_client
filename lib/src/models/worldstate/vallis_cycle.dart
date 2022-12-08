@@ -16,7 +16,6 @@ class VallisCycle extends CycleObject {
     required this.isWarm,
     required super.state,
     required super.timeLeft,
-    required super.shortString,
   });
 
   /// Creates a VallisCycle from Json map

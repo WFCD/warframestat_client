@@ -18,7 +18,7 @@ class CambionCycle extends CycleObject {
     required super.expiry,
     required this.active,
     required super.timeLeft,
-  }) : super(state: '', shortString: '');
+  }) : super(state: '');
 
   /// Creates a CambionCycle from Json map
   factory CambionCycle.fromJson(Map<String, dynamic> json) =>

@@ -17,7 +17,6 @@ class CetusCycle extends CycleObject {
     required this.isCetus,
     required super.state,
     required super.timeLeft,
-    required super.shortString,
   });
 
   /// Creates a CetusCycle from Json map

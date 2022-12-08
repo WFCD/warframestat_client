@@ -18,7 +18,6 @@ VallisCycle _$VallisCycleFromJson(Map json) => $checkedCreate(
           isWarm: $checkedConvert('isWarm', (v) => v as bool),
           state: $checkedConvert('state', (v) => v as String),
           timeLeft: $checkedConvert('timeLeft', (v) => v as String),
-          shortString: $checkedConvert('shortString', (v) => v as String),
         );
         return val;
       },
@@ -31,6 +30,5 @@ Map<String, dynamic> _$VallisCycleToJson(VallisCycle instance) =>
       'expiry': instance.expiry?.toIso8601String(),
       'state': instance.state,
       'timeLeft': instance.timeLeft,
-      'shortString': instance.shortString,
       'isWarm': instance.isWarm,
     };
