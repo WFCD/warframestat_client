@@ -34,7 +34,7 @@ WorldEvent _$WorldEventFromJson(Map json) => $checkedCreate(
               'rewards',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      RelicReward.fromJson(Map<String, dynamic>.from(e as Map)))
+                      Reward.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           expired: $checkedConvert('expired', (v) => v as bool),
           health: $checkedConvert('health', (v) => v as num?),
@@ -152,7 +152,7 @@ InterimStep _$InterimStepFromJson(Map json) => $checkedCreate(
         final val = InterimStep(
           goal: $checkedConvert('goal', (v) => v as int),
           reward: $checkedConvert('reward',
-              (v) => RelicReward.fromJson(Map<String, dynamic>.from(v as Map))),
+              (v) => Reward.fromJson(Map<String, dynamic>.from(v as Map))),
           message: $checkedConvert('message',
               (v) => Message.fromJson(Map<String, dynamic>.from(v as Map))),
         );

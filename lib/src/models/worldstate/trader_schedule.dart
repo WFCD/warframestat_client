@@ -22,7 +22,7 @@ class TraderSchedule extends Equatable {
   final DateTime expiry;
 
   /// A description for item
-  final String item;
+  final String? item;
 
   /// Creates a Json map from a VoidTraderSchedule
   Map<String, dynamic> toJson() => _$TraderScheduleToJson(this);

@@ -23,10 +23,10 @@ class TraderItem extends Equatable {
   final String item;
 
   /// Ducats neeeded to purchase item.
-  final int ducats;
+  final int? ducats;
 
   /// Credits neeeded to purchase item.
-  final int credits;
+  final int? credits;
 
   /// Creates a Json map from a VoidTraderItem
   Map<String, dynamic> toJson() => _$TraderItemToJson(this);

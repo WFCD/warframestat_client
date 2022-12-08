@@ -28,9 +28,9 @@ Invasion _$InvasionFromJson(Map json) => $checkedCreate(
               (v) => InvasionFaction.fromJson(
                   Map<String, dynamic>.from(v as Map))),
           defenderReward: $checkedConvert('defenderReward',
-              (v) => RelicReward.fromJson(Map<String, dynamic>.from(v as Map))),
+              (v) => Reward.fromJson(Map<String, dynamic>.from(v as Map))),
           attackerReward: $checkedConvert('attackerReward',
-              (v) => RelicReward.fromJson(Map<String, dynamic>.from(v as Map))),
+              (v) => Reward.fromJson(Map<String, dynamic>.from(v as Map))),
           defendingFaction:
               $checkedConvert('defendingFaction', (v) => v as String),
           desc: $checkedConvert('desc', (v) => v as String),
@@ -47,7 +47,7 @@ Invasion _$InvasionFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$InvasionToJson(Invasion instance) => <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
       'attacker': instance.attacker.toJson(),
       'attackerReward': instance.attackerReward.toJson(),
       'attackingFaction': instance.attackingFaction,
@@ -71,7 +71,7 @@ InvasionFaction _$InvasionFactionFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = InvasionFaction(
           reward: $checkedConvert('reward',
-              (v) => RelicReward.fromJson(Map<String, dynamic>.from(v as Map))),
+              (v) => Reward.fromJson(Map<String, dynamic>.from(v as Map))),
           faction: $checkedConvert('faction', (v) => v as String),
           factionKey: $checkedConvert('factionKey', (v) => v as String),
         );

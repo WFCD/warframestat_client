@@ -12,7 +12,7 @@ TraderSchedule _$TraderScheduleFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = TraderSchedule(
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
-          item: $checkedConvert('item', (v) => v as String),
+          item: $checkedConvert('item', (v) => v as String?),
         );
         return val;
       },

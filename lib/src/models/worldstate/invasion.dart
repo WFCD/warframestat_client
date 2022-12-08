@@ -13,7 +13,7 @@ class Invasion extends WorldstateObject {
   /// {@macro invasion}
   const Invasion({
     required String super.id,
-    required this.activation,
+    required DateTime super.activation,
     required this.attacker,
     required this.attackingFaction,
     required this.completed,
@@ -35,14 +35,11 @@ class Invasion extends WorldstateObject {
   factory Invasion.fromJson(Map<String, dynamic> json) =>
       _$InvasionFromJson(json);
 
-  /// The time the invasion started.
-  final DateTime activation;
-
   /// A description for attacker
   final InvasionFaction attacker;
 
   /// A description for attackerReward
-  final RelicReward attackerReward;
+  final Reward attackerReward;
 
   /// A description for attackingFaction
   final String attackingFaction;
@@ -60,7 +57,7 @@ class Invasion extends WorldstateObject {
   final InvasionFaction defender;
 
   /// A description for defenderReward
-  final RelicReward defenderReward;
+  final Reward defenderReward;
 
   /// A description for defendingFaction
   final String defendingFaction;
@@ -128,7 +125,7 @@ class InvasionFaction extends Equatable {
   }
 
   /// Reward awarded for siding with the faction.
-  final RelicReward reward;
+  final Reward reward;
 
   /// The faction name translated..
   final String faction;
