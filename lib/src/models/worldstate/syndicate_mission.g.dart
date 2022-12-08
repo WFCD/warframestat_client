@@ -34,8 +34,8 @@ SyndicateMission _$SyndicateMissionFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$SyndicateMissionToJson(SyndicateMission instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'active': instance.active,
       'syndicate': instance.syndicate,
       'syndicateKey': instance.syndicateKey,

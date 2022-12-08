@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/models/worldstate/mission.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'sentient_outposts.g.dart';
 
@@ -8,12 +7,12 @@ part 'sentient_outposts.g.dart';
 /// SentientOutposts description
 /// {@endtemplate}
 @JsonSerializable()
-class SentientOutpost extends EphemeralState {
+class SentientOutpost extends WorldstateObject {
   /// {@macro sentient_outposts}
   const SentientOutpost({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.mission,
     required this.active,
   });

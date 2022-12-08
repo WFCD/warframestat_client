@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/models/worldstate/syndicate_job.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'syndicate_mission.g.dart';
 
@@ -8,12 +7,12 @@ part 'syndicate_mission.g.dart';
 /// Syndicatemission description
 /// {@endtemplate}
 @JsonSerializable()
-class SyndicateMission extends EphemeralState {
+class SyndicateMission extends WorldstateObject {
   /// {@macro syndicatemission}
   const SyndicateMission({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.active,
     required this.syndicate,
     required this.syndicateKey,

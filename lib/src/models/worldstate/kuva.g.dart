@@ -30,8 +30,8 @@ Kuva _$KuvaFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$KuvaToJson(Kuva instance) => <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'active': instance.active,
       'node': instance.node,
       'enemy': instance.enemy,

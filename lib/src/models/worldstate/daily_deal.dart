@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'daily_deal.g.dart';
 
@@ -7,12 +7,12 @@ part 'daily_deal.g.dart';
 /// DailyDeals description
 /// {@endtemplate}
 @JsonSerializable()
-class DailyDeal extends EphemeralState {
+class DailyDeal extends WorldstateObject {
   /// {@macro daily_deals}
   const DailyDeal({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.item,
     required this.originalPrice,
     required this.salePrice,

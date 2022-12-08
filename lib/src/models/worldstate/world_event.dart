@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/models.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'world_event.g.dart';
 
@@ -9,12 +8,12 @@ part 'world_event.g.dart';
 /// Event description
 /// {@endtemplate}
 @JsonSerializable()
-class WorldEvent extends EphemeralState {
+class WorldEvent extends WorldstateObject {
   /// {@macro event}
   const WorldEvent({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.previousId,
     required this.startString,
     required this.active,

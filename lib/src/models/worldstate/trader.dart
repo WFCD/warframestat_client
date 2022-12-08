@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/models/worldstate/trader_item.dart';
-import 'package:warframestat_client/src/models/worldstate/trader_schedule.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'trader.g.dart';
 
@@ -9,12 +7,12 @@ part 'trader.g.dart';
 /// Data on the void trader.
 /// {@endtemplate}
 @JsonSerializable()
-class Trader extends EphemeralState {
+class Trader extends WorldstateObject {
   /// {@macro void_trader}
   const Trader({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.active,
     required this.character,
     required this.location,

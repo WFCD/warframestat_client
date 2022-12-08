@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'arbitration.g.dart';
 
@@ -9,12 +9,12 @@ part 'arbitration.g.dart';
 /// {@endtemplate}
 @JsonSerializable()
 @experimental
-class Arbitration extends EphemeralState {
+class Arbitration extends WorldstateObject {
   /// {@macro alert}
   const Arbitration({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.node,
     required this.nodeKey,
     required this.enemy,

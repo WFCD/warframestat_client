@@ -39,8 +39,8 @@ Trader _$TraderFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$TraderToJson(Trader instance) => <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'active': instance.active,
       'character': instance.character,
       'location': instance.location,

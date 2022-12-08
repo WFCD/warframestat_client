@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/objects/ephemeral_state_object.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'fissure.g.dart';
 
@@ -7,12 +7,12 @@ part 'fissure.g.dart';
 /// Fissure description
 /// {@endtemplate}
 @JsonSerializable()
-class Fissure extends EphemeralState {
+class Fissure extends WorldstateObject {
   /// {@macro fissure}
   const Fissure({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.active,
     required this.node,
     required this.expired,

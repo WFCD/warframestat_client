@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/objects/ephemeral_state_object.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'steel_path.g.dart';
 
@@ -9,11 +9,11 @@ part 'steel_path.g.dart';
 /// SteelPath description
 /// {@endtemplate}
 @JsonSerializable()
-class SteelPath extends EphemeralState {
+class SteelPath extends WorldstateObject {
   /// {@macro steel_path}
   const SteelPath({
-    required super.activation,
-    required super.expiry,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.currentReward,
     required this.rotation,
     required this.evergreens,
@@ -73,12 +73,12 @@ class SteelPathReward extends Equatable {
 /// Data on Steel Path incursion.
 /// {@endtemplate}
 @JsonSerializable()
-class Incursion extends EphemeralState {
+class Incursion extends WorldstateObject {
   /// {@macro incursion}
   const Incursion({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
   });
 
   /// Creates a [Incursion] from a json map.

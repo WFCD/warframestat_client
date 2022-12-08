@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/models.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'sortie.g.dart';
 
@@ -8,12 +7,12 @@ part 'sortie.g.dart';
 /// A base class for Sortie type objects.
 /// {@endtemplate}
 @JsonSerializable()
-class Sortie extends EphemeralState {
+class Sortie extends WorldstateObject {
   /// {@macro sortie}
   const Sortie({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.startString,
     required this.active,
     required this.rewardPool,

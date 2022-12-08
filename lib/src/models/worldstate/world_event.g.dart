@@ -96,8 +96,8 @@ WorldEvent _$WorldEventFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'activation': instance.activation.toIso8601String(),
-    'expiry': instance.expiry.toIso8601String(),
+    'activation': instance.activation?.toIso8601String(),
+    'expiry': instance.expiry?.toIso8601String(),
   };
 
   void writeNotNull(String key, dynamic value) {

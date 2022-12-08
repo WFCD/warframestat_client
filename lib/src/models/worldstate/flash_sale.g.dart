@@ -28,8 +28,8 @@ FlashSale _$FlashSaleFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$FlashSaleToJson(FlashSale instance) => <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'item': instance.item,
       'expired': instance.expired,
       'discount': instance.discount,

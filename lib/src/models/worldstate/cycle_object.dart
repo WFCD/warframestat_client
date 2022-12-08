@@ -1,14 +1,14 @@
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 /// {@template cycleobject}
 /// Base class for all cycle objects.
 /// {@endtemplate}
-abstract class CycleObject extends EphemeralState {
+abstract class CycleObject extends WorldstateObject {
   /// {@macro cycleobject}
   const CycleObject({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.state,
     required this.timeLeft,
     required this.shortString,

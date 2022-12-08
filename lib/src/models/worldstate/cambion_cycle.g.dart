@@ -25,8 +25,8 @@ CambionCycle _$CambionCycleFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$CambionCycleToJson(CambionCycle instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'timeLeft': instance.timeLeft,
       'active': instance.active,
     };

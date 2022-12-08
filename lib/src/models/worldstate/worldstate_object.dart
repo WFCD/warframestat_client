@@ -9,10 +9,21 @@ import 'package:meta/meta.dart';
 @immutable
 abstract class WorldstateObject extends Equatable {
   /// {@macro worldstateobject}
-  const WorldstateObject({required this.id});
+  const WorldstateObject({this.id, this.activation, this.expiry});
 
   /// ID of the instance.
   final String? id;
+
+  /// The time the state was activated.
+  final DateTime? activation;
+
+  /// The time the state will expire.
+  final DateTime? expiry;
+
+  /// The remaining time until the state expires.
+  ///
+  /// Will return null when [WorldstateObject] contains no [expiry]
+  Duration? get remaining => expiry?.toLocal().difference(DateTime.now());
 
   @override
   List<Object?> get props => [id];

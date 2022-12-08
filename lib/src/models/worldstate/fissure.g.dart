@@ -33,8 +33,8 @@ Fissure _$FissureFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$FissureToJson(Fissure instance) => <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'active': instance.active,
       'node': instance.node,
       'expired': instance.expired,

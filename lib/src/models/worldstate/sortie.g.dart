@@ -43,8 +43,8 @@ Sortie _$SortieFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$SortieToJson(Sortie instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'activation': instance.activation.toIso8601String(),
-    'expiry': instance.expiry.toIso8601String(),
+    'activation': instance.activation?.toIso8601String(),
+    'expiry': instance.expiry?.toIso8601String(),
     'startString': instance.startString,
     'active': instance.active,
     'rewardPool': instance.rewardPool,

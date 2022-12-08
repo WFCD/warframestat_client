@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'conclave_challenge.g.dart';
 
@@ -7,12 +7,12 @@ part 'conclave_challenge.g.dart';
 /// Conclave challenge instance.
 /// {@endtemplate}
 @JsonSerializable()
-class ConclaveChallenge extends EphemeralState {
+class ConclaveChallenge extends WorldstateObject {
   /// {@macro conclave_challenge}
   const ConclaveChallenge({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.mode,
     required this.amount,
     required this.expired,

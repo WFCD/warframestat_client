@@ -26,8 +26,8 @@ SentientOutpost _$SentientOutpostFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$SentientOutpostToJson(SentientOutpost instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'mission': instance.mission.toJson(),
       'active': instance.active,
     };

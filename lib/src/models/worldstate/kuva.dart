@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'kuva.g.dart';
 
@@ -9,12 +9,12 @@ part 'kuva.g.dart';
 /// {@endtemplate}
 @experimental
 @JsonSerializable()
-class Kuva extends EphemeralState {
+class Kuva extends WorldstateObject {
   /// {@macro kuva}
   const Kuva({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.active,
     required this.node,
     required this.enemy,

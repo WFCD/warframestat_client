@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/objects/ephemeral_state_object.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'nightwave.g.dart';
 
@@ -8,12 +8,12 @@ part 'nightwave.g.dart';
 /// and challenge system
 /// {@endtemplate}
 @JsonSerializable()
-class Nightwave extends EphemeralState {
+class Nightwave extends WorldstateObject {
   /// {@macro nightwave}
   const Nightwave({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.active,
     required this.params,
     required this.rewardTypes,
@@ -74,12 +74,12 @@ class Nightwave extends EphemeralState {
 /// A nightwave challenge.
 /// {@endtemplate}
 @JsonSerializable()
-class Challenge extends EphemeralState {
+class Challenge extends WorldstateObject {
   /// {@macro challenge}
   const Challenge({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.title,
     required this.desc,
     required this.reputation,

@@ -38,8 +38,8 @@ SteelPath _$SteelPathFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$SteelPathToJson(SteelPath instance) => <String, dynamic>{
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'currentReward': instance.currentReward.toJson(),
       'rotation': instance.rotation.map((e) => e.toJson()).toList(),
       'evergreens': instance.evergreens.map((e) => e.toJson()).toList(),
@@ -80,6 +80,6 @@ Incursion _$IncursionFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$IncursionToJson(Incursion instance) => <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
     };

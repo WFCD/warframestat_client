@@ -11,7 +11,7 @@ Invasion _$InvasionFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Invasion(
-          id: $checkedConvert('id', (v) => v as String?),
+          id: $checkedConvert('id', (v) => v as String),
           activation:
               $checkedConvert('activation', (v) => DateTime.parse(v as String)),
           attacker: $checkedConvert(

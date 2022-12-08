@@ -1,5 +1,5 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/objects.dart';
 
 part 'syndicate_job.g.dart';
 
@@ -7,7 +7,7 @@ part 'syndicate_job.g.dart';
 /// Data on the current syndicate bounty.
 /// {@endtemplate}
 @JsonSerializable()
-class SyndicateJob implements WorldstateObject {
+class SyndicateJob extends Equatable {
   /// {@macro syndicatejob}
   const SyndicateJob({
     required this.id,
@@ -23,7 +23,7 @@ class SyndicateJob implements WorldstateObject {
   factory SyndicateJob.fromJson(Map<String, dynamic> json) =>
       _$SyndicateJobFromJson(json);
 
-  @override
+  /// Job id.
   final String id;
 
   /// Reward pool for the given job.

@@ -28,8 +28,8 @@ DailyDeal _$DailyDealFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$DailyDealToJson(DailyDeal instance) => <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'item': instance.item,
       'originalPrice': instance.originalPrice,
       'salePrice': instance.salePrice,

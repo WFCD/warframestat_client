@@ -27,8 +27,8 @@ VallisCycle _$VallisCycleFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$VallisCycleToJson(VallisCycle instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'state': instance.state,
       'timeLeft': instance.timeLeft,
       'shortString': instance.shortString,

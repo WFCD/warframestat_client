@@ -42,8 +42,8 @@ Nightwave _$NightwaveFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$NightwaveToJson(Nightwave instance) => <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'active': instance.active,
       'params': instance.params,
       'rewardTypes': instance.rewardTypes,
@@ -78,8 +78,8 @@ Challenge _$ChallengeFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$ChallengeToJson(Challenge instance) => <String, dynamic>{
       'id': instance.id,
-      'activation': instance.activation.toIso8601String(),
-      'expiry': instance.expiry.toIso8601String(),
+      'activation': instance.activation?.toIso8601String(),
+      'expiry': instance.expiry?.toIso8601String(),
       'title': instance.title,
       'desc': instance.desc,
       'reputation': instance.reputation,

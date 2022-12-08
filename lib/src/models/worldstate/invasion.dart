@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:warframestat_client/src/models.dart';
-import 'package:warframestat_client/src/objects.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'invasion.g.dart';
 
@@ -12,7 +12,7 @@ part 'invasion.g.dart';
 class Invasion extends WorldstateObject {
   /// {@macro invasion}
   const Invasion({
-    required super.id,
+    required String super.id,
     required this.activation,
     required this.attacker,
     required this.attackingFaction,

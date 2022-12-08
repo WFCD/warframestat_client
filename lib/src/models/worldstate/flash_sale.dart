@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/objects/ephemeral_state_object.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'flash_sale.g.dart';
 
@@ -7,12 +7,12 @@ part 'flash_sale.g.dart';
 /// FlashSale description
 /// {@endtemplate}
 @JsonSerializable()
-class FlashSale extends EphemeralState {
+class FlashSale extends WorldstateObject {
   /// {@macro flash_sale}
   const FlashSale({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.item,
     required this.expired,
     required this.discount,
