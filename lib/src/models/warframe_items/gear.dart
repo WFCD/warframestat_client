@@ -1,6 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/models/warframe_items/item.dart';
-import 'package:warframestat_client/src/models/warframe_items/patchlog.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 part 'gear.g.dart';
