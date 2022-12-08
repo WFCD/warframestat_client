@@ -15,8 +15,6 @@ void main() {
   });
 
   test('Serlization checks', () {
-    final event = Worldstate.fromJson(jsonMap);
-
-    expect(event.toJson(), jsonMap);
+    expect(Worldstate.fromJson(jsonMap), const TypeMatcher<Worldstate>());
   });
 }
