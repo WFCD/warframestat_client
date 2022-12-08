@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart';
@@ -26,12 +25,8 @@ void main() {
   });
 
   group('Worldstate', () {
-    late String worldstate;
-    late Map<String, dynamic> worldstateMap;
-
     setUp(() async {
-      worldstate = await worldstateFixtures.loadWorldstate();
-      worldstateMap = json.decode(worldstate) as Map<String, dynamic>;
+      final worldstate = await worldstateFixtures.loadWorldstate();
 
       when(() => mockClient.get(uri('')))
           .thenAnswer((_) async => response(worldstate));
@@ -44,7 +39,7 @@ void main() {
     test('Models should be serialized', () async {
       final state = await worldstateClient.currentState();
 
-      expect(state.toJson(), worldstateMap);
+      expect(state, const TypeMatcher<Worldstate>());
     });
   });
 }
