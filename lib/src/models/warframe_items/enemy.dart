@@ -57,6 +57,11 @@ class Resistance extends Equatable {
     required this.affectors,
   });
 
+  /// Creates [Resistance] from json map.
+  factory Resistance.fromJson(Map<String, dynamic> json) {
+    return _$ResistanceFromJson(json);
+  }
+
   /// Amount of resistance(?).
   final num amount;
 
@@ -65,6 +70,9 @@ class Resistance extends Equatable {
 
   /// Affected by.
   final List<Affector> affectors;
+
+  /// Creates a json map from [Resistance].
+  Map<String, dynamic> toJson() => _$ResistanceToJson(this);
 
   @override
   List<Object?> get props => [amount, shield, affectors];
@@ -78,11 +86,19 @@ class Affector extends Equatable {
   /// {@macro affector}
   const Affector({required this.element, required this.modifier});
 
+  /// Creates [Affector] from json map.
+  factory Affector.fromJson(Map<String, dynamic> json) {
+    return _$AffectorFromJson(json);
+  }
+
   /// Affector element type.
   final String element;
 
   /// Affector modifier.
   final num modifier;
+
+  /// Creates a json map from [Affector].
+  Map<String, dynamic> toJson() => _$AffectorToJson(this);
 
   @override
   List<Object?> get props => [element, modifier];

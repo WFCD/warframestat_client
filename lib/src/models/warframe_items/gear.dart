@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:warframestat_client/src/models/warframe_items/item.dart';
 import 'package:warframestat_client/src/models/warframe_items/patchlog.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'gear.g.dart';
 
@@ -23,7 +24,7 @@ class Gear extends BuildableItem {
     required super.buildTime,
     required super.skipBuildTimePrice,
     required super.consumeOnBuild,
-    required super.components,
+    super.components,
   });
 
   /// Creates [Gear] from a json map.

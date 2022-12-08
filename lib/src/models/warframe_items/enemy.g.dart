@@ -30,7 +30,8 @@ Enemy _$EnemyFromJson(Map json) => $checkedCreate(
           resistances: $checkedConvert(
               'resistances',
               (v) => (v as List<dynamic>)
-                  .map((e) => Resistance.fromJson(e as Map))
+                  .map((e) =>
+                      Resistance.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
         );
         return val;
@@ -62,7 +63,8 @@ Resistance _$ResistanceFromJson(Map json) => $checkedCreate(
           affectors: $checkedConvert(
               'affectors',
               (v) => (v as List<dynamic>)
-                  .map((e) => Affector.fromJson(e as Map))
+                  .map((e) =>
+                      Affector.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
         );
         return val;

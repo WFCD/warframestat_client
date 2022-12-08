@@ -131,7 +131,7 @@ abstract class BuildableItem extends Item {
     required this.buildTime,
     required this.skipBuildTimePrice,
     required this.consumeOnBuild,
-    required this.components,
+    this.components,
     super.releaseDate,
     this.marketCost,
     this.bpCost,
@@ -159,7 +159,7 @@ abstract class BuildableItem extends Item {
   final bool consumeOnBuild;
 
   /// List of components.
-  final List<Component> components;
+  final List<Component>? components;
 
   /// Platnuim price in the warframe market.
   final int? marketCost;

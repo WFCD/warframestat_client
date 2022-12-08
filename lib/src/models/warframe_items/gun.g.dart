@@ -64,8 +64,9 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
           consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
           components: $checkedConvert(
               'components',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Component.fromJson(e as Map))
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           attacks: $checkedConvert(
               'attacks',
@@ -121,7 +122,7 @@ Map<String, dynamic> _$PrimaryToJson(Primary instance) => <String, dynamic>{
       'buildTime': instance.buildTime,
       'skipBuildTimePrice': instance.skipBuildTimePrice,
       'consumeOnBuild': instance.consumeOnBuild,
-      'components': instance.components.map((e) => e.toJson()).toList(),
+      'components': instance.components?.map((e) => e.toJson()).toList(),
       'attacks': instance.attacks.map((e) => e.toJson()).toList(),
       'criticalChance': instance.criticalChance,
       'criticalMultiplier': instance.criticalMultiplier,
@@ -162,8 +163,9 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
           consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
           components: $checkedConvert(
               'components',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Component.fromJson(e as Map))
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           attacks: $checkedConvert(
               'attacks',
@@ -219,7 +221,7 @@ Map<String, dynamic> _$SecondaryToJson(Secondary instance) => <String, dynamic>{
       'buildTime': instance.buildTime,
       'skipBuildTimePrice': instance.skipBuildTimePrice,
       'consumeOnBuild': instance.consumeOnBuild,
-      'components': instance.components.map((e) => e.toJson()).toList(),
+      'components': instance.components?.map((e) => e.toJson()).toList(),
       'attacks': instance.attacks.map((e) => e.toJson()).toList(),
       'criticalChance': instance.criticalChance,
       'criticalMultiplier': instance.criticalMultiplier,
