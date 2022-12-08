@@ -7,12 +7,12 @@ part 'alert.g.dart';
 /// Data of the currently active alert.
 /// {@endtemplate}
 @JsonSerializable()
-class Alert extends EphemeralState {
+class Alert extends WorldstateObject {
   /// {@macro alert}
   const Alert({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.startString,
     required this.active,
     required this.mission,
