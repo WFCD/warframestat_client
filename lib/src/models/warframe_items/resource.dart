@@ -22,6 +22,7 @@ class ResourceBuildable extends BuildableItem {
     required super.skipBuildTimePrice,
     required super.consumeOnBuild,
     required super.components,
+    required super.imageName,
   });
 
   /// Creates a Resource from Json map
@@ -45,7 +46,7 @@ class Resource extends DroppableItem {
     required super.type,
     required super.category,
     required super.tradable,
-    required List<Drop> super.drops,
+    required super.drops,
   });
 
   /// Creates a Resource from Json map

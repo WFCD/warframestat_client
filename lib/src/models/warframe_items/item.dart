@@ -31,7 +31,7 @@ abstract class Item extends Equatable {
   final String name;
 
   /// Item decription.
-  final String description;
+  final String? description;
 
   /// Item type.
   final String type;
@@ -100,6 +100,7 @@ abstract class DroppableItem extends Item {
   });
 
   /// [Item] rarity.
+
   final Rarity? rarity;
 
   /// Chances of the [Item] dropping.
@@ -125,6 +126,7 @@ abstract class BuildableItem extends Item {
     required super.category,
     required super.tradable,
     super.patchlogs,
+    required String super.imageName,
     this.masterReq,
     required this.buildPrice,
     required this.buildQuantity,

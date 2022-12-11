@@ -13,50 +13,58 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
         final val = Melee(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int),
-          buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
-          buildTime: $checkedConvert('buildTime', (v) => v as int),
+          bpCost: $checkedConvert('bpCost', (v) => v as int?),
+          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
+          buildQuantity:
+              $checkedConvert('buildQuantity', (v) => v as int? ?? 1),
+          buildTime: $checkedConvert('buildTime', (v) => v as int? ?? 0),
           skipBuildTimePrice:
-              $checkedConvert('skipBuildTimePrice', (v) => v as int),
-          consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
+              $checkedConvert('skipBuildTimePrice', (v) => v as int? ?? 0),
+          consumeOnBuild:
+              $checkedConvert('consumeOnBuild', (v) => v as bool? ?? true),
           components: $checkedConvert(
               'components',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          releaseDate: $checkedConvert('releaseDate', (v) => v as String),
-          wikiaThumbnail: $checkedConvert('wikiaThumbnail', (v) => v as String),
-          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
+          imageName: $checkedConvert('imageName', (v) => v as String),
           attacks: $checkedConvert(
               'attacks',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
                       MeleeAttack.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           criticalChance: $checkedConvert('criticalChance', (v) => v as num),
           criticalMultiplier:
               $checkedConvert('criticalMultiplier', (v) => v as num),
-          damage: $checkedConvert('damage',
-              (v) => Damage.fromJson(Map<String, dynamic>.from(v as Map))),
+          damage: $checkedConvert(
+              'damage',
+              (v) => v == null
+                  ? null
+                  : Damage.fromJson(Map<String, dynamic>.from(v as Map))),
           damagePerShot: $checkedConvert('damagePerShot',
               (v) => (v as List<dynamic>).map((e) => e as num).toList()),
-          disposition: $checkedConvert('disposition', (v) => v as int),
+          disposition: $checkedConvert('disposition', (v) => v as int? ?? 0),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
           isPrime: $checkedConvert('isPrime', (v) => v as bool),
           omegaAttenuation:
               $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
           polarities: $checkedConvert('polarities',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           procChance:
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
           slot: $checkedConvert('slot', (v) => v as int),
           tags: $checkedConvert('tags',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
         );
         return val;
@@ -70,6 +78,7 @@ Map<String, dynamic> _$MeleeToJson(Melee instance) => <String, dynamic>{
       'type': instance.type,
       'category': instance.category,
       'tradable': instance.tradable,
+      'imageName': instance.imageName,
       'releaseDate': instance.releaseDate,
       'wikiaThumbnail': instance.wikiaThumbnail,
       'wikiaUrl': instance.wikiaUrl,
@@ -79,10 +88,11 @@ Map<String, dynamic> _$MeleeToJson(Melee instance) => <String, dynamic>{
       'skipBuildTimePrice': instance.skipBuildTimePrice,
       'consumeOnBuild': instance.consumeOnBuild,
       'components': instance.components?.map((e) => e.toJson()).toList(),
-      'attacks': instance.attacks.map((e) => e.toJson()).toList(),
+      'bpCost': instance.bpCost,
+      'attacks': instance.attacks?.map((e) => e.toJson()).toList(),
       'criticalChance': instance.criticalChance,
       'criticalMultiplier': instance.criticalMultiplier,
-      'damage': instance.damage.toJson(),
+      'damage': instance.damage?.toJson(),
       'damagePerShot': instance.damagePerShot,
       'disposition': instance.disposition,
       'fireRate': instance.fireRate,
@@ -107,9 +117,12 @@ MeleeAttack _$MeleeAttackFromJson(Map json) => $checkedCreate(
           statusChance: $checkedConvert('status_chance', (v) => v as num),
           damage: $checkedConvert('damage',
               (v) => Damage.fromJson(Map<String, dynamic>.from(v as Map))),
-          slide: $checkedConvert('slide', (v) => v as num),
-          slam: $checkedConvert('slam',
-              (v) => Slam.fromJson(Map<String, dynamic>.from(v as Map))),
+          slide: $checkedConvert('slide', (v) => v as String?),
+          slam: $checkedConvert(
+              'slam',
+              (v) => v == null
+                  ? null
+                  : Slam.fromJson(Map<String, dynamic>.from(v as Map))),
         );
         return val;
       },
@@ -129,7 +142,7 @@ Map<String, dynamic> _$MeleeAttackToJson(MeleeAttack instance) =>
       'status_chance': instance.statusChance,
       'damage': instance.damage.toJson(),
       'slide': instance.slide,
-      'slam': instance.slam.toJson(),
+      'slam': instance.slam?.toJson(),
     };
 
 Slam _$SlamFromJson(Map json) => $checkedCreate(
@@ -137,7 +150,7 @@ Slam _$SlamFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Slam(
-          damage: $checkedConvert('damage', (v) => v as num),
+          damage: $checkedConvert('damage', (v) => v as String),
           radial: $checkedConvert('radial',
               (v) => Radial.fromJson(Map<String, dynamic>.from(v as Map))),
         );
@@ -156,7 +169,7 @@ Radial _$RadialFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = Radial(
           damage: $checkedConvert('damage', (v) => v as String),
-          element: $checkedConvert('element', (v) => v as String),
+          element: $checkedConvert('element', (v) => v as String?),
           radius: $checkedConvert('radius', (v) => v as num),
         );
         return val;

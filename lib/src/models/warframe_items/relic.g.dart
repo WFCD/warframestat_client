@@ -13,7 +13,7 @@ Relic _$RelicFromJson(Map json) => $checkedCreate(
         final val = Relic(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
@@ -64,10 +64,10 @@ Map<String, dynamic> _$LocationToJson(Location instance) => <String, dynamic>{
     };
 
 const _$RarityEnumMap = {
-  Rarity.common: 'common',
-  Rarity.uncommon: 'uncommon',
-  Rarity.rare: 'rare',
-  Rarity.legendary: 'legendary',
+  Rarity.common: 'Common',
+  Rarity.uncommon: 'Uncommon',
+  Rarity.rare: 'Rare',
+  Rarity.legendary: 'Legendary',
 };
 
 RelicReward _$RelicRewardFromJson(Map json) => $checkedCreate(

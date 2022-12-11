@@ -13,7 +13,7 @@ ResourceBuildable _$ResourceBuildableFromJson(Map json) => $checkedCreate(
         final val = ResourceBuildable(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
@@ -29,6 +29,7 @@ ResourceBuildable _$ResourceBuildableFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
+          imageName: $checkedConvert('imageName', (v) => v as String),
         );
         return val;
       },
@@ -42,6 +43,7 @@ Map<String, dynamic> _$ResourceBuildableToJson(ResourceBuildable instance) =>
       'type': instance.type,
       'category': instance.category,
       'tradable': instance.tradable,
+      'imageName': instance.imageName,
       'buildPrice': instance.buildPrice,
       'buildQuantity': instance.buildQuantity,
       'buildTime': instance.buildTime,
@@ -57,14 +59,14 @@ Resource _$ResourceFromJson(Map json) => $checkedCreate(
         final val = Resource(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
           drops: $checkedConvert(
               'drops',
-              (v) => (v as List<dynamic>)
-                  .map(
+              (v) => (v as List<dynamic>?)
+                  ?.map(
                       (e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
         );

@@ -251,9 +251,15 @@ class WorldstateClient {
   }
 
   Future<T> _get<T>(String path, [String? ua]) async {
-    final headers = {'language': language.name, if (ua != null) 'ua': ua};
-    final uri = Uri.https(_authority, '${GamePlatform.pc.name}$path', headers);
-    final response = await _client.get(uri).timeout(const Duration(seconds: 5));
+    const timeout = Duration(seconds: 60);
+
+    final uri = Uri.https(
+      _authority,
+      '${GamePlatform.pc.name}$path',
+      {'language': language.name, if (ua != null) 'ua': ua},
+    );
+
+    final response = await _client.get(uri).timeout(timeout);
 
     return json.decode(response.body) as T;
   }

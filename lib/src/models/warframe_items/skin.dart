@@ -22,6 +22,7 @@ class SkinBuildable extends BuildableItem {
     required super.skipBuildTimePrice,
     required super.consumeOnBuild,
     required super.components,
+    required super.imageName,
     super.patchlogs,
   });
 
@@ -46,6 +47,7 @@ class Skin extends Item {
     required super.type,
     required super.category,
     required super.tradable,
+    required super.imageName,
     super.patchlogs,
   });
 

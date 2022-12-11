@@ -18,17 +18,17 @@ class Mod extends DroppableItem {
     required super.tradable,
     super.patchlogs,
     required Rarity super.rarity,
-    required String super.releaseDate,
+    super.releaseDate,
     super.drops,
     required this.baseDrain,
-    required this.compatName,
+    this.compatName,
     required this.fusionLimit,
     required this.isAugment,
     required this.isPrime,
     required this.levelStats,
     required this.transmutable,
-    required String super.wikiaThumbnail,
-    required String super.wikiaUrl,
+    super.wikiaThumbnail,
+    super.wikiaUrl,
   });
 
   /// Creates a Mod from Json map
@@ -38,22 +38,22 @@ class Mod extends DroppableItem {
   final int baseDrain;
 
   /// Compatability.
-  final String compatName;
+  final String? compatName;
 
   /// Max rank for this [Mod]
   final int fusionLimit;
 
   /// Whether this [Mod] is an augment mod or not.
-  final bool isAugment;
+  final bool? isAugment;
 
   /// Whether this [Mod] is primed.
   final bool isPrime;
 
   /// Stats for each rank.
-  final List<LevelStat> levelStats;
+  final List<LevelStat>? levelStats;
 
   /// whether this mod is transmutable or not.
-  final bool transmutable;
+  final bool? transmutable;
 
   /// Creates a Json map from a Mod
   Map<String, dynamic> toJson() => _$ModToJson(this);

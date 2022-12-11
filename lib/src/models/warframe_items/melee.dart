@@ -17,28 +17,30 @@ class Melee extends Weapon {
     required super.type,
     required super.category,
     required super.tradable,
-    required super.buildPrice,
-    required super.buildQuantity,
-    required super.buildTime,
-    required super.skipBuildTimePrice,
-    required super.consumeOnBuild,
+    required super.bpCost,
+    super.buildPrice = 0,
+    super.buildQuantity = 1,
+    super.buildTime = 0,
+    super.skipBuildTimePrice = 0,
+    super.consumeOnBuild = true,
     required super.components,
-    required super.releaseDate,
-    required super.wikiaThumbnail,
-    required super.wikiaUrl,
-    required List<MeleeAttack> super.attacks,
+    super.releaseDate,
+    super.wikiaThumbnail,
+    super.wikiaUrl,
+    required super.imageName,
+    required List<MeleeAttack>? super.attacks,
     required super.criticalChance,
     required super.criticalMultiplier,
     required super.damage,
     required super.damagePerShot,
-    required super.disposition,
+    super.disposition = 0,
     required super.fireRate,
     required super.isPrime,
     required super.omegaAttenuation,
-    required super.polarities,
+    super.polarities,
     required super.procChance,
     required super.slot,
-    required super.tags,
+    super.tags,
     required super.totalDamage,
   });
 
@@ -70,10 +72,10 @@ class MeleeAttack extends Attack {
       _$MeleeAttackFromJson(data);
 
   /// Slide damage.
-  final num slide;
+  final String? slide;
 
   /// Slam damage.
-  final Slam slam;
+  final Slam? slam;
 
   @override
   Map<String, dynamic> toJson() => _$MeleeAttackToJson(this);
@@ -91,7 +93,7 @@ class Slam extends Equatable {
   factory Slam.fromJson(Map<String, dynamic> json) => _$SlamFromJson(json);
 
   /// Total slam damage;
-  final num damage;
+  final String damage;
 
   /// Slam radial damage.
   final Radial radial;
@@ -111,7 +113,7 @@ class Radial extends Equatable {
   /// {@macro radial}
   const Radial({
     required this.damage,
-    required this.element,
+    this.element,
     required this.radius,
   });
 
@@ -122,7 +124,7 @@ class Radial extends Equatable {
   final String damage;
 
   /// Element type.
-  final String element;
+  final String? element;
 
   /// Radius.
   final num radius;

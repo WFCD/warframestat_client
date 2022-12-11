@@ -12,7 +12,7 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = SkinBuildable(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
           name: $checkedConvert('name', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
@@ -29,6 +29,7 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
+          imageName: $checkedConvert('imageName', (v) => v as String),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -49,6 +50,7 @@ Map<String, dynamic> _$SkinBuildableToJson(SkinBuildable instance) =>
       'category': instance.category,
       'tradable': instance.tradable,
       'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
+      'imageName': instance.imageName,
       'buildPrice': instance.buildPrice,
       'buildQuantity': instance.buildQuantity,
       'buildTime': instance.buildTime,
@@ -64,10 +66,11 @@ Skin _$SkinFromJson(Map json) => $checkedCreate(
         final val = Skin(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -87,4 +90,5 @@ Map<String, dynamic> _$SkinToJson(Skin instance) => <String, dynamic>{
       'category': instance.category,
       'tradable': instance.tradable,
       'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
+      'imageName': instance.imageName,
     };

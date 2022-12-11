@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 const _platformDeprecated =
@@ -64,7 +65,8 @@ extension on Language {
   }
 }
 
-///
+/// How rare an [Item] drops.
+@JsonEnum(fieldRename: FieldRename.pascal)
 enum Rarity {
   /// [Item] drops commonly.
   common,

@@ -12,6 +12,7 @@ abstract class Weapon extends BuildableItem {
     required super.type,
     required super.category,
     required super.tradable,
+    required super.imageName,
     super.patchlogs,
     super.masterReq,
     super.marketCost,
@@ -19,15 +20,16 @@ abstract class Weapon extends BuildableItem {
     required super.buildQuantity,
     required super.buildTime,
     required super.skipBuildTimePrice,
+    super.bpCost,
     required super.consumeOnBuild,
     required super.components,
-    required String super.releaseDate,
-    required String super.wikiaThumbnail,
-    required String super.wikiaUrl,
-    required this.attacks,
+    super.releaseDate,
+    super.wikiaThumbnail,
+    super.wikiaUrl,
+    this.attacks,
     required this.criticalChance,
     required this.criticalMultiplier,
-    required this.damage,
+    this.damage,
     required this.damagePerShot,
     required this.disposition,
     required this.fireRate,
@@ -36,12 +38,12 @@ abstract class Weapon extends BuildableItem {
     required this.polarities,
     required this.procChance,
     required this.slot,
-    required this.tags,
+    this.tags,
     required this.totalDamage,
   });
 
   /// [Weapon] secondary attacks.
-  final List<Attack> attacks;
+  final List<Attack>? attacks;
 
   /// [Weapon] critical chance.
   final num criticalChance;
@@ -50,7 +52,7 @@ abstract class Weapon extends BuildableItem {
   final num criticalMultiplier;
 
   /// [Weapon] damage.
-  final Damage damage;
+  final Damage? damage;
 
   /// [Weapon] damage per shot.
   final List<num> damagePerShot;
@@ -68,7 +70,7 @@ abstract class Weapon extends BuildableItem {
   final double omegaAttenuation;
 
   /// Preinstalled polarities.
-  final List<String> polarities;
+  final List<String>? polarities;
 
   /// Status chance.
   final double procChance;
@@ -77,7 +79,7 @@ abstract class Weapon extends BuildableItem {
   final int slot;
 
   /// Tags.
-  final List<String> tags;
+  final List<String>? tags;
 
   /// Total damage the [Weapon] has.
   final num totalDamage;

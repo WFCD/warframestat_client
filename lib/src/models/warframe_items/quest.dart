@@ -16,8 +16,8 @@ class Quest extends Item {
     required super.type,
     required super.category,
     required super.tradable,
-    required bool super.excludeFromCodex,
-    required List<Patchlog> super.patchlogs,
+    required super.excludeFromCodex,
+    required super.patchlogs,
   });
 
   /// Creates a Quest from Json map

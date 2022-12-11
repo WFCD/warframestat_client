@@ -13,16 +13,16 @@ Quest _$QuestFromJson(Map json) => $checkedCreate(
         final val = Quest(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
           excludeFromCodex:
-              $checkedConvert('excludeFromCodex', (v) => v as bool),
+              $checkedConvert('excludeFromCodex', (v) => v as bool?),
           patchlogs: $checkedConvert(
               'patchlogs',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
         );

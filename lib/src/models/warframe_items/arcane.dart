@@ -16,16 +16,16 @@ class Arcane extends DroppableItem {
     required super.type,
     required super.category,
     required super.tradable,
-    required List<Drop> super.drops,
-    required List<Patchlog> super.patchlogs,
-    required this.levelStats,
+    super.drops,
+    super.patchlogs,
+    this.levelStats,
   });
 
   /// Creates an [Arcane] from a json map.
   factory Arcane.fromJson(Map<String, dynamic> json) => _$ArcaneFromJson(json);
 
   /// Rank information on an [Arcane]'s levels.
-  final List<LevelStat> levelStats;
+  final List<LevelStat>? levelStats;
 
   /// Creates a json map from [Arcane].
   Map<String, dynamic> toJson() => _$ArcaneToJson(this);

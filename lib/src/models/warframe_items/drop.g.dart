@@ -31,8 +31,8 @@ Map<String, dynamic> _$DropToJson(Drop instance) => <String, dynamic>{
     };
 
 const _$RarityEnumMap = {
-  Rarity.common: 'common',
-  Rarity.uncommon: 'uncommon',
-  Rarity.rare: 'rare',
-  Rarity.legendary: 'legendary',
+  Rarity.common: 'Common',
+  Rarity.uncommon: 'Uncommon',
+  Rarity.rare: 'Rare',
+  Rarity.legendary: 'Legendary',
 };

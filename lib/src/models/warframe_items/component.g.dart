@@ -13,9 +13,10 @@ Component _$ComponentFromJson(Map json) => $checkedCreate(
         final val = Component(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String),
-          type: $checkedConvert('type', (v) => v as String),
-          category: $checkedConvert('category', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
+          type: $checkedConvert('type', (v) => v as String? ?? 'unknown'),
+          category:
+              $checkedConvert('category', (v) => v as String? ?? 'unknown'),
           tradable: $checkedConvert('tradable', (v) => v as bool),
           drops: $checkedConvert(
               'drops',
