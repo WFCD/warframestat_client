@@ -21,4 +21,3 @@ jobs:
     with:
       coverage_excludes: "*.g.dart"
       min_coverage: 50
-      platform: "vm,chrome,firefox,safari,node"
