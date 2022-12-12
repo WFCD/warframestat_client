@@ -16,7 +16,9 @@ jobs:
   semantic_pull_request:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
 
-  build:
+  test:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
     with:
       coverage_excludes: "*.g.dart"
+      min_coverage: 50
+      platform: "vm,chrome,firefox,safari,node"
