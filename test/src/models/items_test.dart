@@ -10,7 +10,7 @@ void main() {
   late List<Map<String, dynamic>> jsonMap;
 
   setUp(() async {
-    final fixture = await WarframestatFixture().loadWarframeItems();
+    final fixture = await ItemsFixture().loadWarframeItems();
 
     jsonMap = List<dynamic>.from(json.decode(fixture) as List<dynamic>)
         .map((e) => e as Map<String, dynamic>)
