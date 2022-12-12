@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 const _platformDeprecated =
-    'Due to crossplay all platforms now share one state';
+    'Due to crossplay all platforms now share PC worldstate';
 
 /// Game Platforms the API supports.
 enum GamePlatform {
