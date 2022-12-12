@@ -60,6 +60,9 @@ abstract class Item extends Equatable {
   /// [Item] wikia url.
   final String? wikiaUrl;
 
+  /// Creates a json map from the giving [Item].
+  Map<String, dynamic> toJson();
+
   @override
   List<Object?> get props => [
         name,

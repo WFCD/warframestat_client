@@ -51,6 +51,7 @@ class Sentinel extends BuildableItem {
   final bool isPrime;
 
   /// Creates a Json map from a Sentinal
+  @override
   Map<String, dynamic> toJson() => _$SentinelToJson(this);
 
   @override

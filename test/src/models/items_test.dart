@@ -18,6 +18,13 @@ void main() {
   });
 
   test('Serlization checks', () {
-    expect(jsonMap.map(toBaseItem).toList(), const TypeMatcher<List<Item>>());
+    final items = jsonMap.map(toBaseItem).toList();
+
+    expect(items, const TypeMatcher<List<Item>>());
+
+    expect(
+      items.map((e) => e.toJson()).toList(),
+      const TypeMatcher<List<Map<String, dynamic>>>(),
+    );
   });
 }

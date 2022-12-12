@@ -35,6 +35,7 @@ class Relic extends Item {
   final bool vaulted;
 
   /// Creates a Json map from a Relic
+  @override
   Map<String, dynamic> toJson() => _$RelicToJson(this);
 
   @override

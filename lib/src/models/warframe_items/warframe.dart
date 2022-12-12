@@ -58,6 +58,7 @@ class Warframe extends PowerSuit {
   final String? passiveDescription;
 
   /// Creates a Json map from a Warframe
+  @override
   Map<String, dynamic> toJson() => _$WarframeToJson(this);
 
   @override

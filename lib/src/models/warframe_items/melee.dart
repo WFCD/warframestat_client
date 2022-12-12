@@ -48,6 +48,7 @@ class Melee extends Weapon {
   factory Melee.fromJson(Map<String, dynamic> data) => _$MeleeFromJson(data);
 
   /// Creates a Json map from a Melee
+  @override
   Map<String, dynamic> toJson() => _$MeleeToJson(this);
 }
 

@@ -28,5 +28,6 @@ class Arcane extends DroppableItem {
   final List<LevelStat>? levelStats;
 
   /// Creates a json map from [Arcane].
+  @override
   Map<String, dynamic> toJson() => _$ArcaneToJson(this);
 }

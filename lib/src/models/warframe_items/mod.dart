@@ -56,6 +56,7 @@ class Mod extends DroppableItem {
   final bool? transmutable;
 
   /// Creates a Json map from a Mod
+  @override
   Map<String, dynamic> toJson() => _$ModToJson(this);
 
   @override

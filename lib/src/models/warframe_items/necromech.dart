@@ -43,5 +43,6 @@ class NecroMech extends PowerSuit {
   }
 
   /// Creates a Json map from a Necromech.
+  @override
   Map<String, dynamic> toJson() => _$NecroMechToJson(this);
 }

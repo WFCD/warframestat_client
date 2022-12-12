@@ -24,6 +24,7 @@ class Gear extends Item {
   factory Gear.fromJson(Map<String, dynamic> json) => _$GearFromJson(json);
 
   /// Creates a json map from [Gear].
+  @override
   Map<String, dynamic> toJson() => _$GearToJson(this);
 }
 
@@ -55,5 +56,6 @@ class GearBuildable extends BuildableItem {
       _$GearBuildableFromJson(json);
 
   /// Creates a json map from [Gear].
+  @override
   Map<String, dynamic> toJson() => _$GearBuildableToJson(this);
 }

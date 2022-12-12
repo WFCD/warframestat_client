@@ -29,6 +29,7 @@ class Component extends DroppableItem {
   final int itemCount;
 
   /// Creates a json map from [Component].
+  @override
   Map<String, dynamic> toJson() => _$ComponentToJson(this);
 
   @override

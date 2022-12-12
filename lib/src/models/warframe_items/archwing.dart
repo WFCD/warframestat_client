@@ -43,5 +43,6 @@ class Archwing extends PowerSuit {
   }
 
   /// Creates a Json map from a Warframe
+  @override
   Map<String, dynamic> toJson() => _$ArchwingToJson(this);
 }

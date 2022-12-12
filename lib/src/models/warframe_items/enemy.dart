@@ -25,6 +25,11 @@ class Enemy extends DroppableItem {
     required this.resistances,
   });
 
+  /// Creates an [Enemy] from a json map.
+  factory Enemy.fromJson(Map<String, dynamic> json) {
+    return _$EnemyFromJson(json);
+  }
+
   /// Enemy health.
   final int health;
 
@@ -39,6 +44,9 @@ class Enemy extends DroppableItem {
 
   /// Enemy element resistance.
   final List<Resistance> resistances;
+
+  @override
+  Map<String, dynamic> toJson() => _$EnemyToJson(this);
 
   @override
   List<Object?> get props =>

@@ -31,6 +31,7 @@ class SkinBuildable extends BuildableItem {
       _$SkinBuildableFromJson(data);
 
   /// Creates a Json map from a Skin
+  @override
   Map<String, dynamic> toJson() => _$SkinBuildableToJson(this);
 }
 
@@ -55,5 +56,6 @@ class Skin extends Item {
   factory Skin.fromJson(Map<String, dynamic> data) => _$SkinFromJson(data);
 
   /// Creates a Json map from a Skin
+  @override
   Map<String, dynamic> toJson() => _$SkinToJson(this);
 }

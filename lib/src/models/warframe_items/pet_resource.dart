@@ -30,5 +30,6 @@ class PetResource extends BuildableItem {
   }
 
   /// Creates a json map from a [PetResource].
+  @override
   Map<String, dynamic> toJson() => _$PetResourceToJson(this);
 }

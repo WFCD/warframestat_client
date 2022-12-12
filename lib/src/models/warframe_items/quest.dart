@@ -24,5 +24,6 @@ class Quest extends Item {
   factory Quest.fromJson(Map<String, dynamic> data) => _$QuestFromJson(data);
 
   /// Creates a Json map from a Quest
+  @override
   Map<String, dynamic> toJson() => _$QuestToJson(this);
 }

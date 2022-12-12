@@ -22,5 +22,6 @@ class Glyph extends Item {
   factory Glyph.fromJson(Map<String, dynamic> json) => _$GlyphFromJson(json);
 
   /// Creates a json map from an instance of [Glyph].
+  @override
   Map<String, dynamic> toJson() => _$GlyphToJson(this);
 }

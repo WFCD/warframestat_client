@@ -54,5 +54,6 @@ class Primary extends Gun {
   }
 
   /// Creates a json map from [Primary].
+  @override
   Map<String, dynamic> toJson() => _$PrimaryToJson(this);
 }

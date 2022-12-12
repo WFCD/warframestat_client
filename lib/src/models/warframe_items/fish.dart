@@ -22,5 +22,6 @@ class Fish extends Item {
   factory Fish.fromJson(Map<String, dynamic> json) => _$FishFromJson(json);
 
   /// Create a json map from [Fish].
+  @override
   Map<String, dynamic> toJson() => _$FishToJson(this);
 }

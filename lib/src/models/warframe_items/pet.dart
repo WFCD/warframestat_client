@@ -40,6 +40,7 @@ class Pet extends Item {
   final num stamina;
 
   /// Creates a Json map from a Pet
+  @override
   Map<String, dynamic> toJson() => _$PetToJson(this);
 
   @override

@@ -30,6 +30,7 @@ class ResourceBuildable extends BuildableItem {
       _$ResourceBuildableFromJson(data);
 
   /// Creates a Json map from a Resource
+  @override
   Map<String, dynamic> toJson() => _$ResourceBuildableToJson(this);
 }
 
@@ -54,5 +55,6 @@ class Resource extends DroppableItem {
       _$ResourceFromJson(data);
 
   /// Creates a Json map from a Resource
+  @override
   Map<String, dynamic> toJson() => _$ResourceToJson(this);
 }

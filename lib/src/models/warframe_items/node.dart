@@ -50,6 +50,7 @@ class Node extends Item {
   final String systemName;
 
   /// Creates a Json map from a Node
+  @override
   Map<String, dynamic> toJson() => _$NodeToJson(this);
 
   @override

@@ -24,5 +24,6 @@ class Sigil extends DroppableItem {
   factory Sigil.fromJson(Map<String, dynamic> data) => _$SigilFromJson(data);
 
   /// Creates a Json map from a Sigil
+  @override
   Map<String, dynamic> toJson() => _$SigilToJson(this);
 }

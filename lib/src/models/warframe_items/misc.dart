@@ -22,5 +22,6 @@ class Misc extends Item {
   factory Misc.fromJson(Map<String, dynamic> data) => _$MiscFromJson(data);
 
   /// Creates a Json map from a Misc
+  @override
   Map<String, dynamic> toJson() => _$MiscToJson(this);
 }
