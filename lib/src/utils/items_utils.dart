@@ -2,9 +2,10 @@ import 'package:warframestat_client/warframestat_client.dart';
 
 /// Converts a json decoded list into [Item] objects
 List<Item> toBaseItems(List<dynamic> data) {
-  return data.map((dynamic i) {
-    return toBaseItem(i as Map<String, dynamic>);
-  }).toList();
+  return data
+      .map((e) => Map<String, dynamic>.from(e as Map))
+      .map(toBaseItem)
+      .toList();
 }
 
 /// Serializes giving json values into their proper [Item] type
