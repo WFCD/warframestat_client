@@ -1,34 +1,14 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
-import 'package:warframestat_client/src/enums.dart';
-import 'package:warframestat_client/src/models.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 /// {@template warframestat_client}
 /// Exposes all endpoints pertaining to worldstate.
 /// {@endtemplate}
-class WorldstateClient {
+class WorldstateClient extends WarframestatClient {
   /// {@macro warframestat_client}
-  WorldstateClient({
-    required this.language,
-    this.ua,
-    http.Client? client,
-  }) : _client = client ?? http.Client();
-
-  /// The language results will be returned in.
-  ///
-  /// Use [Language] as it has all the langauges supported by the API.
-  final Language language;
-
-  /// Custom user agent.
-  ///
-  /// May be required if there's an issue when returning results.
-  final String? ua;
-
-  final http.Client _client;
-
-  static const _authority = 'api.warframestat.us';
+  WorldstateClient({super.language, super.ua, super.client});
 
   /// Retrives a fully translated [Worldstate].
   Future<Worldstate> currentState() async {
@@ -250,16 +230,8 @@ class WorldstateClient {
     return Trader.fromJson(trader);
   }
 
-  Future<T> _get<T>(String path, [String? ua]) async {
-    const timeout = Duration(seconds: 60);
-
-    final uri = Uri.https(
-      _authority,
-      '${GamePlatform.pc.name}$path',
-      {'language': language.name, if (ua != null) 'ua': ua},
-    );
-
-    final response = await _client.get(uri).timeout(timeout);
+  Future<T> _get<T>(String path) async {
+    final response = await get('${GamePlatform.pc}/$path');
 
     return json.decode(response.body) as T;
   }

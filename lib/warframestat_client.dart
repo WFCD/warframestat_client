@@ -8,6 +8,7 @@
 /// A Very Good Project created by Very Good CLI.
 library warframestat_client;
 
+export 'src/clients/http_client.dart';
 export 'src/clients/worldstate_client.dart';
 export 'src/enums.dart';
 export 'src/models.dart';
