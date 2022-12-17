@@ -1,7 +1,11 @@
 import 'package:http/http.dart' as http;
+import 'package:meta/meta.dart';
 import 'package:warframestat_client/src/enums.dart';
 
-const _authority = 'api.warframestat.us';
+/// Base api url.
+@visibleForTesting
+const authority = 'api.warframestat.us';
+
 const _timeout = Duration(seconds: 60);
 
 /// {@template wfcdclient}
@@ -28,7 +32,7 @@ abstract class WarframestatClient {
   /// Fetches Warframestat API endpoint.
   Future<http.Response> get(String path) async {
     final headers = {'language': language.name, if (ua != null) 'ua': ua};
-    final uri = Uri.https(_authority, path, headers);
+    final uri = Uri.https(authority, path, headers);
 
     return _client.get(uri).timeout(_timeout);
   }

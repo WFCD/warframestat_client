@@ -9,23 +9,27 @@ import '../helpers/fixtures.dart';
 
 class MockHttpClient extends Mock implements Client {}
 
+class FakeUri extends Fake implements Uri {}
+
 void main() {
   late Client mockClient;
   late WarframestatFixture worldstateFixtures;
   late WorldstateClient worldstateClient;
 
-  setUp(() {
+  setUpAll(() {
     mockClient = MockHttpClient();
     worldstateFixtures = WarframestatFixture();
 
     worldstateClient = WorldstateClient(client: mockClient);
+
+    registerFallbackValue(FakeUri());
   });
 
   group('Worldstate', () {
     setUp(() async {
       final worldstate = await worldstateFixtures.loadWorldstate();
 
-      when(() => mockClient.get(uri('')))
+      when(() => mockClient.get(any()))
           .thenAnswer((_) async => response(worldstate));
     });
 
@@ -39,14 +43,6 @@ void main() {
       expect(state, const TypeMatcher<Worldstate>());
     });
   });
-}
-
-Uri uri(String path) {
-  return Uri.https(
-    'api.warframestat.us',
-    'pc$path',
-    <String, dynamic>{'language': 'en'},
-  );
 }
 
 Response response(String body, [int statusCode = 200]) {
