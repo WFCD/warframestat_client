@@ -19,5 +19,6 @@ jobs:
   test:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
     with:
+      setup: sh ./test/scripts/update_fixtures.sh
       coverage_excludes: "*.g.dart"
       min_coverage: 50
