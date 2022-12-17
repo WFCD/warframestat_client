@@ -45,7 +45,7 @@ Item toBaseItem(Map<String, dynamic> item) {
   }
 
   if (category == 'Mods') {
-    if (item['type'] as String == 'Mod Set Mod') return Misc.fromJson(item);
+    if (item['type'] as String == 'Mod Set Mod') return ModSet.fromJson(item);
 
     return Mod.fromJson(item);
   }

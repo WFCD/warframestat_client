@@ -3,28 +3,53 @@ import 'package:warframestat_client/warframestat_client.dart';
 
 part 'mod.g.dart';
 
+/// {@template basemod}
+/// Base class for [Mod] and [ModSet]
+/// {@endtemplate}
+abstract class BaseMod extends Item {
+  /// {@macro basemod}
+  const BaseMod({
+    required super.uniqueName,
+    required super.name,
+    required super.description,
+    required super.imageName,
+    required super.type,
+    required super.category,
+    required super.tradable,
+    required super.patchlogs,
+    required super.releaseDate,
+    super.wikiaThumbnail,
+    super.wikiaUrl,
+    required this.isPrime,
+  });
+
+  /// Whether this [Mod] is primed.
+  final bool isPrime;
+}
+
 /// {@template mod}
 /// Mod description
 /// {@endtemplate}
 @JsonSerializable()
-class Mod extends DroppableItem {
+class Mod extends BaseMod {
   /// {@macro mod}
   const Mod({
     required super.uniqueName,
     required super.name,
     required super.description,
+    required super.imageName,
     required super.type,
     required super.category,
     required super.tradable,
     super.patchlogs,
-    required Rarity super.rarity,
+    required this.rarity,
     super.releaseDate,
-    super.drops,
+    required this.drops,
     required this.baseDrain,
     this.compatName,
     required this.fusionLimit,
     required this.isAugment,
-    required this.isPrime,
+    required super.isPrime,
     required this.levelStats,
     required this.transmutable,
     super.wikiaThumbnail,
@@ -46,14 +71,17 @@ class Mod extends DroppableItem {
   /// Whether this [Mod] is an augment mod or not.
   final bool? isAugment;
 
-  /// Whether this [Mod] is primed.
-  final bool isPrime;
-
   /// Stats for each rank.
   final List<LevelStat>? levelStats;
 
   /// whether this mod is transmutable or not.
   final bool? transmutable;
+
+  /// Chances of mod dropping.
+  final Rarity rarity;
+
+  /// LOcation and drop information for the mod.
+  final List<Drop> drops;
 
   /// Creates a Json map from a Mod
   @override
@@ -70,4 +98,43 @@ class Mod extends DroppableItem {
       levelStats,
       transmutable
     ]);
+}
+
+/// {@template modset}
+/// Represents data on a mod set upgrade.
+/// {@endtemplate}
+@JsonSerializable()
+class ModSet extends BaseMod {
+  /// {@macro modset}
+  const ModSet({
+    required super.uniqueName,
+    required super.name,
+    required super.description,
+    required super.imageName,
+    required super.type,
+    required super.category,
+    required super.tradable,
+    required super.patchlogs,
+    required super.releaseDate,
+    required super.isPrime,
+    required this.numUpgradesInSet,
+    required this.stats,
+  });
+
+  /// Creates a [ModSet] from json.
+  factory ModSet.fromJson(Map<String, dynamic> json) {
+    return _$ModSetFromJson(json);
+  }
+
+  /// Number of upgrades per mod in set.
+  final int numUpgradesInSet;
+
+  /// Upgrade description for each tier.
+  final List<String> stats;
+
+  @override
+  Map<String, dynamic> toJson() => _$ModSetToJson(this);
+
+  @override
+  List<Object?> get props => super.props..addAll([numUpgradesInSet, stats]);
 }

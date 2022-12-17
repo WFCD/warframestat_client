@@ -80,3 +80,38 @@ const _$RarityEnumMap = {
   Rarity.rare: 'Rare',
   Rarity.legendary: 'Legendary',
 };
+
+ModSet _$ModSetFromJson(Map json) => $checkedCreate(
+      'ModSet',
+      json,
+      ($checkedConvert) {
+        final val = ModSet(
+          uniqueName: $checkedConvert('uniqueName', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
+          type: $checkedConvert('type', (v) => v as String),
+          category: $checkedConvert('category', (v) => v as String),
+          tradable: $checkedConvert('tradable', (v) => v as bool),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          numUpgradesInSet:
+              $checkedConvert('numUpgradesInSet', (v) => v as int),
+          stats: $checkedConvert('stats',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$ModSetToJson(ModSet instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      'description': instance.description,
+      'type': instance.type,
+      'category': instance.category,
+      'tradable': instance.tradable,
+      'imageName': instance.imageName,
+      'isPrime': instance.isPrime,
+      'numUpgradesInSet': instance.numUpgradesInSet,
+      'stats': instance.stats,
+    };
