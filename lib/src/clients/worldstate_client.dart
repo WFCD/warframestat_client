@@ -231,7 +231,7 @@ class WorldstateClient extends WarframestatClient {
   }
 
   Future<T> _get<T>(String path) async {
-    final response = await get('${GamePlatform.pc}/$path');
+    final response = await get('${GamePlatform.pc.name}$path');
 
     return json.decode(response.body) as T;
   }
