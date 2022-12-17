@@ -81,7 +81,7 @@ class Mod extends BaseMod {
   final Rarity rarity;
 
   /// LOcation and drop information for the mod.
-  final List<Drop> drops;
+  final List<Drop>? drops;
 
   /// Creates a Json map from a Mod
   @override
@@ -109,8 +109,6 @@ class ModSet extends BaseMod {
   const ModSet({
     required super.uniqueName,
     required super.name,
-    required super.description,
-    required super.imageName,
     required super.type,
     required super.category,
     required super.tradable,
@@ -119,7 +117,7 @@ class ModSet extends BaseMod {
     required super.isPrime,
     required this.numUpgradesInSet,
     required this.stats,
-  });
+  }) : super(description: '', imageName: '');
 
   /// Creates a [ModSet] from json.
   factory ModSet.fromJson(Map<String, dynamic> json) {
