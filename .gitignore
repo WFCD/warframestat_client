@@ -9,3 +9,5 @@ pubspec.lock
 .vscode/
 
 coverage/
+
+test/fixtures/**/*.json
