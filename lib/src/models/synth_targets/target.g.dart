@@ -6,11 +6,11 @@ part of 'target.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Target _$TargetFromJson(Map json) => $checkedCreate(
-      'Target',
+SynthTarget _$SynthTargetFromJson(Map json) => $checkedCreate(
+      'SynthTarget',
       json,
       ($checkedConvert) {
-        final val = Target(
+        final val = SynthTarget(
           name: $checkedConvert('name', (v) => v as String),
           imageKey: $checkedConvert('imageKey', (v) => v as String),
           locations: $checkedConvert(
@@ -24,7 +24,8 @@ Target _$TargetFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$TargetToJson(Target instance) => <String, dynamic>{
+Map<String, dynamic> _$SynthTargetToJson(SynthTarget instance) =>
+    <String, dynamic>{
       'name': instance.name,
       'imageKey': instance.imageKey,
       'locations': instance.locations.map((e) => e.toJson()).toList(),

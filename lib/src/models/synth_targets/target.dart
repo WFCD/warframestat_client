@@ -7,16 +7,17 @@ part 'target.g.dart';
 /// Target description
 /// {@endtemplate}
 @JsonSerializable()
-class Target {
+class SynthTarget {
   /// {@macro target}
-  const Target({
+  const SynthTarget({
     required this.name,
     required this.imageKey,
     required this.locations,
   });
 
   /// Creates a Target from Json map
-  factory Target.fromJson(Map<String, dynamic> data) => _$TargetFromJson(data);
+  factory SynthTarget.fromJson(Map<String, dynamic> data) =>
+      _$SynthTargetFromJson(data);
 
   /// Target name.
   final String name;
@@ -28,5 +29,5 @@ class Target {
   final List<TargetLocation> locations;
 
   /// Creates a Json map from a Target
-  Map<String, dynamic> toJson() => _$TargetToJson(this);
+  Map<String, dynamic> toJson() => _$SynthTargetToJson(this);
 }

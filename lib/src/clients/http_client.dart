@@ -19,6 +19,8 @@ abstract class WarframestatClient {
     this.ua,
   }) : _client = client ?? http.Client();
 
+  final http.Client _client;
+
   /// The language that all request will be made for.
   final Language language;
 
@@ -26,8 +28,6 @@ abstract class WarframestatClient {
   ///
   /// May be required if there's an issue when returning results.
   final String? ua;
-
-  final http.Client _client;
 
   /// Fetches Warframestat API endpoint.
   Future<http.Response> get(String path) async {
