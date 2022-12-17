@@ -18,7 +18,7 @@ void main() {
   });
 
   test('Serlization checks', () {
-    final items = jsonMap.map(toBaseItem).toList();
+    final items = jsonMap.map(toItem).toList();
 
     expect(items, const TypeMatcher<List<Item>>());
 

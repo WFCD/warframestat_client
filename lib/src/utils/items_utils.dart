@@ -1,15 +1,15 @@
 import 'package:warframestat_client/warframestat_client.dart';
 
 /// Converts a json decoded list into [Item] objects
-List<Item> toBaseItems(List<dynamic> data) {
+List<Item> toItems(List<dynamic> data) {
   return data
       .map((e) => Map<String, dynamic>.from(e as Map))
-      .map(toBaseItem)
+      .map(toItem)
       .toList();
 }
 
 /// Serializes giving json values into their proper [Item] type
-Item toBaseItem(Map<String, dynamic> item) {
+Item toItem(Map<String, dynamic> item) {
   final category = item['category'] as String;
   final isBuildable = item['components'] != null;
 

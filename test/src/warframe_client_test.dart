@@ -18,10 +18,7 @@ void main() {
     mockClient = MockHttpClient();
     worldstateFixtures = WarframestatFixture();
 
-    worldstateClient = WorldstateClient(
-      language: Language.en,
-      client: mockClient,
-    );
+    worldstateClient = WorldstateClient(client: mockClient);
   });
 
   group('Worldstate', () {

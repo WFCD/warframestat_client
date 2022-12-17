@@ -18,34 +18,32 @@ class WarframeItemsClient extends WarframestatClient {
   Future<List<Item>> getAllItems() async {
     final response = await _get<List<dynamic>>('/');
 
-    return toBaseItems(response);
+    return toItems(response);
   }
 
   /// Get data for the closest matching single item
   Future<Item> getItem(String query) async {
     final response = await _get<Map<String, dynamic>>('/$query');
 
-    return toBaseItem(response);
+    return toItem(response);
   }
 
   /// Returns all [Item]s that match the search query.
   Future<List<Item>> search(String query) async {
     final response = await _get<List<dynamic>>('/search/$query');
 
-    return toBaseItems(response);
+    return toItems(response);
   }
 
-  /// Returns a list of all mods.
+  /// Returns a list of all mods and mod set mods.
   ///
   /// WARNING:
   /// THIS IS A LOT OF DATA AND IT IS RECOMMENDED TO RUN THIS FUNCTION IN AN
   /// ISOLATE.
-  Future<List<Item>> getAllMods() async {
+  Future<List<BaseMod>> getAllMods() async {
     final response = await _get<List<dynamic>>('/mods');
 
-    // TODO(SlayerOrnstein): Needs more work for mod sets. So that we can return
-    //  a list of Mods instead of a list of items.
-    return toBaseItems(response);
+    return toItems(response).whereType<BaseMod>().toList();
   }
 
   /// Get data for the closest matching [Mod].
@@ -67,7 +65,7 @@ class WarframeItemsClient extends WarframestatClient {
     final response = await _get<List<dynamic>>('/warframes');
 
     // The endpoint will only return warframes, this is just an enforcement.
-    final frames = toBaseItems(response).whereType<PowerSuit>().toList();
+    final frames = toItems(response).whereType<PowerSuit>().toList();
 
     return includeMechs ? frames : frames.whereType<Warframe>().toList();
   }
@@ -77,6 +75,51 @@ class WarframeItemsClient extends WarframestatClient {
     final response = await _get<Map<String, dynamic>>('/warframes/$query');
 
     return Warframe.fromJson(response);
+  }
+
+  /// Search for warframes with the closes possible match to the [query].
+  ///
+  /// Because Warframes and necromech seem to share the same [Item.category]
+  /// results can also return [NecroMech]s as such this method will always
+  /// return the base class of the two.
+  Future<List<PowerSuit>> searchFrames(String query) async {
+    final response = await _get<List<dynamic>>('/warframes/search/$query');
+
+    return toItems(response).whereType<PowerSuit>().toList();
+  }
+
+  /// Returns a list of all [Weapon] types.
+  ///
+  /// WARNING:
+  /// THIS IS A LOT OF DATA AND IT IS RECOMMENDED TO RUN THIS FUNCTION IN AN
+  /// ISOLATE.
+  Future<List<Weapon>> getAllWeapons() async {
+    final response = await _get<List<dynamic>>('/weapons');
+
+    return toItems(response).whereType<Weapon>().toList();
+  }
+
+  /// Get data for the closest matching weapon.
+  Future<Weapon> getWeapon(String query) async {
+    final item = await _get<Map<String, dynamic>>('/weapons/$query');
+    final category = item['category'];
+
+    if (category == 'Melee' || category == 'Arch-Melee') {
+      return Melee.fromJson(item);
+    }
+
+    if (category == 'Primary' || category == 'Arch-Gun') {
+      return Primary.fromJson(item);
+    }
+
+    return Secondary.fromJson(item);
+  }
+
+  /// Search for weapons with the closes possible match to the [query].
+  Future<List<Weapon>> searchWeapon(String query) async {
+    final response = await _get<List<dynamic>>('/weapons/search/$query');
+
+    return toItems(response).whereType<Weapon>().toList();
   }
 
   Future<T> _get<T>(String path) async {
