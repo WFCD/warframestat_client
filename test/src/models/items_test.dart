@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:test/test.dart';
-import 'package:warframestat_client/src/utils/items_utils.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 import '../../helpers/fixtures.dart';
