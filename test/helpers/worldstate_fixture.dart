@@ -25,6 +25,14 @@ class WarframestatFixture extends Fixture {
     return fixture('cetusCycle.json');
   }
 
+  Future<String> loadConclaveChallenges() {
+    return fixture('conclaveChallenges.json');
+  }
+
+  Future<String> loadConstructionProgress() {
+    return fixture('constructionProgress.json');
+  }
+
   Future<String> loadDailyDeals() {
     return fixture('dailyDeals.json');
   }

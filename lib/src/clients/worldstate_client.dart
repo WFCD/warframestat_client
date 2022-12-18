@@ -49,7 +49,7 @@ class WorldstateClient extends WarframestatClient {
 
   /// Retrives the current cycle data for [CetusCycle].
   Future<CetusCycle> getCetusCycle() async {
-    final cycle = await _get<Map<String, dynamic>>('/cambionCycle');
+    final cycle = await _get<Map<String, dynamic>>('/cetusCycle');
 
     return CetusCycle.fromJson(cycle);
   }
