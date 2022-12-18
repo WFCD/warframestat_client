@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:warframestat_client/src/utils/items_utils.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 /// {@template warframeitemsclient}
