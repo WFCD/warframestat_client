@@ -16,6 +16,7 @@ class ResourceBuildable extends BuildableItem {
     required super.type,
     required super.category,
     required super.tradable,
+    super.isPrime = false,
     required super.buildPrice,
     required super.buildQuantity,
     required super.buildTime,

@@ -36,6 +36,7 @@ class Melee extends Weapon {
     super.disposition = 0,
     required super.fireRate,
     required super.isPrime,
+    super.vaulted,
     required super.omegaAttenuation,
     super.polarities,
     required super.procChance,

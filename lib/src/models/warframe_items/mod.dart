@@ -6,7 +6,7 @@ part 'mod.g.dart';
 /// {@template basemod}
 /// Base class for [Mod] and [ModSet]
 /// {@endtemplate}
-abstract class BaseMod extends Item {
+abstract class BaseMod extends EquipableItem {
   /// {@macro basemod}
   const BaseMod({
     required super.uniqueName,
@@ -20,11 +20,8 @@ abstract class BaseMod extends Item {
     required super.releaseDate,
     super.wikiaThumbnail,
     super.wikiaUrl,
-    required this.isPrime,
+    required super.isPrime,
   });
-
-  /// Whether this [Mod] is primed.
-  final bool isPrime;
 }
 
 /// {@template mod}

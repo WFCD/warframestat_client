@@ -32,6 +32,7 @@ class Secondary extends Gun {
     required super.disposition,
     required super.fireRate,
     required super.isPrime,
+    super.vaulted,
     required super.omegaAttenuation,
     required super.polarities,
     required super.procChance,

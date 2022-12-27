@@ -29,6 +29,7 @@ Archwing _$ArchwingFromJson(Map json) => $checkedCreate(
           health: $checkedConvert('health', (v) => v as int),
           stamina: $checkedConvert('stamina', (v) => v as num),
           isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          vaulted: $checkedConvert('vaulted', (v) => v as bool?),
           power: $checkedConvert('power', (v) => v as int),
           polarities: $checkedConvert('polarities',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
@@ -60,6 +61,8 @@ Map<String, dynamic> _$ArchwingToJson(Archwing instance) => <String, dynamic>{
       'releaseDate': instance.releaseDate,
       'wikiaThumbnail': instance.wikiaThumbnail,
       'wikiaUrl': instance.wikiaUrl,
+      'isPrime': instance.isPrime,
+      'vaulted': instance.vaulted,
       'masterReq': instance.masterReq,
       'buildPrice': instance.buildPrice,
       'buildQuantity': instance.buildQuantity,
@@ -73,6 +76,5 @@ Map<String, dynamic> _$ArchwingToJson(Archwing instance) => <String, dynamic>{
       'stamina': instance.stamina,
       'power': instance.power,
       'polarities': instance.polarities,
-      'isPrime': instance.isPrime,
       'abilities': instance.abilities,
     };

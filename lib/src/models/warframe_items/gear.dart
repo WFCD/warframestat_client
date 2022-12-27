@@ -41,6 +41,7 @@ class GearBuildable extends BuildableItem {
     required super.type,
     required super.category,
     required super.tradable,
+    super.isPrime = false,
     required super.patchlogs,
     required super.buildPrice,
     required super.buildQuantity,

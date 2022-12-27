@@ -23,6 +23,8 @@ abstract class Weapon extends BuildableItem {
     super.bpCost,
     required super.consumeOnBuild,
     required super.components,
+    required super.isPrime,
+    super.vaulted,
     super.releaseDate,
     super.wikiaThumbnail,
     super.wikiaUrl,
@@ -33,7 +35,6 @@ abstract class Weapon extends BuildableItem {
     required this.damagePerShot,
     required this.disposition,
     required this.fireRate,
-    required this.isPrime,
     required this.omegaAttenuation,
     required this.polarities,
     required this.procChance,
@@ -63,9 +64,6 @@ abstract class Weapon extends BuildableItem {
   /// [Weapon] rate of fite.
   final num fireRate;
 
-  /// Whether this is a prime [Weapon] or not.
-  final bool isPrime;
-
   /// (?)
   final double omegaAttenuation;
 
@@ -92,7 +90,6 @@ abstract class Weapon extends BuildableItem {
         criticalMultiplier,
         disposition,
         fireRate,
-        isPrime,
         omegaAttenuation,
         polarities,
         procChance,

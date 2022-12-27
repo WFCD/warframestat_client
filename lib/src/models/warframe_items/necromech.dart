@@ -27,6 +27,7 @@ class NecroMech extends PowerSuit {
     required super.health,
     required super.stamina,
     required super.isPrime,
+    super.vaulted,
     required super.power,
     required super.abilities,
     required super.polarities,

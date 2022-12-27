@@ -28,7 +28,8 @@ class Sentinel extends BuildableItem {
     required this.health,
     required this.shield,
     required this.stamina,
-    required this.isPrime,
+    required super.isPrime,
+    super.vaulted,
   });
 
   /// Creates a Sentinal from Json map
@@ -46,9 +47,6 @@ class Sentinel extends BuildableItem {
 
   /// Stamina.
   final num stamina;
-
-  /// Whether the [Sentinel] is prime or not.
-  final bool isPrime;
 
   /// Creates a Json map from a Sentinal
   @override

@@ -51,6 +51,7 @@ GearBuildable _$GearBuildableFromJson(Map json) => $checkedCreate(
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -85,6 +86,7 @@ Map<String, dynamic> _$GearBuildableToJson(GearBuildable instance) =>
       'tradable': instance.tradable,
       'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
       'imageName': instance.imageName,
+      'isPrime': instance.isPrime,
       'buildPrice': instance.buildPrice,
       'buildQuantity': instance.buildQuantity,
       'buildTime': instance.buildTime,

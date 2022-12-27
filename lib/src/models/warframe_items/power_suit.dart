@@ -12,25 +12,30 @@ abstract class PowerSuit extends BuildableItem {
     required super.type,
     required super.category,
     required super.tradable,
+    super.patchlogs,
+    required super.imageName,
+    super.masterReq,
     required super.buildPrice,
     required super.buildQuantity,
     required super.buildTime,
     required super.skipBuildTimePrice,
     required super.consumeOnBuild,
-    required super.imageName,
+    super.components,
+    super.releaseDate,
+    super.marketCost,
+    super.bpCost,
+    super.itemCount,
+    super.wikiaThumbnail,
+    super.wikiaUrl,
+    required super.isPrime,
+    super.vaulted,
     required this.shield,
     required this.armor,
     required this.health,
     required this.stamina,
-    required this.isPrime,
     required this.power,
     required this.polarities,
     required this.abilities,
-    super.releaseDate,
-    super.components,
-    super.masterReq,
-    super.wikiaThumbnail,
-    super.wikiaUrl,
   });
 
   /// Shield health.
@@ -51,9 +56,6 @@ abstract class PowerSuit extends BuildableItem {
   /// Preinstalled polarities.
   final List<String>? polarities;
 
-  /// Whether this [PowerSuit] is a prime or not.
-  final bool isPrime;
-
   /// Warframe abilities
   final List<dynamic> abilities;
 
@@ -64,7 +66,6 @@ abstract class PowerSuit extends BuildableItem {
       armor,
       health,
       stamina,
-      isPrime,
       power,
       abilities,
       polarities,

@@ -79,6 +79,34 @@ abstract class Item extends Equatable {
       ];
 }
 
+abstract class EquipableItem extends Item {
+  const EquipableItem({
+    required super.uniqueName,
+    required super.name,
+    required super.description,
+    required super.type,
+    required super.category,
+    required super.tradable,
+    required this.isPrime,
+    this.vaulted,
+    super.patchlogs,
+    super.imageName,
+    super.releaseDate,
+    super.excludeFromCodex,
+    super.wikiaThumbnail,
+    super.wikiaUrl,
+  });
+
+  /// Whether the [Item] is a prime item.
+  final bool isPrime;
+
+  /// Whether the [Item] has been removed from the drop rotation.
+  final bool? vaulted;
+
+  @override
+  List<Object?> get props => super.props..addAll([isPrime, vaulted]);
+}
+
 /// {@template droppableitem}
 /// Contains extra data for [Item]s that drop in-game.
 /// {@endtemplate}
@@ -119,7 +147,7 @@ abstract class DroppableItem extends Item {
 /// {@template buildableitem}
 /// [Item]s that require building.
 /// {@endtemplate}
-abstract class BuildableItem extends Item {
+abstract class BuildableItem extends EquipableItem {
   /// {@macro buildableitem}
   const BuildableItem({
     required super.uniqueName,
@@ -128,6 +156,8 @@ abstract class BuildableItem extends Item {
     required super.type,
     required super.category,
     required super.tradable,
+    required super.isPrime,
+    super.vaulted,
     super.patchlogs,
     required String super.imageName,
     this.masterReq,
