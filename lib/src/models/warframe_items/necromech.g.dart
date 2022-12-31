@@ -31,7 +31,12 @@ NecroMech _$NecroMechFromJson(Map json) => $checkedCreate(
           isPrime: $checkedConvert('isPrime', (v) => v as bool),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
           power: $checkedConvert('power', (v) => v as int),
-          abilities: $checkedConvert('abilities', (v) => v as List<dynamic>),
+          abilities: $checkedConvert(
+              'abilities',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      Ability.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           polarities: $checkedConvert('polarities',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
@@ -76,5 +81,5 @@ Map<String, dynamic> _$NecroMechToJson(NecroMech instance) => <String, dynamic>{
       'stamina': instance.stamina,
       'power': instance.power,
       'polarities': instance.polarities,
-      'abilities': instance.abilities,
+      'abilities': instance.abilities.map((e) => e.toJson()).toList(),
     };

@@ -33,7 +33,12 @@ Archwing _$ArchwingFromJson(Map json) => $checkedCreate(
           power: $checkedConvert('power', (v) => v as int),
           polarities: $checkedConvert('polarities',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
-          abilities: $checkedConvert('abilities', (v) => v as List<dynamic>),
+          abilities: $checkedConvert(
+              'abilities',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      Ability.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
           components: $checkedConvert(
               'components',
@@ -76,5 +81,5 @@ Map<String, dynamic> _$ArchwingToJson(Archwing instance) => <String, dynamic>{
       'stamina': instance.stamina,
       'power': instance.power,
       'polarities': instance.polarities,
-      'abilities': instance.abilities,
+      'abilities': instance.abilities.map((e) => e.toJson()).toList(),
     };

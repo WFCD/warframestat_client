@@ -46,7 +46,12 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate(
           wikiaThumbnail:
               $checkedConvert('wikiaThumbnail', (v) => v as String?),
           wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
-          abilities: $checkedConvert('abilities', (v) => v as List<dynamic>),
+          abilities: $checkedConvert(
+              'abilities',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      Ability.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           aura: $checkedConvert('aura', (v) => v as String?),
           sex: $checkedConvert('sex', (v) => v as String),
           sprintSpeed: $checkedConvert('sprintSpeed', (v) => v as num),
@@ -83,7 +88,7 @@ Map<String, dynamic> _$WarframeToJson(Warframe instance) => <String, dynamic>{
       'stamina': instance.stamina,
       'power': instance.power,
       'polarities': instance.polarities,
-      'abilities': instance.abilities,
+      'abilities': instance.abilities.map((e) => e.toJson()).toList(),
       'aura': instance.aura,
       'sex': instance.sex,
       'sprintSpeed': instance.sprintSpeed,

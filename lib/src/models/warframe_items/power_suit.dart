@@ -1,4 +1,8 @@
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:warframestat_client/warframestat_client.dart';
+
+part 'power_suit.g.dart';
 
 /// {@template warframe}
 /// Represents Powersuits and subtypes.
@@ -57,7 +61,7 @@ abstract class PowerSuit extends BuildableItem {
   final List<String>? polarities;
 
   /// Warframe abilities
-  final List<dynamic> abilities;
+  final List<Ability> abilities;
 
   @override
   List<Object?> get props => super.props
@@ -70,4 +74,30 @@ abstract class PowerSuit extends BuildableItem {
       abilities,
       polarities,
     ]);
+}
+
+/// {@template ability}
+/// Data on a [PowerSuit] ability.
+/// {@endtemplate}
+@JsonSerializable()
+class Ability extends Equatable {
+  /// {@macro ability}
+  const Ability({required this.name, required this.description});
+
+  /// Creats an [Ability] from a json map.
+  factory Ability.fromJson(Map<String, dynamic> json) {
+    return _$AbilityFromJson(json);
+  }
+
+  /// Ability name.
+  final String name;
+
+  /// Ability desccription.
+  final String description;
+
+  /// Creates a json map from an [Ability]
+  Map<String, dynamic> toJson() => _$AbilityToJson(this);
+
+  @override
+  List<Object> get props => [name, description];
 }
