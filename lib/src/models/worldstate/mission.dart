@@ -32,6 +32,7 @@ class Mission extends Equatable {
     required this.leadersAlwwaysAllowed,
     required this.levelAuras,
     required this.description,
+    required this.exclusiveWeapon,
   });
 
   /// Creates a Mission from Json map
@@ -129,6 +130,9 @@ class Mission extends Equatable {
   /// A mission description.
   @JsonKey(includeIfNull: false)
   final String? description;
+
+  /// Only weapon allowed in mission.
+  final String exclusiveWeapon;
 
   /// Creates a Json map from a Mission
   Map<String, dynamic> toJson() => _$MissionToJson(this);

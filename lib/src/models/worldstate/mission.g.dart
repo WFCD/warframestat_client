@@ -42,6 +42,8 @@ Mission _$MissionFromJson(Map json) => $checkedCreate(
           levelAuras: $checkedConvert('levelAuras',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           description: $checkedConvert('description', (v) => v as String?),
+          exclusiveWeapon:
+              $checkedConvert('exclusiveWeapon', (v) => v as String),
         );
         return val;
       },
@@ -78,5 +80,6 @@ Map<String, dynamic> _$MissionToJson(Mission instance) {
   writeNotNull('leadersAlwwaysAllowed', instance.leadersAlwwaysAllowed);
   val['levelAuras'] = instance.levelAuras;
   writeNotNull('description', instance.description);
+  val['exclusiveWeapon'] = instance.exclusiveWeapon;
   return val;
 }
