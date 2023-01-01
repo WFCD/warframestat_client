@@ -132,7 +132,7 @@ class Mission extends Equatable {
   final String? description;
 
   /// Only weapon allowed in mission.
-  final String exclusiveWeapon;
+  final String? exclusiveWeapon;
 
   /// Creates a Json map from a Mission
   Map<String, dynamic> toJson() => _$MissionToJson(this);

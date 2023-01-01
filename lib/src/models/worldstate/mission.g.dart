@@ -43,7 +43,7 @@ Mission _$MissionFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           description: $checkedConvert('description', (v) => v as String?),
           exclusiveWeapon:
-              $checkedConvert('exclusiveWeapon', (v) => v as String),
+              $checkedConvert('exclusiveWeapon', (v) => v as String?),
         );
         return val;
       },
