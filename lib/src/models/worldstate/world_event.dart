@@ -125,7 +125,7 @@ class WorldEvent extends WorldstateObject {
   final List<SyndicateJob>? previousJobs;
 
   /// A description for interimSteps
-  final List<InterimStep> interimSteps;
+  final List<InterimStep>? interimSteps;
 
   /// A description for progressSteps
   final List<ProgressStep> progressSteps;
@@ -186,6 +186,15 @@ class WorldEvent extends WorldstateObject {
     }
 
     return null;
+  }
+
+  /// Returns a list of all rewards from both [rewards] and [interimSteps].
+  List<Reward> eventRewards() {
+    final rewards = List<Reward>.from(this.rewards);
+
+    return rewards
+      ..addAll(interimSteps?.map<Reward>((i) => i.reward) ?? [])
+      ..removeWhere((r) => r.itemString.isEmpty);
   }
 
   /// Creates a Json map from a Event

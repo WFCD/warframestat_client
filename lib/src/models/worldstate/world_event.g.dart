@@ -54,8 +54,8 @@ WorldEvent _$WorldEventFromJson(Map json) => $checkedCreate(
                   .toList()),
           interimSteps: $checkedConvert(
               'interimSteps',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
                       InterimStep.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           progressSteps: $checkedConvert(
@@ -127,7 +127,7 @@ Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) {
   writeNotNull('jobs', instance.jobs?.map((e) => e.toJson()).toList());
   writeNotNull(
       'previousJobs', instance.previousJobs?.map((e) => e.toJson()).toList());
-  val['interimSteps'] = instance.interimSteps.map((e) => e.toJson()).toList();
+  val['interimSteps'] = instance.interimSteps?.map((e) => e.toJson()).toList();
   val['progressSteps'] = instance.progressSteps.map((e) => e.toJson()).toList();
   writeNotNull('progressTotal', instance.progressTotal);
   writeNotNull('showTotalAtEndOfMission', instance.showTotalAtEndOfMission);
