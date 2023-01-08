@@ -28,6 +28,7 @@ abstract class Weapon extends BuildableItem {
     super.releaseDate,
     super.wikiaThumbnail,
     super.wikiaUrl,
+    required this.accuracy,
     this.attacks,
     required this.criticalChance,
     required this.criticalMultiplier,
@@ -35,13 +36,21 @@ abstract class Weapon extends BuildableItem {
     required this.damagePerShot,
     required this.disposition,
     required this.fireRate,
+    required this.magazineSize,
+    required this.multishot,
+    required this.noise,
     required this.omegaAttenuation,
     required this.polarities,
     required this.procChance,
+    required this.reloadTime,
     required this.slot,
+    required this.trigger,
     this.tags,
     required this.totalDamage,
   });
+
+  /// [Weapon] accuracy.
+  final num accuracy;
 
   /// [Weapon] secondary attacks.
   final List<Attack>? attacks;
@@ -64,6 +73,15 @@ abstract class Weapon extends BuildableItem {
   /// [Weapon] rate of fite.
   final num fireRate;
 
+  /// Magazine size.
+  final int magazineSize;
+
+  /// Chances of an extra free shot.
+  final int multishot;
+
+  /// [Weapon] noise type.
+  final String noise;
+
   /// (?)
   final double omegaAttenuation;
 
@@ -72,6 +90,9 @@ abstract class Weapon extends BuildableItem {
 
   /// Status chance.
   final double procChance;
+
+  /// Amount of seconds it takes to reload [Weapon].
+  final num reloadTime;
 
   /// Slot.
   final int slot;
@@ -82,18 +103,30 @@ abstract class Weapon extends BuildableItem {
   /// Total damage the [Weapon] has.
   final num totalDamage;
 
+  /// [Weapon] trigger type.
+  final String trigger;
+
   @override
   List<Object?> get props {
     return super.props
       ..addAll([
+        accuracy,
+        attacks,
         criticalChance,
         criticalMultiplier,
+        damage,
+        damagePerShot,
         disposition,
         fireRate,
+        magazineSize,
+        multishot,
+        noise,
         omegaAttenuation,
         polarities,
         procChance,
+        reloadTime,
         slot,
+        trigger,
         tags,
         totalDamage,
       ]);
