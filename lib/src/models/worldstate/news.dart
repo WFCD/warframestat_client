@@ -45,7 +45,7 @@ class News extends WorldstateObject {
   final String imageLink;
 
   /// The date the news was posted
-  final String date;
+  final DateTime date;
 
   /// End date.
   @JsonKey(includeIfNull: false)

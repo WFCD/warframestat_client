@@ -12,7 +12,7 @@ News _$NewsFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = News(
           id: $checkedConvert('id', (v) => v as String?),
-          date: $checkedConvert('date', (v) => v as String),
+          date: $checkedConvert('date', (v) => DateTime.parse(v as String)),
           endDate: $checkedConvert(
               'endDate', (v) => v == null ? null : DateTime.parse(v as String)),
           eta: $checkedConvert('eta', (v) => v as String),
@@ -38,7 +38,7 @@ Map<String, dynamic> _$NewsToJson(News instance) {
     'link': instance.link,
     'priority': instance.priority,
     'imageLink': instance.imageLink,
-    'date': instance.date,
+    'date': instance.date.toIso8601String(),
   };
 
   void writeNotNull(String key, dynamic value) {
