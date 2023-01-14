@@ -23,6 +23,7 @@ class Melee extends Weapon {
     super.buildTime = 0,
     super.skipBuildTimePrice = 0,
     super.consumeOnBuild = true,
+    super.masterReq,
     required super.components,
     super.releaseDate,
     super.wikiaThumbnail,
@@ -43,14 +44,74 @@ class Melee extends Weapon {
     required super.slot,
     super.tags,
     required super.totalDamage,
+    this.stancePolarity,
+    required this.heavyAttackDamage,
+    required this.heavySlamAttack,
+    required this.heavySlamRadialDamage,
+    required this.heavySlamRadius,
+    required this.slamAttack,
+    required this.slamRadialDamage,
+    required this.slamRadius,
+    required this.slideAttack,
+    required this.windUp,
+    required this.range,
   });
 
   /// Creates a Melee from Json map
   factory Melee.fromJson(Map<String, dynamic> data) => _$MeleeFromJson(data);
 
+  /// Stance polarity.
+  final String? stancePolarity;
+
+  /// Heavy attack damage.
+  final num? heavyAttackDamage;
+
+  /// Heavy slam attack damage.
+  final num? heavySlamAttack;
+
+  /// Radial damage for heavy attacks.
+  final num? heavySlamRadialDamage;
+
+  /// Heavy slam attack radius.
+  final num? heavySlamRadius;
+
+  /// Slam attack damage.
+  final num? slamAttack;
+
+  /// Slam attack radial damage.
+  final num? slamRadialDamage;
+
+  /// Slam attack radius.
+  final num? slamRadius;
+
+  /// slide attack damage.
+  final num? slideAttack;
+
+  /// Wind up time.
+  final double? windUp;
+
+  /// Melee range.
+  final num? range;
+
   /// Creates a Json map from a Melee
   @override
   Map<String, dynamic> toJson() => _$MeleeToJson(this);
+
+  @override
+  List<Object?> get props => super.props
+    ..addAll([
+      stancePolarity,
+      heavyAttackDamage,
+      heavySlamAttack,
+      heavySlamRadialDamage,
+      heavySlamRadius,
+      slamAttack,
+      slamRadialDamage,
+      slamRadius,
+      slideAttack,
+      windUp,
+      range
+    ]);
 }
 
 /// {@template meleeattack}

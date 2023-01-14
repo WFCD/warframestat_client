@@ -26,6 +26,7 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
               $checkedConvert('skipBuildTimePrice', (v) => v as int? ?? 0),
           consumeOnBuild:
               $checkedConvert('consumeOnBuild', (v) => v as bool? ?? true),
+          masterReq: $checkedConvert('masterReq', (v) => v as int?),
           components: $checkedConvert(
               'components',
               (v) => (v as List<dynamic>?)
@@ -67,6 +68,21 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
+          stancePolarity:
+              $checkedConvert('stancePolarity', (v) => v as String?),
+          heavyAttackDamage:
+              $checkedConvert('heavyAttackDamage', (v) => v as num?),
+          heavySlamAttack: $checkedConvert('heavySlamAttack', (v) => v as num?),
+          heavySlamRadialDamage:
+              $checkedConvert('heavySlamRadialDamage', (v) => v as num?),
+          heavySlamRadius: $checkedConvert('heavySlamRadius', (v) => v as num?),
+          slamAttack: $checkedConvert('slamAttack', (v) => v as num?),
+          slamRadialDamage:
+              $checkedConvert('slamRadialDamage', (v) => v as num?),
+          slamRadius: $checkedConvert('slamRadius', (v) => v as num?),
+          slideAttack: $checkedConvert('slideAttack', (v) => v as num?),
+          windUp: $checkedConvert('windUp', (v) => (v as num?)?.toDouble()),
+          range: $checkedConvert('range', (v) => v as num?),
         );
         return val;
       },
@@ -85,6 +101,7 @@ Map<String, dynamic> _$MeleeToJson(Melee instance) => <String, dynamic>{
       'wikiaUrl': instance.wikiaUrl,
       'isPrime': instance.isPrime,
       'vaulted': instance.vaulted,
+      'masterReq': instance.masterReq,
       'buildPrice': instance.buildPrice,
       'buildQuantity': instance.buildQuantity,
       'buildTime': instance.buildTime,
@@ -105,6 +122,17 @@ Map<String, dynamic> _$MeleeToJson(Melee instance) => <String, dynamic>{
       'slot': instance.slot,
       'tags': instance.tags,
       'totalDamage': instance.totalDamage,
+      'stancePolarity': instance.stancePolarity,
+      'heavyAttackDamage': instance.heavyAttackDamage,
+      'heavySlamAttack': instance.heavySlamAttack,
+      'heavySlamRadialDamage': instance.heavySlamRadialDamage,
+      'heavySlamRadius': instance.heavySlamRadius,
+      'slamAttack': instance.slamAttack,
+      'slamRadialDamage': instance.slamRadialDamage,
+      'slamRadius': instance.slamRadius,
+      'slideAttack': instance.slideAttack,
+      'windUp': instance.windUp,
+      'range': instance.range,
     };
 
 MeleeAttack _$MeleeAttackFromJson(Map json) => $checkedCreate(
