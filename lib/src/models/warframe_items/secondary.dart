@@ -44,9 +44,10 @@ class Secondary extends Gun {
     required super.releaseDate,
     required super.accuracy,
     required super.magazineSize,
-    required super.multiShot,
+    required super.multishot,
     required super.noise,
     required super.trigger,
+    required super.reloadTime,
   });
 
   /// Creates [Secondary] from json data.

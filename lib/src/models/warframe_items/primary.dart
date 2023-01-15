@@ -42,11 +42,12 @@ class Primary extends Gun {
     required super.wikiaThumbnail,
     required super.wikiaUrl,
     required super.releaseDate,
-    super.accuracy,
-    super.magazineSize,
-    super.multiShot,
-    super.noise,
-    super.trigger,
+    required super.accuracy,
+    required super.magazineSize,
+    required super.multishot,
+    required super.noise,
+    required super.trigger,
+    required super.reloadTime,
   });
 
   /// Creates [Primary] from json data.

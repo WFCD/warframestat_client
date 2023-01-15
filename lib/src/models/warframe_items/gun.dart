@@ -43,9 +43,10 @@ abstract class Gun extends Weapon {
     required super.releaseDate,
     this.accuracy,
     this.magazineSize,
-    this.multiShot,
+    this.multishot,
     this.noise,
     this.trigger,
+    required this.reloadTime,
   });
 
   /// [Gun] accuracy.
@@ -55,7 +56,7 @@ abstract class Gun extends Weapon {
   final int? magazineSize;
 
   /// Multi shot chance(?)
-  final int? multiShot;
+  final int? multishot;
 
   /// How loud the [Gun] is.
   final String? noise;
@@ -63,9 +64,12 @@ abstract class Gun extends Weapon {
   /// [Gun] trigger type.
   final String? trigger;
 
+  /// The time it takes to reload this weapon.
+  final num? reloadTime;
+
   @override
-  List<Object?> get props =>
-      super.props..addAll([accuracy, magazineSize, multiShot, noise, trigger]);
+  List<Object?> get props => super.props
+    ..addAll([accuracy, magazineSize, multishot, noise, trigger, reloadTime]);
 }
 
 /// {@template gunattack}

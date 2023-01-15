@@ -69,9 +69,10 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
           accuracy: $checkedConvert('accuracy', (v) => v as num?),
           magazineSize: $checkedConvert('magazineSize', (v) => v as int?),
-          multiShot: $checkedConvert('multiShot', (v) => v as int?),
+          multishot: $checkedConvert('multishot', (v) => v as int?),
           noise: $checkedConvert('noise', (v) => v as String?),
           trigger: $checkedConvert('trigger', (v) => v as String?),
+          reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
         );
         return val;
       },
@@ -112,7 +113,8 @@ Map<String, dynamic> _$PrimaryToJson(Primary instance) => <String, dynamic>{
       'totalDamage': instance.totalDamage,
       'accuracy': instance.accuracy,
       'magazineSize': instance.magazineSize,
-      'multiShot': instance.multiShot,
+      'multishot': instance.multishot,
       'noise': instance.noise,
       'trigger': instance.trigger,
+      'reloadTime': instance.reloadTime,
     };
