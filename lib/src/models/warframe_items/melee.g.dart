@@ -71,18 +71,18 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           stancePolarity:
               $checkedConvert('stancePolarity', (v) => v as String?),
           heavyAttackDamage:
-              $checkedConvert('heavyAttackDamage', (v) => v as num?),
-          heavySlamAttack: $checkedConvert('heavySlamAttack', (v) => v as num?),
+              $checkedConvert('heavyAttackDamage', (v) => v as int?),
+          heavySlamAttack: $checkedConvert('heavySlamAttack', (v) => v as int?),
           heavySlamRadialDamage:
-              $checkedConvert('heavySlamRadialDamage', (v) => v as num?),
-          heavySlamRadius: $checkedConvert('heavySlamRadius', (v) => v as num?),
-          slamAttack: $checkedConvert('slamAttack', (v) => v as num?),
+              $checkedConvert('heavySlamRadialDamage', (v) => v as int?),
+          heavySlamRadius: $checkedConvert('heavySlamRadius', (v) => v as int?),
+          slamAttack: $checkedConvert('slamAttack', (v) => v as int?),
           slamRadialDamage:
-              $checkedConvert('slamRadialDamage', (v) => v as num?),
-          slamRadius: $checkedConvert('slamRadius', (v) => v as num?),
-          slideAttack: $checkedConvert('slideAttack', (v) => v as num?),
+              $checkedConvert('slamRadialDamage', (v) => v as int?),
+          slamRadius: $checkedConvert('slamRadius', (v) => v as int?),
+          slideAttack: $checkedConvert('slideAttack', (v) => v as int?),
           windUp: $checkedConvert('windUp', (v) => (v as num?)?.toDouble()),
-          range: $checkedConvert('range', (v) => v as num?),
+          range: $checkedConvert('range', (v) => (v as num?)?.toDouble()),
         );
         return val;
       },

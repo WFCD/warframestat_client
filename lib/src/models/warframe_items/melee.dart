@@ -64,34 +64,34 @@ class Melee extends Weapon {
   final String? stancePolarity;
 
   /// Heavy attack damage.
-  final num? heavyAttackDamage;
+  final int? heavyAttackDamage;
 
   /// Heavy slam attack damage.
-  final num? heavySlamAttack;
+  final int? heavySlamAttack;
 
   /// Radial damage for heavy attacks.
-  final num? heavySlamRadialDamage;
+  final int? heavySlamRadialDamage;
 
   /// Heavy slam attack radius.
-  final num? heavySlamRadius;
+  final int? heavySlamRadius;
 
   /// Slam attack damage.
-  final num? slamAttack;
+  final int? slamAttack;
 
   /// Slam attack radial damage.
-  final num? slamRadialDamage;
+  final int? slamRadialDamage;
 
   /// Slam attack radius.
-  final num? slamRadius;
+  final int? slamRadius;
 
   /// slide attack damage.
-  final num? slideAttack;
+  final int? slideAttack;
 
   /// Wind up time.
   final double? windUp;
 
   /// Melee range.
-  final num? range;
+  final double? range;
 
   /// Creates a Json map from a Melee
   @override
