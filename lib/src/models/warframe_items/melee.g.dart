@@ -68,6 +68,8 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
+          followThrough:
+              $checkedConvert('followThrough', (v) => (v as num?)?.toDouble()),
           stancePolarity:
               $checkedConvert('stancePolarity', (v) => v as String?),
           heavyAttackDamage:
@@ -122,6 +124,7 @@ Map<String, dynamic> _$MeleeToJson(Melee instance) => <String, dynamic>{
       'slot': instance.slot,
       'tags': instance.tags,
       'totalDamage': instance.totalDamage,
+      'followThrough': instance.followThrough,
       'stancePolarity': instance.stancePolarity,
       'heavyAttackDamage': instance.heavyAttackDamage,
       'heavySlamAttack': instance.heavySlamAttack,

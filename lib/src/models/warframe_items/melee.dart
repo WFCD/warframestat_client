@@ -44,6 +44,7 @@ class Melee extends Weapon {
     required super.slot,
     super.tags,
     required super.totalDamage,
+    required this.followThrough,
     this.stancePolarity,
     required this.heavyAttackDamage,
     required this.heavySlamAttack,
@@ -59,6 +60,9 @@ class Melee extends Weapon {
 
   /// Creates a Melee from Json map
   factory Melee.fromJson(Map<String, dynamic> data) => _$MeleeFromJson(data);
+
+  /// Follow through.
+  final double? followThrough;
 
   /// Stance polarity.
   final String? stancePolarity;
@@ -100,6 +104,7 @@ class Melee extends Weapon {
   @override
   List<Object?> get props => super.props
     ..addAll([
+      followThrough,
       stancePolarity,
       heavyAttackDamage,
       heavySlamAttack,
