@@ -79,7 +79,11 @@ abstract class Item extends Equatable {
       ];
 }
 
+/// {@template equipableitem}
+/// Represents [Item]s that can be equiped.
+/// {@endtemplate}
 abstract class EquipableItem extends Item {
+  /// {@macro equipableitem}
   const EquipableItem({
     required super.uniqueName,
     required super.name,
