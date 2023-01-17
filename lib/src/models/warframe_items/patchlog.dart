@@ -12,6 +12,7 @@ class Patchlog extends Equatable {
   /// {@macro patchlog}
   const Patchlog({
     required this.name,
+    this.imgUrl = 'https://i.imgur.com/CNrsc7V.png',
     required this.date,
     required this.url,
     required this.additions,
@@ -26,6 +27,9 @@ class Patchlog extends Equatable {
 
   /// Name of the update.
   final String name;
+
+  /// Update banner.
+  final String imgUrl;
 
   /// Deploy date.
   final DateTime date;
@@ -46,5 +50,6 @@ class Patchlog extends Equatable {
   Map<String, dynamic> toJson() => _$PatchlogToJson(this);
 
   @override
-  List<Object> get props => [name, date, url, additions, changes, fixes];
+  List<Object?> get props =>
+      [name, imgUrl, date, url, additions, changes, fixes];
 }
