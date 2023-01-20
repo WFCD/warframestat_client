@@ -14,7 +14,7 @@ SyndicateJob _$SyndicateJobFromJson(Map json) => $checkedCreate(
           id: $checkedConvert('id', (v) => v as String),
           rewardPool: $checkedConvert('rewardPool',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          type: $checkedConvert('type', (v) => v as String),
+          type: $checkedConvert('type', (v) => v as String?),
           enemyLevels: $checkedConvert('enemyLevels',
               (v) => (v as List<dynamic>).map((e) => e as int).toList()),
           standingStages: $checkedConvert('standingStages',

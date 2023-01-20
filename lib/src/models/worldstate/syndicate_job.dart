@@ -30,7 +30,7 @@ class SyndicateJob extends Equatable {
   final List<String> rewardPool;
 
   /// Job type.
-  final String type;
+  final String? type;
 
   /// Range of enemy level.
   final List<int> enemyLevels;
