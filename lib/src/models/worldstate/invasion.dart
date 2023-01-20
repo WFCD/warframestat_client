@@ -28,6 +28,7 @@ class Invasion extends WorldstateObject {
     required this.requiredRuns,
     required this.rewardTypes,
     required this.vsInfestation,
+    required this.eta,
   });
 
   /// Creates a Invasion from Json map
@@ -79,6 +80,9 @@ class Invasion extends WorldstateObject {
   /// A description for vsInfestation
   final bool vsInfestation;
 
+  /// An estimated time the [Invasion] will end.
+  final String eta;
+
   /// Creates a Json map from a Invasion
   Map<String, dynamic> toJson() => _$InvasionToJson(this);
 
@@ -102,6 +106,7 @@ class Invasion extends WorldstateObject {
         requiredRuns,
         rewardTypes,
         vsInfestation,
+        eta,
       ]);
   }
 }

@@ -40,6 +40,7 @@ Invasion _$InvasionFromJson(Map json) => $checkedCreate(
           rewardTypes: $checkedConvert('rewardTypes',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           vsInfestation: $checkedConvert('vsInfestation', (v) => v as bool),
+          eta: $checkedConvert('eta', (v) => v as String),
         );
         return val;
       },
@@ -63,6 +64,7 @@ Map<String, dynamic> _$InvasionToJson(Invasion instance) => <String, dynamic>{
       'requiredRuns': instance.requiredRuns,
       'rewardTypes': instance.rewardTypes,
       'vsInfestation': instance.vsInfestation,
+      'eta': instance.eta,
     };
 
 InvasionFaction _$InvasionFactionFromJson(Map json) => $checkedCreate(
