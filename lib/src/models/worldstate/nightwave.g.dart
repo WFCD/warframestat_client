@@ -69,7 +69,7 @@ Challenge _$ChallengeFromJson(Map json) => $checkedCreate(
           desc: $checkedConvert('desc', (v) => v as String),
           reputation: $checkedConvert('reputation', (v) => v as int),
           active: $checkedConvert('active', (v) => v as bool),
-          isDaily: $checkedConvert('isDaily', (v) => v as bool?),
+          isDaily: $checkedConvert('isDaily', (v) => v as bool? ?? false),
           isElite: $checkedConvert('isElite', (v) => v as bool),
         );
         return val;

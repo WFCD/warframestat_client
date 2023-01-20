@@ -52,6 +52,16 @@ class Nightwave extends WorldstateObject {
   /// A description for activeChallenges
   final List<Challenge> activeChallenges;
 
+  /// Filters [activeChallenges] and exports only daily challenges
+  List<Challenge> get daily {
+    return activeChallenges.where((c) => c.isDaily).toList();
+  }
+
+  /// Filters [activeChallenges] and exports only weekly challenges
+  List<Challenge> get weekly {
+    return activeChallenges.where((c) => !c.isDaily).toList();
+  }
+
   /// Creates a Json map from a Nightwave
   Map<String, dynamic> toJson() => _$NightwaveToJson(this);
 
@@ -84,7 +94,7 @@ class Challenge extends WorldstateObject {
     required this.desc,
     required this.reputation,
     required this.active,
-    required this.isDaily,
+    this.isDaily = false,
     required this.isElite,
   });
 
@@ -106,7 +116,7 @@ class Challenge extends WorldstateObject {
   final bool active;
 
   /// Whether this challenge is a daily challenge.
-  final bool? isDaily;
+  final bool isDaily;
 
   /// Whether this challenge is an elite challenge.
   final bool isElite;
