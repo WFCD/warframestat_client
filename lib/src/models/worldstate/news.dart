@@ -66,7 +66,7 @@ class News extends WorldstateObject {
   /// Contains translated version of [message]
   ///
   /// If a message contains no translations it will default to en.
-  final Map<String, dynamic> translations;
+  final Map<String, String> translations;
 
   /// String represtentation.
   final String asString;

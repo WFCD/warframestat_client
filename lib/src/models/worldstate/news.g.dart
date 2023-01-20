@@ -20,7 +20,7 @@ News _$NewsFromJson(Map json) => $checkedCreate(
           link: $checkedConvert('link', (v) => v as String),
           imageLink: $checkedConvert('imageLink', (v) => v as String),
           translations: $checkedConvert(
-              'translations', (v) => Map<String, dynamic>.from(v as Map)),
+              'translations', (v) => Map<String, String>.from(v as Map)),
           primeAccess: $checkedConvert('primeAccess', (v) => v as bool),
           stream: $checkedConvert('stream', (v) => v as bool),
           update: $checkedConvert('update', (v) => v as bool),
