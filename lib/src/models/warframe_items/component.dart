@@ -13,6 +13,7 @@ class Component extends DroppableItem {
     required super.uniqueName,
     required super.name,
     required super.description,
+    super.imageName,
     super.type = 'unknown',
     super.category = 'unknown',
     required super.tradable,

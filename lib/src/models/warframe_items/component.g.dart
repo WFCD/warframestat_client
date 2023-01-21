@@ -14,6 +14,7 @@ Component _$ComponentFromJson(Map json) => $checkedCreate(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String? ?? 'unknown'),
           category:
               $checkedConvert('category', (v) => v as String? ?? 'unknown'),
@@ -37,6 +38,7 @@ Map<String, dynamic> _$ComponentToJson(Component instance) => <String, dynamic>{
       'type': instance.type,
       'category': instance.category,
       'tradable': instance.tradable,
+      'imageName': instance.imageName,
       'drops': instance.drops?.map((e) => e.toJson()).toList(),
       'itemCount': instance.itemCount,
     };
