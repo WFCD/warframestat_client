@@ -13,6 +13,7 @@ class Glyph extends Item {
     required super.uniqueName,
     required super.name,
     required super.description,
+    super.imageName,
     required super.type,
     required super.category,
     required super.tradable,
