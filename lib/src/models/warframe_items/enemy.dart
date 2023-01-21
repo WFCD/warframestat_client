@@ -14,6 +14,7 @@ class Enemy extends DroppableItem {
     required super.uniqueName,
     required super.name,
     required super.description,
+    required super.imageName,
     required this.health,
     required this.shield,
     required this.armor,
