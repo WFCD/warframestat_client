@@ -126,7 +126,7 @@ class Worldstate extends Equatable {
   final Trader vaultTrader;
 
   /// Sentient outposts data.
-  final SentientOutpost sentientOutposts;
+  final SentientOutpost? sentientOutposts;
 
   /// Data on previous simaris target.
   final Simaris simaris;

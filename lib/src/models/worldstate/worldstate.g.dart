@@ -125,8 +125,10 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
               (v) => Trader.fromJson(Map<String, dynamic>.from(v as Map))),
           sentientOutposts: $checkedConvert(
               'sentientOutposts',
-              (v) => SentientOutpost.fromJson(
-                  Map<String, dynamic>.from(v as Map))),
+              (v) => v == null
+                  ? null
+                  : SentientOutpost.fromJson(
+                      Map<String, dynamic>.from(v as Map))),
           simaris: $checkedConvert('simaris',
               (v) => Simaris.fromJson(Map<String, dynamic>.from(v as Map))),
           steelPath: $checkedConvert('steelPath',
@@ -181,7 +183,7 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   val['vallisCycle'] = instance.vallisCycle.toJson();
   val['voidTrader'] = instance.voidTrader.toJson();
   val['vaultTrader'] = instance.vaultTrader.toJson();
-  val['sentientOutposts'] = instance.sentientOutposts.toJson();
+  val['sentientOutposts'] = instance.sentientOutposts?.toJson();
   val['simaris'] = instance.simaris.toJson();
   val['steelPath'] = instance.steelPath.toJson();
   val['zarimanCycle'] = instance.zarimanCycle.toJson();
