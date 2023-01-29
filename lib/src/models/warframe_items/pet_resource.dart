@@ -13,6 +13,7 @@ class PetResource extends BuildableItem {
     required super.uniqueName,
     required super.name,
     required super.description,
+    required super.imageName,
     required super.type,
     required super.category,
     required super.tradable,
@@ -22,7 +23,7 @@ class PetResource extends BuildableItem {
     required super.buildTime,
     required super.skipBuildTimePrice,
     required super.consumeOnBuild,
-    required super.imageName,
+    required super.patchlogs,
   });
 
   /// Creates [PetResource] from a json map.

@@ -14,6 +14,7 @@ ResourceBuildable _$ResourceBuildableFromJson(Map json) => $checkedCreate(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
+          imageName: $checkedConvert('imageName', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
@@ -30,7 +31,12 @@ ResourceBuildable _$ResourceBuildableFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          imageName: $checkedConvert('imageName', (v) => v as String),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
         );
         return val;
       },
@@ -44,6 +50,7 @@ Map<String, dynamic> _$ResourceBuildableToJson(ResourceBuildable instance) =>
       'type': instance.type,
       'category': instance.category,
       'tradable': instance.tradable,
+      'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
       'imageName': instance.imageName,
       'isPrime': instance.isPrime,
       'buildPrice': instance.buildPrice,
@@ -62,6 +69,12 @@ Resource _$ResourceFromJson(Map json) => $checkedCreate(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
@@ -83,5 +96,6 @@ Map<String, dynamic> _$ResourceToJson(Resource instance) => <String, dynamic>{
       'type': instance.type,
       'category': instance.category,
       'tradable': instance.tradable,
+      'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
       'drops': instance.drops?.map((e) => e.toJson()).toList(),
     };

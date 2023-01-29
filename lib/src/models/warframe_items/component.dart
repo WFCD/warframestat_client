@@ -19,7 +19,7 @@ class Component extends DroppableItem {
     required super.tradable,
     required List<Drop> super.drops,
     required this.itemCount,
-  });
+  }) : super(patchlogs: const <Patchlog>[]);
 
   /// Creates [Component] from json map.
   factory Component.fromJson(Map<String, dynamic> json) {

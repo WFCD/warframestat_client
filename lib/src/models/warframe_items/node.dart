@@ -23,6 +23,7 @@ class Node extends Item {
     required this.nodeType,
     required this.systemIndex,
     required this.systemName,
+    required super.patchlogs,
   });
 
   /// Creates a Node from Json map

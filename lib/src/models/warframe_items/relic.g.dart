@@ -26,6 +26,12 @@ Relic _$RelicFromJson(Map json) => $checkedCreate(
           marketInfo: $checkedConvert('marketInfo',
               (v) => MarketInfo.fromJson(Map<String, dynamic>.from(v as Map))),
           vaulted: $checkedConvert('vaulted', (v) => v as bool),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
         );
         return val;
       },
@@ -38,6 +44,7 @@ Map<String, dynamic> _$RelicToJson(Relic instance) => <String, dynamic>{
       'type': instance.type,
       'category': instance.category,
       'tradable': instance.tradable,
+      'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
       'locations': instance.locations.map((e) => e.toJson()).toList(),
       'marketInfo': instance.marketInfo.toJson(),
       'vaulted': instance.vaulted,

@@ -20,6 +20,7 @@ class Relic extends Item {
     required this.locations,
     required this.marketInfo,
     required this.vaulted,
+    required super.patchlogs,
   });
 
   /// Creates a Relic from Json map

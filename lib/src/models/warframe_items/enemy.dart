@@ -15,15 +15,16 @@ class Enemy extends DroppableItem {
     required super.name,
     required super.description,
     required super.imageName,
-    required this.health,
-    required this.shield,
-    required this.armor,
-    required this.regionBits,
+    required super.patchlogs,
     required super.type,
     required super.category,
     required super.tradable,
     required List<Drop> super.drops,
     required this.resistances,
+    required this.health,
+    required this.shield,
+    required this.armor,
+    required this.regionBits,
   });
 
   /// Creates an [Enemy] from a json map.

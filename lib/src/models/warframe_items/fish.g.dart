@@ -17,6 +17,12 @@ Fish _$FishFromJson(Map json) => $checkedCreate(
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
         );
         return val;
       },
@@ -29,4 +35,5 @@ Map<String, dynamic> _$FishToJson(Fish instance) => <String, dynamic>{
       'type': instance.type,
       'category': instance.category,
       'tradable': instance.tradable,
+      'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
     };

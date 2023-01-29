@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/models/warframe_items/item.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'glyph.g.dart';
 
@@ -17,6 +17,7 @@ class Glyph extends Item {
     required super.type,
     required super.category,
     required super.tradable,
+    required super.patchlogs,
   });
 
   /// Create an instance of [Glyph] from a json map.

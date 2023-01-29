@@ -16,6 +16,7 @@ class Fish extends Item {
     required super.type,
     required super.category,
     required super.tradable,
+    required super.patchlogs,
   });
 
   /// Create [Fish] from json map.

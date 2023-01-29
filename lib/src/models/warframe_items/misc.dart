@@ -16,6 +16,7 @@ class Misc extends Item {
     required super.type,
     required super.category,
     required super.tradable,
+    required super.patchlogs,
   });
 
   /// Creates a Misc from Json map

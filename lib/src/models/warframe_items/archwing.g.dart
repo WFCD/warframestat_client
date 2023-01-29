@@ -17,19 +17,39 @@ Archwing _$ArchwingFromJson(Map json) => $checkedCreate(
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           tradable: $checkedConvert('tradable', (v) => v as bool),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
+          imageName: $checkedConvert('imageName', (v) => v as String),
+          masterReq: $checkedConvert('masterReq', (v) => v as int?),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int),
           buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
           buildTime: $checkedConvert('buildTime', (v) => v as int),
           skipBuildTimePrice:
               $checkedConvert('skipBuildTimePrice', (v) => v as int),
           consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
-          imageName: $checkedConvert('imageName', (v) => v as String),
+          components: $checkedConvert(
+              'components',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Component.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          marketCost: $checkedConvert('marketCost', (v) => v as int?),
+          bpCost: $checkedConvert('bpCost', (v) => v as int?),
+          itemCount: $checkedConvert('itemCount', (v) => v as int?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          vaulted: $checkedConvert('vaulted', (v) => v as bool?),
           shield: $checkedConvert('shield', (v) => v as int),
           armor: $checkedConvert('armor', (v) => v as int),
           health: $checkedConvert('health', (v) => v as int),
           stamina: $checkedConvert('stamina', (v) => v as num),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool),
-          vaulted: $checkedConvert('vaulted', (v) => v as bool?),
           power: $checkedConvert('power', (v) => v as int),
           polarities: $checkedConvert('polarities',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
@@ -39,17 +59,6 @@ Archwing _$ArchwingFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       Ability.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
-          components: $checkedConvert(
-              'components',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Component.fromJson(Map<String, dynamic>.from(e as Map)))
-                  .toList()),
-          masterReq: $checkedConvert('masterReq', (v) => v as int?),
-          wikiaThumbnail:
-              $checkedConvert('wikiaThumbnail', (v) => v as String?),
-          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
         );
         return val;
       },
@@ -62,6 +71,7 @@ Map<String, dynamic> _$ArchwingToJson(Archwing instance) => <String, dynamic>{
       'type': instance.type,
       'category': instance.category,
       'tradable': instance.tradable,
+      'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
       'imageName': instance.imageName,
       'releaseDate': instance.releaseDate,
       'wikiaThumbnail': instance.wikiaThumbnail,
@@ -75,6 +85,9 @@ Map<String, dynamic> _$ArchwingToJson(Archwing instance) => <String, dynamic>{
       'skipBuildTimePrice': instance.skipBuildTimePrice,
       'consumeOnBuild': instance.consumeOnBuild,
       'components': instance.components?.map((e) => e.toJson()).toList(),
+      'marketCost': instance.marketCost,
+      'bpCost': instance.bpCost,
+      'itemCount': instance.itemCount,
       'shield': instance.shield,
       'armor': instance.armor,
       'health': instance.health,
