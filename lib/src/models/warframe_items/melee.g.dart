@@ -16,7 +16,7 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
-          tradable: $checkedConvert('tradable', (v) => v as bool),
+          tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           bpCost: $checkedConvert('bpCost', (v) => v as int?),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
           buildQuantity:

@@ -16,7 +16,7 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
           name: $checkedConvert('name', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
-          tradable: $checkedConvert('tradable', (v) => v as bool),
+          tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int),
           buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
@@ -71,7 +71,7 @@ Skin _$SkinFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
-          tradable: $checkedConvert('tradable', (v) => v as bool),
+          tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           imageName: $checkedConvert('imageName', (v) => v as String?),
           patchlogs: $checkedConvert(
               'patchlogs',

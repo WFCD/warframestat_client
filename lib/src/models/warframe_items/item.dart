@@ -12,7 +12,7 @@ abstract class Item extends Equatable {
     required this.description,
     required this.type,
     required this.category,
-    required this.tradable,
+    this.tradable = false,
     required this.patchlogs,
     this.imageName,
     this.releaseDate,

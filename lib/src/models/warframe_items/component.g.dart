@@ -18,7 +18,7 @@ Component _$ComponentFromJson(Map json) => $checkedCreate(
           type: $checkedConvert('type', (v) => v as String? ?? 'unknown'),
           category:
               $checkedConvert('category', (v) => v as String? ?? 'unknown'),
-          tradable: $checkedConvert('tradable', (v) => v as bool),
+          tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           drops: $checkedConvert(
               'drops',
               (v) => (v as List<dynamic>)

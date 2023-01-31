@@ -16,7 +16,7 @@ NecroMech _$NecroMechFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
-          tradable: $checkedConvert('tradable', (v) => v as bool),
+          tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
