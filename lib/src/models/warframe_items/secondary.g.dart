@@ -16,6 +16,8 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
+          productCategory:
+              $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           bpCost: $checkedConvert('bpCost', (v) => v as int?),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
@@ -78,43 +80,55 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$SecondaryToJson(Secondary instance) => <String, dynamic>{
-      'uniqueName': instance.uniqueName,
-      'name': instance.name,
-      'description': instance.description,
-      'type': instance.type,
-      'category': instance.category,
-      'tradable': instance.tradable,
-      'imageName': instance.imageName,
-      'releaseDate': instance.releaseDate,
-      'wikiaThumbnail': instance.wikiaThumbnail,
-      'wikiaUrl': instance.wikiaUrl,
-      'isPrime': instance.isPrime,
-      'vaulted': instance.vaulted,
-      'buildPrice': instance.buildPrice,
-      'buildQuantity': instance.buildQuantity,
-      'buildTime': instance.buildTime,
-      'skipBuildTimePrice': instance.skipBuildTimePrice,
-      'consumeOnBuild': instance.consumeOnBuild,
-      'components': instance.components?.map((e) => e.toJson()).toList(),
-      'bpCost': instance.bpCost,
-      'attacks': instance.attacks?.map((e) => e.toJson()).toList(),
-      'criticalChance': instance.criticalChance,
-      'criticalMultiplier': instance.criticalMultiplier,
-      'damage': instance.damage?.toJson(),
-      'damagePerShot': instance.damagePerShot,
-      'disposition': instance.disposition,
-      'fireRate': instance.fireRate,
-      'omegaAttenuation': instance.omegaAttenuation,
-      'polarities': instance.polarities,
-      'procChance': instance.procChance,
-      'slot': instance.slot,
-      'tags': instance.tags,
-      'totalDamage': instance.totalDamage,
-      'accuracy': instance.accuracy,
-      'magazineSize': instance.magazineSize,
-      'multishot': instance.multishot,
-      'noise': instance.noise,
-      'trigger': instance.trigger,
-      'reloadTime': instance.reloadTime,
-    };
+Map<String, dynamic> _$SecondaryToJson(Secondary instance) {
+  final val = <String, dynamic>{
+    'uniqueName': instance.uniqueName,
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  val['type'] = instance.type;
+  val['category'] = instance.category;
+  writeNotNull('productCategory', instance.productCategory);
+  val['tradable'] = instance.tradable;
+  writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
+  val['isPrime'] = instance.isPrime;
+  writeNotNull('vaulted', instance.vaulted);
+  val['buildPrice'] = instance.buildPrice;
+  val['buildQuantity'] = instance.buildQuantity;
+  val['buildTime'] = instance.buildTime;
+  val['skipBuildTimePrice'] = instance.skipBuildTimePrice;
+  val['consumeOnBuild'] = instance.consumeOnBuild;
+  writeNotNull(
+      'components', instance.components?.map((e) => e.toJson()).toList());
+  writeNotNull('bpCost', instance.bpCost);
+  writeNotNull('attacks', instance.attacks?.map((e) => e.toJson()).toList());
+  val['criticalChance'] = instance.criticalChance;
+  val['criticalMultiplier'] = instance.criticalMultiplier;
+  writeNotNull('damage', instance.damage?.toJson());
+  val['damagePerShot'] = instance.damagePerShot;
+  val['disposition'] = instance.disposition;
+  val['fireRate'] = instance.fireRate;
+  val['omegaAttenuation'] = instance.omegaAttenuation;
+  writeNotNull('polarities', instance.polarities);
+  val['procChance'] = instance.procChance;
+  val['slot'] = instance.slot;
+  writeNotNull('tags', instance.tags);
+  val['totalDamage'] = instance.totalDamage;
+  writeNotNull('accuracy', instance.accuracy);
+  writeNotNull('magazineSize', instance.magazineSize);
+  writeNotNull('multishot', instance.multishot);
+  writeNotNull('noise', instance.noise);
+  writeNotNull('trigger', instance.trigger);
+  writeNotNull('reloadTime', instance.reloadTime);
+  return val;
+}

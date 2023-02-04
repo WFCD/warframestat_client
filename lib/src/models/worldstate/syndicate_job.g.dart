@@ -26,13 +26,22 @@ SyndicateJob _$SyndicateJobFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$SyndicateJobToJson(SyndicateJob instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'rewardPool': instance.rewardPool,
-      'type': instance.type,
-      'enemyLevels': instance.enemyLevels,
-      'standingStages': instance.standingStages,
-      'minMr': instance.minMr,
-      'expiry': instance.expiry.toIso8601String(),
-    };
+Map<String, dynamic> _$SyndicateJobToJson(SyndicateJob instance) {
+  final val = <String, dynamic>{
+    'id': instance.id,
+    'rewardPool': instance.rewardPool,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('type', instance.type);
+  val['enemyLevels'] = instance.enemyLevels;
+  val['standingStages'] = instance.standingStages;
+  writeNotNull('minMr', instance.minMr);
+  val['expiry'] = instance.expiry.toIso8601String();
+  return val;
+}

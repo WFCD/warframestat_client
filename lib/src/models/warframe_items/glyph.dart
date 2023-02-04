@@ -16,6 +16,7 @@ class Glyph extends Item {
     super.imageName,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     required super.patchlogs,
   });

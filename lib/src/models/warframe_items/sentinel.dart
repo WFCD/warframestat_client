@@ -15,6 +15,7 @@ class Sentinel extends BuildableItem {
     required super.description,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     required super.buildPrice,
     required super.buildQuantity,

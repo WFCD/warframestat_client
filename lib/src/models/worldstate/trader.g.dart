@@ -37,14 +37,23 @@ Trader _$TraderFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$TraderToJson(Trader instance) => <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'active': instance.active,
-      'character': instance.character,
-      'location': instance.location,
-      'inventory': instance.inventory.map((e) => e.toJson()).toList(),
-      'initialStart': instance.initialStart.toIso8601String(),
-      'schedule': instance.schedule.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic> _$TraderToJson(Trader instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['active'] = instance.active;
+  val['character'] = instance.character;
+  val['location'] = instance.location;
+  val['inventory'] = instance.inventory.map((e) => e.toJson()).toList();
+  val['initialStart'] = instance.initialStart.toIso8601String();
+  val['schedule'] = instance.schedule.map((e) => e.toJson()).toList();
+  return val;
+}

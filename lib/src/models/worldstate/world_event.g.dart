@@ -94,11 +94,7 @@ WorldEvent _$WorldEventFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'activation': instance.activation?.toIso8601String(),
-    'expiry': instance.expiry?.toIso8601String(),
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -106,16 +102,19 @@ Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) {
     }
   }
 
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
   writeNotNull('previousId', instance.previousId);
   val['startString'] = instance.startString;
   val['active'] = instance.active;
-  val['maximumScore'] = instance.maximumScore;
-  val['currentScore'] = instance.currentScore;
-  val['smallInterval'] = instance.smallInterval;
-  val['largeInterval'] = instance.largeInterval;
+  writeNotNull('maximumScore', instance.maximumScore);
+  writeNotNull('currentScore', instance.currentScore);
+  writeNotNull('smallInterval', instance.smallInterval);
+  writeNotNull('largeInterval', instance.largeInterval);
   writeNotNull('faction', instance.faction);
   val['description'] = instance.description;
-  val['tooltip'] = instance.tooltip;
+  writeNotNull('tooltip', instance.tooltip);
   writeNotNull('node', instance.node);
   val['concurrentNodes'] = instance.concurrentNodes;
   writeNotNull('victimNode', instance.victimNode);
@@ -127,16 +126,17 @@ Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) {
   writeNotNull('jobs', instance.jobs?.map((e) => e.toJson()).toList());
   writeNotNull(
       'previousJobs', instance.previousJobs?.map((e) => e.toJson()).toList());
-  val['interimSteps'] = instance.interimSteps?.map((e) => e.toJson()).toList();
+  writeNotNull(
+      'interimSteps', instance.interimSteps?.map((e) => e.toJson()).toList());
   val['progressSteps'] = instance.progressSteps.map((e) => e.toJson()).toList();
   writeNotNull('progressTotal', instance.progressTotal);
   writeNotNull('showTotalAtEndOfMission', instance.showTotalAtEndOfMission);
   writeNotNull('isPersonal', instance.isPersonal);
   writeNotNull('isCommunity', instance.isCommunity);
-  val['regionDrops'] = instance.regionDrops;
-  val['archwingDrops'] = instance.archwingDrops;
-  val['metadata'] = instance.metadata;
-  val['completionBonuses'] = instance.completionBonuses;
+  writeNotNull('regionDrops', instance.regionDrops);
+  writeNotNull('archwingDrops', instance.archwingDrops);
+  writeNotNull('metadata', instance.metadata);
+  writeNotNull('completionBonuses', instance.completionBonuses);
   writeNotNull('scoreVar', instance.scoreVar);
   val['asString'] = instance.asString;
   val['altExpiry'] = instance.altExpiry.toIso8601String();

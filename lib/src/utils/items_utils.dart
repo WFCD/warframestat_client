@@ -16,17 +16,21 @@ Item toItem(Map<String, dynamic> item) {
   // Only need this to seprate items that share the same category.
   final productCategory = item['productCategory'] as String?;
 
-  if (category == 'Warframes') {
+  if (category == ItemCategories.warframes) {
+    // NecroMechs and Warframes are stored with the same cateogry so we need to
+    // filter by productCateogry here.
     if (productCategory == 'MechSuits') return NecroMech.fromJson(item);
 
     return Warframe.fromJson(item);
   }
 
-  if (category == 'Melee' || category == 'Arch-Melee') {
+  if (category == ItemCategories.melee ||
+      category == ItemCategories.archMelee) {
     return Melee.fromJson(item);
   }
 
-  if (category == 'Primary' || category == 'Arch-Gun') {
+  if (category == ItemCategories.primary ||
+      category == ItemCategories.archGun) {
     return Primary.fromJson(item);
   }
 
@@ -36,44 +40,41 @@ Item toItem(Map<String, dynamic> item) {
         : Resource.fromJson(item);
   }
 
-  if (category == 'Skins') {
+  if (category == ItemCategories.skins) {
     return isBuildable ? SkinBuildable.fromJson(item) : Skin.fromJson(item);
   }
 
-  if (category == 'Gear') {
+  if (category == ItemCategories.gear) {
     return isBuildable ? GearBuildable.fromJson(item) : Gear.fromJson(item);
   }
 
-  if (category == 'Mods') {
+  if (category == ItemCategories.mods) {
+    // Mod sets and mods are two different json structures.
     if (item['type'] as String == 'Mod Set Mod') return ModSet.fromJson(item);
 
     return Mod.fromJson(item);
   }
 
   switch (category) {
-    case 'Arcanes':
+    case ItemCategories.arcanes:
       return Arcane.fromJson(item);
-    case 'Archwing':
+    case ItemCategories.archwing:
       return Archwing.fromJson(item);
-    case 'Fish':
+    case ItemCategories.fish:
       return Fish.fromJson(item);
-    case 'Gear':
-      return Gear.fromJson(item);
-    case 'Glyphs':
+    case ItemCategories.glyphs:
       return Glyph.fromJson(item);
-    case 'Misc':
-      return Misc.fromJson(item);
-    case 'Node':
+    case ItemCategories.node:
       return Node.fromJson(item);
-    case 'Quests':
+    case ItemCategories.quest:
       return Quest.fromJson(item);
-    case 'Relics':
+    case ItemCategories.relics:
       return Relic.fromJson(item);
-    case 'Pet Resource':
+    case ItemCategories.petResource:
       return PetResource.fromJson(item);
-    case 'Sigils':
+    case ItemCategories.sigils:
       return Sigil.fromJson(item);
-    case 'Secondary':
+    case ItemCategories.secondary:
       return Secondary.fromJson(item);
     default:
       return Misc.fromJson(item);

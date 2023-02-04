@@ -25,13 +25,21 @@ ZarimanCycle _$ZarimanCycleFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ZarimanCycleToJson(ZarimanCycle instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'state': instance.state,
-      'timeLeft': instance.timeLeft,
-      'bountiesEndDate': instance.bountiesEndDate.toIso8601String(),
-      'isCorpus': instance.isCorpus,
-    };
+Map<String, dynamic> _$ZarimanCycleToJson(ZarimanCycle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['state'] = instance.state;
+  val['timeLeft'] = instance.timeLeft;
+  val['bountiesEndDate'] = instance.bountiesEndDate.toIso8601String();
+  val['isCorpus'] = instance.isCorpus;
+  return val;
+}

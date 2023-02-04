@@ -18,6 +18,7 @@ class Enemy extends DroppableItem {
     required super.patchlogs,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     required List<Drop> super.drops,
     required this.resistances,

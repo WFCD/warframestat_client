@@ -16,6 +16,8 @@ NecroMech _$NecroMechFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
+          productCategory:
+              $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           patchlogs: $checkedConvert(
               'patchlogs',
@@ -24,7 +26,7 @@ NecroMech _$NecroMechFromJson(Map json) => $checkedCreate(
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String),
-          masterReq: $checkedConvert('masterReq', (v) => v as int?),
+          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int),
           buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
           buildTime: $checkedConvert('buildTime', (v) => v as int),
@@ -64,35 +66,48 @@ NecroMech _$NecroMechFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$NecroMechToJson(NecroMech instance) => <String, dynamic>{
-      'uniqueName': instance.uniqueName,
-      'name': instance.name,
-      'description': instance.description,
-      'type': instance.type,
-      'category': instance.category,
-      'tradable': instance.tradable,
-      'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
-      'imageName': instance.imageName,
-      'releaseDate': instance.releaseDate,
-      'wikiaThumbnail': instance.wikiaThumbnail,
-      'wikiaUrl': instance.wikiaUrl,
-      'isPrime': instance.isPrime,
-      'vaulted': instance.vaulted,
-      'masterReq': instance.masterReq,
-      'buildPrice': instance.buildPrice,
-      'buildQuantity': instance.buildQuantity,
-      'buildTime': instance.buildTime,
-      'skipBuildTimePrice': instance.skipBuildTimePrice,
-      'consumeOnBuild': instance.consumeOnBuild,
-      'components': instance.components?.map((e) => e.toJson()).toList(),
-      'marketCost': instance.marketCost,
-      'bpCost': instance.bpCost,
-      'itemCount': instance.itemCount,
-      'shield': instance.shield,
-      'armor': instance.armor,
-      'health': instance.health,
-      'stamina': instance.stamina,
-      'power': instance.power,
-      'polarities': instance.polarities,
-      'abilities': instance.abilities.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic> _$NecroMechToJson(NecroMech instance) {
+  final val = <String, dynamic>{
+    'uniqueName': instance.uniqueName,
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  val['type'] = instance.type;
+  val['category'] = instance.category;
+  writeNotNull('productCategory', instance.productCategory);
+  val['tradable'] = instance.tradable;
+  writeNotNull(
+      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
+  writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
+  val['isPrime'] = instance.isPrime;
+  writeNotNull('vaulted', instance.vaulted);
+  writeNotNull('masteryReq', instance.masteryReq);
+  val['buildPrice'] = instance.buildPrice;
+  val['buildQuantity'] = instance.buildQuantity;
+  val['buildTime'] = instance.buildTime;
+  val['skipBuildTimePrice'] = instance.skipBuildTimePrice;
+  val['consumeOnBuild'] = instance.consumeOnBuild;
+  writeNotNull(
+      'components', instance.components?.map((e) => e.toJson()).toList());
+  writeNotNull('marketCost', instance.marketCost);
+  writeNotNull('bpCost', instance.bpCost);
+  writeNotNull('itemCount', instance.itemCount);
+  val['shield'] = instance.shield;
+  val['armor'] = instance.armor;
+  val['health'] = instance.health;
+  val['stamina'] = instance.stamina;
+  val['power'] = instance.power;
+  writeNotNull('polarities', instance.polarities);
+  val['abilities'] = instance.abilities.map((e) => e.toJson()).toList();
+  return val;
+}

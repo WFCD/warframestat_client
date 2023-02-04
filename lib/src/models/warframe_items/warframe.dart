@@ -15,10 +15,11 @@ class Warframe extends PowerSuit {
     required super.description,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     required super.patchlogs,
     required super.imageName,
-    required super.masterReq,
+    required super.masteryReq,
     super.buildPrice = 0,
     super.buildQuantity = 1,
     super.buildTime = 0,
@@ -44,6 +45,10 @@ class Warframe extends PowerSuit {
     required this.sex,
     required this.sprintSpeed,
     required this.passiveDescription,
+    required this.color,
+    required this.conclave,
+    required this.introduced,
+    required this.sprint,
   });
 
   /// Creates a Warframe from Json map
@@ -62,6 +67,19 @@ class Warframe extends PowerSuit {
   /// Warframe passive ability.
   final String? passiveDescription;
 
+  /// Warframe color.
+  // @JsonKey(includeIfNull: true)
+  final num color;
+
+  /// I have no idea what this does.
+  final bool conclave;
+
+  /// Information on when the [Warframe] was introduced.
+  final Introduced introduced;
+
+  /// Warframe sprint speed.
+  final num sprint;
+
   /// Creates a Json map from a Warframe
   @override
   Map<String, dynamic> toJson() => _$WarframeToJson(this);
@@ -74,5 +92,9 @@ class Warframe extends PowerSuit {
       sex,
       sprintSpeed,
       passiveDescription,
+      color,
+      conclave,
+      introduced,
+      sprint
     ]);
 }

@@ -31,14 +31,22 @@ SyndicateMission _$SyndicateMissionFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$SyndicateMissionToJson(SyndicateMission instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'active': instance.active,
-      'syndicate': instance.syndicate,
-      'syndicateKey': instance.syndicateKey,
-      'nodes': instance.nodes,
-      'jobs': instance.jobs.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic> _$SyndicateMissionToJson(SyndicateMission instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['active'] = instance.active;
+  val['syndicate'] = instance.syndicate;
+  val['syndicateKey'] = instance.syndicateKey;
+  val['nodes'] = instance.nodes;
+  val['jobs'] = instance.jobs.map((e) => e.toJson()).toList();
+  return val;
+}

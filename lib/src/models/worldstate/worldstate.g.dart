@@ -148,26 +148,6 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   final val = <String, dynamic>{
     'timestamp': instance.timestamp.toIso8601String(),
     'alerts': instance.alerts.map((e) => e.toJson()).toList(),
-    'arbitration': instance.arbitration?.toJson(),
-    'weeklyChallenges':
-        instance.weeklyChallenges.map((e) => e.toJson()).toList(),
-    'archonHunt': instance.archonHunt.toJson(),
-    'cambionCycle': instance.cambionCycle.toJson(),
-    'syndicateMissions':
-        instance.syndicateMissions.map((e) => e.toJson()).toList(),
-    'cetusCycle': instance.cetusCycle.toJson(),
-    'conclaveChallenges':
-        instance.conclaveChallenges.map((e) => e.toJson()).toList(),
-    'constructionProgress': instance.constructionProgress.toJson(),
-    'dailyDeals': instance.dailyDeals.map((e) => e.toJson()).toList(),
-    'earthCycle': instance.earthCycle.toJson(),
-    'events': instance.events.map((e) => e.toJson()).toList(),
-    'fissures': instance.fissures.map((e) => e.toJson()).toList(),
-    'flashSales': instance.flashSales.map((e) => e.toJson()).toList(),
-    'globalUpgrades': instance.globalUpgrades.map((e) => e.toJson()).toList(),
-    'invasions': instance.invasions.map((e) => e.toJson()).toList(),
-    'kuva': instance.kuva.map((e) => e.toJson()).toList(),
-    'news': instance.news.map((e) => e.toJson()).toList(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -176,6 +156,27 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
     }
   }
 
+  writeNotNull('arbitration', instance.arbitration?.toJson());
+  val['weeklyChallenges'] =
+      instance.weeklyChallenges.map((e) => e.toJson()).toList();
+  val['archonHunt'] = instance.archonHunt.toJson();
+  val['cambionCycle'] = instance.cambionCycle.toJson();
+  val['syndicateMissions'] =
+      instance.syndicateMissions.map((e) => e.toJson()).toList();
+  val['cetusCycle'] = instance.cetusCycle.toJson();
+  val['conclaveChallenges'] =
+      instance.conclaveChallenges.map((e) => e.toJson()).toList();
+  val['constructionProgress'] = instance.constructionProgress.toJson();
+  val['dailyDeals'] = instance.dailyDeals.map((e) => e.toJson()).toList();
+  val['earthCycle'] = instance.earthCycle.toJson();
+  val['events'] = instance.events.map((e) => e.toJson()).toList();
+  val['fissures'] = instance.fissures.map((e) => e.toJson()).toList();
+  val['flashSales'] = instance.flashSales.map((e) => e.toJson()).toList();
+  val['globalUpgrades'] =
+      instance.globalUpgrades.map((e) => e.toJson()).toList();
+  val['invasions'] = instance.invasions.map((e) => e.toJson()).toList();
+  val['kuva'] = instance.kuva.map((e) => e.toJson()).toList();
+  val['news'] = instance.news.map((e) => e.toJson()).toList();
   writeNotNull('nightwave', instance.nightwave?.toJson());
   val['persistentEnemies'] =
       instance.persistentEnemies.map((e) => e.toJson()).toList();
@@ -183,7 +184,7 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   val['vallisCycle'] = instance.vallisCycle.toJson();
   val['voidTrader'] = instance.voidTrader.toJson();
   val['vaultTrader'] = instance.vaultTrader.toJson();
-  val['sentientOutposts'] = instance.sentientOutposts?.toJson();
+  writeNotNull('sentientOutposts', instance.sentientOutposts?.toJson());
   val['simaris'] = instance.simaris.toJson();
   val['steelPath'] = instance.steelPath.toJson();
   val['zarimanCycle'] = instance.zarimanCycle.toJson();

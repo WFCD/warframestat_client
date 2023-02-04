@@ -40,21 +40,30 @@ Nightwave _$NightwaveFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$NightwaveToJson(Nightwave instance) => <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'active': instance.active,
-      'params': instance.params,
-      'rewardTypes': instance.rewardTypes,
-      'season': instance.season,
-      'ta': instance.ta,
-      'phase': instance.phase,
-      'possibleChallenges':
-          instance.possibleChallenges.map((e) => e.toJson()).toList(),
-      'activeChallenges':
-          instance.activeChallenges.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic> _$NightwaveToJson(Nightwave instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['active'] = instance.active;
+  val['params'] = instance.params;
+  val['rewardTypes'] = instance.rewardTypes;
+  val['season'] = instance.season;
+  writeNotNull('ta', instance.ta);
+  val['phase'] = instance.phase;
+  val['possibleChallenges'] =
+      instance.possibleChallenges.map((e) => e.toJson()).toList();
+  val['activeChallenges'] =
+      instance.activeChallenges.map((e) => e.toJson()).toList();
+  return val;
+}
 
 Challenge _$ChallengeFromJson(Map json) => $checkedCreate(
       'Challenge',
@@ -76,14 +85,23 @@ Challenge _$ChallengeFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ChallengeToJson(Challenge instance) => <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'title': instance.title,
-      'desc': instance.desc,
-      'reputation': instance.reputation,
-      'active': instance.active,
-      'isDaily': instance.isDaily,
-      'isElite': instance.isElite,
-    };
+Map<String, dynamic> _$ChallengeToJson(Challenge instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['title'] = instance.title;
+  val['desc'] = instance.desc;
+  val['reputation'] = instance.reputation;
+  val['active'] = instance.active;
+  val['isDaily'] = instance.isDaily;
+  val['isElite'] = instance.isElite;
+  return val;
+}

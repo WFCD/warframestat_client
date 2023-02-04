@@ -52,7 +52,6 @@ Mission _$MissionFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$MissionToJson(Mission instance) {
   final val = <String, dynamic>{
     'node': instance.node,
-    'nodeKey': instance.nodeKey,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -61,6 +60,7 @@ Map<String, dynamic> _$MissionToJson(Mission instance) {
     }
   }
 
+  writeNotNull('nodeKey', instance.nodeKey);
   writeNotNull('faction', instance.faction);
   writeNotNull('factionKey', instance.factionKey);
   writeNotNull('reward', instance.reward?.toJson());
@@ -68,18 +68,18 @@ Map<String, dynamic> _$MissionToJson(Mission instance) {
   writeNotNull('minEnemyLevel', instance.minEnemyLevel);
   writeNotNull('maxWaveNum', instance.maxWaveNum);
   val['type'] = instance.type;
-  val['typeKey'] = instance.typeKey;
-  val['nightmare'] = instance.nightmare;
-  val['archwingRequired'] = instance.archwingRequired;
-  val['isSharkwing'] = instance.isSharkwing;
+  writeNotNull('typeKey', instance.typeKey);
+  writeNotNull('nightmare', instance.nightmare);
+  writeNotNull('archwingRequired', instance.archwingRequired);
+  writeNotNull('isSharkwing', instance.isSharkwing);
   writeNotNull('enemySpec', instance.enemySpec);
   writeNotNull('levelOverride', instance.levelOverride);
-  val['advancedSpawners'] = instance.advancedSpawners;
-  val['requiredItems'] = instance.requiredItems;
+  writeNotNull('advancedSpawners', instance.advancedSpawners);
+  writeNotNull('requiredItems', instance.requiredItems);
   writeNotNull('consumeRequiredItems', instance.consumeRequiredItems);
   writeNotNull('leadersAlwwaysAllowed', instance.leadersAlwwaysAllowed);
-  val['levelAuras'] = instance.levelAuras;
+  writeNotNull('levelAuras', instance.levelAuras);
   writeNotNull('description', instance.description);
-  val['exclusiveWeapon'] = instance.exclusiveWeapon;
+  writeNotNull('exclusiveWeapon', instance.exclusiveWeapon);
   return val;
 }

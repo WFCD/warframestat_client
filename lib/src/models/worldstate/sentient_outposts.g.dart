@@ -23,11 +23,19 @@ SentientOutpost _$SentientOutpostFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$SentientOutpostToJson(SentientOutpost instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'mission': instance.mission.toJson(),
-      'active': instance.active,
-    };
+Map<String, dynamic> _$SentientOutpostToJson(SentientOutpost instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['mission'] = instance.mission.toJson();
+  val['active'] = instance.active;
+  return val;
+}

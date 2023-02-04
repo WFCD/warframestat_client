@@ -9,6 +9,7 @@ export 'fish.dart';
 export 'gear.dart';
 export 'glyph.dart';
 export 'gun.dart';
+export 'introduced.dart';
 export 'item.dart';
 export 'level_stat.dart';
 export 'market_info.dart';

@@ -16,6 +16,7 @@ class ResourceBuildable extends BuildableItem {
     required super.imageName,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     super.isPrime = false,
     required super.buildPrice,
@@ -49,6 +50,7 @@ class Resource extends DroppableItem {
     required super.patchlogs,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     required super.drops,
   });

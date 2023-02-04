@@ -14,6 +14,7 @@ abstract class Gun extends Weapon {
     required super.description,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     super.bpCost,
     required super.buildPrice,

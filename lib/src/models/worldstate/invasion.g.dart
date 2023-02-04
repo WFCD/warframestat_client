@@ -46,26 +46,35 @@ Invasion _$InvasionFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$InvasionToJson(Invasion instance) => <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'attacker': instance.attacker.toJson(),
-      'attackerReward': instance.attackerReward.toJson(),
-      'attackingFaction': instance.attackingFaction,
-      'completed': instance.completed,
-      'completion': instance.completion,
-      'count': instance.count,
-      'defender': instance.defender.toJson(),
-      'defenderReward': instance.defenderReward.toJson(),
-      'defendingFaction': instance.defendingFaction,
-      'desc': instance.desc,
-      'node': instance.node,
-      'nodeKey': instance.nodeKey,
-      'requiredRuns': instance.requiredRuns,
-      'rewardTypes': instance.rewardTypes,
-      'vsInfestation': instance.vsInfestation,
-      'eta': instance.eta,
-    };
+Map<String, dynamic> _$InvasionToJson(Invasion instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  val['attacker'] = instance.attacker.toJson();
+  val['attackerReward'] = instance.attackerReward.toJson();
+  val['attackingFaction'] = instance.attackingFaction;
+  val['completed'] = instance.completed;
+  val['completion'] = instance.completion;
+  val['count'] = instance.count;
+  val['defender'] = instance.defender.toJson();
+  val['defenderReward'] = instance.defenderReward.toJson();
+  val['defendingFaction'] = instance.defendingFaction;
+  val['desc'] = instance.desc;
+  val['node'] = instance.node;
+  val['nodeKey'] = instance.nodeKey;
+  val['requiredRuns'] = instance.requiredRuns;
+  val['rewardTypes'] = instance.rewardTypes;
+  val['vsInfestation'] = instance.vsInfestation;
+  val['eta'] = instance.eta;
+  return val;
+}
 
 InvasionFaction _$InvasionFactionFromJson(Map json) => $checkedCreate(
       'InvasionFaction',

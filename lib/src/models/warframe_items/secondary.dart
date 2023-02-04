@@ -15,6 +15,7 @@ class Secondary extends Gun {
     required super.description,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     super.bpCost,
     super.buildPrice = 0,

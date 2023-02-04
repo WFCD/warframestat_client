@@ -28,16 +28,25 @@ Kuva _$KuvaFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$KuvaToJson(Kuva instance) => <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'active': instance.active,
-      'node': instance.node,
-      'enemy': instance.enemy,
-      'enemyKey': instance.enemyKey,
-      'type': instance.type,
-      'typeKey': instance.typeKey,
-      'archwing': instance.archwing,
-      'sharkwing': instance.sharkwing,
-    };
+Map<String, dynamic> _$KuvaToJson(Kuva instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['active'] = instance.active;
+  val['node'] = instance.node;
+  val['enemy'] = instance.enemy;
+  val['enemyKey'] = instance.enemyKey;
+  val['type'] = instance.type;
+  val['typeKey'] = instance.typeKey;
+  val['archwing'] = instance.archwing;
+  val['sharkwing'] = instance.sharkwing;
+  return val;
+}

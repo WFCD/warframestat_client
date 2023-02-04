@@ -27,16 +27,24 @@ ConclaveChallenge _$ConclaveChallengeFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ConclaveChallengeToJson(ConclaveChallenge instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'mode': instance.mode,
-      'amount': instance.amount,
-      'expired': instance.expired,
-      'daily': instance.daily,
-      'description': instance.description,
-      'category': instance.category,
-      'rootChallenge': instance.rootChallenge,
-    };
+Map<String, dynamic> _$ConclaveChallengeToJson(ConclaveChallenge instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['mode'] = instance.mode;
+  val['amount'] = instance.amount;
+  val['expired'] = instance.expired;
+  val['daily'] = instance.daily;
+  val['description'] = instance.description;
+  val['category'] = instance.category;
+  val['rootChallenge'] = instance.rootChallenge;
+  return val;
+}

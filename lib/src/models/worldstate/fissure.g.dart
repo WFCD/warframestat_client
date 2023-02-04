@@ -31,19 +31,28 @@ Fissure _$FissureFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$FissureToJson(Fissure instance) => <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'active': instance.active,
-      'node': instance.node,
-      'expired': instance.expired,
-      'missionType': instance.missionType,
-      'missionKey': instance.missionKey,
-      'tier': instance.tier,
-      'tierNum': instance.tierNum,
-      'enemy': instance.enemy,
-      'enemyKey': instance.enemyKey,
-      'isStorm': instance.isStorm,
-      'isHard': instance.isHard,
-    };
+Map<String, dynamic> _$FissureToJson(Fissure instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['active'] = instance.active;
+  val['node'] = instance.node;
+  val['expired'] = instance.expired;
+  val['missionType'] = instance.missionType;
+  val['missionKey'] = instance.missionKey;
+  val['tier'] = instance.tier;
+  val['tierNum'] = instance.tierNum;
+  val['enemy'] = instance.enemy;
+  val['enemyKey'] = instance.enemyKey;
+  val['isStorm'] = instance.isStorm;
+  val['isHard'] = instance.isHard;
+  return val;
+}

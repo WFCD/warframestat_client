@@ -18,8 +18,17 @@ TraderSchedule _$TraderScheduleFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$TraderScheduleToJson(TraderSchedule instance) =>
-    <String, dynamic>{
-      'expiry': instance.expiry.toIso8601String(),
-      'item': instance.item,
-    };
+Map<String, dynamic> _$TraderScheduleToJson(TraderSchedule instance) {
+  final val = <String, dynamic>{
+    'expiry': instance.expiry.toIso8601String(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('item', instance.item);
+  return val;
+}

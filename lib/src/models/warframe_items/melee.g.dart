@@ -16,6 +16,8 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
+          productCategory:
+              $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           bpCost: $checkedConvert('bpCost', (v) => v as int?),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
@@ -26,7 +28,7 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
               $checkedConvert('skipBuildTimePrice', (v) => v as int? ?? 0),
           consumeOnBuild:
               $checkedConvert('consumeOnBuild', (v) => v as bool? ?? true),
-          masterReq: $checkedConvert('masterReq', (v) => v as int?),
+          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
           components: $checkedConvert(
               'components',
               (v) => (v as List<dynamic>?)
@@ -90,53 +92,65 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$MeleeToJson(Melee instance) => <String, dynamic>{
-      'uniqueName': instance.uniqueName,
-      'name': instance.name,
-      'description': instance.description,
-      'type': instance.type,
-      'category': instance.category,
-      'tradable': instance.tradable,
-      'imageName': instance.imageName,
-      'releaseDate': instance.releaseDate,
-      'wikiaThumbnail': instance.wikiaThumbnail,
-      'wikiaUrl': instance.wikiaUrl,
-      'isPrime': instance.isPrime,
-      'vaulted': instance.vaulted,
-      'masterReq': instance.masterReq,
-      'buildPrice': instance.buildPrice,
-      'buildQuantity': instance.buildQuantity,
-      'buildTime': instance.buildTime,
-      'skipBuildTimePrice': instance.skipBuildTimePrice,
-      'consumeOnBuild': instance.consumeOnBuild,
-      'components': instance.components?.map((e) => e.toJson()).toList(),
-      'bpCost': instance.bpCost,
-      'attacks': instance.attacks?.map((e) => e.toJson()).toList(),
-      'criticalChance': instance.criticalChance,
-      'criticalMultiplier': instance.criticalMultiplier,
-      'damage': instance.damage?.toJson(),
-      'damagePerShot': instance.damagePerShot,
-      'disposition': instance.disposition,
-      'fireRate': instance.fireRate,
-      'omegaAttenuation': instance.omegaAttenuation,
-      'polarities': instance.polarities,
-      'procChance': instance.procChance,
-      'slot': instance.slot,
-      'tags': instance.tags,
-      'totalDamage': instance.totalDamage,
-      'followThrough': instance.followThrough,
-      'stancePolarity': instance.stancePolarity,
-      'heavyAttackDamage': instance.heavyAttackDamage,
-      'heavySlamAttack': instance.heavySlamAttack,
-      'heavySlamRadialDamage': instance.heavySlamRadialDamage,
-      'heavySlamRadius': instance.heavySlamRadius,
-      'slamAttack': instance.slamAttack,
-      'slamRadialDamage': instance.slamRadialDamage,
-      'slamRadius': instance.slamRadius,
-      'slideAttack': instance.slideAttack,
-      'windUp': instance.windUp,
-      'range': instance.range,
-    };
+Map<String, dynamic> _$MeleeToJson(Melee instance) {
+  final val = <String, dynamic>{
+    'uniqueName': instance.uniqueName,
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  val['type'] = instance.type;
+  val['category'] = instance.category;
+  writeNotNull('productCategory', instance.productCategory);
+  val['tradable'] = instance.tradable;
+  writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
+  val['isPrime'] = instance.isPrime;
+  writeNotNull('vaulted', instance.vaulted);
+  writeNotNull('masteryReq', instance.masteryReq);
+  val['buildPrice'] = instance.buildPrice;
+  val['buildQuantity'] = instance.buildQuantity;
+  val['buildTime'] = instance.buildTime;
+  val['skipBuildTimePrice'] = instance.skipBuildTimePrice;
+  val['consumeOnBuild'] = instance.consumeOnBuild;
+  writeNotNull(
+      'components', instance.components?.map((e) => e.toJson()).toList());
+  writeNotNull('bpCost', instance.bpCost);
+  writeNotNull('attacks', instance.attacks?.map((e) => e.toJson()).toList());
+  val['criticalChance'] = instance.criticalChance;
+  val['criticalMultiplier'] = instance.criticalMultiplier;
+  writeNotNull('damage', instance.damage?.toJson());
+  val['damagePerShot'] = instance.damagePerShot;
+  val['disposition'] = instance.disposition;
+  val['fireRate'] = instance.fireRate;
+  val['omegaAttenuation'] = instance.omegaAttenuation;
+  writeNotNull('polarities', instance.polarities);
+  val['procChance'] = instance.procChance;
+  val['slot'] = instance.slot;
+  writeNotNull('tags', instance.tags);
+  val['totalDamage'] = instance.totalDamage;
+  writeNotNull('followThrough', instance.followThrough);
+  writeNotNull('stancePolarity', instance.stancePolarity);
+  writeNotNull('heavyAttackDamage', instance.heavyAttackDamage);
+  writeNotNull('heavySlamAttack', instance.heavySlamAttack);
+  writeNotNull('heavySlamRadialDamage', instance.heavySlamRadialDamage);
+  writeNotNull('heavySlamRadius', instance.heavySlamRadius);
+  writeNotNull('slamAttack', instance.slamAttack);
+  writeNotNull('slamRadialDamage', instance.slamRadialDamage);
+  writeNotNull('slamRadius', instance.slamRadius);
+  writeNotNull('slideAttack', instance.slideAttack);
+  writeNotNull('windUp', instance.windUp);
+  writeNotNull('range', instance.range);
+  return val;
+}
 
 MeleeAttack _$MeleeAttackFromJson(Map json) => $checkedCreate(
       'MeleeAttack',
@@ -166,17 +180,26 @@ MeleeAttack _$MeleeAttackFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$MeleeAttackToJson(MeleeAttack instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'speed': instance.speed,
-      'crit_chance': instance.critChance,
-      'crit_mult': instance.critMult,
-      'status_chance': instance.statusChance,
-      'damage': instance.damage.toJson(),
-      'slide': instance.slide,
-      'slam': instance.slam?.toJson(),
-    };
+Map<String, dynamic> _$MeleeAttackToJson(MeleeAttack instance) {
+  final val = <String, dynamic>{
+    'name': instance.name,
+    'speed': instance.speed,
+    'crit_chance': instance.critChance,
+    'crit_mult': instance.critMult,
+    'status_chance': instance.statusChance,
+    'damage': instance.damage.toJson(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('slide', instance.slide);
+  writeNotNull('slam', instance.slam?.toJson());
+  return val;
+}
 
 Slam _$SlamFromJson(Map json) => $checkedCreate(
       'Slam',
@@ -209,8 +232,18 @@ Radial _$RadialFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$RadialToJson(Radial instance) => <String, dynamic>{
-      'damage': instance.damage,
-      'element': instance.element,
-      'radius': instance.radius,
-    };
+Map<String, dynamic> _$RadialToJson(Radial instance) {
+  final val = <String, dynamic>{
+    'damage': instance.damage,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('element', instance.element);
+  val['radius'] = instance.radius;
+  return val;
+}

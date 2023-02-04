@@ -12,8 +12,7 @@ Patchlog _$PatchlogFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = Patchlog(
           name: $checkedConvert('name', (v) => v as String),
-          imgUrl: $checkedConvert('imgUrl',
-              (v) => v as String? ?? 'https://i.imgur.com/CNrsc7V.png'),
+          imgUrl: $checkedConvert('imgUrl', (v) => v as String?),
           date: $checkedConvert('date', (v) => DateTime.parse(v as String)),
           url: $checkedConvert('url', (v) => v as String),
           additions: $checkedConvert('additions', (v) => v as String),
@@ -24,12 +23,22 @@ Patchlog _$PatchlogFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$PatchlogToJson(Patchlog instance) => <String, dynamic>{
-      'name': instance.name,
-      'imgUrl': instance.imgUrl,
-      'date': instance.date.toIso8601String(),
-      'url': instance.url,
-      'additions': instance.additions,
-      'changes': instance.changes,
-      'fixes': instance.fixes,
-    };
+Map<String, dynamic> _$PatchlogToJson(Patchlog instance) {
+  final val = <String, dynamic>{
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('imgUrl', instance.imgUrl);
+  val['date'] = instance.date.toIso8601String();
+  val['url'] = instance.url;
+  val['additions'] = instance.additions;
+  val['changes'] = instance.changes;
+  val['fixes'] = instance.fixes;
+  return val;
+}

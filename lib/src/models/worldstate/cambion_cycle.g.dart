@@ -22,11 +22,19 @@ CambionCycle _$CambionCycleFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$CambionCycleToJson(CambionCycle instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'timeLeft': instance.timeLeft,
-      'active': instance.active,
-    };
+Map<String, dynamic> _$CambionCycleToJson(CambionCycle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['timeLeft'] = instance.timeLeft;
+  val['active'] = instance.active;
+  return val;
+}

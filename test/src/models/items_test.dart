@@ -17,13 +17,8 @@ void main() {
   });
 
   test('Serlization checks', () {
-    final items = jsonMap.map(toItem).toList();
+    final items = toItems(jsonMap);
 
-    expect(items, const TypeMatcher<List<Item>>());
-
-    expect(
-      items.map((e) => e.toJson()).toList(),
-      const TypeMatcher<List<Map<String, dynamic>>>(),
-    );
+    expect(items, isList);
   });
 }

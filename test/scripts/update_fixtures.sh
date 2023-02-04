@@ -13,7 +13,7 @@ wget https://github.com/WFCD/warframe-items/raw/master/data/json/All.json -O ./t
 worldstate_paths=("alerts" "news" "events" "sortie" "syndicateMissions" "fissures" "globalUpgrades" 
     "flashSales" "invasions" "voidTrader" "dailyDeals" "simaris" "conclaveChallenges" 
     "persistentEnemies" "earthCycle" "cetusCycle" "cambionCycle" "weeklyChallenges" "vallisCycle" 
-    "nightwave" "kuva" "arbitration" "sentientOutpostes" "steelPath" "vaultTrader" "archonHunt" "constructionProgress") 
+    "nightwave" "kuva" "arbitration" "sentientOutposts" "steelPath" "vaultTrader" "archonHunt" "constructionProgress") 
 
 for path in ${worldstate_paths[@]}
 do

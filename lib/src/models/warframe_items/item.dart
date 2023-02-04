@@ -12,6 +12,7 @@ abstract class Item extends Equatable {
     required this.description,
     required this.type,
     required this.category,
+    required this.productCategory,
     this.tradable = false,
     required this.patchlogs,
     this.imageName,
@@ -38,6 +39,9 @@ abstract class Item extends Equatable {
 
   /// Item category.
   final String category;
+
+  /// Item product category.
+  final String? productCategory;
 
   /// Whether this item is tradable or not.
   final bool tradable;
@@ -69,6 +73,7 @@ abstract class Item extends Equatable {
         description,
         type,
         category,
+        productCategory,
         tradable,
         patchlogs,
         imageName,
@@ -90,6 +95,7 @@ abstract class EquipableItem extends Item {
     required super.description,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     required this.isPrime,
     this.vaulted,
@@ -122,6 +128,7 @@ abstract class DroppableItem extends Item {
     required super.description,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     required super.patchlogs,
     super.imageName,
@@ -159,12 +166,13 @@ abstract class BuildableItem extends EquipableItem {
     required super.description,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     required super.isPrime,
     super.vaulted,
     required super.patchlogs,
     required String super.imageName,
-    this.masterReq,
+    this.masteryReq,
     required this.buildPrice,
     required this.buildQuantity,
     required this.buildTime,
@@ -180,7 +188,7 @@ abstract class BuildableItem extends EquipableItem {
   });
 
   /// Mastery requirement needed to build item.
-  final int? masterReq;
+  final int? masteryReq;
 
   /// The credit price to start building.
   final int buildPrice;
@@ -213,7 +221,7 @@ abstract class BuildableItem extends EquipableItem {
   List<Object?> get props {
     return super.props
       ..addAll([
-        masterReq,
+        masteryReq,
         buildPrice,
         buildQuantity,
         buildTime,

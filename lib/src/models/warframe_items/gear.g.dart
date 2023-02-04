@@ -16,6 +16,8 @@ Gear _$GearFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
+          productCategory:
+              $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           patchlogs: $checkedConvert(
               'patchlogs',
@@ -29,16 +31,28 @@ Gear _$GearFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$GearToJson(Gear instance) => <String, dynamic>{
-      'uniqueName': instance.uniqueName,
-      'name': instance.name,
-      'description': instance.description,
-      'type': instance.type,
-      'category': instance.category,
-      'tradable': instance.tradable,
-      'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
-      'imageName': instance.imageName,
-    };
+Map<String, dynamic> _$GearToJson(Gear instance) {
+  final val = <String, dynamic>{
+    'uniqueName': instance.uniqueName,
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  val['type'] = instance.type;
+  val['category'] = instance.category;
+  writeNotNull('productCategory', instance.productCategory);
+  val['tradable'] = instance.tradable;
+  writeNotNull(
+      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
+  writeNotNull('imageName', instance.imageName);
+  return val;
+}
 
 GearBuildable _$GearBuildableFromJson(Map json) => $checkedCreate(
       'GearBuildable',
@@ -50,6 +64,8 @@ GearBuildable _$GearBuildableFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
+          productCategory:
+              $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           patchlogs: $checkedConvert(
@@ -76,21 +92,33 @@ GearBuildable _$GearBuildableFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$GearBuildableToJson(GearBuildable instance) =>
-    <String, dynamic>{
-      'uniqueName': instance.uniqueName,
-      'name': instance.name,
-      'description': instance.description,
-      'type': instance.type,
-      'category': instance.category,
-      'tradable': instance.tradable,
-      'patchlogs': instance.patchlogs?.map((e) => e.toJson()).toList(),
-      'imageName': instance.imageName,
-      'isPrime': instance.isPrime,
-      'buildPrice': instance.buildPrice,
-      'buildQuantity': instance.buildQuantity,
-      'buildTime': instance.buildTime,
-      'skipBuildTimePrice': instance.skipBuildTimePrice,
-      'consumeOnBuild': instance.consumeOnBuild,
-      'components': instance.components?.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic> _$GearBuildableToJson(GearBuildable instance) {
+  final val = <String, dynamic>{
+    'uniqueName': instance.uniqueName,
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  val['type'] = instance.type;
+  val['category'] = instance.category;
+  writeNotNull('productCategory', instance.productCategory);
+  val['tradable'] = instance.tradable;
+  writeNotNull(
+      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
+  writeNotNull('imageName', instance.imageName);
+  val['isPrime'] = instance.isPrime;
+  val['buildPrice'] = instance.buildPrice;
+  val['buildQuantity'] = instance.buildQuantity;
+  val['buildTime'] = instance.buildTime;
+  val['skipBuildTimePrice'] = instance.skipBuildTimePrice;
+  val['consumeOnBuild'] = instance.consumeOnBuild;
+  writeNotNull(
+      'components', instance.components?.map((e) => e.toJson()).toList());
+  return val;
+}

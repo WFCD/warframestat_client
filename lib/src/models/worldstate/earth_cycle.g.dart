@@ -23,12 +23,20 @@ EarthCycle _$EarthCycleFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$EarthCycleToJson(EarthCycle instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'activation': instance.activation?.toIso8601String(),
-      'expiry': instance.expiry?.toIso8601String(),
-      'state': instance.state,
-      'timeLeft': instance.timeLeft,
-      'isDay': instance.isDay,
-    };
+Map<String, dynamic> _$EarthCycleToJson(EarthCycle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['state'] = instance.state;
+  val['timeLeft'] = instance.timeLeft;
+  val['isDay'] = instance.isDay;
+  return val;
+}

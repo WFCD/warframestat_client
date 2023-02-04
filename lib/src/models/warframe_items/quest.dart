@@ -15,6 +15,7 @@ class Quest extends Item {
     required super.description,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     required super.excludeFromCodex,
     required super.patchlogs,

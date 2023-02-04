@@ -41,18 +41,7 @@ Sortie _$SortieFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$SortieToJson(Sortie instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'activation': instance.activation?.toIso8601String(),
-    'expiry': instance.expiry?.toIso8601String(),
-    'startString': instance.startString,
-    'active': instance.active,
-    'rewardPool': instance.rewardPool,
-    'variants': instance.variants.map((e) => e.toJson()).toList(),
-    'missions': instance.missions.map((e) => e.toJson()).toList(),
-    'boss': instance.boss,
-    'faction': instance.faction,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -60,6 +49,16 @@ Map<String, dynamic> _$SortieToJson(Sortie instance) {
     }
   }
 
+  writeNotNull('id', instance.id);
+  writeNotNull('activation', instance.activation?.toIso8601String());
+  writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['startString'] = instance.startString;
+  val['active'] = instance.active;
+  val['rewardPool'] = instance.rewardPool;
+  val['variants'] = instance.variants.map((e) => e.toJson()).toList();
+  val['missions'] = instance.missions.map((e) => e.toJson()).toList();
+  val['boss'] = instance.boss;
+  val['faction'] = instance.faction;
   writeNotNull('factionKey', instance.factionKey);
   val['expired'] = instance.expired;
   val['eta'] = instance.eta;

@@ -19,9 +19,18 @@ TraderItem _$TraderItemFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$TraderItemToJson(TraderItem instance) =>
-    <String, dynamic>{
-      'item': instance.item,
-      'ducats': instance.ducats,
-      'credits': instance.credits,
-    };
+Map<String, dynamic> _$TraderItemToJson(TraderItem instance) {
+  final val = <String, dynamic>{
+    'item': instance.item,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ducats', instance.ducats);
+  writeNotNull('credits', instance.credits);
+  return val;
+}

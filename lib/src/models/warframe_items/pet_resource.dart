@@ -16,6 +16,7 @@ class PetResource extends BuildableItem {
     required super.imageName,
     required super.type,
     required super.category,
+    required super.productCategory,
     required super.tradable,
     super.isPrime = false,
     required super.buildPrice,
