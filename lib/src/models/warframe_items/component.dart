@@ -14,7 +14,7 @@ class Component extends DroppableItem {
     required super.name,
     required super.description,
     required super.tradable,
-    required List<Drop> super.drops,
+    required super.drops,
     required this.itemCount,
     super.imageName,
   }) : super(

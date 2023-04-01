@@ -17,8 +17,8 @@ Component _$ComponentFromJson(Map json) => $checkedCreate(
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           drops: $checkedConvert(
               'drops',
-              (v) => (v as List<dynamic>)
-                  .map(
+              (v) => (v as List<dynamic>?)
+                  ?.map(
                       (e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           itemCount: $checkedConvert('itemCount', (v) => v as int),
