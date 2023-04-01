@@ -38,7 +38,7 @@ class Arbitration extends WorldstateObject {
   /// The faction the player will be facing.
   ///
   /// This will be in locale that the worldstate was recived in.
-  final String enemy;
+  final String? enemy;
 
   /// Arbitration mission type (localized).
   final String type;
@@ -47,10 +47,10 @@ class Arbitration extends WorldstateObject {
   final String typeKey;
 
   /// Arbitration requires an archwing.
-  final bool archwing;
+  final bool? archwing;
 
   /// Arbitration requires an archwing for swimming.
-  final bool sharkwing;
+  final bool? sharkwing;
 
   /// Whether the object is expired at the time of creation.
   final bool expired;
