@@ -17,7 +17,6 @@ class SkinBuildable extends BuildableItem {
     required super.category,
     required super.productCategory,
     required super.tradable,
-    super.isPrime = false,
     required super.buildPrice,
     required super.buildQuantity,
     required super.buildTime,
@@ -25,6 +24,7 @@ class SkinBuildable extends BuildableItem {
     required super.consumeOnBuild,
     required super.components,
     required super.imageName,
+    super.isPrime = false,
     super.patchlogs,
   });
 

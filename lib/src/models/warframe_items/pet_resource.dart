@@ -18,13 +18,13 @@ class PetResource extends BuildableItem {
     required super.category,
     required super.productCategory,
     required super.tradable,
-    super.isPrime = false,
     required super.buildPrice,
     required super.buildQuantity,
     required super.buildTime,
     required super.skipBuildTimePrice,
     required super.consumeOnBuild,
     required super.patchlogs,
+    super.isPrime = false,
   });
 
   /// Creates [PetResource] from a json map.

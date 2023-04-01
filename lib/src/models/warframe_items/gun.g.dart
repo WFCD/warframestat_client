@@ -12,7 +12,6 @@ GunAttack _$GunAttackFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = GunAttack(
           name: $checkedConvert('name', (v) => v as String),
-          speed: $checkedConvert('speed', (v) => v as num? ?? 0),
           critChance: $checkedConvert('crit_chance', (v) => v as num),
           critMult: $checkedConvert('crit_mult', (v) => v as num),
           statusChance: $checkedConvert('status_chance', (v) => v as num),
@@ -21,6 +20,7 @@ GunAttack _$GunAttackFromJson(Map json) => $checkedCreate(
           shotType: $checkedConvert('shot_type', (v) => v as String?),
           shotSpeed: $checkedConvert('shot_speed', (v) => v as num?),
           flight: $checkedConvert('flight', (v) => v as num?),
+          speed: $checkedConvert('speed', (v) => v as num? ?? 0),
         );
         return val;
       },

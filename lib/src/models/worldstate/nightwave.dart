@@ -94,8 +94,8 @@ class Challenge extends WorldstateObject {
     required this.desc,
     required this.reputation,
     required this.active,
-    this.isDaily = false,
     required this.isElite,
+    this.isDaily = false,
   });
 
   /// Creates a Challenge from Json map.

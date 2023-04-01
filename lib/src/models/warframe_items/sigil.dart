@@ -13,11 +13,11 @@ class Sigil extends DroppableItem {
     required super.uniqueName,
     required super.name,
     required super.description,
-    super.imageName,
     required super.type,
     required super.category,
     required super.productCategory,
     required super.tradable,
+    super.imageName,
     super.patchlogs,
     super.drops,
   });

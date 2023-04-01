@@ -12,7 +12,6 @@ class Node extends Item {
   const Node({
     required super.uniqueName,
     required super.name,
-    super.description = '',
     required super.type,
     required super.category,
     required super.productCategory,
@@ -25,6 +24,7 @@ class Node extends Item {
     required this.systemIndex,
     required this.systemName,
     required super.patchlogs,
+    super.description = '',
   });
 
   /// Creates a Node from Json map

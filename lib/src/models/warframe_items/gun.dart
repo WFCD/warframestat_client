@@ -16,7 +16,6 @@ abstract class Gun extends Weapon {
     required super.category,
     required super.productCategory,
     required super.tradable,
-    super.bpCost,
     required super.buildPrice,
     required super.buildQuantity,
     required super.buildTime,
@@ -32,7 +31,6 @@ abstract class Gun extends Weapon {
     required super.disposition,
     required super.fireRate,
     required super.isPrime,
-    super.vaulted,
     required super.omegaAttenuation,
     required super.polarities,
     required super.procChance,
@@ -42,12 +40,14 @@ abstract class Gun extends Weapon {
     required super.wikiaThumbnail,
     required super.wikiaUrl,
     required super.releaseDate,
+    required this.reloadTime,
+    super.vaulted,
+    super.bpCost,
     this.accuracy,
     this.magazineSize,
     this.multishot,
     this.noise,
     this.trigger,
-    required this.reloadTime,
   });
 
   /// [Gun] accuracy.
@@ -81,7 +81,6 @@ class GunAttack extends Attack {
   /// {@macro gunattack}
   const GunAttack({
     required super.name,
-    super.speed = 0,
     required super.critChance,
     required super.critMult,
     required super.statusChance,
@@ -89,6 +88,7 @@ class GunAttack extends Attack {
     required this.shotType,
     required this.shotSpeed,
     required this.flight,
+    super.speed = 0,
   });
 
   /// Create a GunAttack from a json map

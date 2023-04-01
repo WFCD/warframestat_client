@@ -20,15 +20,8 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          patchlogs: $checkedConvert(
-              'patchlogs',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
-                  .toList()),
           rarity:
               $checkedConvert('rarity', (v) => $enumDecode(_$RarityEnumMap, v)),
-          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
           drops: $checkedConvert(
               'drops',
               (v) => (v as List<dynamic>?)
@@ -36,7 +29,6 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
                       (e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           baseDrain: $checkedConvert('baseDrain', (v) => v as int),
-          compatName: $checkedConvert('compatName', (v) => v as String?),
           fusionLimit: $checkedConvert('fusionLimit', (v) => v as int),
           isAugment: $checkedConvert('isAugment', (v) => v as bool?),
           isPrime: $checkedConvert('isPrime', (v) => v as bool),
@@ -47,6 +39,14 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
                       LevelStat.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           transmutable: $checkedConvert('transmutable', (v) => v as bool?),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          compatName: $checkedConvert('compatName', (v) => v as String?),
           wikiaThumbnail:
               $checkedConvert('wikiaThumbnail', (v) => v as String?),
           wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),

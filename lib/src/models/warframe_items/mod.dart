@@ -19,9 +19,9 @@ abstract class BaseMod extends EquipableItem {
     required super.tradable,
     required super.patchlogs,
     required super.releaseDate,
+    required super.isPrime,
     super.wikiaThumbnail,
     super.wikiaUrl,
-    required super.isPrime,
   });
 }
 
@@ -40,17 +40,17 @@ class Mod extends BaseMod {
     required super.category,
     required super.productCategory,
     required super.tradable,
-    super.patchlogs,
     required this.rarity,
-    super.releaseDate,
     required this.drops,
     required this.baseDrain,
-    this.compatName,
     required this.fusionLimit,
     required this.isAugment,
     required super.isPrime,
     required this.levelStats,
     required this.transmutable,
+    super.patchlogs,
+    super.releaseDate,
+    this.compatName,
     super.wikiaThumbnail,
     super.wikiaUrl,
   });

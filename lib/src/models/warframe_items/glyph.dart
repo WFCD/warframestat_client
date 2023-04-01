@@ -13,12 +13,12 @@ class Glyph extends Item {
     required super.uniqueName,
     required super.name,
     required super.description,
-    super.imageName,
     required super.type,
     required super.category,
     required super.productCategory,
     required super.tradable,
     required super.patchlogs,
+    super.imageName,
   });
 
   /// Create an instance of [Glyph] from a json map.

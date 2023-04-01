@@ -27,14 +27,6 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate(
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String),
           masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
-          buildQuantity:
-              $checkedConvert('buildQuantity', (v) => v as int? ?? 1),
-          buildTime: $checkedConvert('buildTime', (v) => v as int? ?? 0),
-          skipBuildTimePrice:
-              $checkedConvert('skipBuildTimePrice', (v) => v as int? ?? 0),
-          consumeOnBuild:
-              $checkedConvert('consumeOnBuild', (v) => v as bool? ?? true),
           components: $checkedConvert(
               'components',
               (v) => (v as List<dynamic>?)
@@ -73,6 +65,14 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate(
           introduced: $checkedConvert('introduced',
               (v) => Introduced.fromJson(Map<String, dynamic>.from(v as Map))),
           sprint: $checkedConvert('sprint', (v) => v as num),
+          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
+          buildQuantity:
+              $checkedConvert('buildQuantity', (v) => v as int? ?? 1),
+          buildTime: $checkedConvert('buildTime', (v) => v as int? ?? 0),
+          skipBuildTimePrice:
+              $checkedConvert('skipBuildTimePrice', (v) => v as int? ?? 0),
+          consumeOnBuild:
+              $checkedConvert('consumeOnBuild', (v) => v as bool? ?? true),
         );
         return val;
       },

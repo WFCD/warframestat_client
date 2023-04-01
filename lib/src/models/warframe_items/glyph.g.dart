@@ -14,7 +14,6 @@ Glyph _$GlyphFromJson(Map json) => $checkedCreate(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
-          imageName: $checkedConvert('imageName', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String),
           category: $checkedConvert('category', (v) => v as String),
           productCategory:
@@ -26,6 +25,7 @@ Glyph _$GlyphFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
         );
         return val;
       },

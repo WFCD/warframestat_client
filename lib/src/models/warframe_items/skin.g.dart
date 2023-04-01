@@ -19,7 +19,6 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int),
           buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
           buildTime: $checkedConvert('buildTime', (v) => v as int),
@@ -33,6 +32,7 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)

@@ -20,7 +20,6 @@ PetResource _$PetResourceFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int),
           buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
           buildTime: $checkedConvert('buildTime', (v) => v as int),
@@ -33,6 +32,7 @@ PetResource _$PetResourceFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
         );
         return val;
       },

@@ -43,7 +43,6 @@ class GearBuildable extends BuildableItem {
     required super.category,
     required super.productCategory,
     required super.tradable,
-    super.isPrime = false,
     required super.patchlogs,
     required super.buildPrice,
     required super.buildQuantity,
@@ -51,6 +50,7 @@ class GearBuildable extends BuildableItem {
     required super.skipBuildTimePrice,
     required super.consumeOnBuild,
     required super.imageName,
+    super.isPrime = false,
     super.components,
   });
 

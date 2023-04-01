@@ -13,10 +13,10 @@ class Component extends DroppableItem {
     required super.uniqueName,
     required super.name,
     required super.description,
-    super.imageName,
     required super.tradable,
     required List<Drop> super.drops,
     required this.itemCount,
+    super.imageName,
   }) : super(
           patchlogs: const <Patchlog>[],
           type: '',

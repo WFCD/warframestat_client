@@ -19,15 +19,6 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          bpCost: $checkedConvert('bpCost', (v) => v as int?),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
-          buildQuantity:
-              $checkedConvert('buildQuantity', (v) => v as int? ?? 1),
-          buildTime: $checkedConvert('buildTime', (v) => v as int? ?? 0),
-          skipBuildTimePrice:
-              $checkedConvert('skipBuildTimePrice', (v) => v as int? ?? 0),
-          consumeOnBuild:
-              $checkedConvert('consumeOnBuild', (v) => v as bool? ?? true),
           components: $checkedConvert(
               'components',
               (v) => (v as List<dynamic>?)
@@ -54,7 +45,6 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
           disposition: $checkedConvert('disposition', (v) => v as int),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
           isPrime: $checkedConvert('isPrime', (v) => v as bool),
-          vaulted: $checkedConvert('vaulted', (v) => v as bool?),
           omegaAttenuation:
               $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
           polarities: $checkedConvert('polarities',
@@ -75,6 +65,16 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
           noise: $checkedConvert('noise', (v) => v as String?),
           trigger: $checkedConvert('trigger', (v) => v as String?),
           reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
+          bpCost: $checkedConvert('bpCost', (v) => v as int?),
+          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
+          buildQuantity:
+              $checkedConvert('buildQuantity', (v) => v as int? ?? 1),
+          buildTime: $checkedConvert('buildTime', (v) => v as int? ?? 0),
+          skipBuildTimePrice:
+              $checkedConvert('skipBuildTimePrice', (v) => v as int? ?? 0),
+          consumeOnBuild:
+              $checkedConvert('consumeOnBuild', (v) => v as bool? ?? true),
+          vaulted: $checkedConvert('vaulted', (v) => v as bool?),
         );
         return val;
       },

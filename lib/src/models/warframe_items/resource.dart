@@ -18,7 +18,6 @@ class ResourceBuildable extends BuildableItem {
     required super.category,
     required super.productCategory,
     required super.tradable,
-    super.isPrime = false,
     required super.buildPrice,
     required super.buildQuantity,
     required super.buildTime,
@@ -26,6 +25,7 @@ class ResourceBuildable extends BuildableItem {
     required super.consumeOnBuild,
     required super.components,
     required super.patchlogs,
+    super.isPrime = false,
   });
 
   /// Creates a Resource from Json map

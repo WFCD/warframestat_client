@@ -67,7 +67,6 @@ GearBuildable _$GearBuildableFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -81,6 +80,7 @@ GearBuildable _$GearBuildableFromJson(Map json) => $checkedCreate(
               $checkedConvert('skipBuildTimePrice', (v) => v as int),
           consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
           imageName: $checkedConvert('imageName', (v) => v as String),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           components: $checkedConvert(
               'components',
               (v) => (v as List<dynamic>?)

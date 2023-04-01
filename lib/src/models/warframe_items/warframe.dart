@@ -20,11 +20,6 @@ class Warframe extends PowerSuit {
     required super.patchlogs,
     required super.imageName,
     required super.masteryReq,
-    super.buildPrice = 0,
-    super.buildQuantity = 1,
-    super.buildTime = 0,
-    super.skipBuildTimePrice = 0,
-    super.consumeOnBuild = true,
     required super.components,
     required super.releaseDate,
     required super.marketCost,
@@ -49,6 +44,11 @@ class Warframe extends PowerSuit {
     required this.conclave,
     required this.introduced,
     required this.sprint,
+    super.buildPrice = 0,
+    super.buildQuantity = 1,
+    super.buildTime = 0,
+    super.skipBuildTimePrice = 0,
+    super.consumeOnBuild = true,
   });
 
   /// Creates a Warframe from Json map
