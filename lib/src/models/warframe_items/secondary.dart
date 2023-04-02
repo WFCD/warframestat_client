@@ -42,6 +42,7 @@ class Secondary extends Gun {
     required super.noise,
     required super.trigger,
     required super.reloadTime,
+    super.patchlogs,
     super.bpCost,
     super.buildPrice = 0,
     super.buildQuantity = 1,
