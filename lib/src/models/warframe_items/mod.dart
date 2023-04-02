@@ -40,23 +40,28 @@ class Mod extends BaseMod {
     required super.category,
     required super.productCategory,
     required super.tradable,
+    required super.isPrime,
+    required this.polarity,
     required this.rarity,
     required this.drops,
     required this.baseDrain,
     required this.fusionLimit,
     required this.isAugment,
-    required super.isPrime,
     required this.levelStats,
     required this.transmutable,
-    super.patchlogs,
-    super.releaseDate,
-    this.compatName,
     super.wikiaThumbnail,
     super.wikiaUrl,
+    super.patchlogs,
+    super.releaseDate,
+    this.modSet,
+    this.compatName,
   });
 
   /// Creates a Mod from Json map
   factory Mod.fromJson(Map<String, dynamic> data) => _$ModFromJson(data);
+
+  /// The polarity of the given [Mod].
+  final String polarity;
 
   /// Drain the [Mod] takes at rank 0.
   final int baseDrain;
@@ -81,6 +86,11 @@ class Mod extends BaseMod {
 
   /// LOcation and drop information for the mod.
   final List<Drop>? drops;
+
+  /// The mod set the mod belongs to.
+  ///
+  /// This will be a uniqueName.
+  final String? modSet;
 
   /// Creates a Json map from a Mod
   @override

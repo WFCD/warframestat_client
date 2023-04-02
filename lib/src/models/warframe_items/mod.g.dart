@@ -20,6 +20,8 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          polarity: $checkedConvert('polarity', (v) => v as String),
           rarity:
               $checkedConvert('rarity', (v) => $enumDecode(_$RarityEnumMap, v)),
           drops: $checkedConvert(
@@ -31,7 +33,6 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
           baseDrain: $checkedConvert('baseDrain', (v) => v as int),
           fusionLimit: $checkedConvert('fusionLimit', (v) => v as int),
           isAugment: $checkedConvert('isAugment', (v) => v as bool?),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool),
           levelStats: $checkedConvert(
               'levelStats',
               (v) => (v as List<dynamic>?)
@@ -39,6 +40,9 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
                       LevelStat.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           transmutable: $checkedConvert('transmutable', (v) => v as bool?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -46,10 +50,8 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          modSet: $checkedConvert('modSet', (v) => v as String?),
           compatName: $checkedConvert('compatName', (v) => v as String?),
-          wikiaThumbnail:
-              $checkedConvert('wikiaThumbnail', (v) => v as String?),
-          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
         );
         return val;
       },
@@ -79,6 +81,7 @@ Map<String, dynamic> _$ModToJson(Mod instance) {
   writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
   writeNotNull('wikiaUrl', instance.wikiaUrl);
   val['isPrime'] = instance.isPrime;
+  val['polarity'] = instance.polarity;
   val['baseDrain'] = instance.baseDrain;
   writeNotNull('compatName', instance.compatName);
   val['fusionLimit'] = instance.fusionLimit;
@@ -88,6 +91,7 @@ Map<String, dynamic> _$ModToJson(Mod instance) {
   writeNotNull('transmutable', instance.transmutable);
   val['rarity'] = _$RarityEnumMap[instance.rarity]!;
   writeNotNull('drops', instance.drops?.map((e) => e.toJson()).toList());
+  writeNotNull('modSet', instance.modSet);
   return val;
 }
 
