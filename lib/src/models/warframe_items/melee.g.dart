@@ -66,6 +66,12 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           slideAttack: $checkedConvert('slideAttack', (v) => v as int?),
           windUp: $checkedConvert('windUp', (v) => (v as num?)?.toDouble()),
           range: $checkedConvert('range', (v) => (v as num?)?.toDouble()),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
           buildQuantity:
               $checkedConvert('buildQuantity', (v) => v as int? ?? 1),
@@ -109,6 +115,8 @@ Map<String, dynamic> _$MeleeToJson(Melee instance) {
   val['category'] = instance.category;
   writeNotNull('productCategory', instance.productCategory);
   val['tradable'] = instance.tradable;
+  writeNotNull(
+      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
   writeNotNull('releaseDate', instance.releaseDate);
   writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);

@@ -65,6 +65,12 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
           noise: $checkedConvert('noise', (v) => v as String?),
           trigger: $checkedConvert('trigger', (v) => v as String?),
           reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           bpCost: $checkedConvert('bpCost', (v) => v as int?),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
           buildQuantity:
@@ -97,6 +103,8 @@ Map<String, dynamic> _$PrimaryToJson(Primary instance) {
   val['category'] = instance.category;
   writeNotNull('productCategory', instance.productCategory);
   val['tradable'] = instance.tradable;
+  writeNotNull(
+      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
   writeNotNull('releaseDate', instance.releaseDate);
   writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);

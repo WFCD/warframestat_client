@@ -43,6 +43,7 @@ abstract class Gun extends Weapon {
     required this.reloadTime,
     super.vaulted,
     super.bpCost,
+    super.patchlogs,
     this.accuracy,
     this.magazineSize,
     this.multishot,

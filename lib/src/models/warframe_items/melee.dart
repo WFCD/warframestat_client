@@ -43,6 +43,7 @@ class Melee extends Weapon {
     required this.slideAttack,
     required this.windUp,
     required this.range,
+    super.patchlogs,
     super.buildPrice = 0,
     super.buildQuantity = 1,
     super.buildTime = 0,
