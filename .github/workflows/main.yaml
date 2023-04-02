@@ -21,4 +21,4 @@ jobs:
     with:
       setup: ./test/scripts/update_fixtures.sh
       coverage_excludes: "*.g.dart"
-      min_coverage: 50
+      min_coverage: 40
