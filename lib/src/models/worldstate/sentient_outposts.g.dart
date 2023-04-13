@@ -15,8 +15,11 @@ SentientOutpost _$SentientOutpostFromJson(Map json) => $checkedCreate(
           activation:
               $checkedConvert('activation', (v) => DateTime.parse(v as String)),
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
-          mission: $checkedConvert('mission',
-              (v) => Mission.fromJson(Map<String, dynamic>.from(v as Map))),
+          mission: $checkedConvert(
+              'mission',
+              (v) => v == null
+                  ? null
+                  : Mission.fromJson(Map<String, dynamic>.from(v as Map))),
           active: $checkedConvert('active', (v) => v as bool),
         );
         return val;
@@ -35,7 +38,7 @@ Map<String, dynamic> _$SentientOutpostToJson(SentientOutpost instance) {
   writeNotNull('id', instance.id);
   writeNotNull('activation', instance.activation?.toIso8601String());
   writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['mission'] = instance.mission.toJson();
+  writeNotNull('mission', instance.mission?.toJson());
   val['active'] = instance.active;
   return val;
 }

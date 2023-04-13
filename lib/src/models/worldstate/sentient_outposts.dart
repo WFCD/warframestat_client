@@ -23,7 +23,7 @@ class SentientOutpost extends WorldstateObject {
   }
 
   /// Mission node the outpost is located in.
-  final Mission mission;
+  final Mission? mission;
 
   /// Whether or not the instance is active on the object's creation.
   final bool active;
