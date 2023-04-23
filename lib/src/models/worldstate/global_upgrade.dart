@@ -15,7 +15,7 @@ class GlobalUpgrade extends Equatable {
     required this.end,
     required this.upgrade,
     required this.operation,
-    required this.opeerationSymbol,
+    required this.operationSymbol,
     required this.upgradeOperationValue,
     required this.expired,
     required this.desc,
@@ -38,7 +38,7 @@ class GlobalUpgrade extends Equatable {
   final String operation;
 
   /// A description for opeerationSymbol
-  final String opeerationSymbol;
+  final String operationSymbol;
 
   /// A description for upgradeOperationValue
   final int upgradeOperationValue;
@@ -59,7 +59,7 @@ class GlobalUpgrade extends Equatable {
       end,
       upgrade,
       operation,
-      opeerationSymbol,
+      operationSymbol,
       upgradeOperationValue,
       expired,
       desc,

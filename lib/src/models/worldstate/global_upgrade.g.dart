@@ -15,8 +15,8 @@ GlobalUpgrade _$GlobalUpgradeFromJson(Map json) => $checkedCreate(
           end: $checkedConvert('end', (v) => v as String),
           upgrade: $checkedConvert('upgrade', (v) => v as String),
           operation: $checkedConvert('operation', (v) => v as String),
-          opeerationSymbol:
-              $checkedConvert('opeerationSymbol', (v) => v as String),
+          operationSymbol:
+              $checkedConvert('operationSymbol', (v) => v as String),
           upgradeOperationValue:
               $checkedConvert('upgradeOperationValue', (v) => v as int),
           expired: $checkedConvert('expired', (v) => v as bool),
@@ -32,7 +32,7 @@ Map<String, dynamic> _$GlobalUpgradeToJson(GlobalUpgrade instance) =>
       'end': instance.end,
       'upgrade': instance.upgrade,
       'operation': instance.operation,
-      'opeerationSymbol': instance.opeerationSymbol,
+      'operationSymbol': instance.operationSymbol,
       'upgradeOperationValue': instance.upgradeOperationValue,
       'expired': instance.expired,
       'desc': instance.desc,
