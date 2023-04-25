@@ -23,7 +23,7 @@ class SynthTarget {
   final String name;
 
   /// Target image.
-  final String imageKey;
+  final String? imageKey;
 
   /// Target locations.
   final List<TargetLocation> locations;

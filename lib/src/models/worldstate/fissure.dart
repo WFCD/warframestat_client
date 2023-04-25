@@ -44,7 +44,7 @@ class Fissure extends WorldstateObject {
   final String missionType;
 
   /// A description for missionKey
-  final String missionKey;
+  final String? missionKey;
 
   /// A description for tier
   final String tier;
