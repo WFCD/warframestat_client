@@ -23,7 +23,7 @@ Fissure _$FissureFromJson(Map json) => $checkedCreate(
           tier: $checkedConvert('tier', (v) => v as String),
           tierNum: $checkedConvert('tierNum', (v) => v as int),
           enemy: $checkedConvert('enemy', (v) => v as String),
-          enemyKey: $checkedConvert('enemyKey', (v) => v as String),
+          enemyKey: $checkedConvert('enemyKey', (v) => v as String?),
           isStorm: $checkedConvert('isStorm', (v) => v as bool),
           isHard: $checkedConvert('isHard', (v) => v as bool),
         );
@@ -51,7 +51,7 @@ Map<String, dynamic> _$FissureToJson(Fissure instance) {
   val['tier'] = instance.tier;
   val['tierNum'] = instance.tierNum;
   val['enemy'] = instance.enemy;
-  val['enemyKey'] = instance.enemyKey;
+  writeNotNull('enemyKey', instance.enemyKey);
   val['isStorm'] = instance.isStorm;
   val['isHard'] = instance.isHard;
   return val;

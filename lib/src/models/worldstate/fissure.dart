@@ -56,7 +56,7 @@ class Fissure extends WorldstateObject {
   final String enemy;
 
   /// A description for enemyKey
-  final String enemyKey;
+  final String? enemyKey;
 
   /// A description for isStorm
   final bool isStorm;
