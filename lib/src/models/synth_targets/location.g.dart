@@ -11,24 +11,28 @@ TargetLocation _$TargetLocationFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = TargetLocation(
-          lastVerified: $checkedConvert('lastVerified', (v) => v as String),
+          lastVerified: $checkedConvert('last_verified', (v) => v as String),
           level: $checkedConvert('level', (v) => v as String),
           faction: $checkedConvert('faction', (v) => v as String),
-          spawnRate: $checkedConvert('spawnRate', (v) => v as String),
+          spawnRate: $checkedConvert('spawn_rate', (v) => v as String),
           mission: $checkedConvert('mission', (v) => v as String),
           planet: $checkedConvert('planet', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
         );
         return val;
       },
+      fieldKeyMap: const {
+        'lastVerified': 'last_verified',
+        'spawnRate': 'spawn_rate'
+      },
     );
 
 Map<String, dynamic> _$TargetLocationToJson(TargetLocation instance) =>
     <String, dynamic>{
-      'lastVerified': instance.lastVerified,
+      'last_verified': instance.lastVerified,
       'level': instance.level,
       'faction': instance.faction,
-      'spawnRate': instance.spawnRate,
+      'spawn_rate': instance.spawnRate,
       'mission': instance.mission,
       'planet': instance.planet,
       'type': instance.type,

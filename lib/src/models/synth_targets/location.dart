@@ -23,6 +23,7 @@ class TargetLocation {
       _$TargetLocationFromJson(data);
 
   /// Last time the target was verified.
+  @JsonKey(name: 'last_verified')
   final String lastVerified;
 
   /// Target level in the given location.
@@ -32,6 +33,7 @@ class TargetLocation {
   final String faction;
 
   /// Spawn rate of target in the givin location.
+  @JsonKey(name: 'spawn_rate')
   final String spawnRate;
 
   /// Mission node.
