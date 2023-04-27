@@ -23,7 +23,7 @@ class TargetLocation {
       _$TargetLocationFromJson(data);
 
   /// Last time the target was verified.
-  final String lastVerified;
+  final String? lastVerified;
 
   /// Target level in the given location.
   final String level;

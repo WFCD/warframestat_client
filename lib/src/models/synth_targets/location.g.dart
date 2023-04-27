@@ -11,7 +11,7 @@ TargetLocation _$TargetLocationFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = TargetLocation(
-          lastVerified: $checkedConvert('lastVerified', (v) => v as String),
+          lastVerified: $checkedConvert('lastVerified', (v) => v as String?),
           level: $checkedConvert('level', (v) => v as String),
           faction: $checkedConvert('faction', (v) => v as String),
           spawnRate: $checkedConvert('spawnRate', (v) => v as String),
@@ -23,13 +23,21 @@ TargetLocation _$TargetLocationFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$TargetLocationToJson(TargetLocation instance) =>
-    <String, dynamic>{
-      'lastVerified': instance.lastVerified,
-      'level': instance.level,
-      'faction': instance.faction,
-      'spawnRate': instance.spawnRate,
-      'mission': instance.mission,
-      'planet': instance.planet,
-      'type': instance.type,
-    };
+Map<String, dynamic> _$TargetLocationToJson(TargetLocation instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('lastVerified', instance.lastVerified);
+  val['level'] = instance.level;
+  val['faction'] = instance.faction;
+  val['spawnRate'] = instance.spawnRate;
+  val['mission'] = instance.mission;
+  val['planet'] = instance.planet;
+  val['type'] = instance.type;
+  return val;
+}
