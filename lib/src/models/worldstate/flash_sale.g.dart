@@ -19,8 +19,8 @@ FlashSale _$FlashSaleFromJson(Map json) => $checkedCreate(
           expired: $checkedConvert('expired', (v) => v as bool),
           discount: $checkedConvert('discount', (v) => v as int),
           premiumOverride: $checkedConvert('premiumOverride', (v) => v as int),
-          isPopular: $checkedConvert('isPopular', (v) => v as bool),
-          isFeatured: $checkedConvert('isFeatured', (v) => v as bool),
+          isPopular: $checkedConvert('isPopular', (v) => v as bool? ?? false),
+          isFeatured: $checkedConvert('isFeatured', (v) => v as bool? ?? false),
         );
         return val;
       },

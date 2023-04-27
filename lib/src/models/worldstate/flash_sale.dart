@@ -17,8 +17,8 @@ class FlashSale extends WorldstateObject {
     required this.expired,
     required this.discount,
     required this.premiumOverride,
-    required this.isPopular,
-    required this.isFeatured,
+    this.isPopular = false,
+    this.isFeatured = false,
   });
 
   /// Creates a FlashSale from Json map
