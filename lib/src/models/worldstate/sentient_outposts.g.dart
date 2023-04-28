@@ -12,9 +12,10 @@ SentientOutpost _$SentientOutpostFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = SentientOutpost(
           id: $checkedConvert('id', (v) => v as String),
-          activation:
-              $checkedConvert('activation', (v) => DateTime.parse(v as String)),
-          expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
+          activation: $checkedConvert('activation',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          expiry: $checkedConvert(
+              'expiry', (v) => v == null ? null : DateTime.parse(v as String)),
           mission: $checkedConvert(
               'mission',
               (v) => v == null

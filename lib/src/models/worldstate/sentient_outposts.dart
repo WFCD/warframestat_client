@@ -11,8 +11,8 @@ class SentientOutpost extends WorldstateObject {
   /// {@macro sentient_outposts}
   const SentientOutpost({
     required String super.id,
-    required DateTime super.activation,
-    required DateTime super.expiry,
+    required super.activation,
+    required super.expiry,
     required this.mission,
     required this.active,
   });
