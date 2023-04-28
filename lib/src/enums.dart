@@ -54,6 +54,15 @@ enum Language {
 
   /// English.
   en,
+
+  /// Turkey
+  tr,
+
+  /// Serbian
+  sr,
+
+  /// Czech
+  cs
 }
 
 extension on Language {
