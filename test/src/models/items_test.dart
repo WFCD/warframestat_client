@@ -21,4 +21,14 @@ void main() {
 
     expect(items, isList);
   });
+
+  test('Mod test', () {
+    final items = toItems(jsonMap);
+
+    for (final item in items) {
+      if (item is Mod) {
+        if (item.description != null) print(item.description);
+      }
+    }
+  });
 }
