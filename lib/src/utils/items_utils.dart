@@ -13,48 +13,6 @@ Item toItem(Map<String, dynamic> item) {
   final category = item['category'] as String;
   final isBuildable = item['components'] != null;
 
-  // Only need this to seprate items that share the same category.
-  final productCategory = item['productCategory'] as String?;
-
-  if (category == ItemCategories.warframes) {
-    // NecroMechs and Warframes are stored with the same cateogry so we need to
-    // filter by productCateogry here.
-    if (productCategory == 'MechSuits') return NecroMech.fromJson(item);
-
-    return Warframe.fromJson(item);
-  }
-
-  if (category == ItemCategories.melee ||
-      category == ItemCategories.archMelee) {
-    return Melee.fromJson(item);
-  }
-
-  if (category == ItemCategories.primary ||
-      category == ItemCategories.archGun) {
-    return Primary.fromJson(item);
-  }
-
-  if (category == 'Resources') {
-    return isBuildable
-        ? ResourceBuildable.fromJson(item)
-        : Resource.fromJson(item);
-  }
-
-  if (category == ItemCategories.skins) {
-    return isBuildable ? SkinBuildable.fromJson(item) : Skin.fromJson(item);
-  }
-
-  if (category == ItemCategories.gear) {
-    return isBuildable ? GearBuildable.fromJson(item) : Gear.fromJson(item);
-  }
-
-  if (category == ItemCategories.mods) {
-    // Mod sets and mods are two different json structures.
-    if (item['type'] as String == 'Mod Set Mod') return ModSet.fromJson(item);
-
-    return Mod.fromJson(item);
-  }
-
   switch (category) {
     case ItemCategories.arcanes:
       return Arcane.fromJson(item);
@@ -74,8 +32,37 @@ Item toItem(Map<String, dynamic> item) {
       return PetResource.fromJson(item);
     case ItemCategories.sigils:
       return Sigil.fromJson(item);
+    case ItemCategories.primary || ItemCategories.archGun:
+      return Primary.fromJson(item);
     case ItemCategories.secondary:
       return Secondary.fromJson(item);
+
+    case ItemCategories.melee || ItemCategories.archMelee:
+      return Melee.fromJson(item);
+
+    case ItemCategories.resources:
+      return isBuildable
+          ? ResourceBuildable.fromJson(item)
+          : Resource.fromJson(item);
+
+    case ItemCategories.skins:
+      return isBuildable ? SkinBuildable.fromJson(item) : Skin.fromJson(item);
+
+    case ItemCategories.gear:
+      return isBuildable ? GearBuildable.fromJson(item) : Gear.fromJson(item);
+
+    case ItemCategories.mods:
+      // Mod sets and mods are two different json structures.
+      if (item['type'] as String == 'Mod Set Mod') return ModSet.fromJson(item);
+
+      return Mod.fromJson(item);
+    case ItemCategories.warframes:
+      // NecroMechs and Warframes are stored with the same cateogry so we need
+      // to filter by productCateogry here.
+      final productCategory = item['productCategory'] as String;
+      if (productCategory == 'MechSuits') return NecroMech.fromJson(item);
+
+      return Warframe.fromJson(item);
     default:
       return Misc.fromJson(item);
   }
