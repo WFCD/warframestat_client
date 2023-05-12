@@ -28,8 +28,8 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
           imageName: $checkedConvert('imageName', (v) => v as String),
           attacks: $checkedConvert(
               'attacks',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
                       GunAttack.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           criticalChance: $checkedConvert('criticalChance', (v) => v as num),

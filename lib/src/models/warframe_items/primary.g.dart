@@ -26,12 +26,6 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String),
-          attacks: $checkedConvert(
-              'attacks',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      GunAttack.fromJson(Map<String, dynamic>.from(e as Map)))
-                  .toList()),
           criticalChance: $checkedConvert('criticalChance', (v) => v as num),
           criticalMultiplier:
               $checkedConvert('criticalMultiplier', (v) => v as num),
@@ -42,7 +36,6 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
                   : Damage.fromJson(Map<String, dynamic>.from(v as Map))),
           damagePerShot: $checkedConvert('damagePerShot',
               (v) => (v as List<dynamic>).map((e) => e as num).toList()),
-          disposition: $checkedConvert('disposition', (v) => v as int),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
           isPrime: $checkedConvert('isPrime', (v) => v as bool),
           omegaAttenuation:
@@ -65,6 +58,13 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
           noise: $checkedConvert('noise', (v) => v as String?),
           trigger: $checkedConvert('trigger', (v) => v as String?),
           reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
+          disposition: $checkedConvert('disposition', (v) => v as int? ?? 0),
+          attacks: $checkedConvert(
+              'attacks',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      GunAttack.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
