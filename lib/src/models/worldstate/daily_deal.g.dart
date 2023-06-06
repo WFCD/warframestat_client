@@ -16,6 +16,7 @@ DailyDeal _$DailyDealFromJson(Map json) => $checkedCreate(
               $checkedConvert('activation', (v) => DateTime.parse(v as String)),
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
           item: $checkedConvert('item', (v) => v as String),
+          uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           originalPrice: $checkedConvert('originalPrice', (v) => v as int),
           salePrice: $checkedConvert('salePrice', (v) => v as int),
           total: $checkedConvert('total', (v) => v as int),
@@ -39,6 +40,7 @@ Map<String, dynamic> _$DailyDealToJson(DailyDeal instance) {
   writeNotNull('activation', instance.activation?.toIso8601String());
   writeNotNull('expiry', instance.expiry?.toIso8601String());
   val['item'] = instance.item;
+  val['uniqueName'] = instance.uniqueName;
   val['originalPrice'] = instance.originalPrice;
   val['salePrice'] = instance.salePrice;
   val['total'] = instance.total;

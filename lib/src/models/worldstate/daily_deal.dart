@@ -14,6 +14,7 @@ class DailyDeal extends WorldstateObject {
     required DateTime super.activation,
     required DateTime super.expiry,
     required this.item,
+    required this.uniqueName,
     required this.originalPrice,
     required this.salePrice,
     required this.total,
@@ -27,6 +28,9 @@ class DailyDeal extends WorldstateObject {
 
   /// The item on sale.
   final String item;
+
+  /// Unique name of item being sold.
+  final String uniqueName;
 
   /// The original price the item is usually sold for.
   final int originalPrice;
@@ -51,5 +55,13 @@ class DailyDeal extends WorldstateObject {
 
   @override
   List<Object?> get props => super.props
-    ..addAll([item, originalPrice, salePrice, total, sold, discount]);
+    ..addAll([
+      item,
+      uniqueName,
+      originalPrice,
+      salePrice,
+      total,
+      sold,
+      discount,
+    ]);
 }
