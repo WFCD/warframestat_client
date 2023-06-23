@@ -16,7 +16,7 @@ abstract class ItemCategories {
   static const String archGun = 'Arch-Gun';
 
   /// Resource category string.
-  static const String resources = 'Resource';
+  static const String resources = 'Resources';
 
   /// Skins category string.
   static const String skins = 'Skins';
