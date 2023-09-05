@@ -34,7 +34,8 @@ class Worldstate extends Equatable {
     @Deprecated('See PersistentEnemy.') required this.persistentEnemies,
     required this.sortie,
     required this.vallisCycle,
-    required this.voidTrader,
+    required this.voidTraders,
+    @Deprecated('See Worldstate.voidTrader') required this.voidTrader,
     required this.vaultTrader,
     required this.sentientOutposts,
     required this.simaris,
@@ -120,7 +121,14 @@ class Worldstate extends Equatable {
   final VallisCycle vallisCycle;
 
   /// Void trader data.
+  @Deprecated(
+    'Since multiple instances of the void trader can exist during Tennocon'
+    ' events, Worldstate.voidTraders is better to use.',
+  )
   final Trader voidTrader;
+
+  /// List void trader instances.
+  final List<Trader> voidTraders;
 
   /// Vault trader data.
   final Trader vaultTrader;
@@ -174,7 +182,9 @@ class Worldstate extends Equatable {
         persistentEnemies,
         sortie,
         vallisCycle,
+        // ignore: deprecated_member_use_from_same_package
         voidTrader,
+        voidTraders,
         vaultTrader,
         sentientOutposts,
         simaris,
