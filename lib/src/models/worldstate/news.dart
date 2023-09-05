@@ -88,7 +88,7 @@ class News extends WorldstateObject {
       update,
       message,
       priority,
-      asString
+      asString,
     ];
   }
 }

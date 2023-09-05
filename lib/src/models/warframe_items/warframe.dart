@@ -95,6 +95,6 @@ class Warframe extends PowerSuit {
       color,
       conclave,
       introduced,
-      sprint
+      sprint,
     ]);
 }

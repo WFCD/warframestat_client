@@ -64,6 +64,6 @@ class Node extends Item {
       minEnemyLevel,
       nodeType,
       systemIndex,
-      systemName
+      systemName,
     ]);
 }

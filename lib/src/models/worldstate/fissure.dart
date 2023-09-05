@@ -80,6 +80,6 @@ class Fissure extends WorldstateObject {
       enemy,
       enemyKey,
       isStorm,
-      isHard
+      isHard,
     ]);
 }
