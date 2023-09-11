@@ -117,7 +117,7 @@ class Melee extends Weapon {
       slamRadius,
       slideAttack,
       windUp,
-      range
+      range,
     ]);
 }
 

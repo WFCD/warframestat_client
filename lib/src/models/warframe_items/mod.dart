@@ -105,7 +105,7 @@ class Mod extends BaseMod {
       isAugment,
       isPrime,
       levelStats,
-      transmutable
+      transmutable,
     ]);
 }
 

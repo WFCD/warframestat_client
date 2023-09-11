@@ -80,7 +80,7 @@ abstract class Item extends Equatable {
         releaseDate,
         excludeFromCodex,
         wikiaThumbnail,
-        wikiaUrl
+        wikiaUrl,
       ];
 }
 

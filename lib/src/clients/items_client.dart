@@ -121,8 +121,19 @@ class WarframeItemsClient extends WarframestatClient {
     return toItems(response).whereType<Weapon>().toList();
   }
 
-  Future<T> _get<T>(String path) async {
-    final response = await get('/items$path');
+  /// Pulls an item useing it's uniqueName.
+  Future<Item> searchByUniqueName(String uniqueName) async {
+    final encodedUniqueName = Uri.encodeQueryComponent(uniqueName);
+    final item = await _get<Map<String, dynamic>>(
+      '/$encodedUniqueName/',
+      query: {'by': 'uniqueName'},
+    );
+
+    return toItem(item);
+  }
+
+  Future<T> _get<T>(String path, {Map<String, dynamic>? query}) async {
+    final response = await get('/items$path', query: query);
 
     return json.decode(response.body) as T;
   }
