@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:warframestat_client/warframestat_client.dart';
 
@@ -122,14 +123,20 @@ class WarframeItemsClient extends WarframestatClient {
   }
 
   /// Pulls an item useing it's uniqueName.
+  ///
+  /// Returns null when an item with the uniqueName doesn't exist.
   Future<Item> searchByUniqueName(String uniqueName) async {
     final encodedUniqueName = Uri.encodeQueryComponent(uniqueName);
-    final item = await _get<Map<String, dynamic>>(
+    final request = await _get<Map<String, dynamic>>(
       '/$encodedUniqueName/',
       query: {'by': 'uniqueName'},
     );
 
-    return toItem(item);
+    if (request['code'] == HttpStatus.notFound) {
+      throw ItemNotFound(uniqueName);
+    }
+
+    return toItem(request);
   }
 
   Future<T> _get<T>(String path, {Map<String, dynamic>? query}) async {
