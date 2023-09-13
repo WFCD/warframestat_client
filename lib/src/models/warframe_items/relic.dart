@@ -31,10 +31,10 @@ class Relic extends Item {
   final List<Location> locations;
 
   /// Warframe market url.
-  final MarketInfo marketInfo;
+  final MarketInfo? marketInfo;
 
   /// Whether this relic has been vaulted or not.
-  final bool vaulted;
+  final bool? vaulted;
 
   /// Creates a Json map from a Relic
   @override

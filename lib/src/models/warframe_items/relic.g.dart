@@ -25,9 +25,12 @@ Relic _$RelicFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       Location.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          marketInfo: $checkedConvert('marketInfo',
-              (v) => MarketInfo.fromJson(Map<String, dynamic>.from(v as Map))),
-          vaulted: $checkedConvert('vaulted', (v) => v as bool),
+          marketInfo: $checkedConvert(
+              'marketInfo',
+              (v) => v == null
+                  ? null
+                  : MarketInfo.fromJson(Map<String, dynamic>.from(v as Map))),
+          vaulted: $checkedConvert('vaulted', (v) => v as bool?),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -59,8 +62,8 @@ Map<String, dynamic> _$RelicToJson(Relic instance) {
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   val['locations'] = instance.locations.map((e) => e.toJson()).toList();
-  val['marketInfo'] = instance.marketInfo.toJson();
-  val['vaulted'] = instance.vaulted;
+  writeNotNull('marketInfo', instance.marketInfo?.toJson());
+  writeNotNull('vaulted', instance.vaulted);
   return val;
 }
 
