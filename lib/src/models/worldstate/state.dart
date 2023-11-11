@@ -6,6 +6,7 @@ export 'conclave_challenge.dart';
 export 'construction_progress.dart';
 export 'cycle_object.dart';
 export 'daily_deal.dart';
+export 'duviri_cycle.dart';
 export 'earth_cycle.dart';
 export 'fissure.dart';
 export 'flash_sale.dart';

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:warframestat_client/src/models/worldstate/duviri_cycle.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 part 'worldstate.g.dart';
@@ -41,6 +42,7 @@ class Worldstate extends Equatable {
     required this.simaris,
     required this.steelPath,
     required this.zarimanCycle,
+    required this.duviriCycle,
     @Deprecated('DE removed dark sectors.') required this.darkSectors,
   });
 
@@ -145,6 +147,9 @@ class Worldstate extends Equatable {
   /// Zariman cycle data.
   final ZarimanCycle zarimanCycle;
 
+  /// Duviri cycle data.
+  final DuviriCycle duviriCycle;
+
   /// Raw data for darkSectors.
   ///
   /// Exposed for test only and will be removed when warframe-worldstate-parser
@@ -191,5 +196,6 @@ class Worldstate extends Equatable {
         steelPath,
         // ignore: deprecated_member_use_from_same_package
         darkSectors,
+        duviriCycle,
       ];
 }
