@@ -3,7 +3,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 
 part 'archwing.g.dart';
 
-/// {@templatte archwing}
+/// {@template archwing}
 /// An archwing.
 /// {@endtemplate}
 @JsonSerializable()

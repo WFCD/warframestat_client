@@ -37,7 +37,7 @@ class ResourceBuildable extends BuildableItem {
   Map<String, dynamic> toJson() => _$ResourceBuildableToJson(this);
 }
 
-// {@template resource}
+/// {@template resource}
 /// A buildable resource
 /// {@endtemplate}
 @JsonSerializable()
