@@ -3,19 +3,27 @@ import 'package:warframestat_client/warframestat_client.dart';
 
 part 'earth_cycle.g.dart';
 
+/// Represents the cycle states for earth and cetus
+enum EarthState {
+  /// Day
+  day,
+
+  /// Night
+  night
+}
+
 /// {@template earth_cycle}
 /// Data on the current Earth cycle.
 /// {@endtemplate}
 @JsonSerializable()
-class EarthCycle extends CycleObject {
+class EarthCycle extends WorldstateObject {
   /// {@macro earth_cycle}
   const EarthCycle({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.isDay,
-    required super.state,
-    required super.timeLeft,
+    required this.state,
   });
 
   /// Creates a EarthCycle from Json map
@@ -25,12 +33,12 @@ class EarthCycle extends CycleObject {
   /// Whether it is currently day or night on earth.
   final bool isDay;
 
-  @override
-  bool get stateBool => isDay;
+  /// The current state on earth.
+  final EarthState state;
 
   /// Creates a Json map from a EarthCycle
   Map<String, dynamic> toJson() => _$EarthCycleToJson(this);
 
   @override
-  List<Object?> get props => super.props..add(isDay);
+  List<Object?> get props => super.props..add([isDay, state]);
 }

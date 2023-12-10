@@ -7,16 +7,15 @@ part 'cetus_cycle.g.dart';
 /// Data on the current day/night cycle of cetus.
 /// {@endtemplate}
 @JsonSerializable()
-class CetusCycle extends CycleObject {
+class CetusCycle extends WorldstateObject {
   /// {@macro cetus_cycle}
   const CetusCycle({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
     required this.isDay,
+    required this.state,
     required this.isCetus,
-    required super.state,
-    required super.timeLeft,
   });
 
   /// Creates a CetusCycle from Json map
@@ -26,6 +25,9 @@ class CetusCycle extends CycleObject {
   /// Whether it is day or night on cetus.
   final bool isDay;
 
+  /// Current state on cetus.
+  final EarthState state;
+
   /// If the current instance cycel belongs to cetus.
   final bool isCetus;
 
@@ -33,8 +35,5 @@ class CetusCycle extends CycleObject {
   Map<String, dynamic> toJson() => _$CetusCycleToJson(this);
 
   @override
-  bool get stateBool => isDay;
-
-  @override
-  List<Object?> get props => super.props..addAll([isDay, isCetus]);
+  List<Object?> get props => super.props..addAll([isDay, state, isCetus]);
 }

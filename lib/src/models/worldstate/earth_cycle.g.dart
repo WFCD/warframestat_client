@@ -16,8 +16,8 @@ EarthCycle _$EarthCycleFromJson(Map json) => $checkedCreate(
               $checkedConvert('activation', (v) => DateTime.parse(v as String)),
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
           isDay: $checkedConvert('isDay', (v) => v as bool),
-          state: $checkedConvert('state', (v) => v as String),
-          timeLeft: $checkedConvert('timeLeft', (v) => v as String),
+          state: $checkedConvert(
+              'state', (v) => $enumDecode(_$EarthStateEnumMap, v)),
         );
         return val;
       },
@@ -35,8 +35,12 @@ Map<String, dynamic> _$EarthCycleToJson(EarthCycle instance) {
   writeNotNull('id', instance.id);
   writeNotNull('activation', instance.activation?.toIso8601String());
   writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['state'] = instance.state;
-  val['timeLeft'] = instance.timeLeft;
   val['isDay'] = instance.isDay;
+  val['state'] = _$EarthStateEnumMap[instance.state]!;
   return val;
 }
+
+const _$EarthStateEnumMap = {
+  EarthState.day: 'day',
+  EarthState.night: 'night',
+};

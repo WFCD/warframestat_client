@@ -3,6 +3,15 @@ import 'package:warframestat_client/warframestat_client.dart';
 
 part 'cambion_cycle.g.dart';
 
+/// The states for Cambion
+enum CambionState {
+  /// Fass
+  fass,
+
+  /// Vome
+  vome
+}
+
 /// {@template cambion_cycle}
 /// Data on the Cambion Cycle.
 ///
@@ -10,29 +19,29 @@ part 'cambion_cycle.g.dart';
 /// needed users might want to use CetusCycle.
 /// {@endtemplate}
 @JsonSerializable()
-class CambionCycle extends CycleObject {
+class CambionCycle extends WorldstateObject {
   /// {@macro cambion_cycle}
   const CambionCycle({
-    required super.id,
-    required super.activation,
-    required super.expiry,
+    required String super.id,
+    required DateTime super.activation,
+    required DateTime super.expiry,
+    required this.state,
     required this.active,
-    required super.timeLeft,
-  }) : super(state: '');
+  });
 
   /// Creates a CambionCycle from Json map
   factory CambionCycle.fromJson(Map<String, dynamic> json) =>
       _$CambionCycleFromJson(json);
 
+  /// Represents the current state on cambion.
+  final CambionState state;
+
   /// Current state active on Cambion.
   final String active;
-
-  @override
-  bool get stateBool => active == 'vome';
 
   /// Creates a Json map from a CambionCycle
   Map<String, dynamic> toJson() => _$CambionCycleToJson(this);
 
   @override
-  List<Object?> get props => super.props..addAll([active, timeLeft]);
+  List<Object?> get props => super.props..addAll([state, active]);
 }

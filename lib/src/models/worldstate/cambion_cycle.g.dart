@@ -15,8 +15,9 @@ CambionCycle _$CambionCycleFromJson(Map json) => $checkedCreate(
           activation:
               $checkedConvert('activation', (v) => DateTime.parse(v as String)),
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
+          state: $checkedConvert(
+              'state', (v) => $enumDecode(_$CambionStateEnumMap, v)),
           active: $checkedConvert('active', (v) => v as String),
-          timeLeft: $checkedConvert('timeLeft', (v) => v as String),
         );
         return val;
       },
@@ -34,7 +35,12 @@ Map<String, dynamic> _$CambionCycleToJson(CambionCycle instance) {
   writeNotNull('id', instance.id);
   writeNotNull('activation', instance.activation?.toIso8601String());
   writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['timeLeft'] = instance.timeLeft;
+  val['state'] = _$CambionStateEnumMap[instance.state]!;
   val['active'] = instance.active;
   return val;
 }
+
+const _$CambionStateEnumMap = {
+  CambionState.fass: 'fass',
+  CambionState.vome: 'vome',
+};

@@ -16,8 +16,8 @@ VallisCycle _$VallisCycleFromJson(Map json) => $checkedCreate(
               $checkedConvert('activation', (v) => DateTime.parse(v as String)),
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
           isWarm: $checkedConvert('isWarm', (v) => v as bool),
-          state: $checkedConvert('state', (v) => v as String),
-          timeLeft: $checkedConvert('timeLeft', (v) => v as String),
+          state: $checkedConvert(
+              'state', (v) => $enumDecode(_$VallisStateEnumMap, v)),
         );
         return val;
       },
@@ -35,8 +35,12 @@ Map<String, dynamic> _$VallisCycleToJson(VallisCycle instance) {
   writeNotNull('id', instance.id);
   writeNotNull('activation', instance.activation?.toIso8601String());
   writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['state'] = instance.state;
-  val['timeLeft'] = instance.timeLeft;
   val['isWarm'] = instance.isWarm;
+  val['state'] = _$VallisStateEnumMap[instance.state]!;
   return val;
 }
+
+const _$VallisStateEnumMap = {
+  VallisState.cold: 'cold',
+  VallisState.warm: 'warm',
+};

@@ -15,7 +15,8 @@ DuviriCycle _$DuviriCycleFromJson(Map json) => $checkedCreate(
           activation:
               $checkedConvert('activation', (v) => DateTime.parse(v as String)),
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
-          state: $checkedConvert('state', (v) => v as String),
+          state: $checkedConvert(
+              'state', (v) => $enumDecode(_$DuviriStateEnumMap, v)),
           choices: $checkedConvert(
               'choices',
               (v) => (v as List<dynamic>)
@@ -39,10 +40,18 @@ Map<String, dynamic> _$DuviriCycleToJson(DuviriCycle instance) {
   writeNotNull('id', instance.id);
   writeNotNull('activation', instance.activation?.toIso8601String());
   writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['state'] = instance.state;
+  val['state'] = _$DuviriStateEnumMap[instance.state]!;
   val['choices'] = instance.choices.map((e) => e.toJson()).toList();
   return val;
 }
+
+const _$DuviriStateEnumMap = {
+  DuviriState.joy: 'joy',
+  DuviriState.anger: 'anger',
+  DuviriState.envy: 'envy',
+  DuviriState.sorrow: 'sorrow',
+  DuviriState.fear: 'fear',
+};
 
 Choice _$ChoiceFromJson(Map json) => $checkedCreate(
       'Choice',

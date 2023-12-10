@@ -72,7 +72,6 @@ void main() {
     final cambionCycle = await worldstateClient.getCambionCycle();
 
     expect(cambionCycle, const TypeMatcher<CambionCycle>());
-    expect(cambionCycle, const TypeMatcher<CycleObject>());
   });
 
   test('Get cetus cycle', () async {
@@ -83,7 +82,6 @@ void main() {
     final cetusCycle = await worldstateClient.getCetusCycle();
 
     expect(cetusCycle, const TypeMatcher<CetusCycle>());
-    expect(cetusCycle, const TypeMatcher<CycleObject>());
   });
 
   test('Get conclave challenges', () async {

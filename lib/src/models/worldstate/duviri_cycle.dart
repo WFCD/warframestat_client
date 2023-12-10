@@ -4,7 +4,25 @@ import 'package:warframestat_client/warframestat_client.dart';
 
 part 'duviri_cycle.g.dart';
 
-/// {template duviri_cycle}
+/// The mood changes on Duviri
+enum DuviriState {
+  /// Joy
+  joy,
+
+  /// Anger
+  anger,
+
+  /// Envy
+  envy,
+
+  /// Sorrow
+  sorrow,
+
+  /// Fear
+  fear,
+}
+
+/// {@template duviri_cycle}
 /// Date on the current state of Duviri.
 /// {@endtemplate}
 @JsonSerializable()
@@ -24,7 +42,7 @@ class DuviriCycle extends WorldstateObject {
   }
 
   /// The current running cycle on Duviri.
-  final String state;
+  final DuviriState state;
 
   /// Weapon and/or Warframe choices for the current cycle.
   final List<Choice> choices;

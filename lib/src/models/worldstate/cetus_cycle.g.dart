@@ -16,9 +16,9 @@ CetusCycle _$CetusCycleFromJson(Map json) => $checkedCreate(
               $checkedConvert('activation', (v) => DateTime.parse(v as String)),
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
           isDay: $checkedConvert('isDay', (v) => v as bool),
+          state: $checkedConvert(
+              'state', (v) => $enumDecode(_$EarthStateEnumMap, v)),
           isCetus: $checkedConvert('isCetus', (v) => v as bool),
-          state: $checkedConvert('state', (v) => v as String),
-          timeLeft: $checkedConvert('timeLeft', (v) => v as String),
         );
         return val;
       },
@@ -36,9 +36,13 @@ Map<String, dynamic> _$CetusCycleToJson(CetusCycle instance) {
   writeNotNull('id', instance.id);
   writeNotNull('activation', instance.activation?.toIso8601String());
   writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['state'] = instance.state;
-  val['timeLeft'] = instance.timeLeft;
   val['isDay'] = instance.isDay;
+  val['state'] = _$EarthStateEnumMap[instance.state]!;
   val['isCetus'] = instance.isCetus;
   return val;
 }
+
+const _$EarthStateEnumMap = {
+  EarthState.day: 'day',
+  EarthState.night: 'night',
+};

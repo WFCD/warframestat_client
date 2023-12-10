@@ -3,20 +3,28 @@ import 'package:warframestat_client/warframestat_client.dart';
 
 part 'zariman_cycle.g.dart';
 
+/// The Zariman states.
+enum ZarimanState {
+  /// Corpus
+  corpus,
+
+  /// Grineer
+  grineer
+}
+
 /// {@template zariman_cycle}
 /// ZarimanCycle description
 /// {@endtemplate}
 @JsonSerializable()
-class ZarimanCycle extends CycleObject {
+class ZarimanCycle extends WorldstateObject {
   /// {@macro zariman_cycle}
   const ZarimanCycle({
     required super.id,
-    required this.bountiesEndDate,
     required super.activation,
     required super.expiry,
+    required this.bountiesEndDate,
     required this.isCorpus,
-    required super.state,
-    required super.timeLeft,
+    required this.state,
   });
 
   /// Creates a ZarimanCycle from Json map
@@ -29,12 +37,13 @@ class ZarimanCycle extends CycleObject {
   /// Whether or not the Zariman is currently being occupied by corpus or not.
   final bool isCorpus;
 
-  @override
-  bool get stateBool => isCorpus;
+  /// The current enemy occupation.
+  final ZarimanState state;
 
   /// Creates a Json map from a ZarimanCycle
   Map<String, dynamic> toJson() => _$ZarimanCycleToJson(this);
 
   @override
-  List<Object?> get props => super.props..addAll([bountiesEndDate, isCorpus]);
+  List<Object?> get props =>
+      super.props..addAll([bountiesEndDate, isCorpus, state]);
 }
