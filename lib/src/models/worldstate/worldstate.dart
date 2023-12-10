@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/models/worldstate/duviri_cycle.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 part 'worldstate.g.dart';
