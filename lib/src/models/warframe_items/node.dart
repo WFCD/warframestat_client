@@ -15,6 +15,7 @@ class Node extends Item {
     required super.type,
     required super.category,
     required super.productCategory,
+    required super.imageName,
     required super.tradable,
     required this.factionIndex,
     required this.masteryReq,

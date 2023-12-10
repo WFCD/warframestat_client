@@ -18,6 +18,7 @@ Misc _$MiscFromJson(Map json) => $checkedCreate(
           category: $checkedConvert('category', (v) => v as String),
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           patchlogs: $checkedConvert(
               'patchlogs',
@@ -49,5 +50,6 @@ Map<String, dynamic> _$MiscToJson(Misc instance) {
   val['tradable'] = instance.tradable;
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
+  writeNotNull('imageName', instance.imageName);
   return val;
 }

@@ -17,6 +17,7 @@ class Relic extends Item {
     required super.type,
     required super.category,
     required super.productCategory,
+    required super.imageName,
     required super.tradable,
     required this.locations,
     required this.marketInfo,

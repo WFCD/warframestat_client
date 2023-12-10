@@ -18,6 +18,7 @@ Relic _$RelicFromJson(Map json) => $checkedCreate(
           category: $checkedConvert('category', (v) => v as String),
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           locations: $checkedConvert(
               'locations',
@@ -61,6 +62,7 @@ Map<String, dynamic> _$RelicToJson(Relic instance) {
   val['tradable'] = instance.tradable;
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
+  writeNotNull('imageName', instance.imageName);
   val['locations'] = instance.locations.map((e) => e.toJson()).toList();
   writeNotNull('marketInfo', instance.marketInfo?.toJson());
   writeNotNull('vaulted', instance.vaulted);

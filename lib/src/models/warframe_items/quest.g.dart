@@ -18,6 +18,7 @@ Quest _$QuestFromJson(Map json) => $checkedCreate(
           category: $checkedConvert('category', (v) => v as String),
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           excludeFromCodex:
               $checkedConvert('excludeFromCodex', (v) => v as bool?),
@@ -51,6 +52,7 @@ Map<String, dynamic> _$QuestToJson(Quest instance) {
   val['tradable'] = instance.tradable;
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
+  writeNotNull('imageName', instance.imageName);
   writeNotNull('excludeFromCodex', instance.excludeFromCodex);
   return val;
 }
