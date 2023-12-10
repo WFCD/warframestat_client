@@ -63,7 +63,8 @@ Item toItem(Map<String, dynamic> item) {
       if (productCategory == 'MechSuits') return NecroMech.fromJson(item);
 
       return Warframe.fromJson(item);
-  }
 
-  return Misc.fromJson(item);
+    default:
+      return Misc.fromJson(item);
+  }
 }
