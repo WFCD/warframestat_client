@@ -83,6 +83,7 @@ Resource _$ResourceFromJson(Map json) => $checkedCreate(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -124,6 +125,7 @@ Map<String, dynamic> _$ResourceToJson(Resource instance) {
   val['tradable'] = instance.tradable;
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
+  writeNotNull('imageName', instance.imageName);
   writeNotNull('drops', instance.drops?.map((e) => e.toJson()).toList());
   return val;
 }

@@ -47,6 +47,7 @@ class Resource extends DroppableItem {
     required super.uniqueName,
     required super.name,
     required super.description,
+    required super.imageName,
     required super.patchlogs,
     required super.type,
     required super.category,

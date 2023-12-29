@@ -99,12 +99,12 @@ abstract class EquipableItem extends Item {
     required super.tradable,
     required this.isPrime,
     required super.patchlogs,
-    this.vaulted,
-    super.imageName,
+    required super.imageName,
     super.releaseDate,
     super.excludeFromCodex,
     super.wikiaThumbnail,
     super.wikiaUrl,
+    this.vaulted,
   });
 
   /// Whether the [Item] is a prime item.
@@ -131,7 +131,7 @@ abstract class DroppableItem extends Item {
     required super.productCategory,
     required super.tradable,
     required super.patchlogs,
-    super.imageName,
+    required super.imageName,
     super.releaseDate,
     super.excludeFromCodex,
     this.rarity,
