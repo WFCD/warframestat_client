@@ -22,7 +22,7 @@ Alert _$AlertFromJson(Map json) => $checkedCreate(
           rewardTypes: $checkedConvert('rewardTypes',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           eta: $checkedConvert('eta', (v) => v as String),
-          tag: $checkedConvert('tag', (v) => v as String),
+          tag: $checkedConvert('tag', (v) => v as String?),
         );
         return val;
       },
@@ -45,6 +45,6 @@ Map<String, dynamic> _$AlertToJson(Alert instance) {
   val['mission'] = instance.mission.toJson();
   val['rewardTypes'] = instance.rewardTypes;
   val['eta'] = instance.eta;
-  val['tag'] = instance.tag;
+  writeNotNull('tag', instance.tag);
   return val;
 }

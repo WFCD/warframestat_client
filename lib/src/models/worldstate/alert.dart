@@ -40,7 +40,7 @@ class Alert extends WorldstateObject {
   final String eta;
 
   /// Alert tag.
-  final String tag;
+  final String? tag;
 
   /// Creates a Json map from a Alert
   Map<String, dynamic> toJson() => _$AlertToJson(this);
