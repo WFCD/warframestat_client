@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:compute/compute.dart';
 import 'package:meta/meta.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
@@ -233,6 +234,8 @@ class WorldstateClient extends WarframestatClient {
   Future<T> _get<T>(String path) async {
     final response = await get('${GamePlatform.pc.name}$path');
 
-    return json.decode(response.body) as T;
+    return compute(_parseJson, response.body);
   }
+
+  static T _parseJson<T>(String body) => json.decode(body) as T;
 }
