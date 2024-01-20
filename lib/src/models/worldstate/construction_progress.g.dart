@@ -24,18 +24,10 @@ ConstructionProgress _$ConstructionProgressFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$ConstructionProgressToJson(
-    ConstructionProgress instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  val['fomorianProgress'] = instance.fomorianProgress;
-  val['razorbackProgress'] = instance.razorbackProgress;
-  val['unknownProgress'] = instance.unknownProgress;
-  return val;
-}
+        ConstructionProgress instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'fomorianProgress': instance.fomorianProgress,
+      'razorbackProgress': instance.razorbackProgress,
+      'unknownProgress': instance.unknownProgress,
+    };

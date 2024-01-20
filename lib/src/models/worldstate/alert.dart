@@ -24,6 +24,15 @@ class Alert extends WorldstateObject {
   /// Creates a Alert from Json map
   factory Alert.fromJson(Map<String, dynamic> json) => _$AlertFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// Start date as string.
   final String startString;
 

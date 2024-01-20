@@ -35,6 +35,12 @@ class Invasion extends WorldstateObject {
   factory Invasion.fromJson(Map<String, dynamic> json) =>
       _$InvasionFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
   /// A description for attacker
   final InvasionFaction attacker;
 

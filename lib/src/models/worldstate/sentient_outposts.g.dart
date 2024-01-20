@@ -36,9 +36,9 @@ Map<String, dynamic> _$SentientOutpostToJson(SentientOutpost instance) {
     }
   }
 
-  writeNotNull('id', instance.id);
   writeNotNull('activation', instance.activation?.toIso8601String());
   writeNotNull('expiry', instance.expiry?.toIso8601String());
+  val['id'] = instance.id;
   writeNotNull('mission', instance.mission?.toJson());
   val['active'] = instance.active;
   return val;

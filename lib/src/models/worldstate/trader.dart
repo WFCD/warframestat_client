@@ -24,6 +24,15 @@ class Trader extends WorldstateObject {
   /// Creates a VoidTrader from Json map
   factory Trader.fromJson(Map<String, dynamic> json) => _$TraderFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// Whether the instance is active at the time of creation.
   final bool active;
 

@@ -26,23 +26,14 @@ FlashSale _$FlashSaleFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$FlashSaleToJson(FlashSale instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('activation', instance.activation?.toIso8601String());
-  writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['item'] = instance.item;
-  val['expired'] = instance.expired;
-  val['discount'] = instance.discount;
-  val['premiumOverride'] = instance.premiumOverride;
-  val['isPopular'] = instance.isPopular;
-  val['isFeatured'] = instance.isFeatured;
-  return val;
-}
+Map<String, dynamic> _$FlashSaleToJson(FlashSale instance) => <String, dynamic>{
+      'id': instance.id,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'item': instance.item,
+      'expired': instance.expired,
+      'discount': instance.discount,
+      'premiumOverride': instance.premiumOverride,
+      'isPopular': instance.isPopular,
+      'isFeatured': instance.isFeatured,
+    };

@@ -24,6 +24,15 @@ class SyndicateMission extends WorldstateObject {
   factory SyndicateMission.fromJson(Map<String, dynamic> json) =>
       _$SyndicateMissionFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// A description for active
   final bool active;
 

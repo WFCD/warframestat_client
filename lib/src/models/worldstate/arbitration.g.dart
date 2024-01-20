@@ -29,7 +29,13 @@ Arbitration _$ArbitrationFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$ArbitrationToJson(Arbitration instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'id': instance.id,
+    'activation': instance.activation.toIso8601String(),
+    'expiry': instance.expiry.toIso8601String(),
+    'node': instance.node,
+    'nodeKey': instance.nodeKey,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -37,11 +43,6 @@ Map<String, dynamic> _$ArbitrationToJson(Arbitration instance) {
     }
   }
 
-  writeNotNull('id', instance.id);
-  writeNotNull('activation', instance.activation?.toIso8601String());
-  writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['node'] = instance.node;
-  val['nodeKey'] = instance.nodeKey;
   writeNotNull('enemy', instance.enemy);
   val['type'] = instance.type;
   val['typeKey'] = instance.typeKey;

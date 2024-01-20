@@ -23,22 +23,14 @@ VallisCycle _$VallisCycleFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$VallisCycleToJson(VallisCycle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('activation', instance.activation?.toIso8601String());
-  writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['isWarm'] = instance.isWarm;
-  val['state'] = _$VallisStateEnumMap[instance.state]!;
-  return val;
-}
+Map<String, dynamic> _$VallisCycleToJson(VallisCycle instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'isWarm': instance.isWarm,
+      'state': _$VallisStateEnumMap[instance.state]!,
+    };
 
 const _$VallisStateEnumMap = {
   VallisState.cold: 'cold',

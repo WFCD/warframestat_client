@@ -26,23 +26,15 @@ ZarimanCycle _$ZarimanCycleFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ZarimanCycleToJson(ZarimanCycle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('activation', instance.activation?.toIso8601String());
-  writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['bountiesEndDate'] = instance.bountiesEndDate.toIso8601String();
-  val['isCorpus'] = instance.isCorpus;
-  val['state'] = _$ZarimanStateEnumMap[instance.state]!;
-  return val;
-}
+Map<String, dynamic> _$ZarimanCycleToJson(ZarimanCycle instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'bountiesEndDate': instance.bountiesEndDate.toIso8601String(),
+      'isCorpus': instance.isCorpus,
+      'state': _$ZarimanStateEnumMap[instance.state]!,
+    };
 
 const _$ZarimanStateEnumMap = {
   ZarimanState.corpus: 'corpus',

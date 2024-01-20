@@ -37,23 +37,14 @@ SteelPath _$SteelPathFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$SteelPathToJson(SteelPath instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('activation', instance.activation?.toIso8601String());
-  writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['currentReward'] = instance.currentReward.toJson();
-  val['rotation'] = instance.rotation.map((e) => e.toJson()).toList();
-  val['evergreens'] = instance.evergreens.map((e) => e.toJson()).toList();
-  val['incursions'] = instance.incursions.toJson();
-  return val;
-}
+Map<String, dynamic> _$SteelPathToJson(SteelPath instance) => <String, dynamic>{
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'currentReward': instance.currentReward.toJson(),
+      'rotation': instance.rotation.map((e) => e.toJson()).toList(),
+      'evergreens': instance.evergreens.map((e) => e.toJson()).toList(),
+      'incursions': instance.incursions.toJson(),
+    };
 
 SteelPathReward _$SteelPathRewardFromJson(Map json) => $checkedCreate(
       'SteelPathReward',

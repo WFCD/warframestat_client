@@ -26,6 +26,15 @@ class DailyDeal extends WorldstateObject {
   factory DailyDeal.fromJson(Map<String, dynamic> json) =>
       _$DailyDealFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// The item on sale.
   final String item;
 

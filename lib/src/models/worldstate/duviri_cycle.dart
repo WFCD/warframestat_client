@@ -41,6 +41,15 @@ class DuviriCycle extends WorldstateObject {
     return _$DuviriCycleFromJson(json);
   }
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// The current running cycle on Duviri.
   final DuviriState state;
 

@@ -31,6 +31,15 @@ class ZarimanCycle extends WorldstateObject {
   factory ZarimanCycle.fromJson(Map<String, dynamic> json) =>
       _$ZarimanCycleFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// The time Zariman bounties expires on.
   final DateTime bountiesEndDate;
 

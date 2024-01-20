@@ -30,6 +30,15 @@ class VallisCycle extends WorldstateObject {
   factory VallisCycle.fromJson(Map<String, dynamic> json) =>
       _$VallisCycleFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// A description for isWarm
   final bool isWarm;
 

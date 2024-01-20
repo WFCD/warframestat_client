@@ -55,6 +55,15 @@ class WorldEvent extends WorldstateObject {
   factory WorldEvent.fromJson(Map<String, dynamic> json) =>
       _$WorldEventFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// Previous ID
   @JsonKey(includeIfNull: false)
   final String? previousId;

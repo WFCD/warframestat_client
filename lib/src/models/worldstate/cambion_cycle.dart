@@ -33,6 +33,15 @@ class CambionCycle extends WorldstateObject {
   factory CambionCycle.fromJson(Map<String, dynamic> json) =>
       _$CambionCycleFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// Represents the current state on cambion.
   final CambionState state;
 

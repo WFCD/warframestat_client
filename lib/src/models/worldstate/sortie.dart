@@ -30,6 +30,15 @@ class Sortie extends WorldstateObject {
     return _$SortieFromJson(json);
   }
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// The time the sortie started.
   final String startString;
 

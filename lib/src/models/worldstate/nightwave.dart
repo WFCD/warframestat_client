@@ -28,6 +28,15 @@ class Nightwave extends WorldstateObject {
   factory Nightwave.fromJson(Map<String, dynamic> json) =>
       _$NightwaveFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// A description for active
   final bool active;
 

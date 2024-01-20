@@ -29,6 +29,15 @@ class Arbitration extends WorldstateObject {
   factory Arbitration.fromJson(Map<String, dynamic> json) =>
       _$ArbitrationFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// The node the arbitration is taking place in.
   final String node;
 

@@ -24,6 +24,12 @@ class SteelPath extends WorldstateObject {
   factory SteelPath.fromJson(Map<String, dynamic> json) =>
       _$SteelPathFromJson(json);
 
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// The Steel path current reward.
   final SteelPathReward currentReward;
 

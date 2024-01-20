@@ -25,6 +25,15 @@ class FlashSale extends WorldstateObject {
   factory FlashSale.fromJson(Map<String, dynamic> json) =>
       _$FlashSaleFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// A description for item
   final String item;
 

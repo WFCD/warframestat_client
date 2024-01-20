@@ -28,6 +28,15 @@ class Kuva extends WorldstateObject {
   /// Creates a Kuva from Json map
   factory Kuva.fromJson(Map<String, dynamic> json) => _$KuvaFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// A description for active
   final bool active;
 

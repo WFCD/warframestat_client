@@ -32,7 +32,15 @@ Fissure _$FissureFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$FissureToJson(Fissure instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'id': instance.id,
+    'activation': instance.activation.toIso8601String(),
+    'expiry': instance.expiry.toIso8601String(),
+    'active': instance.active,
+    'node': instance.node,
+    'expired': instance.expired,
+    'missionType': instance.missionType,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -40,13 +48,6 @@ Map<String, dynamic> _$FissureToJson(Fissure instance) {
     }
   }
 
-  writeNotNull('id', instance.id);
-  writeNotNull('activation', instance.activation?.toIso8601String());
-  writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['active'] = instance.active;
-  val['node'] = instance.node;
-  val['expired'] = instance.expired;
-  val['missionType'] = instance.missionType;
   writeNotNull('missionKey', instance.missionKey);
   val['tier'] = instance.tier;
   val['tierNum'] = instance.tierNum;

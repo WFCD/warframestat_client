@@ -22,6 +22,9 @@ class SentientOutpost extends WorldstateObject {
     return _$SentientOutpostFromJson(data);
   }
 
+  @override
+  String get id => super.id!;
+
   /// Mission node the outpost is located in.
   final Mission? mission;
 

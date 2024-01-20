@@ -20,6 +20,15 @@ class ConstructionProgress extends WorldstateObject {
   factory ConstructionProgress.fromJson(Map<String, dynamic> json) =>
       _$ConstructionProgressFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// Fomorian consruction progress.
   final String fomorianProgress;
 

@@ -28,22 +28,14 @@ DuviriCycle _$DuviriCycleFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$DuviriCycleToJson(DuviriCycle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('activation', instance.activation?.toIso8601String());
-  writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['state'] = _$DuviriStateEnumMap[instance.state]!;
-  val['choices'] = instance.choices.map((e) => e.toJson()).toList();
-  return val;
-}
+Map<String, dynamic> _$DuviriCycleToJson(DuviriCycle instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'state': _$DuviriStateEnumMap[instance.state]!,
+      'choices': instance.choices.map((e) => e.toJson()).toList(),
+    };
 
 const _$DuviriStateEnumMap = {
   DuviriState.joy: 'joy',

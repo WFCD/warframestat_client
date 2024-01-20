@@ -26,6 +26,15 @@ class ConclaveChallenge extends WorldstateObject {
   factory ConclaveChallenge.fromJson(Map<String, dynamic> json) =>
       _$ConclaveChallengeFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// The PVP mode that the challenge must be completed in.
   final String mode;
 

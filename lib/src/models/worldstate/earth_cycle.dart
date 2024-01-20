@@ -30,6 +30,15 @@ class EarthCycle extends WorldstateObject {
   factory EarthCycle.fromJson(Map<String, dynamic> json) =>
       _$EarthCycleFromJson(json);
 
+  @override
+  String get id => super.id!;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   /// Whether it is currently day or night on earth.
   final bool isDay;
 
