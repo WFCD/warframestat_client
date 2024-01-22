@@ -18,13 +18,6 @@ class WarframeItemsClient extends WarframestatClient {
     return compute(toItems, response);
   }
 
-  /// Get data for the closest matching single item
-  Future<Item> fetchItem(String query) async {
-    final response = await _get<Map<String, dynamic>>('/$query');
-
-    return compute(toItem, response);
-  }
-
   /// Returns all [Item]s that match the search query.
   Future<List<Item>> search(String query) async {
     final response = await _get<List<dynamic>>('/search/$query');
@@ -117,7 +110,7 @@ class WarframeItemsClient extends WarframestatClient {
   /// Pulls an item useing it's uniqueName.
   ///
   /// Returns null when an item with the uniqueName doesn't exist.
-  Future<Item> searchByUniqueName(String uniqueName) async {
+  Future<Item> fetchItem(String uniqueName) async {
     final encodedUniqueName = Uri.encodeQueryComponent(uniqueName);
     final request = await _get<Map<String, dynamic>>(
       '/$encodedUniqueName/',
