@@ -29,7 +29,7 @@ void main() {
       (_) async => response(await worldstateFixtures.loadWorldstate()),
     );
 
-    final state = await worldstateClient.currentState();
+    final state = await worldstateClient.fetchWorldstate();
 
     expect(state, const TypeMatcher<Worldstate>());
   });
@@ -39,7 +39,7 @@ void main() {
       (_) async => response(await worldstateFixtures.loadAlertFixture()),
     );
 
-    final alerts = await worldstateClient.getAlerts();
+    final alerts = await worldstateClient.fetchAlerts();
 
     expect(alerts, const TypeMatcher<List<Alert>>());
   });
@@ -49,7 +49,7 @@ void main() {
       (_) async => response(await worldstateFixtures.loadArbitrationFixture()),
     );
 
-    final arbitration = await worldstateClient.getArbitration();
+    final arbitration = await worldstateClient.fetchArbitration();
 
     expect(arbitration, const TypeMatcher<Arbitration>());
   });
@@ -59,7 +59,7 @@ void main() {
       (_) async => response(await worldstateFixtures.loadArchonHuntFixture()),
     );
 
-    final archonHunt = await worldstateClient.getArchonHunt();
+    final archonHunt = await worldstateClient.fetchArchonHunt();
 
     expect(archonHunt, const TypeMatcher<Sortie>());
   });
@@ -69,7 +69,7 @@ void main() {
       (_) async => response(await worldstateFixtures.loadCambionCycleFixture()),
     );
 
-    final cambionCycle = await worldstateClient.getCambionCycle();
+    final cambionCycle = await worldstateClient.fetchCambionCycle();
 
     expect(cambionCycle, const TypeMatcher<CambionCycle>());
   });
@@ -79,7 +79,7 @@ void main() {
       (_) async => response(await worldstateFixtures.loadCetusCycle()),
     );
 
-    final cetusCycle = await worldstateClient.getCetusCycle();
+    final cetusCycle = await worldstateClient.fetchCetusCycle();
 
     expect(cetusCycle, const TypeMatcher<CetusCycle>());
   });
@@ -89,7 +89,7 @@ void main() {
       (_) async => response(await worldstateFixtures.loadConclaveChallenges()),
     );
 
-    final conclaveChallenges = await worldstateClient.getConclaveChallenges();
+    final conclaveChallenges = await worldstateClient.fetchConclaveChallenges();
 
     expect(conclaveChallenges, const TypeMatcher<List<ConclaveChallenge>>());
   });
@@ -101,7 +101,7 @@ void main() {
     );
 
     final constructionProgress =
-        await worldstateClient.getConstrcutionProgress();
+        await worldstateClient.fetchConstrcutionProgress();
 
     expect(constructionProgress, const TypeMatcher<ConstructionProgress>());
   });
@@ -111,7 +111,7 @@ void main() {
       (_) async => response(await worldstateFixtures.loadDailyDeals()),
     );
 
-    final dailyDeals = await worldstateClient.getDailyDeals();
+    final dailyDeals = await worldstateClient.fetchDailyDeals();
 
     expect(dailyDeals, const TypeMatcher<List<DailyDeal>>());
   });
