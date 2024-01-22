@@ -117,7 +117,8 @@ class WarframeItemsClient extends WarframestatClient {
       query: {'by': 'uniqueName'},
     );
 
-    if (request['code'] == HttpStatus.notFound) {
+    final statusCode = request['code'] as int?;
+    if (statusCode == HttpStatus.notFound) {
       throw ItemNotFound(uniqueName);
     }
 
