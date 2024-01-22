@@ -12,14 +12,14 @@ class WarframeItemsClient extends WarframestatClient {
   WarframeItemsClient({super.language, super.ua, super.client});
 
   /// Returns a list of all warframe items.
-  Future<List<Item>> getAllItems() async {
+  Future<List<Item>> fetchAllItems() async {
     final response = await _get<List<dynamic>>('/');
 
     return compute(toItems, response);
   }
 
   /// Get data for the closest matching single item
-  Future<Item> getItem(String query) async {
+  Future<Item> fetchItem(String query) async {
     final response = await _get<Map<String, dynamic>>('/$query');
 
     return compute(toItem, response);
@@ -33,7 +33,7 @@ class WarframeItemsClient extends WarframestatClient {
   }
 
   /// Returns a list of all mods and mod set mods.
-  Future<List<BaseMod>> getAllMods() async {
+  Future<List<BaseMod>> fetchAllMods() async {
     final response = await _get<List<dynamic>>('/mods');
     final items = await compute(toItems, response);
 
@@ -41,7 +41,7 @@ class WarframeItemsClient extends WarframestatClient {
   }
 
   /// Get data for the closest matching [Mod].
-  Future<Mod> getMod(String query) async {
+  Future<Mod> fetchMod(String query) async {
     final response = await _get<Map<String, dynamic>>('/mods/$query');
 
     return Mod.fromJson(response);
@@ -51,7 +51,7 @@ class WarframeItemsClient extends WarframestatClient {
   ///
   /// Becasue [NecroMech]s and [Warframe]s share the same category one can use.
   /// [includeMechs] is you want to filter out necromechs or not.
-  Future<List<PowerSuit>> getAllWarframes({bool includeMechs = true}) async {
+  Future<List<PowerSuit>> fetchAllWarframes({bool includeMechs = true}) async {
     final response = await _get<List<dynamic>>('/warframes');
     final items = await compute(toItems, response);
 
@@ -61,7 +61,7 @@ class WarframeItemsClient extends WarframestatClient {
   }
 
   /// Get data for the closest matching warframe.
-  Future<Warframe> getWarframe(String query) async {
+  Future<Warframe> fetchWarframe(String query) async {
     final response = await _get<Map<String, dynamic>>('/warframes/$query');
 
     return Warframe.fromJson(response);
@@ -84,7 +84,7 @@ class WarframeItemsClient extends WarframestatClient {
   /// WARNING:
   /// THIS IS A LOT OF DATA AND IT IS RECOMMENDED TO RUN THIS FUNCTION IN AN
   /// ISOLATE.
-  Future<List<Weapon>> getAllWeapons() async {
+  Future<List<Weapon>> fetchAllWeapons() async {
     final response = await _get<List<dynamic>>('/weapons');
     final items = await compute(toItems, response);
 
@@ -92,7 +92,7 @@ class WarframeItemsClient extends WarframestatClient {
   }
 
   /// Get data for the closest matching weapon.
-  Future<Weapon> getWeapon(String query) async {
+  Future<Weapon> fetchWeapon(String query) async {
     final item = await _get<Map<String, dynamic>>('/weapons/$query');
     final category = item['category'];
 

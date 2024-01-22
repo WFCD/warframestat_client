@@ -12,14 +12,14 @@ class WorldstateClient extends WarframestatClient {
   WorldstateClient({super.language, super.ua, super.client});
 
   /// Retrives a fully translated [Worldstate].
-  Future<Worldstate> currentState() async {
+  Future<Worldstate> fetchWorldstate() async {
     final worldstate = await _get<Map<String, dynamic>>('');
 
     return Worldstate.fromJson(worldstate);
   }
 
   /// Retrives a list of ongoing [Alert]s.
-  Future<List<Alert>> getAlerts() async {
+  Future<List<Alert>> fetchAlerts() async {
     final alerts = await _get<List<dynamic>>('/alerts');
 
     return alerts
@@ -28,35 +28,35 @@ class WorldstateClient extends WarframestatClient {
   }
 
   /// Retrives the current [Arbitration].
-  Future<Arbitration> getArbitration() async {
+  Future<Arbitration> fetchArbitration() async {
     final arbitration = await _get<Map<String, dynamic>>('/arbitration');
 
     return Arbitration.fromJson(arbitration);
   }
 
   /// Retrives the currently ongoing ArchonHunt.
-  Future<Sortie> getArchonHunt() async {
+  Future<Sortie> fetchArchonHunt() async {
     final hunt = await _get<Map<String, dynamic>>('/archonHunt');
 
     return Sortie.fromJson(hunt);
   }
 
   /// Retrives the current cycle data for [CambionCycle].
-  Future<CambionCycle> getCambionCycle() async {
+  Future<CambionCycle> fetchCambionCycle() async {
     final cycle = await _get<Map<String, dynamic>>('/cambionCycle');
 
     return CambionCycle.fromJson(cycle);
   }
 
   /// Retrives the current cycle data for [CetusCycle].
-  Future<CetusCycle> getCetusCycle() async {
+  Future<CetusCycle> fetchCetusCycle() async {
     final cycle = await _get<Map<String, dynamic>>('/cetusCycle');
 
     return CetusCycle.fromJson(cycle);
   }
 
   /// Retrives a list of currently active [ConclaveChallenge]s.
-  Future<List<ConclaveChallenge>> getConclaveChallenges() async {
+  Future<List<ConclaveChallenge>> fetchConclaveChallenges() async {
     final challenges = await _get<List<dynamic>>('/conclaveChallenges');
 
     return challenges
@@ -68,14 +68,14 @@ class WorldstateClient extends WarframestatClient {
   /// and the fomorian.
   ///
   /// I have no idea what [ConstructionProgress.unknownProgress] is for.
-  Future<ConstructionProgress> getConstrcutionProgress() async {
+  Future<ConstructionProgress> fetchConstrcutionProgress() async {
     final progress = await _get<Map<String, dynamic>>('/constructionProgress');
 
     return ConstructionProgress.fromJson(progress);
   }
 
   /// Retrive the currently active darvo deal.
-  Future<List<DailyDeal>> getDailyDeals() async {
+  Future<List<DailyDeal>> fetchDailyDeals() async {
     final deals = await _get<List<dynamic>>('/dailyDeals');
 
     return deals
@@ -84,14 +84,14 @@ class WorldstateClient extends WarframestatClient {
   }
 
   /// Retrives data on the [EarthCycle].
-  Future<EarthCycle> getEarthCycle() async {
+  Future<EarthCycle> fetchEarthCycle() async {
     final cycle = await _get<Map<String, dynamic>>('/earthCycle');
 
     return EarthCycle.fromJson(cycle);
   }
 
   /// Retrives a list of currently active Warframe [WorldEvent].
-  Future<List<WorldEvent>> getEvents() async {
+  Future<List<WorldEvent>> fetchEvents() async {
     final events = await _get<List<dynamic>>('/events');
 
     return events
@@ -100,7 +100,7 @@ class WorldstateClient extends WarframestatClient {
   }
 
   /// Retrives a list of ongoing void [Fissure]s.
-  Future<List<Fissure>> getFissures() async {
+  Future<List<Fissure>> fetchFissures() async {
     final fissures = await _get<List<dynamic>>('/fissures');
 
     return fissures
@@ -111,7 +111,7 @@ class WorldstateClient extends WarframestatClient {
   /// Retrives a list of current [FlashSale]s that darvo has to offfer.
   ///
   /// Wonder why he has to sell them off so fast.
-  Future<List<FlashSale>> getFlashSales() async {
+  Future<List<FlashSale>> fetchFlashSales() async {
     final sales = await _get<List<dynamic>>('/flashSales');
 
     return sales
@@ -122,7 +122,7 @@ class WorldstateClient extends WarframestatClient {
   /// Retrive a list of current [GlobalUpgrade].
   ///
   /// An example of this would be game wide credit booster.
-  Future<List<GlobalUpgrade>> getGlobalUpgrades() async {
+  Future<List<GlobalUpgrade>> fetchGlobalUpgrades() async {
     final upgrades = await _get<List<dynamic>>('/globalUpgrades');
 
     return upgrades
@@ -131,7 +131,7 @@ class WorldstateClient extends WarframestatClient {
   }
 
   /// Retrives a list of ongoing [Invasion]s.
-  Future<List<Invasion>> getInvasions() async {
+  Future<List<Invasion>> fetchInvasions() async {
     final invasions = await _get<List<dynamic>>('/invasions');
 
     return invasions
@@ -141,14 +141,14 @@ class WorldstateClient extends WarframestatClient {
 
   /// Retrives a list of currently active [Kuva] missions.
   @experimental
-  Future<List<Kuva>> getKuvas() async {
+  Future<List<Kuva>> fetchKuvas() async {
     final kuvas = await _get<List<dynamic>>('kuva');
 
     return kuvas.map((e) => Kuva.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrives a list of current Warframe [News].
-  Future<List<News>> getNews() async {
+  Future<List<News>> fetchNews() async {
     final news = await _get<List<dynamic>>('/news');
 
     return news.map((e) => News.fromJson(e as Map<String, dynamic>)).toList();
@@ -157,7 +157,7 @@ class WorldstateClient extends WarframestatClient {
   /// Retrives the current [Nightwave].
   ///
   /// Returns null when there are no active nightwave.
-  Future<Nightwave?> getNightwave() async {
+  Future<Nightwave?> fetchNightwave() async {
     final nightwave = await _get<Map<String, dynamic>>('/nightwave');
 
     return Nightwave.fromJson(nightwave);
@@ -165,7 +165,7 @@ class WorldstateClient extends WarframestatClient {
 
   /// Retrives a list of currently active acolytes.
   @Deprecated('See PersistentEnemy model.')
-  Future<List<PersistentEnemy>> getPersistentEnemies() async {
+  Future<List<PersistentEnemy>> fetchPersistentEnemies() async {
     final enemies = await _get<List<dynamic>>('/persistentEnemies');
 
     return enemies
@@ -174,35 +174,35 @@ class WorldstateClient extends WarframestatClient {
   }
 
   /// Retrives the current location of the sentient outpost.
-  Future<SentientOutpost> getSentientOutpost() async {
+  Future<SentientOutpost> fetchSentientOutpost() async {
     final outpost = await _get<Map<String, dynamic>>('/sentientOutpost');
 
     return SentientOutpost.fromJson(outpost);
   }
 
   /// Retrives the current status for Simaris' Sanctuary.
-  Future<Simaris> getSimarisStatus() async {
+  Future<Simaris> fetchSimarisStatus() async {
     final target = await _get<Map<String, dynamic>>('/simaris');
 
     return Simaris.fromJson(target);
   }
 
   /// Retrives the currently active sortie.
-  Future<Sortie> getSortie() async {
+  Future<Sortie> fetchSortie() async {
     final sortie = await _get<Map<String, dynamic>>('/sortie');
 
     return Sortie.fromJson(sortie);
   }
 
   /// Retrieves the current steel path mission data.
-  Future<SteelPath> getSteelPath() async {
+  Future<SteelPath> fetchSteelPath() async {
     final path = await _get<Map<String, dynamic>>('/steelPath');
 
     return SteelPath.fromJson(path);
   }
 
   /// Retrives a list of on going syndicate missions and bounties.
-  Future<List<SyndicateMission>> getSyndicateMissions() async {
+  Future<List<SyndicateMission>> fetchSyndicateMissions() async {
     final missions = await _get<List<dynamic>>('/syndicateMissions');
 
     return missions
@@ -211,21 +211,21 @@ class WorldstateClient extends WarframestatClient {
   }
 
   /// Retrives the time the worldstate was last generated at.
-  Future<DateTime> getTimestamp() async {
+  Future<DateTime> fetchTimestamp() async {
     final timestamp = await _get<String>('/timestamp');
 
     return DateTime.parse(timestamp);
   }
 
   /// Retrieves the data  on the current Orb Vallis cycle.
-  Future<VallisCycle> getVallisCycle() async {
+  Future<VallisCycle> fetchVallisCycle() async {
     final cycle = await _get<Map<String, dynamic>>('/vallisCycle');
 
     return VallisCycle.fromJson(cycle);
   }
 
   /// Retrives the current status and inventory of the void trader.
-  Future<Trader> getVoidTrader() async {
+  Future<Trader> fetchVoidTrader() async {
     final trader = await _get<Map<String, dynamic>>('/voidTrader');
 
     return Trader.fromJson(trader);

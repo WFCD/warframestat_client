@@ -11,7 +11,7 @@ class SynthTaretClient extends WarframestatClient {
   SynthTaretClient({super.client, super.language, super.ua});
 
   /// Retrives a list of all synthesis target.
-  Future<List<SynthTarget>> getTargets() async {
+  Future<List<SynthTarget>> fetchTargets() async {
     final response = await get('/synthtargets');
 
     return compute(_parseTargets, response.body);
