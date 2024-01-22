@@ -1,6 +1,6 @@
 name: warframestat_client
 description: A Very Good Project created by Very Good CLI.
-version: 2.1.1
+version: 3.0.0
 publish_to: none
 
 environment:
