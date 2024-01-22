@@ -1,5 +1,13 @@
 import 'package:warframestat_client/warframestat_client.dart';
 
+/// Converts search items to a list of [MinimalItem]s.
+List<MinimalItem> toSearchItems(List<dynamic> data) {
+  return data
+      .map((e) => Map<String, dynamic>.from(e as Map))
+      .map(MinimalItem.fromJson)
+      .toList();
+}
+
 /// Converts a json decoded list into [Item] objects
 List<Item> toItems(List<dynamic> data) {
   return data
