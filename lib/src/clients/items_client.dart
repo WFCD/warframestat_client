@@ -72,7 +72,7 @@ class WarframeItemsClient extends WarframestatClient {
   /// Because Warframes and necromech seem to share the same [Item.category]
   /// results can also return [NecroMech]s as such this method will always
   /// return the base class of the two.
-  Future<List<PowerSuit>> searchFrames(String query) async {
+  Future<List<PowerSuit>> searchWarframes(String query) async {
     final response = await _get<List<dynamic>>('/warframes/search/$query');
     final items = await compute(toItems, response);
 
