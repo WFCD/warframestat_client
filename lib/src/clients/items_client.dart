@@ -22,7 +22,7 @@ class WarframeItemsClient extends WarframestatClient {
   Future<List<MinimalItem>> search(String query) async {
     final response = await _get<List<dynamic>>(
       '/search/$query',
-      query: {'only': 'uniqueName,name,description,imageNmae,category,type'},
+      query: {'only': 'uniqueName,name,description,imageName,category,type'},
     );
 
     return compute(toSearchItems, response);
