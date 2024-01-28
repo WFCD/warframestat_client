@@ -22,8 +22,9 @@ class WorldstateClient extends WarframestatClient {
         .where((event) => event['event'] == 'ws:update')
         .map((event) => event['packet'] as Map<String, dynamic>)
         .where((event) => event['language'] == language.name)
-        .map((event) =>
-            Worldstate.fromJson(event['data'] as Map<String, dynamic>));
+        .map(
+          (event) => Worldstate.fromJson(event['data'] as Map<String, dynamic>),
+        );
   }
 
   /// Retrives a fully translated [Worldstate].
