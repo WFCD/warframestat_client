@@ -20,6 +20,7 @@
   "useGitignore": true,
   "words": [
     "warframestat_client",
-    "Warframe"
+    "Warframe",
+    "warframestat"
   ]
 }
