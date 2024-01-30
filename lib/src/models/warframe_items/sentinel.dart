@@ -4,12 +4,12 @@ import 'package:warframestat_client/warframestat_client.dart';
 part 'sentinel.g.dart';
 
 /// {@template sentinal}
-/// Sentinal description
+/// Sentinal data class for buildable sentinels
 /// {@endtemplate}
 @JsonSerializable()
-class Sentinel extends BuildableItem {
+class SentinelBuildable extends BuildableItem {
   /// {@macro sentinal}
-  const Sentinel({
+  const SentinelBuildable({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -24,13 +24,60 @@ class Sentinel extends BuildableItem {
     required super.consumeOnBuild,
     required super.imageName,
     required List<Component> super.components,
-    required List<Patchlog> super.patchlogs,
+    required super.patchlogs,
     required this.armor,
     required this.health,
     required this.shield,
     required this.stamina,
     required super.isPrime,
     super.vaulted,
+  });
+
+  /// Creates a Sentinal from Json map
+  factory SentinelBuildable.fromJson(Map<String, dynamic> data) =>
+      _$SentinelBuildableFromJson(data);
+
+  /// Armor health.
+  final int armor;
+
+  /// Raw health.
+  final int health;
+
+  /// Shield health.
+  final int shield;
+
+  /// Stamina.
+  final num stamina;
+
+  /// Creates a Json map from a Sentinal
+  @override
+  Map<String, dynamic> toJson() => _$SentinelBuildableToJson(this);
+
+  @override
+  List<Object?> get props =>
+      super.props..addAll([armor, health, shield, stamina, isPrime]);
+}
+
+/// {@template sentinal}
+/// Sentinal data class
+/// {@endtemplate}
+@JsonSerializable()
+class Sentinel extends Item {
+  /// {@macro sentinal}
+  const Sentinel({
+    required super.uniqueName,
+    required super.name,
+    required super.description,
+    required super.type,
+    required super.category,
+    required super.productCategory,
+    required super.tradable,
+    required super.imageName,
+    required super.patchlogs,
+    required this.armor,
+    required this.health,
+    required this.shield,
+    required this.stamina,
   });
 
   /// Creates a Sentinal from Json map
@@ -55,5 +102,5 @@ class Sentinel extends BuildableItem {
 
   @override
   List<Object?> get props =>
-      super.props..addAll([armor, health, shield, stamina, isPrime]);
+      super.props..addAll([armor, health, shield, stamina]);
 }

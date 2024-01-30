@@ -47,7 +47,9 @@ Item toItem(Map<String, dynamic> item) {
     case ItemCategory.melee || ItemCategory.archMelee:
       return Melee.fromJson(item);
     case ItemCategory.sentinels:
-      return Sentinel.fromJson(item);
+      return isBuildable
+          ? SentinelBuildable.fromJson(item)
+          : Sentinel.fromJson(item);
     case ItemCategory.resources:
       return isBuildable
           ? ResourceBuildable.fromJson(item)
