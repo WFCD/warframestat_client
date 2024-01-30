@@ -18,6 +18,8 @@ class MinimalItem extends Item {
     required super.productCategory,
     required super.patchlogs,
     required super.imageName,
+    required this.vaultDate,
+    required this.vaulted,
   });
 
   /// Creates an instance of [MinimalItem] from json.
@@ -25,6 +27,13 @@ class MinimalItem extends Item {
     return _$MinimalItemFromJson(json);
   }
 
+  final String? vaultDate;
+
+  final bool? vaulted;
+
   @override
   Map<String, dynamic> toJson() => _$MinimalItemToJson(this);
+
+  @override
+  List<Object?> get props => super.props..add([vaultDate, vaulted]);
 }

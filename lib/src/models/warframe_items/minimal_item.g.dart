@@ -25,6 +25,8 @@ MinimalItem _$MinimalItemFromJson(Map json) => $checkedCreate(
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String?),
+          vaultDate: $checkedConvert('vaultDate', (v) => v as String?),
+          vaulted: $checkedConvert('vaulted', (v) => v as bool?),
         );
         return val;
       },
@@ -49,5 +51,7 @@ Map<String, dynamic> _$MinimalItemToJson(MinimalItem instance) {
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
+  writeNotNull('vaultDate', instance.vaultDate);
+  writeNotNull('vaulted', instance.vaulted);
   return val;
 }
