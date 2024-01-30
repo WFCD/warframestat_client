@@ -21,50 +21,50 @@ Item toItem(Map<String, dynamic> item) {
   final category = item['category'] as String;
   final isBuildable = item['components'] != null;
 
-  switch (category) {
-    case ItemCategories.arcanes:
+  switch (ItemCategory.byCategory(category)) {
+    case ItemCategory.arcanes:
       return Arcane.fromJson(item);
-    case ItemCategories.archwing:
+    case ItemCategory.archwing:
       return Archwing.fromJson(item);
-    case ItemCategories.fish:
+    case ItemCategory.fish:
       return Fish.fromJson(item);
-    case ItemCategories.glyphs:
+    case ItemCategory.glyphs:
       return Glyph.fromJson(item);
-    case ItemCategories.node:
+    case ItemCategory.node:
       return Node.fromJson(item);
-    case ItemCategories.quest:
+    case ItemCategory.quests:
       return Quest.fromJson(item);
-    case ItemCategories.relics:
+    case ItemCategory.relics:
       return Relic.fromJson(item);
-    case ItemCategories.petResource:
+    case ItemCategory.petResource:
       return PetResource.fromJson(item);
-    case ItemCategories.sigils:
+    case ItemCategory.sigils:
       return Sigil.fromJson(item);
-    case ItemCategories.primary || ItemCategories.archGun:
+    case ItemCategory.primary || ItemCategory.archGun:
       return Primary.fromJson(item);
-    case ItemCategories.secondary:
+    case ItemCategory.secondary:
       return Secondary.fromJson(item);
-
-    case ItemCategories.melee || ItemCategories.archMelee:
+    case ItemCategory.melee || ItemCategory.archMelee:
       return Melee.fromJson(item);
-
-    case ItemCategories.resources:
+    case ItemCategory.sentinels:
+      return Sentinel.fromJson(item);
+    case ItemCategory.resources:
       return isBuildable
           ? ResourceBuildable.fromJson(item)
           : Resource.fromJson(item);
 
-    case ItemCategories.skins:
+    case ItemCategory.skins:
       return isBuildable ? SkinBuildable.fromJson(item) : Skin.fromJson(item);
 
-    case ItemCategories.gear:
+    case ItemCategory.gear:
       return isBuildable ? GearBuildable.fromJson(item) : Gear.fromJson(item);
 
-    case ItemCategories.mods:
+    case ItemCategory.mods:
       // Mod sets and mods are two different json structures.
       if (item['type'] as String == 'Mod Set Mod') return ModSet.fromJson(item);
 
       return Mod.fromJson(item);
-    case ItemCategories.warframes:
+    case ItemCategory.warframes:
       // NecroMechs and Warframes are stored with the same cateogry so we need
       // to filter by productCateogry here.
       final productCategory = item['productCategory'] as String;
@@ -72,7 +72,7 @@ Item toItem(Map<String, dynamic> item) {
 
       return Warframe.fromJson(item);
 
-    default:
+    case ItemCategory.misc || _:
       return Misc.fromJson(item);
   }
 }

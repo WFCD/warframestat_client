@@ -1,62 +1,81 @@
-/// Item cateogry strings.
-abstract class ItemCategories {
-  /// Warframe category string.
-  static const String warframes = 'Warframes';
+/// Item cateogry types.
+enum ItemCategory {
+  /// Warframe category.
+  warframes('Warframes'),
 
-  /// Melee category string.
-  static const String melee = 'Melee';
+  /// Melee category.
+  melee('Melee'),
 
-  /// Arch-Melee category string.
-  static const String archMelee = 'Arch-Melee';
+  /// Arch-Melee category.
+  archMelee('Arch-Melee'),
 
-  /// Primary category string.
-  static const String primary = 'Primary';
+  /// Primary category.
+  primary('Primary'),
 
-  /// Arch-Gun category string.
-  static const String archGun = 'Arch-Gun';
+  /// Arch-Gun category.
+  archGun('Arch-Gun'),
 
-  /// Resource category string.
-  static const String resources = 'Resources';
+  /// Resource category.
+  resources('Resources'),
 
-  /// Skins category string.
-  static const String skins = 'Skins';
+  /// Skins category.
+  skins('Skins'),
 
-  /// Gear category string.
-  static const String gear = 'Gear';
+  /// Gear category.
+  gear('Gear'),
 
-  /// Mods category string.
-  static const String mods = 'Mods';
+  /// Mods category.
+  mods('Mods'),
 
-  /// Arcanes category string.
-  static const String arcanes = 'Arcanes';
+  /// Arcanes category.
+  arcanes('Arcanes'),
 
-  /// Archwing category string.
-  static const String archwing = 'Archwing';
+  /// Archwing category.
+  archwing('Archwing'),
 
-  /// Fish category string.
-  static const String fish = 'Fish';
+  /// Fish category.
+  fish('Fish'),
 
-  /// Glyphs category string.
-  static const String glyphs = 'Glyphs';
+  /// Glyphs category.
+  glyphs('Glyphs'),
 
-  /// Misc category string.
-  static const String misc = 'Misc';
+  /// Misc category.
+  misc('Misc'),
 
-  /// Node category string.
-  static const String node = 'Node';
+  /// Node category.
+  node('Node'),
 
-  /// Quests category string.
-  static const String quest = 'Quests';
+  /// Quests category.
+  quests('Quests'),
 
-  /// Relics category string.
-  static const String relics = 'Relics';
+  /// Relics category.
+  relics('Relics'),
 
-  /// Pet Resource category string.
-  static const String petResource = 'Pet Resource';
+  /// Pet Resource category.
+  petResource('Pet Resource'),
 
-  /// Sigils category string.
-  static const String sigils = 'Sigils';
+  /// Sigils category.
+  sigils('Sigils'),
 
-  /// Secondary category string.
-  static const String secondary = 'Secondary';
+  /// Secondary category.
+  secondary('Secondary'),
+
+  /// Pets category.
+  pets('Pets'),
+
+  /// Sentinel category.
+  sentinels('Sentinels');
+
+  const ItemCategory(this.category);
+
+  /// Item Category name.
+  final String category;
+
+  static ItemCategory byCategory(String name) {
+    try {
+      return ItemCategory.values.firstWhere((v) => v.category == name);
+    } catch (e) {
+      return ItemCategory.misc;
+    }
+  }
 }
