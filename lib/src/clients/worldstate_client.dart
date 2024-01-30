@@ -14,7 +14,7 @@ class WorldstateClient extends WarframestatClient {
 
   /// Opens a websocket connection for worldstate updates.
   Stream<Worldstate> worldstateWebSocket([WebSocket? webSocket]) {
-    final ws = Uri.parse('ws://api.warframestat.us/socket');
+    final ws = Uri.parse('wss://api.warframestat.us/socket');
     final socket = webSocket ?? WebSocket(ws);
 
     return socket.messages
