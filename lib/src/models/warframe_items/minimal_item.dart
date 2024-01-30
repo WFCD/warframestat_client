@@ -27,8 +27,10 @@ class MinimalItem extends Item {
     return _$MinimalItemFromJson(json);
   }
 
+  /// Incase of a prime item this will be the date the item was vaulted.
   final String? vaultDate;
 
+  /// Incase of a prime item this is whether the item is vaulted or not.
   final bool? vaulted;
 
   @override
