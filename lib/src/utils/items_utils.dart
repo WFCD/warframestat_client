@@ -10,18 +10,25 @@ List<MinimalItem> toSearchItems(List<dynamic> data) {
 
 /// Converts a json decoded list into [Item] objects
 List<Item> toItems(List<dynamic> data) {
-  return data
-      .map((e) => Map<String, dynamic>.from(e as Map))
-      .map(toItem)
-      .toList();
+  return data.map((e) => Map<String, dynamic>.from(e as Map)).map((d) {
+    try {
+      return toItem(d);
+    } catch (e) {
+      print(d['name']);
+      rethrow;
+    }
+  }).toList();
 }
 
 /// Serializes giving json values into their proper [Item] type
 Item toItem(Map<String, dynamic> item) {
+  var type = item['type'] as String;
   final category = item['category'] as String;
   final isBuildable = item['components'] != null;
 
-  switch (ItemCategory.byCategory(category)) {
+  if (type != category) type = category;
+
+  switch (ItemCategory.byCategory(type)) {
     case ItemCategory.arcanes:
       return Arcane.fromJson(item);
     case ItemCategory.archwing:
