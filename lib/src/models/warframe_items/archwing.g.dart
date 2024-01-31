@@ -14,7 +14,8 @@ Archwing _$ArchwingFromJson(Map json) => $checkedCreate(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
-          type: $checkedConvert('type', (v) => v as String),
+          type: $checkedConvert('type',
+              (v) => const ItemCategoryConverter().fromJson(v as String)),
           category: $checkedConvert('category', (v) => v as String),
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
@@ -79,7 +80,7 @@ Map<String, dynamic> _$ArchwingToJson(Archwing instance) {
   }
 
   writeNotNull('description', instance.description);
-  val['type'] = instance.type;
+  val['type'] = const ItemCategoryConverter().toJson(instance.type);
   val['category'] = instance.category;
   writeNotNull('productCategory', instance.productCategory);
   val['tradable'] = instance.tradable;

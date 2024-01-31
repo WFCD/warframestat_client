@@ -19,7 +19,7 @@ class Component extends DroppableItem {
     super.imageName,
   }) : super(
           patchlogs: const <Patchlog>[],
-          type: '',
+          type: ItemCategory.misc,
           category: '',
           productCategory: '',
         );

@@ -21,7 +21,8 @@ Enemy _$EnemyFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          type: $checkedConvert('type', (v) => v as String),
+          type: $checkedConvert('type',
+              (v) => const ItemCategoryConverter().fromJson(v as String)),
           category: $checkedConvert('category', (v) => v as String),
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
@@ -60,7 +61,7 @@ Map<String, dynamic> _$EnemyToJson(Enemy instance) {
   }
 
   writeNotNull('description', instance.description);
-  val['type'] = instance.type;
+  val['type'] = const ItemCategoryConverter().toJson(instance.type);
   val['category'] = instance.category;
   writeNotNull('productCategory', instance.productCategory);
   val['tradable'] = instance.tradable;

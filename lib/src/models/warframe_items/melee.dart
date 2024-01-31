@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warframestat_client/src/models/warframe_items/warframe_items.dart';
+import 'package:warframestat_client/warframestat_client.dart';
 
 part 'melee.g.dart';
 
