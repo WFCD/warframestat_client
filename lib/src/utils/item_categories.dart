@@ -64,13 +64,17 @@ enum ItemCategory {
   pets('Pets'),
 
   /// Sentinel category.
-  sentinels('Sentinels');
+  sentinels('Sentinels'),
+
+  /// Necramech Mod
+  necramechMod('Necramech Mod');
 
   const ItemCategory(this.category);
 
   /// Item Category name.
   final String category;
 
+  /// Returns an [ItemCategory] from an Item type.
   static ItemCategory byCategory(String name) {
     try {
       return ItemCategory.values.firstWhere((v) => v.category == name);
