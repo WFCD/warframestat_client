@@ -1,5 +1,5 @@
 /// Item cateogry types.
-enum ItemCategory {
+enum ItemType {
   /// Warframe category.
   warframes('Warframes'),
 
@@ -69,17 +69,17 @@ enum ItemCategory {
   /// Necramech Mod
   necramechMod('Necramech Mod');
 
-  const ItemCategory(this.category);
+  const ItemType(this.category);
 
   /// Item Category name.
   final String category;
 
-  /// Returns an [ItemCategory] from an Item type.
-  static ItemCategory byCategory(String name) {
+  /// Returns an [ItemType] from an Item type.
+  static ItemType byCategory(String name) {
     try {
-      return ItemCategory.values.firstWhere((v) => v.category == name);
+      return ItemType.values.firstWhere((v) => v.category == name);
     } catch (e) {
-      return ItemCategory.misc;
+      return ItemType.misc;
     }
   }
 }

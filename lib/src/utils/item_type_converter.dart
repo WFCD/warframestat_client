@@ -4,17 +4,17 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@template item_category_converter}
 /// Converts the type into an enum and back without changing the data
 /// {@endtemplate}
-class ItemCategoryConverter extends JsonConverter<ItemCategory, String> {
+class ItemTypeConverter extends JsonConverter<ItemType, String> {
   /// {@macro item_category_converter}
-  const ItemCategoryConverter();
+  const ItemTypeConverter();
 
   @override
-  ItemCategory fromJson(String json) {
-    return ItemCategory.byCategory(json);
+  ItemType fromJson(String json) {
+    return ItemType.byCategory(json);
   }
 
   @override
-  String toJson(ItemCategory object) {
+  String toJson(ItemType object) {
     return object.category;
   }
 }

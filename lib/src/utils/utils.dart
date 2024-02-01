@@ -1,4 +1,4 @@
 export 'exceptions.dart';
-export 'item_categories.dart';
-export 'item_category_converter.dart';
+export 'item_type.dart';
+export 'item_type_converter.dart';
 export 'items_utils.dart';

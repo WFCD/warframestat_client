@@ -35,8 +35,8 @@ abstract class Item extends Equatable {
   final String? description;
 
   /// Item type.
-  @ItemCategoryConverter()
-  final ItemCategory type;
+  @ItemTypeConverter()
+  final ItemType type;
 
   /// Item category.
   final String category;
