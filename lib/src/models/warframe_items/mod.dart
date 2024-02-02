@@ -6,7 +6,7 @@ part 'mod.g.dart';
 /// {@template basemod}
 /// Base class for [Mod] and [ModSet]
 /// {@endtemplate}
-abstract class BaseMod extends EquipableItem {
+abstract class BaseMod extends DroppableItem {
   /// {@macro basemod}
   const BaseMod({
     required super.uniqueName,
@@ -19,10 +19,18 @@ abstract class BaseMod extends EquipableItem {
     required super.tradable,
     required super.patchlogs,
     required super.releaseDate,
-    required super.isPrime,
+    required super.rarity,
+    required super.drops,
+    required this.isPrime,
     super.wikiaThumbnail,
     super.wikiaUrl,
   });
+
+  /// Whether the mod is a prime or not
+  final bool isPrime;
+
+  @override
+  List<Object?> get props => super.props..add(isPrime);
 }
 
 /// {@template mod}
@@ -42,8 +50,8 @@ class Mod extends BaseMod {
     required super.tradable,
     required super.isPrime,
     required this.polarity,
-    required this.rarity,
-    required this.drops,
+    required super.rarity,
+    required super.drops,
     required this.baseDrain,
     required this.fusionLimit,
     required this.isAugment,
@@ -81,12 +89,6 @@ class Mod extends BaseMod {
   /// whether this mod is transmutable or not.
   final bool? transmutable;
 
-  /// Chances of mod dropping.
-  final Rarity rarity;
-
-  /// LOcation and drop information for the mod.
-  final List<Drop>? drops;
-
   /// The mod set the mod belongs to.
   ///
   /// This will be a uniqueName.
@@ -103,9 +105,10 @@ class Mod extends BaseMod {
       compatName,
       fusionLimit,
       isAugment,
-      isPrime,
       levelStats,
       transmutable,
+      polarity,
+      modSet
     ]);
 }
 
@@ -118,6 +121,8 @@ class ModSet extends BaseMod {
   const ModSet({
     required super.uniqueName,
     required super.name,
+    required super.description,
+    required super.imageName,
     required super.type,
     required super.category,
     required super.productCategory,
@@ -125,9 +130,11 @@ class ModSet extends BaseMod {
     required super.patchlogs,
     required super.releaseDate,
     required super.isPrime,
+    required super.rarity,
+    required super.drops,
     required this.numUpgradesInSet,
     required this.stats,
-  }) : super(description: '', imageName: '');
+  });
 
   /// Creates a [ModSet] from json.
   factory ModSet.fromJson(Map<String, dynamic> json) {
