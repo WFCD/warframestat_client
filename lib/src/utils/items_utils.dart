@@ -26,7 +26,7 @@ Item toItem(Map<String, dynamic> item) {
     type = category;
   }
 
-  switch (ItemType.byCategory(type)) {
+  switch (ItemType.byType(type)) {
     case ItemType.arcanes:
       return Arcane.fromJson(item);
     case ItemType.archwing:

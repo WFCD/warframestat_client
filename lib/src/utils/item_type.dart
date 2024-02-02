@@ -90,7 +90,7 @@ enum ItemType {
   final String category;
 
   /// Returns an [ItemType] from an Item type.
-  static ItemType byCategory(String name) {
+  static ItemType byType(String name) {
     try {
       return ItemType.values.firstWhere((v) => v.category == name);
     } catch (e) {
