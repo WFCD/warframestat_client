@@ -67,7 +67,22 @@ enum ItemType {
   sentinels('Sentinels'),
 
   /// Necramech Mod
-  necramechMod('Necramech Mod');
+  necramechMod('Necramech Mod'),
+
+  /// Mods for primary weapons
+  primaryMod('Primary Mod'),
+
+  /// Mods for secondary weapons
+  secondaryMod('Secondary Mod'),
+
+  /// Mods for Warframes.
+  warframeMod('Warframe Mod'),
+
+  /// Mods for shotguns.
+  shotGunMod('Shotgun Mod'),
+
+  /// Mods for companions.
+  companionMod('Companion Mod');
 
   const ItemType(this.category);
 

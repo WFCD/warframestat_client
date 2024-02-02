@@ -22,7 +22,9 @@ Item toItem(Map<String, dynamic> item) {
   final category = item['category'] as String;
   final isBuildable = item['components'] != null;
 
-  if (type != category) type = category;
+  if (!type.contains(category)) {
+    type = category;
+  }
 
   switch (ItemType.byCategory(type)) {
     case ItemType.arcanes:
