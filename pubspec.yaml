@@ -1,7 +1,8 @@
 name: warframestat_client
-description: A Very Good Project created by Very Good CLI.
 version: 3.6.0
-publish_to: none
+description: A simple client wrapper around WFCD worldstate api with included models for warframe-items.
+homepage: https://github.com/WFCD
+repository: https://github.com/WFCD/warframestat_client
 
 environment:
   sdk: ">=3.2.0 <4.0.0"
