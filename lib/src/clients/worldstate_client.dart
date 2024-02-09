@@ -179,16 +179,6 @@ class WorldstateClient extends WarframestatClient {
     return Nightwave.fromJson(nightwave);
   }
 
-  /// Retrives a list of currently active acolytes.
-  @Deprecated('See PersistentEnemy model.')
-  Future<List<PersistentEnemy>> fetchPersistentEnemies() async {
-    final enemies = await _get<List<dynamic>>('/persistentEnemies');
-
-    return enemies
-        .map((e) => PersistentEnemy.fromJson(e as Map<String, dynamic>))
-        .toList();
-  }
-
   /// Retrives the current location of the sentient outpost.
   Future<SentientOutpost> fetchSentientOutpost() async {
     final outpost = await _get<Map<String, dynamic>>('/sentientOutpost');
