@@ -31,7 +31,6 @@ class Worldstate extends Equatable {
     required this.kuva,
     required this.news,
     required this.nightwave,
-    @Deprecated('See PersistentEnemy.') required this.persistentEnemies,
     required this.sortie,
     required this.vallisCycle,
     required this.voidTraders,
@@ -111,10 +110,6 @@ class Worldstate extends Equatable {
   @JsonKey(includeIfNull: false)
   final Nightwave? nightwave;
 
-  /// Acoloyte data.
-  @Deprecated('See PersistentEnemy')
-  final List<PersistentEnemy> persistentEnemies;
-
   /// Sortie data.
   final Sortie sortie;
 
@@ -182,8 +177,7 @@ class Worldstate extends Equatable {
         kuva,
         news,
         nightwave,
-        // ignore: deprecated_member_use_from_same_package
-        persistentEnemies,
+
         sortie,
         vallisCycle,
         // ignore: deprecated_member_use_from_same_package

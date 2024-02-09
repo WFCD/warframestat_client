@@ -15,7 +15,6 @@ export 'kuva.dart';
 export 'mission.dart';
 export 'news.dart';
 export 'nightwave.dart';
-export 'persistent_enemy.dart';
 export 'reward.dart';
 export 'sentient_outposts.dart';
 export 'simaris.dart';

@@ -109,12 +109,6 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : Nightwave.fromJson(Map<String, dynamic>.from(v as Map))),
-          persistentEnemies: $checkedConvert(
-              'persistentEnemies',
-              (v) => (v as List<dynamic>)
-                  .map((e) => PersistentEnemy.fromJson(
-                      Map<String, dynamic>.from(e as Map)))
-                  .toList()),
           sortie: $checkedConvert('sortie',
               (v) => Sortie.fromJson(Map<String, dynamic>.from(v as Map))),
           vallisCycle: $checkedConvert('vallisCycle',
@@ -186,8 +180,6 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   val['kuva'] = instance.kuva.map((e) => e.toJson()).toList();
   val['news'] = instance.news.map((e) => e.toJson()).toList();
   writeNotNull('nightwave', instance.nightwave?.toJson());
-  val['persistentEnemies'] =
-      instance.persistentEnemies.map((e) => e.toJson()).toList();
   val['sortie'] = instance.sortie.toJson();
   val['vallisCycle'] = instance.vallisCycle.toJson();
   val['voidTrader'] = instance.voidTrader.toJson();
