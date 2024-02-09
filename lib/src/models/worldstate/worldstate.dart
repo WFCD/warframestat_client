@@ -40,7 +40,6 @@ class Worldstate extends Equatable {
     required this.steelPath,
     required this.zarimanCycle,
     required this.duviriCycle,
-    @Deprecated('DE removed dark sectors.') required this.darkSectors,
   });
 
   /// Creates a Worldstate from Json map
@@ -136,15 +135,6 @@ class Worldstate extends Equatable {
   /// Duviri cycle data.
   final DuviriCycle duviriCycle;
 
-  /// Raw data for darkSectors.
-  ///
-  /// Exposed for test only and will be removed when warframe-worldstate-parser
-  /// removes it.
-  @Deprecated('''
-      DE deprecated darkSectors so this is here for test until parser removes it
-      ''')
-  final List<dynamic> darkSectors;
-
   /// Creates a Json map from a Worldstate
   Map<String, dynamic> toJson() => _$WorldstateToJson(this);
 
@@ -176,8 +166,6 @@ class Worldstate extends Equatable {
         sentientOutposts,
         simaris,
         steelPath,
-        // ignore: deprecated_member_use_from_same_package
-        darkSectors,
         duviriCycle,
       ];
 }

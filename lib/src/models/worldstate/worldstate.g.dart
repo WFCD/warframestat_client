@@ -137,8 +137,6 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
                   ZarimanCycle.fromJson(Map<String, dynamic>.from(v as Map))),
           duviriCycle: $checkedConvert('duviriCycle',
               (v) => DuviriCycle.fromJson(Map<String, dynamic>.from(v as Map))),
-          darkSectors:
-              $checkedConvert('darkSectors', (v) => v as List<dynamic>),
         );
         return val;
       },
@@ -187,6 +185,5 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   val['steelPath'] = instance.steelPath.toJson();
   val['zarimanCycle'] = instance.zarimanCycle.toJson();
   val['duviriCycle'] = instance.duviriCycle.toJson();
-  val['darkSectors'] = instance.darkSectors;
   return val;
 }
