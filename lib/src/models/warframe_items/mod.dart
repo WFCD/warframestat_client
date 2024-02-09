@@ -108,7 +108,7 @@ class Mod extends BaseMod {
       levelStats,
       transmutable,
       polarity,
-      modSet
+      modSet,
     ]);
 }
 

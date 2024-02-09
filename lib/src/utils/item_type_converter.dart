@@ -10,7 +10,7 @@ class ItemTypeConverter extends JsonConverter<ItemType, String> {
 
   @override
   ItemType fromJson(String json) {
-    return ItemType.byCategory(json);
+    return ItemType.byType(json);
   }
 
   @override

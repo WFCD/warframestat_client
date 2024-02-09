@@ -16,9 +16,10 @@ void main() {
         .toList();
   });
 
-  test('Serlization checks', () {
-    final items = toItems(jsonMap);
+  test('Serlization checks for [Item]', () => expect(toItems(jsonMap), isList));
 
-    expect(items, isList);
-  });
+  test(
+    'Serlization checks for [MinimalItem]',
+    () => expect(jsonMap.map(MinimalItem.fromJson).toList(), isList),
+  );
 }

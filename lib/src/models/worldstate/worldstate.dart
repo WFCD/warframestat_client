@@ -31,18 +31,15 @@ class Worldstate extends Equatable {
     required this.kuva,
     required this.news,
     required this.nightwave,
-    @Deprecated('See PersistentEnemy.') required this.persistentEnemies,
     required this.sortie,
     required this.vallisCycle,
     required this.voidTraders,
-    @Deprecated('See Worldstate.voidTrader') required this.voidTrader,
     required this.vaultTrader,
     required this.sentientOutposts,
     required this.simaris,
     required this.steelPath,
     required this.zarimanCycle,
     required this.duviriCycle,
-    @Deprecated('DE removed dark sectors.') required this.darkSectors,
   });
 
   /// Creates a Worldstate from Json map
@@ -111,22 +108,11 @@ class Worldstate extends Equatable {
   @JsonKey(includeIfNull: false)
   final Nightwave? nightwave;
 
-  /// Acoloyte data.
-  @Deprecated('See PersistentEnemy')
-  final List<PersistentEnemy> persistentEnemies;
-
   /// Sortie data.
   final Sortie sortie;
 
   /// Vallis cycle data.
   final VallisCycle vallisCycle;
-
-  /// Void trader data.
-  @Deprecated(
-    'Since multiple instances of the void trader can exist during Tennocon'
-    ' events, Worldstate.voidTraders is better to use.',
-  )
-  final Trader voidTrader;
 
   /// List void trader instances.
   final List<Trader> voidTraders;
@@ -148,15 +134,6 @@ class Worldstate extends Equatable {
 
   /// Duviri cycle data.
   final DuviriCycle duviriCycle;
-
-  /// Raw data for darkSectors.
-  ///
-  /// Exposed for test only and will be removed when warframe-worldstate-parser
-  /// removes it.
-  @Deprecated('''
-      DE deprecated darkSectors so this is here for test until parser removes it
-      ''')
-  final List<dynamic> darkSectors;
 
   /// Creates a Json map from a Worldstate
   Map<String, dynamic> toJson() => _$WorldstateToJson(this);
@@ -182,19 +159,13 @@ class Worldstate extends Equatable {
         kuva,
         news,
         nightwave,
-        // ignore: deprecated_member_use_from_same_package
-        persistentEnemies,
         sortie,
         vallisCycle,
-        // ignore: deprecated_member_use_from_same_package
-        voidTrader,
         voidTraders,
         vaultTrader,
         sentientOutposts,
         simaris,
         steelPath,
-        // ignore: deprecated_member_use_from_same_package
-        darkSectors,
         duviriCycle,
       ];
 }

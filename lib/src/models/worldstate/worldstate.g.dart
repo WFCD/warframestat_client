@@ -109,12 +109,6 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : Nightwave.fromJson(Map<String, dynamic>.from(v as Map))),
-          persistentEnemies: $checkedConvert(
-              'persistentEnemies',
-              (v) => (v as List<dynamic>)
-                  .map((e) => PersistentEnemy.fromJson(
-                      Map<String, dynamic>.from(e as Map)))
-                  .toList()),
           sortie: $checkedConvert('sortie',
               (v) => Sortie.fromJson(Map<String, dynamic>.from(v as Map))),
           vallisCycle: $checkedConvert('vallisCycle',
@@ -125,8 +119,6 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       Trader.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          voidTrader: $checkedConvert('voidTrader',
-              (v) => Trader.fromJson(Map<String, dynamic>.from(v as Map))),
           vaultTrader: $checkedConvert('vaultTrader',
               (v) => Trader.fromJson(Map<String, dynamic>.from(v as Map))),
           sentientOutposts: $checkedConvert(
@@ -145,8 +137,6 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
                   ZarimanCycle.fromJson(Map<String, dynamic>.from(v as Map))),
           duviriCycle: $checkedConvert('duviriCycle',
               (v) => DuviriCycle.fromJson(Map<String, dynamic>.from(v as Map))),
-          darkSectors:
-              $checkedConvert('darkSectors', (v) => v as List<dynamic>),
         );
         return val;
       },
@@ -186,11 +176,8 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   val['kuva'] = instance.kuva.map((e) => e.toJson()).toList();
   val['news'] = instance.news.map((e) => e.toJson()).toList();
   writeNotNull('nightwave', instance.nightwave?.toJson());
-  val['persistentEnemies'] =
-      instance.persistentEnemies.map((e) => e.toJson()).toList();
   val['sortie'] = instance.sortie.toJson();
   val['vallisCycle'] = instance.vallisCycle.toJson();
-  val['voidTrader'] = instance.voidTrader.toJson();
   val['voidTraders'] = instance.voidTraders.map((e) => e.toJson()).toList();
   val['vaultTrader'] = instance.vaultTrader.toJson();
   writeNotNull('sentientOutposts', instance.sentientOutposts?.toJson());
@@ -198,6 +185,5 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   val['steelPath'] = instance.steelPath.toJson();
   val['zarimanCycle'] = instance.zarimanCycle.toJson();
   val['duviriCycle'] = instance.duviriCycle.toJson();
-  val['darkSectors'] = instance.darkSectors;
   return val;
 }

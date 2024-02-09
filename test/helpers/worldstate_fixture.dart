@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'abstract_fixture.dart';
@@ -5,115 +6,122 @@ import 'abstract_fixture.dart';
 class WarframestatFixture extends Fixture {
   WarframestatFixture() : super(Directory('test/fixtures'));
 
-  Future<String> loadAlertFixture() {
-    return fixture('alerts.json');
+  Future<String> loadAlert() {
+    return loadKey('alerts');
   }
 
-  Future<String> loadArbitrationFixture() {
-    return fixture('arbitration.json');
+  Future<String> loadArbitration() {
+    return loadKey('arbitration');
   }
 
-  Future<String> loadArchonHuntFixture() {
-    return fixture('archonHunt.json');
+  Future<String> loadArchonHunt() {
+    return loadKey('archonHunt');
   }
 
-  Future<String> loadCambionCycleFixture() {
-    return fixture('cambionCycle.json');
+  Future<String> loadCambionCycle() {
+    return loadKey('cambionCycle');
   }
 
   Future<String> loadCetusCycle() {
-    return fixture('cetusCycle.json');
+    return loadKey('cetusCycle');
   }
 
   Future<String> loadConclaveChallenges() {
-    return fixture('conclaveChallenges.json');
+    return loadKey('conclaveChallenges');
   }
 
   Future<String> loadConstructionProgress() {
-    return fixture('constructionProgress.json');
+    return loadKey('constructionProgress');
   }
 
   Future<String> loadDailyDeals() {
-    return fixture('dailyDeals.json');
+    return loadKey('dailyDeals');
   }
 
   Future<String> loadEarthCycle() {
-    return fixture('earthCycle.json');
+    return loadKey('earthCycle');
   }
 
   Future<String> loadWorldEvents() {
-    return fixture('events.json');
+    return loadKey('events');
   }
 
   Future<String> loadFissures() {
-    return fixture('fissures.json');
+    return loadKey('fissures');
   }
 
   Future<String> loadFlashSales() {
-    return fixture('flashSales.json');
+    return loadKey('flashSales');
   }
 
   Future<String> loadGlobalUpgrades() {
-    return fixture('globalUpgrades.json');
+    return loadKey('globalUpgrades');
   }
 
   Future<String> loadInvasions() {
-    return fixture('invasions.json');
+    return loadKey('invasions');
   }
 
   Future<String> loadKuva() {
-    return fixture('kuva.json');
+    return loadKey('kuva');
   }
 
   Future<String> loadNews() {
-    return fixture('news.json');
+    return loadKey('news');
   }
 
   Future<String> loadNightwave() {
-    return fixture('nightwave.json');
+    return loadKey('nightwave');
   }
 
   Future<String> loadPersistentEnemies() {
-    return fixture('persistentEnemies.json');
+    return loadKey('persistentEnemies');
   }
 
   Future<String> loadSentientOutpost() {
-    return fixture('sentientOutpost.json');
+    return loadKey('sentientOutpost');
   }
 
   Future<String> loadSimaris() {
-    return fixture('simaris.json');
+    return loadKey('simaris');
   }
 
-  Future<String> loadSortieFixture() {
-    return fixture('sortie.json');
+  Future<String> loadSortie() {
+    return loadKey('sortie');
   }
 
   Future<String> loadSteelPath() {
-    return fixture('steelPath.json');
+    return loadKey('steelPath');
   }
 
   Future<String> loadSyndicateMissions() {
-    return fixture('syndicateMissions.json');
+    return loadKey('syndicateMissions');
   }
 
   Future<String> loadVallisCycle() {
-    return fixture('vallisCycle.json');
+    return loadKey('vallisCycle');
   }
 
   Future<String> loadVaultTrader() {
-    return fixture('vaultTrader.json');
+    return loadKey('vaultTrader');
   }
 
   Future<String> loadVoidTrader() {
-    return fixture('voidTrader.json');
+    return loadKey('voidTrader');
   }
 
   Future<String> loadWeeklyChallenges() {
-    return fixture('weeklyChallenges');
+    return loadKey('weeklyChallenges');
   }
 
   Future<String> loadWorldstate() {
     return fixture('worldstate.json');
+  }
+
+  Future<String> loadKey(String key) async {
+    final state = await loadWorldstate();
+    final data = json.decode(state) as Map<String, dynamic>;
+
+    return json.encode(data[key]);
   }
 }
