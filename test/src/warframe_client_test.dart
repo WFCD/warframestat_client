@@ -24,6 +24,12 @@ void main() {
     registerFallbackValue(FakeUri());
   });
 
+  test('Intergration test for [Worldstate]', () async {
+    final client = WorldstateClient();
+
+    expect(await client.fetchWorldstate(), const TypeMatcher<Worldstate>());
+  });
+
   test('Get the current worldstate', () async {
     when(() => mockClient.get(uri(''))).thenAnswer(
       (_) async => response(await worldstateFixtures.loadWorldstate()),
