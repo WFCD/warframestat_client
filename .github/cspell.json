@@ -22,5 +22,8 @@
     "warframestat_client",
     "Warframe",
     "warframestat"
+  ],
+  "ignorePaths": [
+    "**/CHANGELOG.md"
   ]
 }
