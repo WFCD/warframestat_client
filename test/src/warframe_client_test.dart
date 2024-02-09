@@ -36,7 +36,7 @@ void main() {
 
   test('Get alerts', () async {
     when(() => mockClient.get(uri('/alerts'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadAlertFixture()),
+      (_) async => response(await worldstateFixtures.loadAlert()),
     );
 
     final alerts = await worldstateClient.fetchAlerts();
@@ -46,7 +46,7 @@ void main() {
 
   test('Get arbitration', () async {
     when(() => mockClient.get(uri('/arbitration'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadArbitrationFixture()),
+      (_) async => response(await worldstateFixtures.loadArbitration()),
     );
 
     final arbitration = await worldstateClient.fetchArbitration();
@@ -56,7 +56,7 @@ void main() {
 
   test('Get archon hunt', () async {
     when(() => mockClient.get(uri('/archonHunt'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadArchonHuntFixture()),
+      (_) async => response(await worldstateFixtures.loadArchonHunt()),
     );
 
     final archonHunt = await worldstateClient.fetchArchonHunt();
@@ -66,7 +66,7 @@ void main() {
 
   test('Get cambion cycle', () async {
     when(() => mockClient.get(uri('/cambionCycle'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadCambionCycleFixture()),
+      (_) async => response(await worldstateFixtures.loadCambionCycle()),
     );
 
     final cambionCycle = await worldstateClient.fetchCambionCycle();
