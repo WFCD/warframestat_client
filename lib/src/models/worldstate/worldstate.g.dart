@@ -119,8 +119,6 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       Trader.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          voidTrader: $checkedConvert('voidTrader',
-              (v) => Trader.fromJson(Map<String, dynamic>.from(v as Map))),
           vaultTrader: $checkedConvert('vaultTrader',
               (v) => Trader.fromJson(Map<String, dynamic>.from(v as Map))),
           sentientOutposts: $checkedConvert(
@@ -182,7 +180,6 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   writeNotNull('nightwave', instance.nightwave?.toJson());
   val['sortie'] = instance.sortie.toJson();
   val['vallisCycle'] = instance.vallisCycle.toJson();
-  val['voidTrader'] = instance.voidTrader.toJson();
   val['voidTraders'] = instance.voidTraders.map((e) => e.toJson()).toList();
   val['vaultTrader'] = instance.vaultTrader.toJson();
   writeNotNull('sentientOutposts', instance.sentientOutposts?.toJson());
