@@ -126,7 +126,7 @@ void main() {
 Uri uri(String path) {
   return Uri.https(
     authority,
-    '/${GamePlatform.pc.name}$path',
+    '/pc$path',
     {'language': Language.en.name},
   );
 }
