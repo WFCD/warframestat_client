@@ -32,6 +32,12 @@ Relic _$RelicFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : MarketInfo.fromJson(Map<String, dynamic>.from(v as Map))),
+          rewards: $checkedConvert(
+              'rewards',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      RelicReward.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
           patchlogs: $checkedConvert(
               'patchlogs',
@@ -66,6 +72,7 @@ Map<String, dynamic> _$RelicToJson(Relic instance) {
   writeNotNull('imageName', instance.imageName);
   val['locations'] = instance.locations.map((e) => e.toJson()).toList();
   writeNotNull('marketInfo', instance.marketInfo?.toJson());
+  val['rewards'] = instance.rewards.map((e) => e.toJson()).toList();
   writeNotNull('vaulted', instance.vaulted);
   return val;
 }
@@ -78,7 +85,7 @@ Location _$LocationFromJson(Map json) => $checkedCreate(
           location: $checkedConvert('location', (v) => v as String),
           rarity:
               $checkedConvert('rarity', (v) => $enumDecode(_$RarityEnumMap, v)),
-          chance: $checkedConvert('chance', (v) => v as num),
+          chance: $checkedConvert('chance', (v) => (v as num).toDouble()),
         );
         return val;
       },
@@ -105,6 +112,8 @@ RelicReward _$RelicRewardFromJson(Map json) => $checkedCreate(
           rarity:
               $checkedConvert('rarity', (v) => $enumDecode(_$RarityEnumMap, v)),
           chance: $checkedConvert('chance', (v) => v as num),
+          item: $checkedConvert('item',
+              (v) => RewardItem.fromJson(Map<String, dynamic>.from(v as Map))),
         );
         return val;
       },
@@ -114,6 +123,7 @@ Map<String, dynamic> _$RelicRewardToJson(RelicReward instance) =>
     <String, dynamic>{
       'rarity': _$RarityEnumMap[instance.rarity]!,
       'chance': instance.chance,
+      'item': instance.item.toJson(),
     };
 
 RewardItem _$RewardItemFromJson(Map json) => $checkedCreate(
@@ -123,16 +133,28 @@ RewardItem _$RewardItemFromJson(Map json) => $checkedCreate(
         final val = RewardItem(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
-          warframeMarket: $checkedConvert('warframeMarket',
-              (v) => MarketInfo.fromJson(Map<String, dynamic>.from(v as Map))),
+          warframeMarket: $checkedConvert(
+              'warframeMarket',
+              (v) => v == null
+                  ? null
+                  : MarketInfo.fromJson(Map<String, dynamic>.from(v as Map))),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$RewardItemToJson(RewardItem instance) =>
-    <String, dynamic>{
-      'uniqueName': instance.uniqueName,
-      'name': instance.name,
-      'warframeMarket': instance.warframeMarket.toJson(),
-    };
+Map<String, dynamic> _$RewardItemToJson(RewardItem instance) {
+  final val = <String, dynamic>{
+    'uniqueName': instance.uniqueName,
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('warframeMarket', instance.warframeMarket?.toJson());
+  return val;
+}

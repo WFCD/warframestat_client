@@ -8,7 +8,7 @@ part 'relic.g.dart';
 /// Relic description
 /// {@endtemplate}
 @JsonSerializable()
-class Relic extends Item {
+class Relic extends DroppableItem {
   /// {@macro relic}
   const Relic({
     required super.uniqueName,
@@ -21,6 +21,7 @@ class Relic extends Item {
     required super.tradable,
     required this.locations,
     required this.marketInfo,
+    required this.rewards,
     required this.vaulted,
     required super.patchlogs,
   });
@@ -33,6 +34,9 @@ class Relic extends Item {
 
   /// Warframe market url.
   final MarketInfo? marketInfo;
+
+  /// Rewards droped by relic
+  final List<RelicReward> rewards;
 
   /// Whether this relic has been vaulted or not.
   final bool? vaulted;
@@ -69,7 +73,7 @@ class Location extends Equatable {
   final Rarity rarity;
 
   /// Drop chance.
-  final num chance;
+  final double chance;
 
   /// Creates a Json map from a Location.
   Map<String, dynamic> toJson() => _$LocationToJson(this);
@@ -84,7 +88,11 @@ class Location extends Equatable {
 @JsonSerializable()
 class RelicReward extends Equatable {
   /// {@macro reward}
-  const RelicReward({required this.rarity, required this.chance});
+  const RelicReward({
+    required this.rarity,
+    required this.chance,
+    required this.item,
+  });
 
   /// Creates a Reward from Json map.
   factory RelicReward.fromJson(Map<String, dynamic> json) {
@@ -96,6 +104,9 @@ class RelicReward extends Equatable {
 
   /// Reward chance.
   final num chance;
+
+  /// Item that drops.
+  final RewardItem item;
 
   /// Creates a Json map from Reward.
   Map<String, dynamic> toJson() => _$RelicRewardToJson(this);
@@ -128,7 +139,7 @@ class RewardItem extends Equatable {
   final String name;
 
   /// Warframe market url.
-  final MarketInfo warframeMarket;
+  final MarketInfo? warframeMarket;
 
   /// Creates a Json map from RewardItem.
   Map<String, dynamic> toJson() => _$RewardItemToJson(this);
