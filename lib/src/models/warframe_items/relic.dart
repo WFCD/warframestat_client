@@ -18,12 +18,13 @@ class Relic extends DroppableItem {
     required super.category,
     required super.productCategory,
     required super.imageName,
+    required super.drops,
     required super.tradable,
+    required super.patchlogs,
     required this.locations,
     required this.marketInfo,
     required this.rewards,
     required this.vaulted,
-    required super.patchlogs,
   });
 
   /// Creates a Relic from Json map

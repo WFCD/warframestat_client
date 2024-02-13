@@ -20,7 +20,19 @@ Relic _$RelicFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           imageName: $checkedConvert('imageName', (v) => v as String?),
+          drops: $checkedConvert(
+              'drops',
+              (v) => (v as List<dynamic>?)
+                  ?.map(
+                      (e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           locations: $checkedConvert(
               'locations',
               (v) => (v as List<dynamic>)
@@ -39,12 +51,6 @@ Relic _$RelicFromJson(Map json) => $checkedCreate(
                       RelicReward.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
-          patchlogs: $checkedConvert(
-              'patchlogs',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
-                  .toList()),
         );
         return val;
       },
@@ -70,6 +76,7 @@ Map<String, dynamic> _$RelicToJson(Relic instance) {
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
+  writeNotNull('drops', instance.drops?.map((e) => e.toJson()).toList());
   val['locations'] = instance.locations.map((e) => e.toJson()).toList();
   writeNotNull('marketInfo', instance.marketInfo?.toJson());
   val['rewards'] = instance.rewards.map((e) => e.toJson()).toList();
