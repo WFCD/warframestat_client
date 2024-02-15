@@ -15,16 +15,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.CI_GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
         env:
-          GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
-          GIT_AUTHOR_NAME: wfcd-bot-boi
-          GIT_COMITTER_NAME: wfcd-bot-boi
-          GIT_COMITTER_EMAIL: botboi@warframestat.us
-          GIT_AUTHOR_EMAIL: botboi@warframestat.us
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIT_AUTHOR_NAME: GIT_AUTHOR_NAME
+          GIT_COMITTER_NAME: GIT_COMITTER_NAME
+          GIT_COMITTER_EMAIL: GIT_COMITTER_EMAIL
+          GIT_AUTHOR_EMAIL: GIT_AUTHOR_EMAIL
         with:
           extra_plugins: |
             @semantic-release/git
