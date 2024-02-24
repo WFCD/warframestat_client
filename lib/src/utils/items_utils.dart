@@ -18,13 +18,8 @@ List<Item> toItems(List<dynamic> data) {
 
 /// Serializes giving json values into their proper [Item] type
 Item toItem(Map<String, dynamic> item) {
-  var type = item['type'] as String;
-  final category = item['category'] as String;
+  final type = item['type'] as String;
   final isBuildable = item['components'] != null;
-
-  if (!type.contains(category)) {
-    type = category;
-  }
 
   switch (ItemType.byType(type)) {
     case ItemType.arcanes:
@@ -42,7 +37,9 @@ Item toItem(Map<String, dynamic> item) {
     case ItemType.relics:
       return Relic.fromJson(item);
     case ItemType.petResource:
-      return PetResource.fromJson(item);
+      return isBuildable
+          ? PetResourcesBuildable.fromJson(item)
+          : PetResourcesMisc.fromJson(item);
     case ItemType.sigils:
       return Sigil.fromJson(item);
     case ItemType.primary || ItemType.archGun:
