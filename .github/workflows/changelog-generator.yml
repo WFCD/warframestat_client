@@ -25,6 +25,7 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          branch: master
           commit_message: "chore: update changelog"
           commit_user_name: GIT_COMITTER_NAME
           commit_user_email: GIT_COMITTER_EMAIL
