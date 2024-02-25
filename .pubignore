@@ -1,0 +1,9 @@
+.releaserc.yaml
+cliff.toml
+coverage_badge.svg
+mason-lock.json
+mason.yaml
+
+.mason/
+test/fixtures/warframe-items.json
+test/worldstate.json
