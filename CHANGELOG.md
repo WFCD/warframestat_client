@@ -4,29 +4,58 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Miscellaneous Tasks
+
+- Update README
+- Corrected git_* secrets
+- Add branch name for changelog generator
+- Wow I'm an idiot
+- Add `WFCD` to list of approved words
+
+## [3.6.4] - 2024-02-24
+
 ### Bug Fixes
 
-- Do a better check between item category and item type
-- Change the name of `ItemType.byCategory` to `byType`
-- Remove `PersistentEnemies`
-- `Worldstate.vaultTraders` now replaces `Worldstate.vaultTrader`
-- Removed `Worldstate.darkSectors`
-- Removed `fetchPersistentEnemies`
+- Better json to Item parsing using an item's type instead of category
+
+### Maintenance
+
+- Bump orhun/git-cliff-action from 2 to 3 (#18)
 
 ### Miscellaneous Tasks
 
-- Add `homepage` and `repository` to pubspec
-- Add a nice way to generate a changelog
-- Use wfcd bot boi
-- Ignore changelog in cspell
+- Some work on changelog and release workflows
 
-### Styling
+## [3.6.3] - 2024-02-15
 
-- Add missing trailing comma
+### Bug Fixes
 
-### Testing
+- Using ping interveal to keep websocket from disconnecting
 
-- Added test for `MinimalItem`
+## [3.6.2] - 2024-02-13
+
+### Bug Fixes
+
+- Drops weren't being passed down for `Relic`
+
+## [3.6.1] - 2024-02-13
+
+### Bug Fixes
+
+- `Relic` was missing properties
+
+### Maintenance
+
+- Bump stefanzweifel/git-auto-commit-action from 4 to 5 (#16)
+
+### Miscellaneous Tasks
+
+- Prepare to publish to pub.dev (#15)
+- Add codeowners
+
+### Refactor
+
+- Remove `GamePlatform` (#17)
 
 ## [3.6.0] - 2024-02-02
 
