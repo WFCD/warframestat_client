@@ -11,8 +11,12 @@ All notable changes to this project will be documented in this file.
 - Add branch name for changelog generator
 - Wow I'm an idiot
 - Add `WFCD` to list of approved words
+- Add pubignore
+- Update CHANGELOG
+- Remove templates
+- Readd templates
 
-## [3.6.4] - 2024-02-24
+## [3.6.4]
 
 ### Bug Fixes
 
@@ -26,19 +30,19 @@ All notable changes to this project will be documented in this file.
 
 - Some work on changelog and release workflows
 
-## [3.6.3] - 2024-02-15
+## [3.6.3]
 
 ### Bug Fixes
 
 - Using ping interveal to keep websocket from disconnecting
 
-## [3.6.2] - 2024-02-13
+## [3.6.2]
 
 ### Bug Fixes
 
 - Drops weren't being passed down for `Relic`
 
-## [3.6.1] - 2024-02-13
+## [3.6.1]
 
 ### Bug Fixes
 
@@ -57,20 +61,20 @@ All notable changes to this project will be documented in this file.
 
 - Remove `GamePlatform` (#17)
 
-## [3.6.0] - 2024-02-02
+## [3.6.0]
 
 ### Features
 
 - Mods now extend DroppableItem type
 
-## [3.5.0] - 2024-02-01
+## [3.5.0]
 
 ### Features
 
 - Add Necramech Mod type
 - Rename `ItemCategory` to `ItemType`
 
-## [3.4.0] - 2024-01-31
+## [3.4.0]
 
 ### Documentation
 
@@ -81,13 +85,13 @@ All notable changes to this project will be documented in this file.
 - Use `ItemCategory` for `Item.type`
 - Use type to create Items but fallback to category
 
-## [3.3.0] - 2024-01-30
+## [3.3.0]
 
 ### Features
 
 - Add `vaulted` and `vaultedDate` to MinimalItem
 
-## [3.2.0] - 2024-01-30
+## [3.2.0]
 
 ### Bug Fixes
 
@@ -106,7 +110,7 @@ All notable changes to this project will be documented in this file.
 
 - Run `dart fix` and `dart format`
 
-## [3.1.0] - 2024-01-28
+## [3.1.0]
 
 ### Features
 
@@ -123,13 +127,13 @@ All notable changes to this project will be documented in this file.
 - Use semantic-release-pub to update pubspec
 - Forgot to add `semantic-release-pub` plugin
 
-## [3.0.1] - 2024-01-23
+## [3.0.1]
 
 ### Bug Fixes
 
 - Fix typo in parameter return
 
-## [3.0.0] - 2024-01-22
+## [3.0.0]
 
 ### Bug Fixes
 
@@ -157,13 +161,13 @@ All notable changes to this project will be documented in this file.
 
 - Fix test for new changes
 
-## [2.1.1] - 2024-01-20
+## [2.1.1]
 
 ### Bug Fixes
 
 - Enforce non-null super parameters
 
-## [2.1.0] - 2024-01-12
+## [2.1.0]
 
 ### Bug Fixes
 
@@ -173,7 +177,7 @@ All notable changes to this project will be documented in this file.
 
 - Move json parsing to a seperate isolate
 
-## [2.0.1] - 2023-12-29
+## [2.0.1]
 
 ### Bug Fixes
 
@@ -183,7 +187,7 @@ All notable changes to this project will be documented in this file.
 
 - Updated dev dependencies
 
-## [2.0.0] - 2023-12-10
+## [2.0.0]
 
 ### Bug Fixes
 
@@ -199,7 +203,7 @@ All notable changes to this project will be documented in this file.
 - Remove dup import
 - Add a default case
 
-## [1.8.0] - 2023-11-11
+## [1.8.0]
 
 ### Features
 
@@ -209,37 +213,37 @@ All notable changes to this project will be documented in this file.
 
 - Bumped dart sdk to `3.1.5`
 
-## [1.7.7] - 2023-10-25
+## [1.7.7]
 
 ### Bug Fixes
 
 - Lowered `collection` constraints for `flutter_test`
 
-## [1.7.6] - 2023-10-25
+## [1.7.6]
 
 ### Bug Fixes
 
 - Lowered constraints for `meta` to work with `flutter_test`
 
-## [1.7.5] - 2023-10-25
+## [1.7.5]
 
 ### Bug Fixes
 
 - Http constraint pointing to nonexistent release
 
-## [1.7.4] - 2023-09-13
+## [1.7.4]
 
 ### Bug Fixes
 
 - Throw exception when an item isn't found by `searchByUniqueName`
 
-## [1.7.3] - 2023-09-13
+## [1.7.3]
 
 ### Bug Fixes
 
 - Allow lower version of `meta` in order to work with flutter_test
 
-## [1.7.2] - 2023-09-13
+## [1.7.2]
 
 ### Bug Fixes
 
@@ -252,13 +256,13 @@ All notable changes to this project will be documented in this file.
 - Bump cycjimmy/semantic-release-action from 3 to 4 (#10)
 - Bump actions/checkout from 3 to 4 (#11)
 
-## [1.7.1] - 2023-09-05
+## [1.7.1]
 
 ### Bug Fixes
 
 - Update generated files
 
-## [1.7.0] - 2023-09-05
+## [1.7.0]
 
 ### Bug Fixes
 
@@ -277,13 +281,13 @@ All notable changes to this project will be documented in this file.
 
 - Run `dart fix`
 
-## [1.6.5] - 2023-07-04
+## [1.6.5]
 
 ### Bug Fixes
 
 - Update http constraints
 
-## [1.6.4] - 2023-06-23
+## [1.6.4]
 
 ### Bug Fixes
 
@@ -293,19 +297,19 @@ All notable changes to this project will be documented in this file.
 
 - Clean up switch statement
 
-## [1.6.3] - 2023-06-07
+## [1.6.3]
 
 ### Bug Fixes
 
 - Pacman was facing the wrong way
 
-## [1.6.2] - 2023-06-07
+## [1.6.2]
 
 ### Bug Fixes
 
 - Added broader constraints to play well with other packages
 
-## [1.6.1] - 2023-06-07
+## [1.6.1]
 
 ### Bug Fixes
 
@@ -319,7 +323,7 @@ All notable changes to this project will be documented in this file.
 - Add a release token
 - Ugh
 
-## [1.6.0] - 2023-06-06
+## [1.6.0]
 
 ### Features
 
@@ -331,7 +335,7 @@ All notable changes to this project will be documented in this file.
 - Bump http from 0.13.6 to 1.0.0 (#6)
 - Update dependecies
 
-## [1.5.27] - 2023-05-12
+## [1.5.27]
 
 ### Bug Fixes
 
@@ -349,74 +353,74 @@ All notable changes to this project will be documented in this file.
 
 - Removed a print test that was left when I tested mods
 
-## [1.5.26] - 2023-04-28
+## [1.5.26]
 
 ### Bug Fixes
 
 - Add missing supported languages Serbian, Czech, and Turkey
 - Fixed where activiation and expiry can be null
 
-## [1.5.25] - 2023-04-27
+## [1.5.25]
 
 ### Bug Fixes
 
 - Possible instances where `Fissure.enemyKey` is missing or null in json
 
-## [1.5.24] - 2023-04-27
+## [1.5.24]
 
 ### Bug Fixes
 
 - Corrected json key names for `TargetLocation.lastVerified` and `TargetLocation.spawnRate`
 
-## [1.5.23] - 2023-04-27
+## [1.5.23]
 
 ### Bug Fixes
 
 - Fixed an issue where `SynthTarget` fails to parse when `lastVerified` is missing
 
-## [1.5.22] - 2023-04-27
+## [1.5.22]
 
 ### Bug Fixes
 
 - FlashSale can fail to parse when `isPopular` is missing
 
-## [1.5.21] - 2023-04-25
+## [1.5.21]
 
 ### Bug Fixes
 
 - `Fissure.missionKey` and `SynthTarget.imageKey` are now nullable
 
-## [1.5.20] - 2023-04-23
+## [1.5.20]
 
 ### Bug Fixes
 
 - Typo in `operationSymbol`
 
-## [1.5.19] - 2023-04-13
+## [1.5.19]
 
 ### Bug Fixes
 
 - `SentientOutpost.mission` is now nullable
 
-## [1.5.18] - 2023-04-02
+## [1.5.18]
 
 ### Bug Fixes
 
 - Added missing polarity and modSet keys
 
-## [1.5.17] - 2023-04-02
+## [1.5.17]
 
 ### Bug Fixes
 
 - Pathlogs were not being added to secondary weapons
 
-## [1.5.16] - 2023-04-02
+## [1.5.16]
 
 ### Bug Fixes
 
 - Weapons not exposing patchlogs
 
-## [1.5.14] - 2023-04-01
+## [1.5.14]
 
 ### Maintenance
 
@@ -427,19 +431,19 @@ All notable changes to this project will be documented in this file.
 
 - Always put required parameters at the above
 
-## [1.5.13] - 2023-02-04
+## [1.5.13]
 
 ### Bug Fixes
 
 - Added some missing keys
 
-## [1.5.12] - 2023-01-31
+## [1.5.12]
 
 ### Bug Fixes
 
 - `Item.tradable` default to false
 
-## [1.5.11] - 2023-01-29
+## [1.5.11]
 
 ### Bug Fixes
 
@@ -449,13 +453,13 @@ All notable changes to this project will be documented in this file.
 
 - Update model libs
 
-## [1.5.10] - 2023-01-22
+## [1.5.10]
 
 ### Bug Fixes
 
 - Made `Worldstate.sentientOutpot` nullable
 
-## [1.5.9] - 2023-01-22
+## [1.5.9]
 
 ### Bug Fixes
 
@@ -464,7 +468,7 @@ All notable changes to this project will be documented in this file.
 - Trigger trigger
 - Trigger release
 
-## [1.5.7] - 2023-01-21
+## [1.5.7]
 
 ### Bug Fixes
 
@@ -474,32 +478,32 @@ All notable changes to this project will be documented in this file.
 
 - Add an example
 
-## [1.5.6] - 2023-01-21
+## [1.5.6]
 
 ### Bug Fixes
 
 - Pass `super.imageName` in components
 
-## [1.5.5] - 2023-01-20
+## [1.5.5]
 
 ### Bug Fixes
 
 - Enforce `Map<String, String>` on `News.translations`
 - New syndicate jobs can have a null type
 
-## [1.5.4] - 2023-01-20
+## [1.5.4]
 
 ### Bug Fixes
 
 - Add eta to model
 
-## [1.5.3] - 2023-01-20
+## [1.5.3]
 
 ### Bug Fixes
 
 - Add getters for daily and weekly challenges
 
-## [1.5.2] - 2023-01-17
+## [1.5.2]
 
 ### Bug Fixes
 
@@ -509,13 +513,13 @@ All notable changes to this project will be documented in this file.
 
 - Add documentation for `EquipableItem`
 
-## [1.5.1] - 2023-01-15
+## [1.5.1]
 
 ### Bug Fixes
 
 - Add missing `Gun` stats
 
-## [1.5.0] - 2023-01-15
+## [1.5.0]
 
 ### Bug Fixes
 
@@ -525,31 +529,31 @@ All notable changes to this project will be documented in this file.
 
 - Add melee follow through speed
 
-## [1.4.0] - 2023-01-14
+## [1.4.0]
 
 ### Features
 
 - Add heavy and slam attack for melee
 
-## [1.3.3] - 2023-01-14
+## [1.3.3]
 
 ### Bug Fixes
 
 - `News.date` was changed to be a `DateTime`
 
-## [1.3.1] - 2023-01-08
+## [1.3.1]
 
 ### Bug Fixes
 
 - Add some missing `Weapon` parm
 
-## [1.3.0] - 2023-01-03
+## [1.3.0]
 
 ### Features
 
 - Add `eventReward` method
 
-## [1.2.2] - 2023-01-01
+## [1.2.2]
 
 ### Bug Fixes
 
@@ -559,19 +563,19 @@ All notable changes to this project will be documented in this file.
 
 - Bump cycjimmy/semantic-release-action from 2 to 3 (#2)
 
-## [1.2.1] - 2023-01-01
+## [1.2.1]
 
 ### Bug Fixes
 
 - Add missiong `exclusiveWeapon` key
 
-## [1.2.0] - 2022-12-31
+## [1.2.0]
 
 ### Features
 
 - Implement ability model
 
-## [1.1.0] - 2022-12-27
+## [1.1.0]
 
 ### Features
 
@@ -581,7 +585,7 @@ All notable changes to this project will be documented in this file.
 
 - Bump actions/checkout from 1 to 3 (#1)
 
-## [1.0.4] - 2022-12-18
+## [1.0.4]
 
 ### Bug Fixes
 
@@ -591,25 +595,25 @@ All notable changes to this project will be documented in this file.
 
 - Remove unnecessary import
 
-## [1.0.3] - 2022-12-18
+## [1.0.3]
 
 ### Bug Fixes
 
 - Export `item_utils.dart`
 
-## [1.0.2] - 2022-12-18
+## [1.0.2]
 
 ### Bug Fixes
 
 - Cleaned up exports/imports
 
-## [1.0.1] - 2022-12-18
+## [1.0.1]
 
 ### Bug Fixes
 
 - Lower `collection` package version
 
-## [1.0.0] - 2022-12-18
+## [1.0.0]
 
 ### Bug Fixes
 
