@@ -2,7 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [3.6.6]
+
+### Bug Fixes
+
+- Update the way warframe-items are parsed into `Item` objects
+
+## [3.6.5]
+
+### Bug Fixes
+
+- Removed `defenderReward` `attackerReward` and `defendingFaction`
+- Remove `bountiesEndDate`
 
 ### Miscellaneous Tasks
 
@@ -15,6 +26,8 @@ All notable changes to this project will be documented in this file.
 - Update CHANGELOG
 - Remove templates
 - Readd templates
+- Remove timestamp from CHANGELOG
+- Update fixtures
 
 ## [3.6.4]
 
