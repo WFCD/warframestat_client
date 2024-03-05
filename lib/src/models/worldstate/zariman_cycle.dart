@@ -22,7 +22,6 @@ class ZarimanCycle extends WorldstateObject {
     required super.id,
     required super.activation,
     required super.expiry,
-    required this.bountiesEndDate,
     required this.isCorpus,
     required this.state,
   });
@@ -40,9 +39,6 @@ class ZarimanCycle extends WorldstateObject {
   @override
   DateTime get expiry => super.expiry!;
 
-  /// The time Zariman bounties expires on.
-  final DateTime bountiesEndDate;
-
   /// Whether or not the Zariman is currently being occupied by corpus or not.
   final bool isCorpus;
 
@@ -53,6 +49,5 @@ class ZarimanCycle extends WorldstateObject {
   Map<String, dynamic> toJson() => _$ZarimanCycleToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props..addAll([bountiesEndDate, isCorpus, state]);
+  List<Object?> get props => super.props..addAll([isCorpus, state]);
 }
