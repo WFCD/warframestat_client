@@ -7,7 +7,33 @@ part 'skin.g.dart';
 /// Skin description
 /// {@endtemplate}
 @JsonSerializable()
-class SkinBuildable extends BuildableItem {
+class Skin extends Item {
+  /// {@macro skin}
+  const Skin({
+    required super.uniqueName,
+    required super.name,
+    required super.description,
+    required super.type,
+    required super.category,
+    required super.productCategory,
+    required super.tradable,
+    required super.imageName,
+    super.patchlogs,
+  });
+
+  /// Creates a Skin from Json map
+  factory Skin.fromJson(Map<String, dynamic> data) => _$SkinFromJson(data);
+
+  /// Creates a Json map from a Skin
+  @override
+  Map<String, dynamic> toJson() => _$SkinToJson(this);
+}
+
+/// {@template skin}
+/// Skin description
+/// {@endtemplate}
+@JsonSerializable()
+class SkinBuildable extends BuildableItem implements Skin {
   /// {@macro skin}
   const SkinBuildable({
     required super.uniqueName,
@@ -35,30 +61,4 @@ class SkinBuildable extends BuildableItem {
   /// Creates a Json map from a Skin
   @override
   Map<String, dynamic> toJson() => _$SkinBuildableToJson(this);
-}
-
-/// {@template skin}
-/// Skin description
-/// {@endtemplate}
-@JsonSerializable()
-class Skin extends Item {
-  /// {@macro skin}
-  const Skin({
-    required super.uniqueName,
-    required super.name,
-    required super.description,
-    required super.type,
-    required super.category,
-    required super.productCategory,
-    required super.tradable,
-    required super.imageName,
-    super.patchlogs,
-  });
-
-  /// Creates a Skin from Json map
-  factory Skin.fromJson(Map<String, dynamic> data) => _$SkinFromJson(data);
-
-  /// Creates a Json map from a Skin
-  @override
-  Map<String, dynamic> toJson() => _$SkinToJson(this);
 }

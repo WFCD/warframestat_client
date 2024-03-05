@@ -39,7 +39,7 @@ Item toItem(Map<String, dynamic> item) {
     case ItemType.petResource:
       return isBuildable
           ? PetResourcesBuildable.fromJson(item)
-          : PetResourcesMisc.fromJson(item);
+          : PetResources.fromJson(item);
     case ItemType.sigils:
       return Sigil.fromJson(item);
     case ItemType.primary || ItemType.archGun:
@@ -49,9 +49,7 @@ Item toItem(Map<String, dynamic> item) {
     case ItemType.melee || ItemType.archMelee:
       return Melee.fromJson(item);
     case ItemType.sentinels:
-      return isBuildable
-          ? SentinelBuildable.fromJson(item)
-          : Sentinel.fromJson(item);
+      return Sentinel.fromJson(item);
     case ItemType.resources:
       return isBuildable
           ? ResourceBuildable.fromJson(item)
@@ -64,9 +62,6 @@ Item toItem(Map<String, dynamic> item) {
       return isBuildable ? GearBuildable.fromJson(item) : Gear.fromJson(item);
 
     case ItemType.mods:
-      // Mod sets and mods are two different json structures.
-      if (item['type'] as String == 'Mod Set Mod') return ModSet.fromJson(item);
-
       return Mod.fromJson(item);
     case ItemType.warframes:
       // NecroMechs and Warframes are stored with the same cateogry so we need

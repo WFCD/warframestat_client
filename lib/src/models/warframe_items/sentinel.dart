@@ -7,9 +7,9 @@ part 'sentinel.g.dart';
 /// Sentinal data class for buildable sentinels
 /// {@endtemplate}
 @JsonSerializable()
-class SentinelBuildable extends BuildableItem {
+class Sentinel extends BuildableItem {
   /// {@macro sentinal}
-  const SentinelBuildable({
+  const Sentinel({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -34,53 +34,6 @@ class SentinelBuildable extends BuildableItem {
   });
 
   /// Creates a Sentinal from Json map
-  factory SentinelBuildable.fromJson(Map<String, dynamic> data) =>
-      _$SentinelBuildableFromJson(data);
-
-  /// Armor health.
-  final int armor;
-
-  /// Raw health.
-  final int health;
-
-  /// Shield health.
-  final int shield;
-
-  /// Stamina.
-  final num stamina;
-
-  /// Creates a Json map from a Sentinal
-  @override
-  Map<String, dynamic> toJson() => _$SentinelBuildableToJson(this);
-
-  @override
-  List<Object?> get props =>
-      super.props..addAll([armor, health, shield, stamina, isPrime]);
-}
-
-/// {@template sentinal}
-/// Sentinal data class
-/// {@endtemplate}
-@JsonSerializable()
-class Sentinel extends Item {
-  /// {@macro sentinal}
-  const Sentinel({
-    required super.uniqueName,
-    required super.name,
-    required super.description,
-    required super.type,
-    required super.category,
-    required super.productCategory,
-    required super.tradable,
-    required super.imageName,
-    required super.patchlogs,
-    required this.armor,
-    required this.health,
-    required this.shield,
-    required this.stamina,
-  });
-
-  /// Creates a Sentinal from Json map
   factory Sentinel.fromJson(Map<String, dynamic> data) =>
       _$SentinelFromJson(data);
 
@@ -102,5 +55,5 @@ class Sentinel extends Item {
 
   @override
   List<Object?> get props =>
-      super.props..addAll([armor, health, shield, stamina]);
+      super.props..addAll([armor, health, shield, stamina, isPrime]);
 }

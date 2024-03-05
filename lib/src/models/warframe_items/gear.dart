@@ -33,7 +33,7 @@ class Gear extends Item {
 /// Warframe gear.
 /// {@endtemplate}
 @JsonSerializable()
-class GearBuildable extends BuildableItem {
+class GearBuildable extends BuildableItem implements Gear {
   /// {@macro gear}
   const GearBuildable({
     required super.uniqueName,

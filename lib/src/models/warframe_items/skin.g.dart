@@ -6,6 +6,55 @@ part of 'skin.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+Skin _$SkinFromJson(Map json) => $checkedCreate(
+      'Skin',
+      json,
+      ($checkedConvert) {
+        final val = Skin(
+          uniqueName: $checkedConvert('uniqueName', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
+          type: $checkedConvert(
+              'type', (v) => const ItemTypeConverter().fromJson(v as String)),
+          category: $checkedConvert('category', (v) => v as String),
+          productCategory:
+              $checkedConvert('productCategory', (v) => v as String?),
+          tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$SkinToJson(Skin instance) {
+  final val = <String, dynamic>{
+    'uniqueName': instance.uniqueName,
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  val['type'] = const ItemTypeConverter().toJson(instance.type);
+  val['category'] = instance.category;
+  writeNotNull('productCategory', instance.productCategory);
+  val['tradable'] = instance.tradable;
+  writeNotNull(
+      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
+  writeNotNull('imageName', instance.imageName);
+  return val;
+}
+
 SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
       'SkinBuildable',
       json,
@@ -73,54 +122,5 @@ Map<String, dynamic> _$SkinBuildableToJson(SkinBuildable instance) {
   val['consumeOnBuild'] = instance.consumeOnBuild;
   writeNotNull(
       'components', instance.components?.map((e) => e.toJson()).toList());
-  return val;
-}
-
-Skin _$SkinFromJson(Map json) => $checkedCreate(
-      'Skin',
-      json,
-      ($checkedConvert) {
-        final val = Skin(
-          uniqueName: $checkedConvert('uniqueName', (v) => v as String),
-          name: $checkedConvert('name', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String?),
-          type: $checkedConvert(
-              'type', (v) => const ItemTypeConverter().fromJson(v as String)),
-          category: $checkedConvert('category', (v) => v as String),
-          productCategory:
-              $checkedConvert('productCategory', (v) => v as String?),
-          tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          imageName: $checkedConvert('imageName', (v) => v as String?),
-          patchlogs: $checkedConvert(
-              'patchlogs',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
-                  .toList()),
-        );
-        return val;
-      },
-    );
-
-Map<String, dynamic> _$SkinToJson(Skin instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
   return val;
 }
