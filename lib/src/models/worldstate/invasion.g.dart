@@ -27,12 +27,6 @@ Invasion _$InvasionFromJson(Map json) => $checkedCreate(
               'defender',
               (v) => InvasionFaction.fromJson(
                   Map<String, dynamic>.from(v as Map))),
-          defenderReward: $checkedConvert('defenderReward',
-              (v) => Reward.fromJson(Map<String, dynamic>.from(v as Map))),
-          attackerReward: $checkedConvert('attackerReward',
-              (v) => Reward.fromJson(Map<String, dynamic>.from(v as Map))),
-          defendingFaction:
-              $checkedConvert('defendingFaction', (v) => v as String),
           desc: $checkedConvert('desc', (v) => v as String),
           node: $checkedConvert('node', (v) => v as String),
           nodeKey: $checkedConvert('nodeKey', (v) => v as String),
@@ -50,14 +44,11 @@ Map<String, dynamic> _$InvasionToJson(Invasion instance) => <String, dynamic>{
       'id': instance.id,
       'activation': instance.activation.toIso8601String(),
       'attacker': instance.attacker.toJson(),
-      'attackerReward': instance.attackerReward.toJson(),
       'attackingFaction': instance.attackingFaction,
       'completed': instance.completed,
       'completion': instance.completion,
       'count': instance.count,
       'defender': instance.defender.toJson(),
-      'defenderReward': instance.defenderReward.toJson(),
-      'defendingFaction': instance.defendingFaction,
       'desc': instance.desc,
       'node': instance.node,
       'nodeKey': instance.nodeKey,
@@ -72,8 +63,11 @@ InvasionFaction _$InvasionFactionFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = InvasionFaction(
-          reward: $checkedConvert('reward',
-              (v) => Reward.fromJson(Map<String, dynamic>.from(v as Map))),
+          reward: $checkedConvert(
+              'reward',
+              (v) => v == null
+                  ? null
+                  : Reward.fromJson(Map<String, dynamic>.from(v as Map))),
           faction: $checkedConvert('faction', (v) => v as String),
           factionKey: $checkedConvert('factionKey', (v) => v as String),
         );
@@ -81,9 +75,17 @@ InvasionFaction _$InvasionFactionFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$InvasionFactionToJson(InvasionFaction instance) =>
-    <String, dynamic>{
-      'reward': instance.reward.toJson(),
-      'faction': instance.faction,
-      'factionKey': instance.factionKey,
-    };
+Map<String, dynamic> _$InvasionFactionToJson(InvasionFaction instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('reward', instance.reward?.toJson());
+  val['faction'] = instance.faction;
+  val['factionKey'] = instance.factionKey;
+  return val;
+}

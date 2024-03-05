@@ -19,9 +19,6 @@ class Invasion extends WorldstateObject {
     required this.completion,
     required this.count,
     required this.defender,
-    required this.defenderReward,
-    required this.attackerReward,
-    required this.defendingFaction,
     required this.desc,
     required this.node,
     required this.nodeKey,
@@ -44,9 +41,6 @@ class Invasion extends WorldstateObject {
   /// A description for attacker
   final InvasionFaction attacker;
 
-  /// A description for attackerReward
-  final Reward attackerReward;
-
   /// A description for attackingFaction
   final String attackingFaction;
 
@@ -61,12 +55,6 @@ class Invasion extends WorldstateObject {
 
   /// A description for defender
   final InvasionFaction defender;
-
-  /// A description for defenderReward
-  final Reward defenderReward;
-
-  /// A description for defendingFaction
-  final String defendingFaction;
 
   /// A description for desc
   final String desc;
@@ -98,14 +86,11 @@ class Invasion extends WorldstateObject {
       ..addAll([
         activation,
         attacker,
-        attackerReward,
         attackingFaction,
         completed,
         completion,
         count,
         defender,
-        defenderReward,
-        defendingFaction,
         desc,
         node,
         nodeKey,
@@ -135,7 +120,7 @@ class InvasionFaction extends Equatable {
   }
 
   /// Reward awarded for siding with the faction.
-  final Reward reward;
+  final Reward? reward;
 
   /// The faction name translated..
   final String faction;
@@ -147,5 +132,5 @@ class InvasionFaction extends Equatable {
   Map<String, dynamic> toJson() => _$InvasionFactionToJson(this);
 
   @override
-  List<Object> get props => [reward, faction, factionKey];
+  List<Object?> get props => [reward, faction, factionKey];
 }
