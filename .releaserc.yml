@@ -3,11 +3,13 @@ plugins:
     - presets: conventionalcommits
   - - "@semantic-release/release-notes-generator"
     - presets: conventionalcommits
+  - - "@semantic-release/changelog"
+    - changelogFile: CHANGELOG.md
   - "@semantic-release/github"
   - - "semantic-release-pub"
     - publishPub: false
   - - "@semantic-release/git"
-    - assets: ["pubspec.yaml"]
+    - assets: ["pubspec.yaml", "CHANGELOG.md"]
       message: "chore(release): ${nextRelease.version}"
 branches:
   - master
