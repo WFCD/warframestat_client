@@ -1,3 +1,10 @@
+## [3.6.8](https://github.com/WFCD/warframestat_client/compare/v3.6.7...v3.6.8) (2024-03-13)
+
+
+### Bug Fixes
+
+* remove assets that are only needed for testing but not release ([421069c](https://github.com/WFCD/warframestat_client/commit/421069c952ac9d5ad5865e356a426b705a51508e))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
