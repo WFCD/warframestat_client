@@ -11,12 +11,14 @@ class MockHttpClient extends Mock implements Client {}
 
 class FakeUri extends Fake implements Uri {}
 
-void main() {
+Future<void> main() async {
+  final skipArbi = await WarframestatFixture().loadArbitration() == null;
+
   late Client mockClient;
   late WarframestatFixture worldstateFixtures;
   late WorldstateClient worldstateClient;
 
-  setUpAll(() {
+  setUp(() {
     mockClient = MockHttpClient();
     worldstateFixtures = WarframestatFixture();
     worldstateClient = WorldstateClient(client: mockClient);
@@ -50,15 +52,20 @@ void main() {
     expect(alerts, const TypeMatcher<List<Alert>>());
   });
 
-  test('Get arbitration', () async {
-    when(() => mockClient.get(uri('/arbitration'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadArbitration()),
-    );
+  test(
+    'Get arbitration',
+    () async {
+      when(() => mockClient.get(uri('/arbitration'))).thenAnswer(
+        (_) async => response((await worldstateFixtures.loadArbitration())!),
+      );
 
-    final arbitration = await worldstateClient.fetchArbitration();
+      final arbitration = await worldstateClient.fetchArbitration();
 
-    expect(arbitration, const TypeMatcher<Arbitration>());
-  });
+      expect(arbitration, const TypeMatcher<Arbitration>());
+    },
+    // A lot of time Arbitrations are gonna be null when fixtures are updated.
+    skip: skipArbi,
+  );
 
   test('Get archon hunt', () async {
     when(() => mockClient.get(uri('/archonHunt'))).thenAnswer(

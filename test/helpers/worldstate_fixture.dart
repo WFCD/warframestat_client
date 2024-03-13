@@ -10,7 +10,7 @@ class WarframestatFixture extends Fixture {
     return loadKey('alerts');
   }
 
-  Future<String> loadArbitration() {
+  Future<String?> loadArbitration() {
     return loadKey('arbitration');
   }
 
