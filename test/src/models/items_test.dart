@@ -14,12 +14,12 @@ void main() {
     final enemyFixture = await ItemsFixture().loadEnemies();
 
     items = List<Map<String, dynamic>>.from(
-            json.decode(itemFixture) as List<dynamic>)
-        .toList();
+      json.decode(itemFixture) as List<dynamic>,
+    ).toList();
 
     enemies = List<Map<String, dynamic>>.from(
-            json.decode(enemyFixture) as List<dynamic>)
-        .toList();
+      json.decode(enemyFixture) as List<dynamic>,
+    ).toList();
 
     items
       ..addAll(enemies)
