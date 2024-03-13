@@ -20,7 +20,7 @@ class Enemy extends DroppableItem {
     required super.category,
     required super.productCategory,
     required super.tradable,
-    required List<Drop> super.drops,
+    required super.drops,
     required this.resistances,
     required this.health,
     required this.shield,
@@ -64,7 +64,7 @@ class Resistance extends Equatable {
   /// {@macro resistance}
   const Resistance({
     required this.amount,
-    required this.shield,
+    required this.type,
     required this.affectors,
   });
 
@@ -74,10 +74,10 @@ class Resistance extends Equatable {
   }
 
   /// Amount of resistance(?).
-  final num amount;
+  final int amount;
 
   /// Resistance type.
-  final String shield;
+  final String type;
 
   /// Affected by.
   final List<Affector> affectors;
@@ -86,7 +86,7 @@ class Resistance extends Equatable {
   Map<String, dynamic> toJson() => _$ResistanceToJson(this);
 
   @override
-  List<Object?> get props => [amount, shield, affectors];
+  List<Object?> get props => [amount, type, affectors];
 }
 
 /// {@template affector}

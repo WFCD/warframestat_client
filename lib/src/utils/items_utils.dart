@@ -19,7 +19,10 @@ List<Item> toItems(List<dynamic> data) {
 /// Serializes giving json values into their proper [Item] type
 Item toItem(Map<String, dynamic> item) {
   final type = item['type'] as String;
+  final category = item['category'] as String;
   final isBuildable = item['components'] != null;
+
+  if (category == 'Enemy') return Enemy.fromJson(item);
 
   switch (ItemType.byType(type)) {
     case ItemType.arcanes:

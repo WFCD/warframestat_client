@@ -7,13 +7,23 @@ import '../../helpers/fixtures.dart';
 
 void main() {
   late List<Map<String, dynamic>> items;
+  late List<Map<String, dynamic>> enemies;
 
   setUp(() async {
-    final fixture = await ItemsFixture().loadWarframeItems();
+    final itemFixture = await ItemsFixture().loadWarframeItems();
+    final enemyFixture = await ItemsFixture().loadEnemies();
 
-    items = List<dynamic>.from(json.decode(fixture) as List<dynamic>)
-        .map((e) => e as Map<String, dynamic>)
+    items = List<Map<String, dynamic>>.from(
+            json.decode(itemFixture) as List<dynamic>)
         .toList();
+
+    enemies = List<Map<String, dynamic>>.from(
+            json.decode(enemyFixture) as List<dynamic>)
+        .toList();
+
+    items
+      ..addAll(enemies)
+      ..shuffle();
   });
 
   group('Serlization check', () {
@@ -47,6 +57,21 @@ void main() {
 
       expect(hinta, const TypeMatcher<PetResources>());
       expect(hinta, const TypeMatcher<BuildableItem>());
+    });
+
+    test('[Enemy]', () {
+      final enemies = toItems(items).whereType<Enemy>();
+      final disruptors = enemies.where((e) => e.name.contains('Disruptor'));
+
+      final names = disruptors.map((e) => e.name);
+      final types = disruptors.map((e) => e.type);
+
+      final disruptor =
+          enemies.firstWhere((e) => e.name == 'Ancient Disruptor');
+
+      expect(names.contains('Ancient Disruptor'), true);
+      expect(types.contains(ItemType.shotGunMod), false);
+      expect(disruptor.category, 'Enemy');
     });
   });
 }

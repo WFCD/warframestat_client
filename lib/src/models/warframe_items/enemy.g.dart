@@ -29,8 +29,8 @@ Enemy _$EnemyFromJson(Map json) => $checkedCreate(
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           drops: $checkedConvert(
               'drops',
-              (v) => (v as List<dynamic>)
-                  .map(
+              (v) => (v as List<dynamic>?)
+                  ?.map(
                       (e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           resistances: $checkedConvert(
@@ -82,8 +82,8 @@ Resistance _$ResistanceFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Resistance(
-          amount: $checkedConvert('amount', (v) => v as num),
-          shield: $checkedConvert('shield', (v) => v as String),
+          amount: $checkedConvert('amount', (v) => v as int),
+          type: $checkedConvert('type', (v) => v as String),
           affectors: $checkedConvert(
               'affectors',
               (v) => (v as List<dynamic>)
@@ -98,7 +98,7 @@ Resistance _$ResistanceFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$ResistanceToJson(Resistance instance) =>
     <String, dynamic>{
       'amount': instance.amount,
-      'shield': instance.shield,
+      'type': instance.type,
       'affectors': instance.affectors.map((e) => e.toJson()).toList(),
     };
 

@@ -9,4 +9,8 @@ class ItemsFixture extends Fixture {
   Future<String> loadWarframeItems() {
     return fixture('warframe-items.json');
   }
+
+  Future<String> loadEnemies() {
+    return fixture('enemy.json');
+  }
 }
