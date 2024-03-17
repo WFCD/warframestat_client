@@ -1,7 +1,7 @@
 /// Item cateogry types.
 enum ItemType {
   /// Warframe category.
-  warframes('Warframes'),
+  warframes('Warframe'),
 
   /// Melee category.
   melee('Melee'),
