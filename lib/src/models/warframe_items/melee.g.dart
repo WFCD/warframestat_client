@@ -45,7 +45,7 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           damagePerShot: $checkedConvert('damagePerShot',
               (v) => (v as List<dynamic>).map((e) => e as num).toList()),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           omegaAttenuation:
               $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
           procChance:

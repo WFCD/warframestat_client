@@ -45,7 +45,7 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>).map((e) => e as num).toList()),
           disposition: $checkedConvert('disposition', (v) => v as int),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           omegaAttenuation:
               $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
           polarities: $checkedConvert('polarities',

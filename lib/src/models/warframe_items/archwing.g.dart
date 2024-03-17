@@ -47,7 +47,7 @@ Archwing _$ArchwingFromJson(Map json) => $checkedCreate(
           wikiaThumbnail:
               $checkedConvert('wikiaThumbnail', (v) => v as String?),
           wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
           shield: $checkedConvert('shield', (v) => v as int),
           armor: $checkedConvert('armor', (v) => v as int),

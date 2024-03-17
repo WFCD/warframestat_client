@@ -43,7 +43,7 @@ Sentinel _$SentinelFromJson(Map json) => $checkedCreate(
           health: $checkedConvert('health', (v) => v as int),
           shield: $checkedConvert('shield', (v) => v as int),
           stamina: $checkedConvert('stamina', (v) => v as num),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
         );
         return val;

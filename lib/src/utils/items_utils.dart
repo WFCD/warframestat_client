@@ -24,6 +24,9 @@ Item toItem(Map<String, dynamic> item) {
 
   if (category == 'Enemy') return Enemy.fromJson(item);
 
+  final name = item['name'] as String;
+  if (name == 'Venari' || name == 'Venari Prime') return Pet.fromJson(item);
+
   switch (ItemType.byType(type)) {
     case ItemType.arcanes:
       return Arcane.fromJson(item);
