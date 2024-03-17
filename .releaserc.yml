@@ -6,10 +6,9 @@ plugins:
   - - "@semantic-release/changelog"
     - changelogFile: CHANGELOG.md
   - "@semantic-release/github"
-  - - "semantic-release-pub"
-    - publishPub: false
   - - "@semantic-release/git"
     - assets: ["pubspec.yaml", "CHANGELOG.md"]
       message: "chore(release): ${nextRelease.version}"
+  - "semantic-release-pub"
 branches:
   - master
