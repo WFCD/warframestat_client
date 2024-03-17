@@ -17,6 +17,9 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GH_TOKEN }}
 
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+
       - name: Set Google service-account
         env:
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_KEY }}
