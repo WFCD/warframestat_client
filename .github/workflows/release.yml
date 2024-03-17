@@ -20,7 +20,7 @@ jobs:
       - name: Set Google service-account
         env:
           SERVICE-ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-        run: export GOOGLE_SERVICE_ACCOUNT_KEY=$(echo $SERVICE-ACCOUNT | base64 --decode)
+        run: echo $SERVICE-ACCOUNT | base64 --decode >> $GOOGLE_SERVICE_ACCOUNT_KEY
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
