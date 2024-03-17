@@ -1,3 +1,10 @@
+## [3.6.9](https://github.com/WFCD/warframestat_client/compare/v3.6.8...v3.6.9) (2024-03-17)
+
+
+### Bug Fixes
+
+* **items:** fix a typo that prevented warframes from being detected as warframes ([8d36004](https://github.com/WFCD/warframestat_client/commit/8d36004310bcd4a393153817fadd361657863ac7))
+
 ## [3.6.8](https://github.com/WFCD/warframestat_client/compare/v3.6.7...v3.6.8) (2024-03-13)
 
 ### Bug Fixes
