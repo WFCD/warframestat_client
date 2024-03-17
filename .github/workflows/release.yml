@@ -19,8 +19,8 @@ jobs:
 
       - name: Set Google service-account
         env:
-          SERVICE-ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-        run: echo "GOOGLE_SERVICE_ACCOUNT_KEY=$($SERVICE-ACCOUNT | base64 --decode)" >> $GITHUB_ENV
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+        run: echo "GOOGLE_SERVICE_ACCOUNT_KEY=$($SERVICE_ACCOUNT | base64 --decode)" >> $GITHUB_ENV
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
