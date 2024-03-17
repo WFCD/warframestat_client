@@ -1,3 +1,10 @@
+## [3.6.10](https://github.com/WFCD/warframestat_client/compare/v3.6.9...v3.6.10) (2024-03-17)
+
+
+### Bug Fixes
+
+* `Venari` and `Venari Prime` being detected as Warframes ([3ed0114](https://github.com/WFCD/warframestat_client/commit/3ed0114bfed2709d9e9504be97c8af85c8ec75ee))
+
 ## [3.6.9](https://github.com/WFCD/warframestat_client/compare/v3.6.8...v3.6.9) (2024-03-17)
 
 
