@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:isolate';
 
-import 'package:compute/compute.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 /// {@template warframeitemsclient}
@@ -15,7 +15,7 @@ class WarframeItemsClient extends WarframestatClient {
   Future<List<Item>> fetchAllItems() async {
     final response = await _get<List<dynamic>>('/');
 
-    return compute(toItems, response);
+    return Isolate.run(() => toItems(response));
   }
 
   /// Returns all [Item]s that match the search query.
@@ -28,13 +28,13 @@ class WarframeItemsClient extends WarframestatClient {
       query: {'only': opts},
     );
 
-    return compute(toSearchItems, response);
+    return Isolate.run(() => toSearchItems(response));
   }
 
   /// Returns a list of all mods and mod set mods.
   Future<List<BaseMod>> fetchAllMods() async {
     final response = await _get<List<dynamic>>('/mods');
-    final items = await compute(toItems, response);
+    final items = await Isolate.run(() => toItems(response));
 
     return items.whereType<BaseMod>().toList();
   }
@@ -52,7 +52,7 @@ class WarframeItemsClient extends WarframestatClient {
   /// [includeMechs] is you want to filter out necromechs or not.
   Future<List<PowerSuit>> fetchAllWarframes({bool includeMechs = true}) async {
     final response = await _get<List<dynamic>>('/warframes');
-    final items = await compute(toItems, response);
+    final items = await Isolate.run(() => toItems(response));
 
     return includeMechs
         ? items.whereType<PowerSuit>().toList()
@@ -73,7 +73,7 @@ class WarframeItemsClient extends WarframestatClient {
   /// return the base class of the two.
   Future<List<PowerSuit>> searchWarframes(String query) async {
     final response = await _get<List<dynamic>>('/warframes/search/$query');
-    final items = await compute(toItems, response);
+    final items = await Isolate.run(() => toItems(response));
 
     return items.whereType<PowerSuit>().toList();
   }
@@ -85,7 +85,7 @@ class WarframeItemsClient extends WarframestatClient {
   /// ISOLATE.
   Future<List<Weapon>> fetchAllWeapons() async {
     final response = await _get<List<dynamic>>('/weapons');
-    final items = await compute(toItems, response);
+    final items = await Isolate.run(() => toItems(response));
 
     return items.whereType<Weapon>().toList();
   }
@@ -134,8 +134,6 @@ class WarframeItemsClient extends WarframestatClient {
   Future<T> _get<T>(String path, {Map<String, dynamic>? query}) async {
     final response = await get('/items$path', query: query);
 
-    return compute(_parseJson, response.body);
+    return Isolate.run(() => json.decode(response.body) as T);
   }
-
-  static T _parseJson<T>(String body) => json.decode(body) as T;
 }

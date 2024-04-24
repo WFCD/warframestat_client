@@ -1,6 +1,6 @@
 import 'dart:convert';
+import 'dart:isolate';
 
-import 'package:compute/compute.dart';
 import 'package:meta/meta.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 import 'package:web_socket_client/web_socket_client.dart';
@@ -241,8 +241,6 @@ class WorldstateClient extends WarframestatClient {
   Future<T> _get<T>(String path) async {
     final response = await get('pc$path');
 
-    return compute(_parseJson, response.body);
+    return Isolate.run(() => json.decode(response.body) as T);
   }
-
-  static T _parseJson<T>(String body) => json.decode(body) as T;
 }

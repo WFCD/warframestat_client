@@ -1,6 +1,6 @@
 import 'dart:convert';
+import 'dart:isolate';
 
-import 'package:compute/compute.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 /// {@template synthtargetclient}
@@ -14,14 +14,12 @@ class SynthTaretClient extends WarframestatClient {
   Future<List<SynthTarget>> fetchTargets() async {
     final response = await get('/synthtargets');
 
-    return compute(_parseTargets, response.body);
-  }
+    return Isolate.run(() {
+      final data = json.decode(response.body) as List<dynamic>;
 
-  static List<SynthTarget> _parseTargets(String body) {
-    final data = json.decode(body) as List<dynamic>;
-
-    return data
-        .map((e) => SynthTarget.fromJson(e as Map<String, dynamic>))
-        .toList();
+      return data
+          .map((e) => SynthTarget.fromJson(e as Map<String, dynamic>))
+          .toList();
+    });
   }
 }
