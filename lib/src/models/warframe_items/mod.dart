@@ -69,16 +69,16 @@ class Mod extends BaseMod {
   factory Mod.fromJson(Map<String, dynamic> data) => _$ModFromJson(data);
 
   /// The polarity of the given [Mod].
-  final String polarity;
+  final String? polarity;
 
   /// Drain the [Mod] takes at rank 0.
-  final int baseDrain;
+  final int? baseDrain;
 
   /// Compatability.
   final String? compatName;
 
   /// Max rank for this [Mod]
-  final int fusionLimit;
+  final int? fusionLimit;
 
   /// Whether this [Mod] is an augment mod or not.
   final bool? isAugment;

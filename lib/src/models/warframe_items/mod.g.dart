@@ -22,7 +22,7 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           isPrime: $checkedConvert('isPrime', (v) => v as bool),
-          polarity: $checkedConvert('polarity', (v) => v as String),
+          polarity: $checkedConvert('polarity', (v) => v as String?),
           rarity: $checkedConvert(
               'rarity', (v) => $enumDecodeNullable(_$RarityEnumMap, v)),
           drops: $checkedConvert(
@@ -31,8 +31,8 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
                   ?.map(
                       (e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          baseDrain: $checkedConvert('baseDrain', (v) => v as int),
-          fusionLimit: $checkedConvert('fusionLimit', (v) => v as int),
+          baseDrain: $checkedConvert('baseDrain', (v) => v as int?),
+          fusionLimit: $checkedConvert('fusionLimit', (v) => v as int?),
           isAugment: $checkedConvert('isAugment', (v) => v as bool?),
           levelStats: $checkedConvert(
               'levelStats',
@@ -84,10 +84,10 @@ Map<String, dynamic> _$ModToJson(Mod instance) {
   writeNotNull('rarity', _$RarityEnumMap[instance.rarity]);
   writeNotNull('drops', instance.drops?.map((e) => e.toJson()).toList());
   val['isPrime'] = instance.isPrime;
-  val['polarity'] = instance.polarity;
-  val['baseDrain'] = instance.baseDrain;
+  writeNotNull('polarity', instance.polarity);
+  writeNotNull('baseDrain', instance.baseDrain);
   writeNotNull('compatName', instance.compatName);
-  val['fusionLimit'] = instance.fusionLimit;
+  writeNotNull('fusionLimit', instance.fusionLimit);
   writeNotNull('isAugment', instance.isAugment);
   writeNotNull(
       'levelStats', instance.levelStats?.map((e) => e.toJson()).toList());
