@@ -1,3 +1,15 @@
+# [3.7.0](https://github.com/WFCD/warframestat_client/compare/v3.6.10...v3.7.0) (2024-05-10)
+
+
+### Bug Fixes
+
+* **items:** mods weren't being parsed correctly ([3e59cab](https://github.com/WFCD/warframestat_client/commit/3e59cab47b483b73348f33031fe3682eea50fc29))
+
+
+### Features
+
+* split websocket events into WarframestatWebsocket ([fe5f8b0](https://github.com/WFCD/warframestat_client/commit/fe5f8b01b8e4d90fb8cec2c6d5031986e57736b6))
+
 ## [3.6.10](https://github.com/WFCD/warframestat_client/compare/v3.6.9...v3.6.10) (2024-03-17)
 
 
