@@ -12,3 +12,4 @@ export 'src/clients/clients.dart';
 export 'src/enums.dart';
 export 'src/models/models.dart';
 export 'src/utils/utils.dart';
+export 'src/websocket/warframestat.dart';

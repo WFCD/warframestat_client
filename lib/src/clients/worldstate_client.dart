@@ -13,6 +13,7 @@ class WorldstateClient extends WarframestatClient {
   WorldstateClient({super.language, super.ua, super.client});
 
   /// Opens a websocket connection for worldstate updates.
+  @Deprecated('User WarframestatWebsocket instead')
   Stream<Worldstate> worldstateWebSocket([WebSocket? webSocket]) {
     final ws = Uri.parse('wss://api.warframestat.us/socket');
     final socket = webSocket ??
