@@ -1,13 +1,34 @@
+// ignore_for_file: avoid_print
+
 import 'package:warframestat_client/warframestat_client.dart';
 
-void main() async {
-  final ws = WorldstateClient();
-  final cs = await ws.fetchWorldstate();
-  final socket = WarframestatWebsocket.connect();
+Future<void> main() async {
+  final worldstateClient = WorldstateClient();
+  final worldstate = await worldstateClient.fetchWorldstate();
 
-  // ignore: avoid_print
-  // print(cs.timestamp);
+  print(worldstate.timestamp);
 
-  socket.worldstateEvents().listen((e) => print('s: ${e.timestamp}'));
-  // ws.worldstateWebSocket().listen((e) => print('ws: ${e.timestamp}'));
+  final itemsClient = WarframeItemsClient();
+
+  // Search returns minimal results. You should use fetchItem() if you want the
+  // full item
+  final results = await itemsClient.search('AfterBurner');
+  print(results.first.name);
+
+  final item = await itemsClient.fetchItem(
+    '/Lotus/Powersuits/Archwing/DemolitionJetPack/ExhaustTrailAugmentCard',
+  );
+
+  print(item.name);
+
+  final synthTargetClient = SynthTaretClient();
+  // If you find a target that isn't in here you can make a PR here
+  // https://github.com/WFCD/warframe-worldstate-data
+  final targets = await synthTargetClient.fetchTargets();
+  print(targets.first.name);
+
+  final profileClient = ProfileClient(username: 'OrnsteinTheSlayer');
+  final profile = await profileClient.fetchProfile();
+
+  print(profile.data.username);
 }
