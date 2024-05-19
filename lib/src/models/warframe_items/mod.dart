@@ -27,6 +27,7 @@ abstract class BaseMod extends DroppableItem {
   });
 
   /// Whether the mod is a prime or not
+  @JsonKey(defaultValue: false)
   final bool isPrime;
 
   @override

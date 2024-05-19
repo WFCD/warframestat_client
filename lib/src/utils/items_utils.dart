@@ -27,7 +27,7 @@ Item toItem(Map<String, dynamic> item) {
   final name = item['name'] as String;
   if (name == 'Venari' || name == 'Venari Prime') return Pet.fromJson(item);
 
-  if (category == 'Mods') return Mod.fromJson(item);
+  if (type.contains('Mod')) return Mod.fromJson(item);
 
   switch (ItemType.byType(type)) {
     case ItemType.arcanes:
@@ -62,15 +62,10 @@ Item toItem(Map<String, dynamic> item) {
       return isBuildable
           ? ResourceBuildable.fromJson(item)
           : Resource.fromJson(item);
-
     case ItemType.skins:
       return isBuildable ? SkinBuildable.fromJson(item) : Skin.fromJson(item);
-
     case ItemType.gear:
       return isBuildable ? GearBuildable.fromJson(item) : Gear.fromJson(item);
-
-    case ItemType.mods:
-      return Mod.fromJson(item);
     case ItemType.warframes:
       // NecroMechs and Warframes are stored with the same cateogry so we need
       // to filter by productCateogry here.
