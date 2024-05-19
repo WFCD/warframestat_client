@@ -3,8 +3,12 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'mission.g.dart';
 
+/// {@template profile_missions}
+/// Nodes/Missions completed
+/// {@endtemplate}
 @JsonSerializable()
 class ProfileMission extends Equatable {
+  /// {@macro profile_missions}
   const ProfileMission({
     required this.node,
     required this.missionType,

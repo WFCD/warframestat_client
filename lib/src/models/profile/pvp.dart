@@ -3,8 +3,12 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'pvp.g.dart';
 
+/// {@template conclave}
+/// Player conclave stats
+/// {@endtemplate}
 @JsonSerializable()
 class Pvp extends Equatable {
+  /// {@macro conclave}
   const Pvp({
     required this.uniqueName,
     required this.suitDeaths,

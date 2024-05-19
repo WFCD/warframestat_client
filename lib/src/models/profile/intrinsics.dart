@@ -3,8 +3,12 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'intrinsics.g.dart';
 
+/// {@template intrinsics}
+/// Player intrinsics ranks for both railjack and drifter
+/// {@endtemplate}
 @JsonSerializable()
 class Intrinsics extends Equatable {
+  /// {@macro intrinsics}
   const Intrinsics({
     required this.space,
     required this.engineering,

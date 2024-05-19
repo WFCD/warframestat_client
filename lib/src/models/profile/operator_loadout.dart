@@ -4,8 +4,12 @@ import 'package:warframestat_client/warframestat_client.dart';
 
 part 'operator_loadout.g.dart';
 
+/// {@template operator_loadout}
+/// Operator loadout
+/// {@endtemplate}
 @JsonSerializable()
 class OperatorLoadout extends Equatable {
+  /// {@macro operator_loadout}
   const OperatorLoadout({
     required this.skins,
     required this.operatorAmp,
@@ -19,6 +23,7 @@ class OperatorLoadout extends Equatable {
     required this.cloth,
   });
 
+  /// Creates an instance from a json map
   factory OperatorLoadout.fromJson(Map<String, dynamic> json) {
     return _$OperatorLoadoutFromJson(json);
   }

@@ -4,8 +4,12 @@ import 'package:warframestat_client/src/models/profile/profile_data.dart';
 
 part 'profile.g.dart';
 
+/// {@template profile}
+/// Player profile
+/// {@endtemplate}
 @JsonSerializable()
 class Profile extends Equatable {
+  /// {@macro profile}
   const Profile({
     required this.data,
     required this.xpCacheExpiryDate,
@@ -13,6 +17,7 @@ class Profile extends Equatable {
     required this.stats,
   });
 
+  /// Creates an instance from a json map
   factory Profile.fromJson(Map<String, dynamic> json) {
     return _$ProfileFromJson(json);
   }
@@ -30,6 +35,7 @@ class Profile extends Equatable {
   /// Player stats
   final dynamic stats;
 
+  /// Creates a json map
   Map<String, dynamic> toJson() => _$ProfileToJson(this);
 
   @override
