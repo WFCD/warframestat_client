@@ -21,7 +21,7 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           polarity: $checkedConvert('polarity', (v) => v as String?),
           rarity: $checkedConvert(
               'rarity', (v) => $enumDecodeNullable(_$RarityEnumMap, v)),
@@ -125,7 +125,7 @@ ModSet _$ModSetFromJson(Map json) => $checkedCreate(
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           rarity: $checkedConvert(
               'rarity', (v) => $enumDecodeNullable(_$RarityEnumMap, v)),
           drops: $checkedConvert(
