@@ -1,3 +1,10 @@
+# [3.8.0](https://github.com/WFCD/warframestat_client/compare/v3.7.0...v3.8.0) (2024-05-19)
+
+
+### Features
+
+* add support for `/profiles/:username:` endpoint ([#20](https://github.com/WFCD/warframestat_client/issues/20)) ([c0e2817](https://github.com/WFCD/warframestat_client/commit/c0e281706e4c0b49b770bbee78b12b3f166ddfb0))
+
 # [3.7.0](https://github.com/WFCD/warframestat_client/compare/v3.6.10...v3.7.0) (2024-05-10)
 
 
