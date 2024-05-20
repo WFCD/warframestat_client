@@ -43,7 +43,7 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
                   : Damage.fromJson(Map<String, dynamic>.from(v as Map))),
           damagePerShot: $checkedConvert('damagePerShot',
               (v) => (v as List<dynamic>).map((e) => e as num).toList()),
-          disposition: $checkedConvert('disposition', (v) => v as int),
+          disposition: $checkedConvert('disposition', (v) => v as int?),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
           isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           omegaAttenuation:
@@ -125,7 +125,7 @@ Map<String, dynamic> _$SecondaryToJson(Secondary instance) {
   val['criticalMultiplier'] = instance.criticalMultiplier;
   writeNotNull('damage', instance.damage?.toJson());
   val['damagePerShot'] = instance.damagePerShot;
-  val['disposition'] = instance.disposition;
+  writeNotNull('disposition', instance.disposition);
   val['fireRate'] = instance.fireRate;
   val['omegaAttenuation'] = instance.omegaAttenuation;
   writeNotNull('polarities', instance.polarities);

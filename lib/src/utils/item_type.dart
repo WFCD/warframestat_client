@@ -9,9 +9,6 @@ enum ItemType {
   /// Arch-Melee category.
   archMelee('Arch-Melee'),
 
-  /// Primary category.
-  primary('Primary'),
-
   /// Arch-Gun category.
   archGun('Arch-Gun'),
 
@@ -56,9 +53,6 @@ enum ItemType {
 
   /// Sigils category.
   sigils('Sigils'),
-
-  /// Secondary category.
-  secondary('Secondary'),
 
   /// Pets category.
   pets('Pets'),
@@ -133,7 +127,16 @@ enum ItemType {
   zawRiven('Zaw Riven Mod'),
 
   /// Riven Mod
-  rivenMod('Riven Mod');
+  rivenMod('Riven Mod'),
+
+  /// Shotgun
+  shotgun('Shotgun'),
+
+  /// Rifles
+  rifle('Rifle'),
+
+  /// Pistols
+  pistol('Pistol');
 
   const ItemType(this.category);
 

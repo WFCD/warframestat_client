@@ -10,10 +10,13 @@ List<MinimalItem> toSearchItems(List<dynamic> data) {
 
 /// Converts a json decoded list into [Item] objects
 List<Item> toItems(List<dynamic> data) {
-  return data
-      .map((e) => Map<String, dynamic>.from(e as Map))
-      .map(toItem)
-      .toList();
+  return data.map((e) => Map<String, dynamic>.from(e as Map)).map((i) {
+    try {
+      return toItem(i);
+    } catch (e) {
+      return Misc.fromJson(i);
+    }
+  }).toList();
 }
 
 /// Serializes giving json values into their proper [Item] type
@@ -50,9 +53,9 @@ Item toItem(Map<String, dynamic> item) {
           : PetResources.fromJson(item);
     case ItemType.sigils:
       return Sigil.fromJson(item);
-    case ItemType.primary || ItemType.archGun:
+    case ItemType.rifle || ItemType.archGun || ItemType.shotgun:
       return Primary.fromJson(item);
-    case ItemType.secondary:
+    case ItemType.pistol:
       return Secondary.fromJson(item);
     case ItemType.melee || ItemType.archMelee:
       return Melee.fromJson(item);

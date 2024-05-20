@@ -125,7 +125,7 @@ Map<String, dynamic> _$PrimaryToJson(Primary instance) {
   val['criticalMultiplier'] = instance.criticalMultiplier;
   writeNotNull('damage', instance.damage?.toJson());
   val['damagePerShot'] = instance.damagePerShot;
-  val['disposition'] = instance.disposition;
+  writeNotNull('disposition', instance.disposition);
   val['fireRate'] = instance.fireRate;
   val['omegaAttenuation'] = instance.omegaAttenuation;
   writeNotNull('polarities', instance.polarities);

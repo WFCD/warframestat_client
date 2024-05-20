@@ -60,7 +60,7 @@ abstract class Weapon extends BuildableItem {
   final List<num> damagePerShot;
 
   /// [Weapon]'s riven disposition.
-  final int disposition;
+  final int? disposition;
 
   /// [Weapon] rate of fite.
   final num fireRate;
