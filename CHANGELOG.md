@@ -1,3 +1,10 @@
+## [3.8.1](https://github.com/WFCD/warframestat_client/compare/v3.8.0...v3.8.1) (2024-05-20)
+
+
+### Bug Fixes
+
+* parse as `Misc` when an item fails to parse ([69bd57c](https://github.com/WFCD/warframestat_client/commit/69bd57c59709ceb9e1e33484585afb6d8301f715))
+
 # [3.8.0](https://github.com/WFCD/warframestat_client/compare/v3.7.0...v3.8.0) (2024-05-19)
 
 
