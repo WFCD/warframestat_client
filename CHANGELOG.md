@@ -1,3 +1,10 @@
+## [3.8.3](https://github.com/WFCD/warframestat_client/compare/v3.8.2...v3.8.3) (2024-05-21)
+
+
+### Bug Fixes
+
+* force release ([1ca611a](https://github.com/WFCD/warframestat_client/commit/1ca611a9a495e8844d035fb25bb452b422bab4fd))
+
 ## [3.8.2](https://github.com/WFCD/warframestat_client/compare/v3.8.1...v3.8.2) (2024-05-21)
 
 
