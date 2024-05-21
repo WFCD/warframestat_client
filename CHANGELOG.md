@@ -1,3 +1,10 @@
+## [3.8.2](https://github.com/WFCD/warframestat_client/compare/v3.8.1...v3.8.2) (2024-05-21)
+
+
+### Bug Fixes
+
+* swap List<String> with List<ArsenalSkin> for operator loadouts ([006fea1](https://github.com/WFCD/warframestat_client/commit/006fea117fc051b75adf6a269ce0966d32bf109a))
+
 ## [3.8.1](https://github.com/WFCD/warframestat_client/compare/v3.8.0...v3.8.1) (2024-05-20)
 
 
