@@ -65,7 +65,7 @@ Item toItem(Map<String, dynamic> item) {
       return isBuildable
           ? ResourceBuildable.fromJson(item)
           : Resource.fromJson(item);
-    case ItemType.skins:
+    case ItemType.skin:
       return isBuildable ? SkinBuildable.fromJson(item) : Skin.fromJson(item);
     case ItemType.gear:
       return isBuildable ? GearBuildable.fromJson(item) : Gear.fromJson(item);

@@ -11,7 +11,12 @@ ItemConfig _$ItemConfigFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = ItemConfig(
-          skins: $checkedConvert('skins', (v) => toItems(v as List)),
+          skins: $checkedConvert(
+              'skins',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      ArsenalSkin.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           conclaveUpgrades: $checkedConvert('conclaveUpgrades',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           primaryColor: $checkedConvert(

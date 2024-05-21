@@ -25,8 +25,7 @@ class ItemConfig extends Equatable {
   }
 
   /// List of [Skin]s
-  @JsonKey(fromJson: toItems)
-  final List<Item> skins;
+  final List<ArsenalSkin> skins;
 
   /// PVP upgrades applied
   final List<String>? conclaveUpgrades;

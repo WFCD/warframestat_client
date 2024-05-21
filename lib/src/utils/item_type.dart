@@ -16,16 +16,13 @@ enum ItemType {
   resources('Resources'),
 
   /// Skins category.
-  skins('Skins'),
+  skin('Skin'),
 
   /// Gear category.
   gear('Gear'),
 
-  /// Mods category.
-  mods('Mods'),
-
   /// Arcanes category.
-  arcanes('Arcanes'),
+  arcanes('Arcane'),
 
   /// Archwing category.
   archwing('Archwing'),

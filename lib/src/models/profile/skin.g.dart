@@ -12,8 +12,8 @@ ArsenalSkin _$ArsenalSkinFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = ArsenalSkin(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
-          item:
-              $checkedConvert('item', (v) => toItem(v as Map<String, dynamic>)),
+          item: $checkedConvert(
+              'item', (v) => _toItem(v as Map<String, dynamic>?)),
         );
         return val;
       },

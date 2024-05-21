@@ -29,8 +29,7 @@ class OperatorLoadout extends Equatable {
   }
 
   /// Skins applied to operator
-  // TODO(SlayerOrnstein): change to Skin when the API is updated
-  final List<String> skins;
+  final List<ArsenalSkin> skins;
 
   /// Amp ID
   final String? operatorAmp;

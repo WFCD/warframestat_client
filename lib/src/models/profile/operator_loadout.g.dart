@@ -11,8 +11,12 @@ OperatorLoadout _$OperatorLoadoutFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = OperatorLoadout(
-          skins: $checkedConvert('skins',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          skins: $checkedConvert(
+              'skins',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      ArsenalSkin.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           operatorAmp: $checkedConvert('operatorAmp', (v) => v as String?),
           upgrades: $checkedConvert('upgrades',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
@@ -233,7 +237,7 @@ OperatorLoadout _$OperatorLoadoutFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$OperatorLoadoutToJson(OperatorLoadout instance) {
   final val = <String, dynamic>{
-    'skins': instance.skins,
+    'skins': instance.skins.map((e) => e.toJson()).toList(),
   };
 
   void writeNotNull(String key, dynamic value) {
