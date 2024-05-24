@@ -1,3 +1,10 @@
+## [3.8.4](https://github.com/WFCD/warframestat_client/compare/v3.8.3...v3.8.4) (2024-05-24)
+
+
+### Bug Fixes
+
+* API no longer uses what would be `ProfileData` ([8e2b155](https://github.com/WFCD/warframestat_client/commit/8e2b1550529ddd8d7d82e4ec1444be687b018fca))
+
 ## [3.8.3](https://github.com/WFCD/warframestat_client/compare/v3.8.2...v3.8.3) (2024-05-21)
 
 
