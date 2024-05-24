@@ -30,5 +30,5 @@ Future<void> main() async {
   final profileClient = ProfileClient(username: 'OrnsteinTheSlayer');
   final profile = await profileClient.fetchProfile();
 
-  print(profile.data.username);
+  print(profile.username);
 }
