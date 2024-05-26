@@ -17,7 +17,7 @@ class WarframestatWebsocket {
   factory WarframestatWebsocket.connect({Language language = Language.en}) {
     final socket = WebSocket(
       _baseUrl,
-      pingInterval: const Duration(milliseconds: 30000),
+      pingInterval: const Duration(milliseconds: 25000),
     );
 
     return WarframestatWebsocket(socket, language);
