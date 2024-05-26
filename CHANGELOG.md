@@ -1,3 +1,10 @@
+## [3.8.6](https://github.com/WFCD/warframestat_client/compare/v3.8.5...v3.8.6) (2024-05-26)
+
+
+### Bug Fixes
+
+* pass `lanugage` and `client` to `ProfileClient` ([8f1a9df](https://github.com/WFCD/warframestat_client/commit/8f1a9df72d7c074adf1fa6ad1b66df491dee712a))
+
 ## [3.8.5](https://github.com/WFCD/warframestat_client/compare/v3.8.4...v3.8.5) (2024-05-26)
 
 
