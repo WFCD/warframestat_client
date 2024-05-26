@@ -1,3 +1,10 @@
+## [3.8.5](https://github.com/WFCD/warframestat_client/compare/v3.8.4...v3.8.5) (2024-05-26)
+
+
+### Bug Fixes
+
+* lower the websocket ping time ([0c7d637](https://github.com/WFCD/warframestat_client/commit/0c7d637c97fdc25b1c3adb8da1b04ad196f1eb97))
+
 ## [3.8.4](https://github.com/WFCD/warframestat_client/compare/v3.8.3...v3.8.4) (2024-05-24)
 
 
