@@ -69,7 +69,7 @@ class ArsenalItem extends Equatable {
   final Map<String, dynamic>? upgradeFingerPrint;
 
   ///
-  final int features;
+  final int? features;
 
   ///
   @JsonKey(name: 'upgradeVer')
@@ -79,7 +79,7 @@ class ArsenalItem extends Equatable {
   final int xp;
 
   /// How many mod slots are currently polarized.
-  final int polarized;
+  final int? polarized;
 
   /// Which polarity types exist on the weapon
   final List<Polarity>? polarities;

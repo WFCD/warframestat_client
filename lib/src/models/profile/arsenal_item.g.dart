@@ -29,10 +29,10 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
               (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
                   )),
-          features: $checkedConvert('features', (v) => v as int),
+          features: $checkedConvert('features', (v) => v as int?),
           upgradeVersion: $checkedConvert('upgradeVer', (v) => v as int),
           xp: $checkedConvert('xp', (v) => v as int),
-          polarized: $checkedConvert('polarized', (v) => v as int),
+          polarized: $checkedConvert('polarized', (v) => v as int?),
           polarities: $checkedConvert(
               'polarities',
               (v) => (v as List<dynamic>?)
@@ -193,10 +193,10 @@ Map<String, dynamic> _$ArsenalItemToJson(ArsenalItem instance) {
   val['configs'] = instance.configs.map((e) => e.toJson()).toList();
   writeNotNull('upgradeTypes', instance.upgradeTypes);
   writeNotNull('upgradeFingerPrint', instance.upgradeFingerPrint);
-  val['features'] = instance.features;
+  writeNotNull('features', instance.features);
   val['upgradeVer'] = instance.upgradeVersion;
   val['xp'] = instance.xp;
-  val['polarized'] = instance.polarized;
+  writeNotNull('polarized', instance.polarized);
   writeNotNull(
       'polarities',
       instance.polarities
