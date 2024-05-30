@@ -1,1 +1,10 @@
 include: package:commitlint_cli/commitlint.yaml
+
+rules:
+  scope-enum:
+    - 2
+    - always
+    - - warframe-items
+      - worldstate
+      - synthTargets
+      - websocket
