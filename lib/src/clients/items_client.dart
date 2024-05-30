@@ -51,8 +51,9 @@ class WarframeItemsClient extends WarframestatClient {
   /// Becasue [NecroMech]s and [Warframe]s share the same category one can use.
   /// [includeMechs] is you want to filter out necromechs or not.
   Future<List<PowerSuit>> fetchAllWarframes({bool includeMechs = true}) async {
-    final response = await _get<List<dynamic>>('/warframes');
-    final items = await Isolate.run(() => toItems(response));
+    final response = await get('/warframes');
+    final json = jsonDecode(response.body) as List<dynamic>;
+    final items = await Isolate.run(() => toItems(json));
 
     return includeMechs
         ? items.whereType<PowerSuit>().toList()
@@ -61,9 +62,10 @@ class WarframeItemsClient extends WarframestatClient {
 
   /// Get data for the closest matching warframe.
   Future<Warframe> fetchWarframe(String query) async {
-    final response = await _get<Map<String, dynamic>>('/warframes/$query');
+    final response = await get('/warframes/$query');
+    final json = jsonDecode(response.body) as Map<String, dynamic>;
 
-    return Warframe.fromJson(response);
+    return Warframe.fromJson(json);
   }
 
   /// Search for warframes with the closes possible match to the [query].
@@ -72,8 +74,9 @@ class WarframeItemsClient extends WarframestatClient {
   /// results can also return [NecroMech]s as such this method will always
   /// return the base class of the two.
   Future<List<PowerSuit>> searchWarframes(String query) async {
-    final response = await _get<List<dynamic>>('/warframes/search/$query');
-    final items = await Isolate.run(() => toItems(response));
+    final response = await get('/warframes/search/$query');
+    final json = jsonDecode(response.body) as List<Map<String, dynamic>>;
+    final items = await Isolate.run(() => toItems(json));
 
     return items.whereType<PowerSuit>().toList();
   }
@@ -84,26 +87,25 @@ class WarframeItemsClient extends WarframestatClient {
   /// THIS IS A LOT OF DATA AND IT IS RECOMMENDED TO RUN THIS FUNCTION IN AN
   /// ISOLATE.
   Future<List<Weapon>> fetchAllWeapons() async {
-    final response = await _get<List<dynamic>>('/weapons');
-    final items = await Isolate.run(() => toItems(response));
+    final response = await get('/weapons');
+    final json = jsonDecode(response.body) as List<dynamic>;
+    final items = await Isolate.run(() => toItems(json));
 
     return items.whereType<Weapon>().toList();
   }
 
   /// Get data for the closest matching weapon.
   Future<Weapon> fetchWeapon(String query) async {
-    final item = await _get<Map<String, dynamic>>('/weapons/$query');
-    final category = item['category'];
+    final response = await get('/weapons/$query');
+    final json = jsonDecode(response.body) as Map<String, dynamic>;
+    final item = await Isolate.run(() => toItem(json));
 
-    if (category == 'Melee' || category == 'Arch-Melee') {
-      return Melee.fromJson(item);
-    }
-
-    if (category == 'Primary' || category == 'Arch-Gun') {
-      return Primary.fromJson(item);
-    }
-
-    return Secondary.fromJson(item);
+    return switch (item) {
+      Primary() => item,
+      Secondary() => item,
+      Melee() => item,
+      _ => throw Exception('Item is not a valid weapon type')
+    };
   }
 
   /// Search for weapons with the closes possible match to the [query].
