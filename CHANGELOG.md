@@ -1,3 +1,10 @@
+## [3.8.7](https://github.com/WFCD/warframestat_client/compare/v3.8.6...v3.8.7) (2024-05-30)
+
+
+### Bug Fixes
+
+* rare occurance where `ArsenalItem.feature` and `ArsenalItem.polarized` can be null ([132106c](https://github.com/WFCD/warframestat_client/commit/132106c2ac4e6e437498cdc52dfdf83c8c73c6f9))
+
 ## [3.8.6](https://github.com/WFCD/warframestat_client/compare/v3.8.5...v3.8.6) (2024-05-26)
 
 
