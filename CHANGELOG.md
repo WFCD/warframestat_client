@@ -1,3 +1,10 @@
+## [3.8.8](https://github.com/WFCD/warframestat_client/compare/v3.8.7...v3.8.8) (2024-05-30)
+
+
+### Bug Fixes
+
+* **warframe-items:** warframe and weapon endpoints were incorrect ([866941e](https://github.com/WFCD/warframestat_client/commit/866941eec6dae0c1dd5b3920077951533670d4a4))
+
 ## [3.8.7](https://github.com/WFCD/warframestat_client/compare/v3.8.6...v3.8.7) (2024-05-30)
 
 
