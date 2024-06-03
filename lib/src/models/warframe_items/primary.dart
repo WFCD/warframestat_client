@@ -40,6 +40,7 @@ class Primary extends Gun {
     required super.noise,
     required super.trigger,
     required super.reloadTime,
+    required super.maxLevelCap,
     super.disposition = 0,
     super.attacks,
     super.patchlogs,

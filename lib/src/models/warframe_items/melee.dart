@@ -32,6 +32,7 @@ class Melee extends Weapon {
     required super.procChance,
     required super.slot,
     required super.totalDamage,
+    required super.maxLevelCap,
     required this.followThrough,
     required this.heavyAttackDamage,
     required this.heavySlamAttack,

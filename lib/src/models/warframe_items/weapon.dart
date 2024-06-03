@@ -1,3 +1,4 @@
+import 'package:json_annotation/json_annotation.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 /// {@template weapon}
@@ -31,6 +32,7 @@ abstract class Weapon extends BuildableItem {
     required this.procChance,
     required this.slot,
     required this.totalDamage,
+    required this.maxLevelCap,
     super.patchlogs,
     super.masteryReq,
     super.marketCost,
@@ -83,6 +85,10 @@ abstract class Weapon extends BuildableItem {
   /// Total damage the [Weapon] has.
   final num totalDamage;
 
+  /// Max rank this weapon can be leveled
+  @JsonKey(defaultValue: 30)
+  final int maxLevelCap;
+
   @override
   List<Object?> get props {
     return super.props
@@ -97,6 +103,7 @@ abstract class Weapon extends BuildableItem {
         slot,
         tags,
         totalDamage,
+        maxLevelCap,
       ]);
   }
 }

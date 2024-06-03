@@ -52,6 +52,7 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
           slot: $checkedConvert('slot', (v) => v as int),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
+          maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
           followThrough:
               $checkedConvert('followThrough', (v) => (v as num?)?.toDouble()),
           heavyAttackDamage:
@@ -146,6 +147,7 @@ Map<String, dynamic> _$MeleeToJson(Melee instance) {
   val['slot'] = instance.slot;
   writeNotNull('tags', instance.tags);
   val['totalDamage'] = instance.totalDamage;
+  val['maxLevelCap'] = instance.maxLevelCap;
   writeNotNull('followThrough', instance.followThrough);
   writeNotNull('stancePolarity', instance.stancePolarity);
   writeNotNull('heavyAttackDamage', instance.heavyAttackDamage);

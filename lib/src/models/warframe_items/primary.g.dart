@@ -59,6 +59,7 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
           noise: $checkedConvert('noise', (v) => v as String?),
           trigger: $checkedConvert('trigger', (v) => v as String?),
           reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
+          maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
           disposition: $checkedConvert('disposition', (v) => v as int? ?? 0),
           attacks: $checkedConvert(
               'attacks',
@@ -133,6 +134,7 @@ Map<String, dynamic> _$PrimaryToJson(Primary instance) {
   val['slot'] = instance.slot;
   writeNotNull('tags', instance.tags);
   val['totalDamage'] = instance.totalDamage;
+  val['maxLevelCap'] = instance.maxLevelCap;
   writeNotNull('accuracy', instance.accuracy);
   writeNotNull('magazineSize', instance.magazineSize);
   writeNotNull('multishot', instance.multishot);

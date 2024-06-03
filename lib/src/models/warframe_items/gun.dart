@@ -40,6 +40,7 @@ abstract class Gun extends Weapon {
     required super.wikiaUrl,
     required super.releaseDate,
     required this.reloadTime,
+    required super.maxLevelCap,
     List<GunAttack>? super.attacks,
     super.vaulted,
     super.bpCost,
