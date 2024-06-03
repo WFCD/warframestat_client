@@ -1,3 +1,10 @@
+## [3.8.9](https://github.com/WFCD/warframestat_client/compare/v3.8.8...v3.8.9) (2024-06-03)
+
+
+### Bug Fixes
+
+* add missing `maxLevelCap` to `Weapon` ([d8dc263](https://github.com/WFCD/warframestat_client/commit/d8dc26304c322b7142295c253fe7eb966029f76c))
+
 ## [3.8.8](https://github.com/WFCD/warframestat_client/compare/v3.8.7...v3.8.8) (2024-05-30)
 
 
