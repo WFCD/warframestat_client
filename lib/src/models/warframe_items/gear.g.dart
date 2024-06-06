@@ -27,6 +27,12 @@ Gear _$GearFromJson(Map json) => $checkedCreate(
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String?),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          excludeFromCodex:
+              $checkedConvert('excludeFromCodex', (v) => v as bool?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
         );
         return val;
       },
@@ -52,6 +58,10 @@ Map<String, dynamic> _$GearToJson(Gear instance) {
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('excludeFromCodex', instance.excludeFromCodex);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
   return val;
 }
 
@@ -75,7 +85,7 @@ GearBuildable _$GearBuildableFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int),
+          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
           buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
           buildTime: $checkedConvert('buildTime', (v) => v as int),
           skipBuildTimePrice:
@@ -89,6 +99,15 @@ GearBuildable _$GearBuildableFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
+          vaulted: $checkedConvert('vaulted', (v) => v as bool?),
+          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          marketCost: $checkedConvert('marketCost', (v) => v as int?),
+          bpCost: $checkedConvert('bpCost', (v) => v as int?),
+          itemCount: $checkedConvert('itemCount', (v) => v as int?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
         );
         return val;
       },
@@ -114,7 +133,12 @@ Map<String, dynamic> _$GearBuildableToJson(GearBuildable instance) {
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
   val['isPrime'] = instance.isPrime;
+  writeNotNull('vaulted', instance.vaulted);
+  writeNotNull('masteryReq', instance.masteryReq);
   val['buildPrice'] = instance.buildPrice;
   val['buildQuantity'] = instance.buildQuantity;
   val['buildTime'] = instance.buildTime;
@@ -122,5 +146,8 @@ Map<String, dynamic> _$GearBuildableToJson(GearBuildable instance) {
   val['consumeOnBuild'] = instance.consumeOnBuild;
   writeNotNull(
       'components', instance.components?.map((e) => e.toJson()).toList());
+  writeNotNull('marketCost', instance.marketCost);
+  writeNotNull('bpCost', instance.bpCost);
+  writeNotNull('itemCount', instance.itemCount);
   return val;
 }

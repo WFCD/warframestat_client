@@ -52,7 +52,7 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           procChance:
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
-          slot: $checkedConvert('slot', (v) => v as int),
+          slot: $checkedConvert('slot', (v) => v as int?),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
@@ -67,6 +67,9 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate(
           trigger: $checkedConvert('trigger', (v) => v as String?),
           reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
           maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
+          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
+          marketCost: $checkedConvert('marketCost', (v) => v as int?),
+          itemCount: $checkedConvert('itemCount', (v) => v as int?),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -113,6 +116,7 @@ Map<String, dynamic> _$SecondaryToJson(Secondary instance) {
   writeNotNull('wikiaUrl', instance.wikiaUrl);
   val['isPrime'] = instance.isPrime;
   writeNotNull('vaulted', instance.vaulted);
+  writeNotNull('masteryReq', instance.masteryReq);
   val['buildPrice'] = instance.buildPrice;
   val['buildQuantity'] = instance.buildQuantity;
   val['buildTime'] = instance.buildTime;
@@ -120,7 +124,9 @@ Map<String, dynamic> _$SecondaryToJson(Secondary instance) {
   val['consumeOnBuild'] = instance.consumeOnBuild;
   writeNotNull(
       'components', instance.components?.map((e) => e.toJson()).toList());
+  writeNotNull('marketCost', instance.marketCost);
   writeNotNull('bpCost', instance.bpCost);
+  writeNotNull('itemCount', instance.itemCount);
   writeNotNull('attacks', instance.attacks?.map((e) => e.toJson()).toList());
   val['criticalChance'] = instance.criticalChance;
   val['criticalMultiplier'] = instance.criticalMultiplier;
@@ -131,7 +137,7 @@ Map<String, dynamic> _$SecondaryToJson(Secondary instance) {
   val['omegaAttenuation'] = instance.omegaAttenuation;
   writeNotNull('polarities', instance.polarities);
   val['procChance'] = instance.procChance;
-  val['slot'] = instance.slot;
+  writeNotNull('slot', instance.slot);
   writeNotNull('tags', instance.tags);
   val['totalDamage'] = instance.totalDamage;
   val['maxLevelCap'] = instance.maxLevelCap;

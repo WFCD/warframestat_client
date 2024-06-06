@@ -19,6 +19,10 @@ class Fish extends Item {
     required super.imageName,
     required super.tradable,
     required super.patchlogs,
+    required super.releaseDate,
+    required super.excludeFromCodex,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
   });
 
   /// Create [Fish] from json map.

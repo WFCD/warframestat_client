@@ -27,6 +27,12 @@ Misc _$MiscFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          excludeFromCodex:
+              $checkedConvert('excludeFromCodex', (v) => v as bool?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
         );
         return val;
       },
@@ -52,5 +58,9 @@ Map<String, dynamic> _$MiscToJson(Misc instance) {
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('excludeFromCodex', instance.excludeFromCodex);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
   return val;
 }

@@ -23,14 +23,20 @@ Pet _$PetFromJson(Map json) => $checkedCreate(
           imageName: $checkedConvert('imageName', (v) => v as String?),
           patchlogs: $checkedConvert(
               'patchlogs',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           armor: $checkedConvert('armor', (v) => v as int),
           health: $checkedConvert('health', (v) => v as int),
           shield: $checkedConvert('shield', (v) => v as int),
           stamina: $checkedConvert('stamina', (v) => v as num),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          excludeFromCodex:
+              $checkedConvert('excludeFromCodex', (v) => v as bool?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
         );
         return val;
       },
@@ -56,6 +62,10 @@ Map<String, dynamic> _$PetToJson(Pet instance) {
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('excludeFromCodex', instance.excludeFromCodex);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
   val['armor'] = instance.armor;
   val['health'] = instance.health;
   val['shield'] = instance.shield;

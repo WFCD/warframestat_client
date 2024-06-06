@@ -48,7 +48,7 @@ class WarframeItemsClient extends WarframestatClient {
 
   /// Returns a list of all [Warframe]s.
   ///
-  /// Becasue [NecroMech]s and [Warframe]s share the same category one can use.
+  /// Becasue [Necramech]s and [Warframe]s share the same category one can use.
   /// [includeMechs] is you want to filter out necromechs or not.
   Future<List<PowerSuit>> fetchAllWarframes({bool includeMechs = true}) async {
     final response = await get('/warframes');
@@ -71,7 +71,7 @@ class WarframeItemsClient extends WarframestatClient {
   /// Search for warframes with the closes possible match to the [query].
   ///
   /// Because Warframes and necromech seem to share the same [Item.category]
-  /// results can also return [NecroMech]s as such this method will always
+  /// results can also return [Necramech]s as such this method will always
   /// return the base class of the two.
   Future<List<PowerSuit>> searchWarframes(String query) async {
     final response = await get('/warframes/search/$query');

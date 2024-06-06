@@ -19,6 +19,10 @@ class Gear extends Item {
     required super.tradable,
     required super.patchlogs,
     required super.imageName,
+    required super.releaseDate,
+    required super.excludeFromCodex,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
   });
 
   /// Creates [Gear] from a json map.
@@ -50,8 +54,16 @@ class GearBuildable extends BuildableItem implements Gear {
     required super.skipBuildTimePrice,
     required super.consumeOnBuild,
     required super.imageName,
-    super.isPrime = false,
-    super.components,
+    required super.isPrime,
+    required super.components,
+    required super.vaulted,
+    required super.masteryReq,
+    required super.releaseDate,
+    required super.marketCost,
+    required super.bpCost,
+    required super.itemCount,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
   });
 
   /// Creates [Gear] from a json map.

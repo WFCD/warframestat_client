@@ -1,16 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'necromech.dart';
+part of 'necramech.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-NecroMech _$NecroMechFromJson(Map json) => $checkedCreate(
-      'NecroMech',
+Necramech _$NecramechFromJson(Map json) => $checkedCreate(
+      'Necramech',
       json,
       ($checkedConvert) {
-        final val = NecroMech(
+        final val = Necramech(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
@@ -28,7 +28,7 @@ NecroMech _$NecroMechFromJson(Map json) => $checkedCreate(
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String),
           masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int),
+          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
           buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
           buildTime: $checkedConvert('buildTime', (v) => v as int),
           skipBuildTimePrice:
@@ -67,7 +67,7 @@ NecroMech _$NecroMechFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$NecroMechToJson(NecroMech instance) {
+Map<String, dynamic> _$NecramechToJson(Necramech instance) {
   final val = <String, dynamic>{
     'uniqueName': instance.uniqueName,
     'name': instance.name,

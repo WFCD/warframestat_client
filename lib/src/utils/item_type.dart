@@ -13,7 +13,7 @@ enum ItemType {
   archGun('Arch-Gun'),
 
   /// Resource category.
-  resources('Resources'),
+  resources('Resource'),
 
   /// Skins category.
   skin('Skin'),
@@ -31,7 +31,7 @@ enum ItemType {
   fish('Fish'),
 
   /// Glyphs category.
-  glyphs('Glyphs'),
+  glyphs('Glyph'),
 
   /// Misc category.
   misc('Misc'),
@@ -40,22 +40,22 @@ enum ItemType {
   node('Node'),
 
   /// Quests category.
-  quests('Quests'),
+  quests('Quest'),
 
   /// Relics category.
-  relics('Relics'),
+  relics('Relic'),
 
   /// Pet Resource category.
   petResource('Pet Resource'),
 
   /// Sigils category.
-  sigils('Sigils'),
+  sigils('Sigil'),
 
   /// Pets category.
   pets('Pets'),
 
   /// Sentinel category.
-  sentinels('Sentinels'),
+  sentinels('Sentinel'),
 
   /// Necramech Mod
   necramechMod('Necramech Mod'),
@@ -133,7 +133,25 @@ enum ItemType {
   rifle('Rifle'),
 
   /// Pistols
-  pistol('Pistol');
+  pistol('Pistol'),
+
+  /// Companion weapon
+  companionWeapon('Companion Weapon'),
+
+  /// Dual Pistols
+  dualPistols('Dual Pistols'),
+
+  /// Throwing weapons
+  throwing('Throwing'),
+
+  /// Amp
+  amp('Amp'),
+
+  /// K-Drive Component
+  kDriveComponent('K-Drive Component'),
+
+  /// Zaw Component
+  zawComponent('Zaw Component');
 
   const ItemType(this.category);
 

@@ -27,6 +27,12 @@ Skin _$SkinFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          excludeFromCodex:
+              $checkedConvert('excludeFromCodex', (v) => v as bool?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
         );
         return val;
       },
@@ -52,6 +58,10 @@ Map<String, dynamic> _$SkinToJson(Skin instance) {
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('excludeFromCodex', instance.excludeFromCodex);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
   return val;
 }
 
@@ -69,7 +79,7 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int),
+          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
           buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
           buildTime: $checkedConvert('buildTime', (v) => v as int),
           skipBuildTimePrice:
@@ -89,6 +99,15 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
+          vaulted: $checkedConvert('vaulted', (v) => v as bool?),
+          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
+          marketCost: $checkedConvert('marketCost', (v) => v as int?),
+          bpCost: $checkedConvert('bpCost', (v) => v as int?),
+          itemCount: $checkedConvert('itemCount', (v) => v as int?),
         );
         return val;
       },
@@ -114,7 +133,12 @@ Map<String, dynamic> _$SkinBuildableToJson(SkinBuildable instance) {
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
   writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
   val['isPrime'] = instance.isPrime;
+  writeNotNull('vaulted', instance.vaulted);
+  writeNotNull('masteryReq', instance.masteryReq);
   val['buildPrice'] = instance.buildPrice;
   val['buildQuantity'] = instance.buildQuantity;
   val['buildTime'] = instance.buildTime;
@@ -122,5 +146,8 @@ Map<String, dynamic> _$SkinBuildableToJson(SkinBuildable instance) {
   val['consumeOnBuild'] = instance.consumeOnBuild;
   writeNotNull(
       'components', instance.components?.map((e) => e.toJson()).toList());
+  writeNotNull('marketCost', instance.marketCost);
+  writeNotNull('bpCost', instance.bpCost);
+  writeNotNull('itemCount', instance.itemCount);
   return val;
 }

@@ -19,6 +19,10 @@ class PetResources extends Item {
     required super.productCategory,
     required super.tradable,
     required super.patchlogs,
+    required super.releaseDate,
+    required super.excludeFromCodex,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
   });
 
   /// Creates [PetResources] from a json map.
@@ -52,7 +56,16 @@ class PetResourcesBuildable extends BuildableItem implements PetResources {
     required super.skipBuildTimePrice,
     required super.consumeOnBuild,
     required super.patchlogs,
-    super.isPrime = false,
+    required super.vaulted,
+    required super.masteryReq,
+    required super.components,
+    required super.releaseDate,
+    required super.marketCost,
+    required super.bpCost,
+    required super.itemCount,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
+    required super.isPrime,
   });
 
   /// Creates [PetResourcesBuildable] from a json map.

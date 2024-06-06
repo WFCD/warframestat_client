@@ -7,7 +7,7 @@ part 'pet.g.dart';
 /// Pet description
 /// {@endtemplate}
 @JsonSerializable()
-class Pet extends Item {
+class Pet extends Companion {
   /// {@macro pet}
   const Pet({
     required super.uniqueName,
@@ -18,11 +18,15 @@ class Pet extends Item {
     required super.productCategory,
     required super.tradable,
     required super.imageName,
-    required List<Patchlog> super.patchlogs,
+    required super.patchlogs,
     required this.armor,
     required this.health,
     required this.shield,
     required this.stamina,
+    required super.releaseDate,
+    required super.excludeFromCodex,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
   });
 
   /// Creates a Pet from Json map

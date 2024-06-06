@@ -1,6 +1,8 @@
+export 'amp.dart';
 export 'arcane.dart';
 export 'archwing.dart';
 export 'attack.dart';
+export 'companion.dart';
 export 'component.dart';
 export 'damage.dart';
 export 'drop.dart';
@@ -17,7 +19,7 @@ export 'melee.dart';
 export 'minimal_item.dart';
 export 'misc.dart';
 export 'mod.dart';
-export 'necromech.dart';
+export 'necramech.dart';
 export 'node.dart';
 export 'patchlog.dart';
 export 'pet.dart';

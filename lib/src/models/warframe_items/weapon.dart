@@ -4,7 +4,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@template weapon}
 /// Base class for all weapons.
 /// {@endtemplate}
-abstract class Weapon extends BuildableItem {
+abstract class Weapon extends Item {
   /// {@macro weapon}
   const Weapon({
     required super.uniqueName,
@@ -15,13 +15,7 @@ abstract class Weapon extends BuildableItem {
     required super.productCategory,
     required super.tradable,
     required super.imageName,
-    required super.buildPrice,
-    required super.buildQuantity,
-    required super.buildTime,
-    required super.skipBuildTimePrice,
-    required super.consumeOnBuild,
-    required super.components,
-    required super.isPrime,
+    required super.excludeFromCodex,
     required this.criticalChance,
     required this.criticalMultiplier,
     required this.damagePerShot,
@@ -33,17 +27,13 @@ abstract class Weapon extends BuildableItem {
     required this.slot,
     required this.totalDamage,
     required this.maxLevelCap,
-    super.patchlogs,
-    super.masteryReq,
-    super.marketCost,
-    super.bpCost,
-    super.vaulted,
-    super.releaseDate,
-    super.wikiaThumbnail,
-    super.wikiaUrl,
-    this.attacks,
-    this.damage,
-    this.tags,
+    required super.patchlogs,
+    required super.releaseDate,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
+    required this.attacks,
+    required this.damage,
+    required this.tags,
   });
 
   /// [Weapon] secondary attacks.
@@ -77,7 +67,7 @@ abstract class Weapon extends BuildableItem {
   final double procChance;
 
   /// Slot.
-  final int slot;
+  final int? slot;
 
   /// Tags.
   final List<String>? tags;

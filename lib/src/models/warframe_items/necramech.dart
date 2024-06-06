@@ -1,15 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
-part 'necromech.g.dart';
+part 'necramech.g.dart';
 
 /// {@template necromech}
 /// A Necromech power suit.
 /// {@endtemplate}
 @JsonSerializable()
-class NecroMech extends PowerSuit {
+class Necramech extends PowerSuit {
   /// {@macro necromech}
-  const NecroMech({
+  const Necramech({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -44,11 +44,11 @@ class NecroMech extends PowerSuit {
   });
 
   /// Creates a Necromech from Json map
-  factory NecroMech.fromJson(Map<String, dynamic> data) {
-    return _$NecroMechFromJson(data);
+  factory Necramech.fromJson(Map<String, dynamic> data) {
+    return _$NecramechFromJson(data);
   }
 
   /// Creates a Json map from a Necromech.
   @override
-  Map<String, dynamic> toJson() => _$NecroMechToJson(this);
+  Map<String, dynamic> toJson() => _$NecramechToJson(this);
 }

@@ -7,7 +7,7 @@ part 'secondary.g.dart';
 /// Secondary weapons.
 /// {@endtemplate}
 @JsonSerializable()
-class Secondary extends Gun {
+class Secondary extends BuildableItem implements Gun {
   /// {@macro secondary}
   const Secondary({
     required super.uniqueName,
@@ -19,30 +19,33 @@ class Secondary extends Gun {
     required super.tradable,
     required super.components,
     required super.imageName,
-    required super.attacks,
-    required super.criticalChance,
-    required super.criticalMultiplier,
-    required super.damage,
-    required super.damagePerShot,
-    required super.disposition,
-    required super.fireRate,
+    required this.attacks,
+    required this.criticalChance,
+    required this.criticalMultiplier,
+    required this.damage,
+    required this.damagePerShot,
+    required this.disposition,
+    required this.fireRate,
     required super.isPrime,
-    required super.omegaAttenuation,
-    required super.polarities,
-    required super.procChance,
-    required super.slot,
-    required super.tags,
-    required super.totalDamage,
+    required this.omegaAttenuation,
+    required this.polarities,
+    required this.procChance,
+    required this.slot,
+    required this.tags,
+    required this.totalDamage,
     required super.wikiaThumbnail,
     required super.wikiaUrl,
     required super.releaseDate,
-    required super.accuracy,
-    required super.magazineSize,
-    required super.multishot,
-    required super.noise,
-    required super.trigger,
-    required super.reloadTime,
-    required super.maxLevelCap,
+    required this.accuracy,
+    required this.magazineSize,
+    required this.multishot,
+    required this.noise,
+    required this.trigger,
+    required this.reloadTime,
+    required this.maxLevelCap,
+    required super.masteryReq,
+    required super.marketCost,
+    required super.itemCount,
     super.patchlogs,
     super.bpCost,
     super.buildPrice = 0,
@@ -57,6 +60,67 @@ class Secondary extends Gun {
   factory Secondary.fromJson(Map<String, dynamic> json) {
     return _$SecondaryFromJson(json);
   }
+
+  @override
+  final List<GunAttack>? attacks;
+
+  @override
+  final num criticalChance;
+
+  @override
+  final num criticalMultiplier;
+
+  @override
+  final Damage? damage;
+
+  @override
+  final List<num> damagePerShot;
+
+  @override
+  final int? disposition;
+
+  @override
+  final num fireRate;
+
+  @override
+  final double omegaAttenuation;
+
+  @override
+  final List<String>? polarities;
+
+  @override
+  final double procChance;
+
+  @override
+  final int? slot;
+
+  @override
+  final List<String>? tags;
+
+  @override
+  final num totalDamage;
+
+  @override
+  @JsonKey(defaultValue: 30)
+  final int maxLevelCap;
+
+  @override
+  final num? accuracy;
+
+  @override
+  final int? magazineSize;
+
+  @override
+  final int? multishot;
+
+  @override
+  final String? noise;
+
+  @override
+  final String? trigger;
+
+  @override
+  final num? reloadTime;
 
   /// Creates a json map from [Secondary].
   @override

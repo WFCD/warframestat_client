@@ -18,7 +18,11 @@ class Glyph extends Item {
     required super.productCategory,
     required super.tradable,
     required super.patchlogs,
-    super.imageName,
+    required super.imageName,
+    required super.releaseDate,
+    required super.excludeFromCodex,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
   });
 
   /// Create an instance of [Glyph] from a json map.

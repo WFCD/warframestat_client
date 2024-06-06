@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 /// {@template item}
@@ -15,11 +16,11 @@ abstract class Item extends Equatable {
     required this.productCategory,
     required this.patchlogs,
     required this.imageName,
-    this.tradable = false,
-    this.releaseDate,
-    this.excludeFromCodex,
-    this.wikiaThumbnail,
-    this.wikiaUrl,
+    required this.tradable,
+    required this.releaseDate,
+    required this.excludeFromCodex,
+    required this.wikiaThumbnail,
+    required this.wikiaUrl,
   });
 
   /// Unique name used within the game.
@@ -45,6 +46,7 @@ abstract class Item extends Equatable {
   final String? productCategory;
 
   /// Whether this item is tradable or not.
+  @JsonKey(defaultValue: false)
   final bool tradable;
 
   /// Item changes throughout game version.
@@ -177,21 +179,22 @@ abstract class BuildableItem extends EquipableItem {
     required this.buildTime,
     required this.skipBuildTimePrice,
     required this.consumeOnBuild,
-    super.vaulted,
-    this.masteryReq,
-    this.components,
-    super.releaseDate,
-    this.marketCost,
-    this.bpCost,
-    this.itemCount,
-    super.wikiaThumbnail,
-    super.wikiaUrl,
+    required super.vaulted,
+    required this.masteryReq,
+    required this.components,
+    required super.releaseDate,
+    required this.marketCost,
+    required this.bpCost,
+    required this.itemCount,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
   });
 
   /// Mastery requirement needed to build item.
   final int? masteryReq;
 
   /// The credit price to start building.
+  @JsonKey(defaultValue: 0)
   final int buildPrice;
 
   /// Amount of [Item]s built per blueprint.

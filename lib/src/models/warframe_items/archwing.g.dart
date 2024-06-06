@@ -28,7 +28,7 @@ Archwing _$ArchwingFromJson(Map json) => $checkedCreate(
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String),
           masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int),
+          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
           buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
           buildTime: $checkedConvert('buildTime', (v) => v as int),
           skipBuildTimePrice:

@@ -20,6 +20,9 @@ class Quest extends Item {
     required super.tradable,
     required super.excludeFromCodex,
     required super.patchlogs,
+    required super.releaseDate,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
   });
 
   /// Creates a Quest from Json map

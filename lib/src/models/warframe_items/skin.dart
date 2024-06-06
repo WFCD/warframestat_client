@@ -18,7 +18,11 @@ class Skin extends Item {
     required super.productCategory,
     required super.tradable,
     required super.imageName,
-    super.patchlogs,
+    required super.patchlogs,
+    required super.releaseDate,
+    required super.excludeFromCodex,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
   });
 
   /// Creates a Skin from Json map
@@ -50,8 +54,16 @@ class SkinBuildable extends BuildableItem implements Skin {
     required super.consumeOnBuild,
     required super.components,
     required super.imageName,
-    super.isPrime = false,
-    super.patchlogs,
+    required super.isPrime,
+    required super.patchlogs,
+    required super.releaseDate,
+    required super.wikiaThumbnail,
+    required super.wikiaUrl,
+    required super.vaulted,
+    required super.masteryReq,
+    required super.marketCost,
+    required super.bpCost,
+    required super.itemCount,
   });
 
   /// Creates a Skin from Json map

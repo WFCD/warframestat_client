@@ -10,29 +10,32 @@ List<MinimalItem> toSearchItems(List<dynamic> data) {
 
 /// Converts a json decoded list into [Item] objects
 List<Item> toItems(List<dynamic> data) {
-  return data.map((e) => Map<String, dynamic>.from(e as Map)).map((i) {
-    try {
-      return toItem(i);
-    } catch (e) {
-      return Misc.fromJson(i);
-    }
-  }).toList();
+  return data
+      .map((e) => Map<String, dynamic>.from(e as Map))
+      .map(toItem)
+      .toList();
 }
 
 /// Serializes giving json values into their proper [Item] type
 Item toItem(Map<String, dynamic> item) {
-  final type = item['type'] as String;
+  final name = item['name'] as String;
+  var type = item['type'] as String;
   final category = item['category'] as String;
   final isBuildable = item['components'] != null;
 
   if (category == 'Enemy') return Enemy.fromJson(item);
-
-  final name = item['name'] as String;
   if (name == 'Venari' || name == 'Venari Prime') return Pet.fromJson(item);
-
+  if (name.contains('Arcane')) return Arcane.fromJson(item);
+  if (name.contains('Gravimag')) return ResourceBuildable.fromJson(item);
   if (type.contains('Mod')) return Mod.fromJson(item);
+  if ((item['uniqueName'] as String)
+      .contains(RegExp('MoaPetParts|ZanukaPetParts'))) {
+    type = 'Pet Resource';
+  }
 
   switch (ItemType.byType(type)) {
+    case ItemType.amp:
+      return Amp.fromJson(item);
     case ItemType.arcanes:
       return Arcane.fromJson(item);
     case ItemType.archwing:
@@ -47,6 +50,8 @@ Item toItem(Map<String, dynamic> item) {
       return Quest.fromJson(item);
     case ItemType.relics:
       return Relic.fromJson(item);
+    case ItemType.pets:
+      return Pet.fromJson(item);
     case ItemType.petResource:
       return isBuildable
           ? PetResourcesBuildable.fromJson(item)
@@ -55,12 +60,18 @@ Item toItem(Map<String, dynamic> item) {
       return Sigil.fromJson(item);
     case ItemType.rifle || ItemType.archGun || ItemType.shotgun:
       return Primary.fromJson(item);
-    case ItemType.pistol:
+    case ItemType.pistol ||
+          ItemType.dualPistols ||
+          ItemType.throwing ||
+          ItemType.zawComponent ||
+          ItemType.kDriveComponent:
       return Secondary.fromJson(item);
     case ItemType.melee || ItemType.archMelee:
       return Melee.fromJson(item);
     case ItemType.sentinels:
-      return Sentinel.fromJson(item);
+      return isBuildable
+          ? SentinelBuildable.fromJson(item)
+          : Sentinel.fromJson(item);
     case ItemType.resources:
       return isBuildable
           ? ResourceBuildable.fromJson(item)
@@ -73,11 +84,12 @@ Item toItem(Map<String, dynamic> item) {
       // NecroMechs and Warframes are stored with the same cateogry so we need
       // to filter by productCateogry here.
       final productCategory = item['productCategory'] as String;
-      if (productCategory == 'MechSuits') return NecroMech.fromJson(item);
+      if (productCategory == 'MechSuits') return Necramech.fromJson(item);
 
       return Warframe.fromJson(item);
-
-    case ItemType.misc || _:
+    case ItemType.companionWeapon:
+      return SentinelWeapon.fromJson(item);
+    case _:
       return Misc.fromJson(item);
   }
 }

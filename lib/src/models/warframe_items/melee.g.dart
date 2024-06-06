@@ -20,6 +20,137 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
+          imageName: $checkedConvert('imageName', (v) => v as String?),
+          excludeFromCodex:
+              $checkedConvert('excludeFromCodex', (v) => v as bool?),
+          criticalChance: $checkedConvert('criticalChance', (v) => v as num),
+          criticalMultiplier:
+              $checkedConvert('criticalMultiplier', (v) => v as num),
+          damagePerShot: $checkedConvert('damagePerShot',
+              (v) => (v as List<dynamic>).map((e) => e as num).toList()),
+          disposition: $checkedConvert('disposition', (v) => v as int?),
+          fireRate: $checkedConvert('fireRate', (v) => v as num),
+          omegaAttenuation:
+              $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
+          polarities: $checkedConvert('polarities',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          procChance:
+              $checkedConvert('procChance', (v) => (v as num).toDouble()),
+          slot: $checkedConvert('slot', (v) => v as int?),
+          totalDamage: $checkedConvert('totalDamage', (v) => v as num),
+          maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
+          followThrough:
+              $checkedConvert('followThrough', (v) => (v as num?)?.toDouble()),
+          heavyAttackDamage:
+              $checkedConvert('heavyAttackDamage', (v) => v as int?),
+          heavySlamAttack: $checkedConvert('heavySlamAttack', (v) => v as int?),
+          heavySlamRadialDamage:
+              $checkedConvert('heavySlamRadialDamage', (v) => v as int?),
+          heavySlamRadius: $checkedConvert('heavySlamRadius', (v) => v as int?),
+          slamAttack: $checkedConvert('slamAttack', (v) => v as int?),
+          slamRadialDamage:
+              $checkedConvert('slamRadialDamage', (v) => v as int?),
+          slamRadius: $checkedConvert('slamRadius', (v) => v as int?),
+          slideAttack: $checkedConvert('slideAttack', (v) => v as int?),
+          windUp: $checkedConvert('windUp', (v) => (v as num?)?.toDouble()),
+          range: $checkedConvert('range', (v) => (v as num?)?.toDouble()),
+          attacks: $checkedConvert(
+              'attacks',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      MeleeAttack.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
+          damage: $checkedConvert(
+              'damage',
+              (v) => v == null
+                  ? null
+                  : Damage.fromJson(Map<String, dynamic>.from(v as Map))),
+          stancePolarity:
+              $checkedConvert('stancePolarity', (v) => v as String?),
+          patchlogs: $checkedConvert(
+              'patchlogs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+                  .toList()),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          wikiaThumbnail:
+              $checkedConvert('wikiaThumbnail', (v) => v as String?),
+          wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
+          tags: $checkedConvert('tags',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$MeleeToJson(Melee instance) {
+  final val = <String, dynamic>{
+    'uniqueName': instance.uniqueName,
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  val['type'] = const ItemTypeConverter().toJson(instance.type);
+  val['category'] = instance.category;
+  writeNotNull('productCategory', instance.productCategory);
+  val['tradable'] = instance.tradable;
+  writeNotNull(
+      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
+  writeNotNull('imageName', instance.imageName);
+  writeNotNull('releaseDate', instance.releaseDate);
+  writeNotNull('excludeFromCodex', instance.excludeFromCodex);
+  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
+  writeNotNull('wikiaUrl', instance.wikiaUrl);
+  writeNotNull('attacks', instance.attacks?.map((e) => e.toJson()).toList());
+  val['criticalChance'] = instance.criticalChance;
+  val['criticalMultiplier'] = instance.criticalMultiplier;
+  writeNotNull('damage', instance.damage?.toJson());
+  val['damagePerShot'] = instance.damagePerShot;
+  writeNotNull('disposition', instance.disposition);
+  val['fireRate'] = instance.fireRate;
+  val['omegaAttenuation'] = instance.omegaAttenuation;
+  writeNotNull('polarities', instance.polarities);
+  val['procChance'] = instance.procChance;
+  writeNotNull('slot', instance.slot);
+  writeNotNull('tags', instance.tags);
+  val['totalDamage'] = instance.totalDamage;
+  val['maxLevelCap'] = instance.maxLevelCap;
+  writeNotNull('followThrough', instance.followThrough);
+  writeNotNull('stancePolarity', instance.stancePolarity);
+  writeNotNull('heavyAttackDamage', instance.heavyAttackDamage);
+  writeNotNull('heavySlamAttack', instance.heavySlamAttack);
+  writeNotNull('heavySlamRadialDamage', instance.heavySlamRadialDamage);
+  writeNotNull('heavySlamRadius', instance.heavySlamRadius);
+  writeNotNull('slamAttack', instance.slamAttack);
+  writeNotNull('slamRadialDamage', instance.slamRadialDamage);
+  writeNotNull('slamRadius', instance.slamRadius);
+  writeNotNull('slideAttack', instance.slideAttack);
+  writeNotNull('windUp', instance.windUp);
+  writeNotNull('range', instance.range);
+  return val;
+}
+
+MeleeBuildable _$MeleeBuildableFromJson(Map json) => $checkedCreate(
+      'MeleeBuildable',
+      json,
+      ($checkedConvert) {
+        final val = MeleeBuildable(
+          uniqueName: $checkedConvert('uniqueName', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
+          type: $checkedConvert(
+              'type', (v) => const ItemTypeConverter().fromJson(v as String)),
+          category: $checkedConvert('category', (v) => v as String),
+          productCategory:
+              $checkedConvert('productCategory', (v) => v as String?),
+          tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           bpCost: $checkedConvert('bpCost', (v) => v as int?),
           components: $checkedConvert(
               'components',
@@ -50,7 +181,7 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
               $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
           procChance:
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
-          slot: $checkedConvert('slot', (v) => v as int),
+          slot: $checkedConvert('slot', (v) => v as int?),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
           maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
           followThrough:
@@ -68,6 +199,8 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           slideAttack: $checkedConvert('slideAttack', (v) => v as int?),
           windUp: $checkedConvert('windUp', (v) => (v as num?)?.toDouble()),
           range: $checkedConvert('range', (v) => (v as num?)?.toDouble()),
+          marketCost: $checkedConvert('marketCost', (v) => v as int?),
+          itemCount: $checkedConvert('itemCount', (v) => v as int?),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -75,13 +208,11 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
-          buildQuantity:
-              $checkedConvert('buildQuantity', (v) => v as int? ?? 1),
-          buildTime: $checkedConvert('buildTime', (v) => v as int? ?? 0),
+          buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
+          buildTime: $checkedConvert('buildTime', (v) => v as int),
           skipBuildTimePrice:
-              $checkedConvert('skipBuildTimePrice', (v) => v as int? ?? 0),
-          consumeOnBuild:
-              $checkedConvert('consumeOnBuild', (v) => v as bool? ?? true),
+              $checkedConvert('skipBuildTimePrice', (v) => v as int),
+          consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
           masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
           stancePolarity:
               $checkedConvert('stancePolarity', (v) => v as String?),
@@ -90,7 +221,7 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
           polarities: $checkedConvert('polarities',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
-          disposition: $checkedConvert('disposition', (v) => v as int? ?? 0),
+          disposition: $checkedConvert('disposition', (v) => v as int?),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
           wikiaThumbnail:
               $checkedConvert('wikiaThumbnail', (v) => v as String?),
@@ -100,7 +231,7 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$MeleeToJson(Melee instance) {
+Map<String, dynamic> _$MeleeBuildableToJson(MeleeBuildable instance) {
   final val = <String, dynamic>{
     'uniqueName': instance.uniqueName,
     'name': instance.name,
@@ -133,7 +264,9 @@ Map<String, dynamic> _$MeleeToJson(Melee instance) {
   val['consumeOnBuild'] = instance.consumeOnBuild;
   writeNotNull(
       'components', instance.components?.map((e) => e.toJson()).toList());
+  writeNotNull('marketCost', instance.marketCost);
   writeNotNull('bpCost', instance.bpCost);
+  writeNotNull('itemCount', instance.itemCount);
   writeNotNull('attacks', instance.attacks?.map((e) => e.toJson()).toList());
   val['criticalChance'] = instance.criticalChance;
   val['criticalMultiplier'] = instance.criticalMultiplier;
@@ -144,7 +277,7 @@ Map<String, dynamic> _$MeleeToJson(Melee instance) {
   val['omegaAttenuation'] = instance.omegaAttenuation;
   writeNotNull('polarities', instance.polarities);
   val['procChance'] = instance.procChance;
-  val['slot'] = instance.slot;
+  writeNotNull('slot', instance.slot);
   writeNotNull('tags', instance.tags);
   val['totalDamage'] = instance.totalDamage;
   val['maxLevelCap'] = instance.maxLevelCap;

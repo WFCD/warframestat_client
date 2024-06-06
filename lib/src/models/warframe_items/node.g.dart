@@ -19,7 +19,6 @@ Node _$NodeFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           imageName: $checkedConvert('imageName', (v) => v as String?),
-          tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
           factionIndex: $checkedConvert('factionIndex', (v) => v as int),
           masteryReq: $checkedConvert('masteryReq', (v) => v as int),
           maxEnemyLevel: $checkedConvert('maxEnemyLevel', (v) => v as int),
@@ -33,8 +32,6 @@ Node _$NodeFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          description:
-              $checkedConvert('description', (v) => v as String? ?? ''),
         );
         return val;
       },
@@ -44,6 +41,8 @@ Map<String, dynamic> _$NodeToJson(Node instance) {
   final val = <String, dynamic>{
     'uniqueName': instance.uniqueName,
     'name': instance.name,
+    'type': const ItemTypeConverter().toJson(instance.type),
+    'category': instance.category,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -52,14 +51,10 @@ Map<String, dynamic> _$NodeToJson(Node instance) {
     }
   }
 
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
   writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
+  writeNotNull('imageName', instance.imageName);
   writeNotNull(
       'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
   val['factionIndex'] = instance.factionIndex;
   val['masteryReq'] = instance.masteryReq;
   val['maxEnemyLevel'] = instance.maxEnemyLevel;
