@@ -28,7 +28,9 @@ class Intrinsics extends Equatable {
     return _$IntrinsicsFromJson(json);
   }
 
+  /// Railjack affinity owned
   ///
+  /// Can be used to find intrinsic points
   final int space;
 
   /// Railjack engineering rank
@@ -46,7 +48,9 @@ class Intrinsics extends Equatable {
   /// Railjack command rank
   final int command;
 
+  /// Drifter affinity owned
   ///
+  /// Can be used to find intrinsic points
   final int drifter;
 
   /// Drifter riding rank
