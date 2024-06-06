@@ -1,3 +1,10 @@
+## [3.8.10](https://github.com/WFCD/warframestat_client/compare/v3.8.9...v3.8.10) (2024-06-06)
+
+
+### Bug Fixes
+
+* **warframe-items:** added more missing ItemTypes and corrected some type parsing for `Profile.loadout.xpInfo` ([6011c40](https://github.com/WFCD/warframestat_client/commit/6011c40c084316dd5c5ff2f85b75b9cb97c23e99))
+
 ## [3.8.9](https://github.com/WFCD/warframestat_client/compare/v3.8.8...v3.8.9) (2024-06-03)
 
 
