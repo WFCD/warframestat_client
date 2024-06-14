@@ -23,8 +23,12 @@ Item toItem(Map<String, dynamic> item) {
   final category = item['category'] as String;
   final isBuildable = item['components'] != null;
 
+  if (name == 'Venari' || name == 'Venari Prime') {
+    item['type'] = 'Pets';
+    return Pet.fromJson(item);
+  }
+
   if (category == 'Enemy') return Enemy.fromJson(item);
-  if (name == 'Venari' || name == 'Venari Prime') return Pet.fromJson(item);
   if (name.contains('Arcane')) return Arcane.fromJson(item);
   if (name.contains('Gravimag')) return ResourceBuildable.fromJson(item);
   if (type.contains('Mod')) return Mod.fromJson(item);
