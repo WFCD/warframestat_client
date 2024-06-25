@@ -12,7 +12,7 @@ part 'arbitration.g.dart';
 class Arbitration extends WorldstateObject {
   /// {@macro alert}
   const Arbitration({
-    required String super.id,
+    required super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
     required this.node,
@@ -28,9 +28,6 @@ class Arbitration extends WorldstateObject {
   /// Creates a Arbitration from Json map
   factory Arbitration.fromJson(Map<String, dynamic> json) =>
       _$ArbitrationFromJson(json);
-
-  @override
-  String get id => super.id!;
 
   @override
   DateTime get activation => super.activation!;
@@ -62,6 +59,7 @@ class Arbitration extends WorldstateObject {
   final bool? sharkwing;
 
   /// Whether the object is expired at the time of creation.
+  @JsonKey(defaultValue: false)
   final bool expired;
 
   /// Creates a Json map from a Arbitration.

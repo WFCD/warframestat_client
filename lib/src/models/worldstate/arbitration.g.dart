@@ -11,7 +11,7 @@ Arbitration _$ArbitrationFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Arbitration(
-          id: $checkedConvert('id', (v) => v as String),
+          id: $checkedConvert('id', (v) => v as String?),
           activation:
               $checkedConvert('activation', (v) => DateTime.parse(v as String)),
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
@@ -22,20 +22,14 @@ Arbitration _$ArbitrationFromJson(Map json) => $checkedCreate(
           typeKey: $checkedConvert('typeKey', (v) => v as String),
           archwing: $checkedConvert('archwing', (v) => v as bool?),
           sharkwing: $checkedConvert('sharkwing', (v) => v as bool?),
-          expired: $checkedConvert('expired', (v) => v as bool),
+          expired: $checkedConvert('expired', (v) => v as bool? ?? false),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$ArbitrationToJson(Arbitration instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'activation': instance.activation.toIso8601String(),
-    'expiry': instance.expiry.toIso8601String(),
-    'node': instance.node,
-    'nodeKey': instance.nodeKey,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -43,6 +37,11 @@ Map<String, dynamic> _$ArbitrationToJson(Arbitration instance) {
     }
   }
 
+  writeNotNull('id', instance.id);
+  val['activation'] = instance.activation.toIso8601String();
+  val['expiry'] = instance.expiry.toIso8601String();
+  val['node'] = instance.node;
+  val['nodeKey'] = instance.nodeKey;
   writeNotNull('enemy', instance.enemy);
   val['type'] = instance.type;
   val['typeKey'] = instance.typeKey;
