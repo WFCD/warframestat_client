@@ -1,3 +1,12 @@
+## [3.8.11](https://github.com/WFCD/warframestat_client/compare/v3.8.10...v3.8.11) (2024-06-25)
+
+
+### Bug Fixes
+
+* `Arbitration.id` can actually be null when there is no current mission ([3fb69df](https://github.com/WFCD/warframestat_client/commit/3fb69df7ccc652104279d83c25d6b1e811beb3bd))
+* `ItemConfig.skins` is not nullable ([ab7bf29](https://github.com/WFCD/warframestat_client/commit/ab7bf298d873e77543c8675681d672a4ae1d2248))
+* mark `Venari` & `Venari Prime` as Pets ([28b6153](https://github.com/WFCD/warframestat_client/commit/28b61536522c89cdbce56410b478adfd2b196360))
+
 ## [3.8.10](https://github.com/WFCD/warframestat_client/compare/v3.8.9...v3.8.10) (2024-06-06)
 
 
