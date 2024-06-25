@@ -13,8 +13,8 @@ ItemConfig _$ItemConfigFromJson(Map json) => $checkedCreate(
         final val = ItemConfig(
           skins: $checkedConvert(
               'skins',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
                       ArsenalSkin.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           conclaveUpgrades: $checkedConvert('conclaveUpgrades',
@@ -145,9 +145,7 @@ ItemConfig _$ItemConfigFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$ItemConfigToJson(ItemConfig instance) {
-  final val = <String, dynamic>{
-    'skins': instance.skins.map((e) => e.toJson()).toList(),
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -155,6 +153,7 @@ Map<String, dynamic> _$ItemConfigToJson(ItemConfig instance) {
     }
   }
 
+  writeNotNull('skins', instance.skins?.map((e) => e.toJson()).toList());
   writeNotNull('conclaveUpgrades', instance.conclaveUpgrades);
   writeNotNull(
       'primaryColor',

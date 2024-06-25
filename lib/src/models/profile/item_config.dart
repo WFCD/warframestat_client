@@ -25,7 +25,7 @@ class ItemConfig extends Equatable {
   }
 
   /// List of [Skin]s
-  final List<ArsenalSkin> skins;
+  final List<ArsenalSkin>? skins;
 
   /// PVP upgrades applied
   final List<String>? conclaveUpgrades;
