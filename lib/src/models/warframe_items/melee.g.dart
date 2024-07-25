@@ -28,7 +28,8 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
               $checkedConvert('criticalMultiplier', (v) => v as num),
           damagePerShot: $checkedConvert('damagePerShot',
               (v) => (v as List<dynamic>).map((e) => e as num).toList()),
-          disposition: $checkedConvert('disposition', (v) => v as int?),
+          disposition:
+              $checkedConvert('disposition', (v) => (v as num?)?.toInt()),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
           omegaAttenuation:
               $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
@@ -36,22 +37,28 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           procChance:
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
-          slot: $checkedConvert('slot', (v) => v as int?),
+          slot: $checkedConvert('slot', (v) => (v as num?)?.toInt()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
-          maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
+          maxLevelCap:
+              $checkedConvert('maxLevelCap', (v) => (v as num?)?.toInt() ?? 30),
           followThrough:
               $checkedConvert('followThrough', (v) => (v as num?)?.toDouble()),
           heavyAttackDamage:
-              $checkedConvert('heavyAttackDamage', (v) => v as int?),
-          heavySlamAttack: $checkedConvert('heavySlamAttack', (v) => v as int?),
-          heavySlamRadialDamage:
-              $checkedConvert('heavySlamRadialDamage', (v) => v as int?),
-          heavySlamRadius: $checkedConvert('heavySlamRadius', (v) => v as int?),
-          slamAttack: $checkedConvert('slamAttack', (v) => v as int?),
+              $checkedConvert('heavyAttackDamage', (v) => (v as num?)?.toInt()),
+          heavySlamAttack:
+              $checkedConvert('heavySlamAttack', (v) => (v as num?)?.toInt()),
+          heavySlamRadialDamage: $checkedConvert(
+              'heavySlamRadialDamage', (v) => (v as num?)?.toInt()),
+          heavySlamRadius:
+              $checkedConvert('heavySlamRadius', (v) => (v as num?)?.toInt()),
+          slamAttack:
+              $checkedConvert('slamAttack', (v) => (v as num?)?.toInt()),
           slamRadialDamage:
-              $checkedConvert('slamRadialDamage', (v) => v as int?),
-          slamRadius: $checkedConvert('slamRadius', (v) => v as int?),
-          slideAttack: $checkedConvert('slideAttack', (v) => v as int?),
+              $checkedConvert('slamRadialDamage', (v) => (v as num?)?.toInt()),
+          slamRadius:
+              $checkedConvert('slamRadius', (v) => (v as num?)?.toInt()),
+          slideAttack:
+              $checkedConvert('slideAttack', (v) => (v as num?)?.toInt()),
           windUp: $checkedConvert('windUp', (v) => (v as num?)?.toDouble()),
           range: $checkedConvert('range', (v) => (v as num?)?.toDouble()),
           attacks: $checkedConvert(
@@ -151,7 +158,7 @@ MeleeBuildable _$MeleeBuildableFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          bpCost: $checkedConvert('bpCost', (v) => v as int?),
+          bpCost: $checkedConvert('bpCost', (v) => (v as num?)?.toInt()),
           components: $checkedConvert(
               'components',
               (v) => (v as List<dynamic>?)
@@ -181,39 +188,49 @@ MeleeBuildable _$MeleeBuildableFromJson(Map json) => $checkedCreate(
               $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
           procChance:
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
-          slot: $checkedConvert('slot', (v) => v as int?),
+          slot: $checkedConvert('slot', (v) => (v as num?)?.toInt()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
-          maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
+          maxLevelCap:
+              $checkedConvert('maxLevelCap', (v) => (v as num?)?.toInt() ?? 30),
           followThrough:
               $checkedConvert('followThrough', (v) => (v as num?)?.toDouble()),
           heavyAttackDamage:
-              $checkedConvert('heavyAttackDamage', (v) => v as int?),
-          heavySlamAttack: $checkedConvert('heavySlamAttack', (v) => v as int?),
-          heavySlamRadialDamage:
-              $checkedConvert('heavySlamRadialDamage', (v) => v as int?),
-          heavySlamRadius: $checkedConvert('heavySlamRadius', (v) => v as int?),
-          slamAttack: $checkedConvert('slamAttack', (v) => v as int?),
+              $checkedConvert('heavyAttackDamage', (v) => (v as num?)?.toInt()),
+          heavySlamAttack:
+              $checkedConvert('heavySlamAttack', (v) => (v as num?)?.toInt()),
+          heavySlamRadialDamage: $checkedConvert(
+              'heavySlamRadialDamage', (v) => (v as num?)?.toInt()),
+          heavySlamRadius:
+              $checkedConvert('heavySlamRadius', (v) => (v as num?)?.toInt()),
+          slamAttack:
+              $checkedConvert('slamAttack', (v) => (v as num?)?.toInt()),
           slamRadialDamage:
-              $checkedConvert('slamRadialDamage', (v) => v as int?),
-          slamRadius: $checkedConvert('slamRadius', (v) => v as int?),
-          slideAttack: $checkedConvert('slideAttack', (v) => v as int?),
+              $checkedConvert('slamRadialDamage', (v) => (v as num?)?.toInt()),
+          slamRadius:
+              $checkedConvert('slamRadius', (v) => (v as num?)?.toInt()),
+          slideAttack:
+              $checkedConvert('slideAttack', (v) => (v as num?)?.toInt()),
           windUp: $checkedConvert('windUp', (v) => (v as num?)?.toDouble()),
           range: $checkedConvert('range', (v) => (v as num?)?.toDouble()),
-          marketCost: $checkedConvert('marketCost', (v) => v as int?),
-          itemCount: $checkedConvert('itemCount', (v) => v as int?),
+          marketCost:
+              $checkedConvert('marketCost', (v) => (v as num?)?.toInt()),
+          itemCount: $checkedConvert('itemCount', (v) => (v as num?)?.toInt()),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
-          buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
-          buildTime: $checkedConvert('buildTime', (v) => v as int),
+          buildPrice:
+              $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
+          buildQuantity:
+              $checkedConvert('buildQuantity', (v) => (v as num).toInt()),
+          buildTime: $checkedConvert('buildTime', (v) => (v as num).toInt()),
           skipBuildTimePrice:
-              $checkedConvert('skipBuildTimePrice', (v) => v as int),
+              $checkedConvert('skipBuildTimePrice', (v) => (v as num).toInt()),
           consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
-          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
+          masteryReq:
+              $checkedConvert('masteryReq', (v) => (v as num?)?.toInt()),
           stancePolarity:
               $checkedConvert('stancePolarity', (v) => v as String?),
           tags: $checkedConvert('tags',
@@ -221,7 +238,8 @@ MeleeBuildable _$MeleeBuildableFromJson(Map json) => $checkedCreate(
           polarities: $checkedConvert('polarities',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
-          disposition: $checkedConvert('disposition', (v) => v as int?),
+          disposition:
+              $checkedConvert('disposition', (v) => (v as num?)?.toInt()),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
           wikiaThumbnail:
               $checkedConvert('wikiaThumbnail', (v) => v as String?),

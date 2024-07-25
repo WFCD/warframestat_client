@@ -29,10 +29,11 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
               (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
                   )),
-          features: $checkedConvert('features', (v) => v as int?),
-          upgradeVersion: $checkedConvert('upgradeVer', (v) => v as int),
-          xp: $checkedConvert('xp', (v) => v as int),
-          polarized: $checkedConvert('polarized', (v) => v as int?),
+          features: $checkedConvert('features', (v) => (v as num?)?.toInt()),
+          upgradeVersion:
+              $checkedConvert('upgradeVer', (v) => (v as num).toInt()),
+          xp: $checkedConvert('xp', (v) => (v as num).toInt()),
+          polarized: $checkedConvert('polarized', (v) => (v as num?)?.toInt()),
           polarities: $checkedConvert(
               'polarities',
               (v) => (v as List<dynamic>?)
@@ -40,13 +41,13 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
                         e,
                         ($jsonValue) => (
                           polarity: $jsonValue['polarity'] as String,
-                          slot: $jsonValue['slot'] as int,
+                          slot: ($jsonValue['slot'] as num).toInt(),
                         ),
                       ))
                   .toList()),
           focusLens: $checkedConvert('focusLens', (v) => v as String?),
-          customizationSlots:
-              $checkedConvert('customizationSlots', (v) => v as int?),
+          customizationSlots: $checkedConvert(
+              'customizationSlots', (v) => (v as num?)?.toInt()),
           primaryColor: $checkedConvert(
               'primaryColor',
               (v) => _$recordConvertAnyNullable(
@@ -68,8 +69,8 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
                                   position: _$recordConvertAny(
                                     $jsonValue['position'],
                                     ($jsonValue) => (
-                                      col: $jsonValue['col'] as int,
-                                      row: $jsonValue['row'] as int,
+                                      col: ($jsonValue['col'] as num).toInt(),
+                                      row: ($jsonValue['row'] as num).toInt(),
                                     ),
                                   ),
                                 ),
@@ -98,8 +99,8 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
                                   position: _$recordConvertAny(
                                     $jsonValue['position'],
                                     ($jsonValue) => (
-                                      col: $jsonValue['col'] as int,
-                                      row: $jsonValue['row'] as int,
+                                      col: ($jsonValue['col'] as num).toInt(),
+                                      row: ($jsonValue['row'] as num).toInt(),
                                     ),
                                   ),
                                 ),
@@ -128,8 +129,8 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
                                   position: _$recordConvertAny(
                                     $jsonValue['position'],
                                     ($jsonValue) => (
-                                      col: $jsonValue['col'] as int,
-                                      row: $jsonValue['row'] as int,
+                                      col: ($jsonValue['col'] as num).toInt(),
+                                      row: ($jsonValue['row'] as num).toInt(),
                                     ),
                                   ),
                                 ),
@@ -158,8 +159,8 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
                                   position: _$recordConvertAny(
                                     $jsonValue['position'],
                                     ($jsonValue) => (
-                                      col: $jsonValue['col'] as int,
-                                      row: $jsonValue['row'] as int,
+                                      col: ($jsonValue['col'] as num).toInt(),
+                                      row: ($jsonValue['row'] as num).toInt(),
                                     ),
                                   ),
                                 ),
@@ -200,7 +201,7 @@ Map<String, dynamic> _$ArsenalItemToJson(ArsenalItem instance) {
   writeNotNull(
       'polarities',
       instance.polarities
-          ?.map((e) => {
+          ?.map((e) => <String, dynamic>{
                 'polarity': e.polarity,
                 'slot': e.slot,
               })
@@ -211,15 +212,15 @@ Map<String, dynamic> _$ArsenalItemToJson(ArsenalItem instance) {
       'primaryColor',
       instance.primaryColor == null
           ? null
-          : {
+          : <String, dynamic>{
               'hex': instance.primaryColor!.hex,
               'matches': instance.primaryColor!.matches
-                  ?.map((e) => {
-                        'palette': {
+                  ?.map((e) => <String, dynamic>{
+                        'palette': <String, dynamic>{
                           'description': e.palette.description,
                           'name': e.palette.name,
                         },
-                        'position': {
+                        'position': <String, dynamic>{
                           'col': e.position.col,
                           'row': e.position.row,
                         },
@@ -230,15 +231,15 @@ Map<String, dynamic> _$ArsenalItemToJson(ArsenalItem instance) {
       'sigilColor',
       instance.sigilColor == null
           ? null
-          : {
+          : <String, dynamic>{
               'hex': instance.sigilColor!.hex,
               'matches': instance.sigilColor!.matches
-                  ?.map((e) => {
-                        'palette': {
+                  ?.map((e) => <String, dynamic>{
+                        'palette': <String, dynamic>{
                           'description': e.palette.description,
                           'name': e.palette.name,
                         },
-                        'position': {
+                        'position': <String, dynamic>{
                           'col': e.position.col,
                           'row': e.position.row,
                         },
@@ -249,15 +250,15 @@ Map<String, dynamic> _$ArsenalItemToJson(ArsenalItem instance) {
       'attachmentsColor',
       instance.attachmentsColor == null
           ? null
-          : {
+          : <String, dynamic>{
               'hex': instance.attachmentsColor!.hex,
               'matches': instance.attachmentsColor!.matches
-                  ?.map((e) => {
-                        'palette': {
+                  ?.map((e) => <String, dynamic>{
+                        'palette': <String, dynamic>{
                           'description': e.palette.description,
                           'name': e.palette.name,
                         },
-                        'position': {
+                        'position': <String, dynamic>{
                           'col': e.position.col,
                           'row': e.position.row,
                         },
@@ -268,15 +269,15 @@ Map<String, dynamic> _$ArsenalItemToJson(ArsenalItem instance) {
       'syandanaColor',
       instance.syandanaColor == null
           ? null
-          : {
+          : <String, dynamic>{
               'hex': instance.syandanaColor!.hex,
               'matches': instance.syandanaColor!.matches
-                  ?.map((e) => {
-                        'palette': {
+                  ?.map((e) => <String, dynamic>{
+                        'palette': <String, dynamic>{
                           'description': e.palette.description,
                           'name': e.palette.name,
                         },
-                        'position': {
+                        'position': <String, dynamic>{
                           'col': e.position.col,
                           'row': e.position.row,
                         },

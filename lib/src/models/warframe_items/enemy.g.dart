@@ -39,10 +39,10 @@ Enemy _$EnemyFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       Resistance.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          health: $checkedConvert('health', (v) => v as int),
-          shield: $checkedConvert('shield', (v) => v as int),
-          armor: $checkedConvert('armor', (v) => v as int),
-          regionBits: $checkedConvert('regionBits', (v) => v as int),
+          health: $checkedConvert('health', (v) => (v as num).toInt()),
+          shield: $checkedConvert('shield', (v) => (v as num).toInt()),
+          armor: $checkedConvert('armor', (v) => (v as num).toInt()),
+          regionBits: $checkedConvert('regionBits', (v) => (v as num).toInt()),
         );
         return val;
       },
@@ -82,7 +82,7 @@ Resistance _$ResistanceFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Resistance(
-          amount: $checkedConvert('amount', (v) => v as int),
+          amount: $checkedConvert('amount', (v) => (v as num).toInt()),
           type: $checkedConvert('type', (v) => v as String),
           affectors: $checkedConvert(
               'affectors',

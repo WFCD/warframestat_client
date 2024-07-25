@@ -14,9 +14,9 @@ ProfileMission _$ProfileMissionFromJson(Map json) => $checkedCreate(
           node: $checkedConvert('node', (v) => v as String),
           missionType: $checkedConvert('missionType', (v) => v as String?),
           faction: $checkedConvert('faction', (v) => v as String?),
-          highScore: $checkedConvert('highScore', (v) => v as int?),
-          completes: $checkedConvert('completes', (v) => v as int?),
-          tier: $checkedConvert('tier', (v) => v as int?),
+          highScore: $checkedConvert('highScore', (v) => (v as num?)?.toInt()),
+          completes: $checkedConvert('completes', (v) => (v as num?)?.toInt()),
+          tier: $checkedConvert('tier', (v) => (v as num?)?.toInt()),
         );
         return val;
       },

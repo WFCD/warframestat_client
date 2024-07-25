@@ -11,17 +11,19 @@ Intrinsics _$IntrinsicsFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Intrinsics(
-          space: $checkedConvert('space', (v) => v as int),
-          engineering: $checkedConvert('engineering', (v) => v as int),
-          gunnery: $checkedConvert('gunnery', (v) => v as int),
-          piloting: $checkedConvert('piloting', (v) => v as int),
-          tactical: $checkedConvert('tactical', (v) => v as int),
-          command: $checkedConvert('command', (v) => v as int),
-          drifter: $checkedConvert('drifter', (v) => v as int),
-          riding: $checkedConvert('riding', (v) => v as int),
-          combat: $checkedConvert('combat', (v) => v as int),
-          opportunity: $checkedConvert('opportunity', (v) => v as int),
-          endurance: $checkedConvert('endurance', (v) => v as int),
+          space: $checkedConvert('space', (v) => (v as num).toInt()),
+          engineering:
+              $checkedConvert('engineering', (v) => (v as num).toInt()),
+          gunnery: $checkedConvert('gunnery', (v) => (v as num).toInt()),
+          piloting: $checkedConvert('piloting', (v) => (v as num).toInt()),
+          tactical: $checkedConvert('tactical', (v) => (v as num).toInt()),
+          command: $checkedConvert('command', (v) => (v as num).toInt()),
+          drifter: $checkedConvert('drifter', (v) => (v as num).toInt()),
+          riding: $checkedConvert('riding', (v) => (v as num).toInt()),
+          combat: $checkedConvert('combat', (v) => (v as num).toInt()),
+          opportunity:
+              $checkedConvert('opportunity', (v) => (v as num).toInt()),
+          endurance: $checkedConvert('endurance', (v) => (v as num).toInt()),
         );
         return val;
       },

@@ -12,7 +12,7 @@ XpItem _$XpItemFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = XpItem(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
-          xp: $checkedConvert('xp', (v) => v as int),
+          xp: $checkedConvert('xp', (v) => (v as num).toInt()),
           item: $checkedConvert(
               'item', (v) => _toItem(v as Map<String, dynamic>?)),
         );

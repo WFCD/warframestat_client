@@ -19,12 +19,16 @@ Node _$NodeFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           imageName: $checkedConvert('imageName', (v) => v as String?),
-          factionIndex: $checkedConvert('factionIndex', (v) => v as int),
-          masteryReq: $checkedConvert('masteryReq', (v) => v as int),
-          maxEnemyLevel: $checkedConvert('maxEnemyLevel', (v) => v as int),
-          minEnemyLevel: $checkedConvert('minEnemyLevel', (v) => v as int),
-          nodeType: $checkedConvert('nodeType', (v) => v as int),
-          systemIndex: $checkedConvert('systemIndex', (v) => v as int),
+          factionIndex:
+              $checkedConvert('factionIndex', (v) => (v as num).toInt()),
+          masteryReq: $checkedConvert('masteryReq', (v) => (v as num).toInt()),
+          maxEnemyLevel:
+              $checkedConvert('maxEnemyLevel', (v) => (v as num).toInt()),
+          minEnemyLevel:
+              $checkedConvert('minEnemyLevel', (v) => (v as num).toInt()),
+          nodeType: $checkedConvert('nodeType', (v) => (v as num).toInt()),
+          systemIndex:
+              $checkedConvert('systemIndex', (v) => (v as num).toInt()),
           systemName: $checkedConvert('systemName', (v) => v as String),
           patchlogs: $checkedConvert(
               'patchlogs',

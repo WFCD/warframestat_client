@@ -27,9 +27,9 @@ Pet _$PetFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          armor: $checkedConvert('armor', (v) => v as int),
-          health: $checkedConvert('health', (v) => v as int),
-          shield: $checkedConvert('shield', (v) => v as int),
+          armor: $checkedConvert('armor', (v) => (v as num).toInt()),
+          health: $checkedConvert('health', (v) => (v as num).toInt()),
+          shield: $checkedConvert('shield', (v) => (v as num).toInt()),
           stamina: $checkedConvert('stamina', (v) => v as num),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
           excludeFromCodex:

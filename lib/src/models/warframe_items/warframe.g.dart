@@ -27,7 +27,8 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate(
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String),
-          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
+          masteryReq:
+              $checkedConvert('masteryReq', (v) => (v as num?)?.toInt()),
           components: $checkedConvert(
               'components',
               (v) => (v as List<dynamic>?)
@@ -35,19 +36,20 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate(
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
-          marketCost: $checkedConvert('marketCost', (v) => v as int?),
-          bpCost: $checkedConvert('bpCost', (v) => v as int?),
-          itemCount: $checkedConvert('itemCount', (v) => v as int?),
+          marketCost:
+              $checkedConvert('marketCost', (v) => (v as num?)?.toInt()),
+          bpCost: $checkedConvert('bpCost', (v) => (v as num?)?.toInt()),
+          itemCount: $checkedConvert('itemCount', (v) => (v as num?)?.toInt()),
           wikiaThumbnail:
               $checkedConvert('wikiaThumbnail', (v) => v as String?),
           wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
           isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
-          shield: $checkedConvert('shield', (v) => v as int),
-          armor: $checkedConvert('armor', (v) => v as int),
-          health: $checkedConvert('health', (v) => v as int),
+          shield: $checkedConvert('shield', (v) => (v as num).toInt()),
+          armor: $checkedConvert('armor', (v) => (v as num).toInt()),
+          health: $checkedConvert('health', (v) => (v as num).toInt()),
           stamina: $checkedConvert('stamina', (v) => v as num),
-          power: $checkedConvert('power', (v) => v as int),
+          power: $checkedConvert('power', (v) => (v as num).toInt()),
           polarities: $checkedConvert('polarities',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           abilities: $checkedConvert(
@@ -66,12 +68,14 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate(
           introduced: $checkedConvert('introduced',
               (v) => Introduced.fromJson(Map<String, dynamic>.from(v as Map))),
           sprint: $checkedConvert('sprint', (v) => v as num),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
-          buildQuantity:
-              $checkedConvert('buildQuantity', (v) => v as int? ?? 1),
-          buildTime: $checkedConvert('buildTime', (v) => v as int? ?? 0),
-          skipBuildTimePrice:
-              $checkedConvert('skipBuildTimePrice', (v) => v as int? ?? 0),
+          buildPrice:
+              $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
+          buildQuantity: $checkedConvert(
+              'buildQuantity', (v) => (v as num?)?.toInt() ?? 1),
+          buildTime:
+              $checkedConvert('buildTime', (v) => (v as num?)?.toInt() ?? 0),
+          skipBuildTimePrice: $checkedConvert(
+              'skipBuildTimePrice', (v) => (v as num?)?.toInt() ?? 0),
           consumeOnBuild:
               $checkedConvert('consumeOnBuild', (v) => v as bool? ?? true),
         );

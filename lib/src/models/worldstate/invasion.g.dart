@@ -22,7 +22,7 @@ Invasion _$InvasionFromJson(Map json) => $checkedCreate(
               $checkedConvert('attackingFaction', (v) => v as String),
           completed: $checkedConvert('completed', (v) => v as bool),
           completion: $checkedConvert('completion', (v) => v as num),
-          count: $checkedConvert('count', (v) => v as int),
+          count: $checkedConvert('count', (v) => (v as num).toInt()),
           defender: $checkedConvert(
               'defender',
               (v) => InvasionFaction.fromJson(
@@ -30,7 +30,8 @@ Invasion _$InvasionFromJson(Map json) => $checkedCreate(
           desc: $checkedConvert('desc', (v) => v as String),
           node: $checkedConvert('node', (v) => v as String),
           nodeKey: $checkedConvert('nodeKey', (v) => v as String),
-          requiredRuns: $checkedConvert('requiredRuns', (v) => v as int),
+          requiredRuns:
+              $checkedConvert('requiredRuns', (v) => (v as num).toInt()),
           rewardTypes: $checkedConvert('rewardTypes',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           vsInfestation: $checkedConvert('vsInfestation', (v) => v as bool),

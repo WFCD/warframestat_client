@@ -54,7 +54,6 @@ class SkinBuildable extends BuildableItem implements Skin {
     required super.consumeOnBuild,
     required super.components,
     required super.imageName,
-    required super.isPrime,
     required super.patchlogs,
     required super.releaseDate,
     required super.wikiaThumbnail,
@@ -64,7 +63,8 @@ class SkinBuildable extends BuildableItem implements Skin {
     required super.marketCost,
     required super.bpCost,
     required super.itemCount,
-  });
+    bool? isPrime,
+  }) : super(isPrime: isPrime ?? false);
 
   /// Creates a Skin from Json map
   factory SkinBuildable.fromJson(Map<String, dynamic> data) =>

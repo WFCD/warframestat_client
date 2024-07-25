@@ -13,7 +13,8 @@ Profile _$ProfileFromJson(Map json) => $checkedCreate(
         final val = Profile(
           accountId: $checkedConvert('accountId', (v) => v as String),
           username: $checkedConvert('displayName', (v) => v as String),
-          masteryRank: $checkedConvert('masteryRank', (v) => v as int),
+          masteryRank:
+              $checkedConvert('masteryRank', (v) => (v as num).toInt()),
           loadout: $checkedConvert('loadout',
               (v) => Arsenal.fromJson(Map<String, dynamic>.from(v as Map))),
           intrinsics: $checkedConvert('intrinsics',
@@ -25,15 +26,15 @@ Profile _$ProfileFromJson(Map json) => $checkedCreate(
                         e,
                         ($jsonValue) => (
                           name: $jsonValue['name'] as String,
-                          progress: $jsonValue['progress'] as int,
+                          progress: ($jsonValue['progress'] as num).toInt(),
                         ),
                       ))
                   .toList()),
           guildId: $checkedConvert('guildId', (v) => v as String),
           guildName: $checkedConvert('guildName', (v) => v as String),
-          guildTier: $checkedConvert('guildTier', (v) => v as int),
-          guildXp: $checkedConvert('guildXp', (v) => v as int),
-          guildClass: $checkedConvert('guildClass', (v) => v as int),
+          guildTier: $checkedConvert('guildTier', (v) => (v as num).toInt()),
+          guildXp: $checkedConvert('guildXp', (v) => (v as num).toInt()),
+          guildClass: $checkedConvert('guildClass', (v) => (v as num).toInt()),
           guildEmblem: $checkedConvert('guildEmblem', (v) => v as bool),
           allianceId: $checkedConvert('allianceId', (v) => v as String),
           deathMarks: $checkedConvert('deathMarks',
@@ -57,8 +58,8 @@ Profile _$ProfileFromJson(Map json) => $checkedCreate(
                         e,
                         ($jsonValue) => (
                           name: $jsonValue['name'] as String,
-                          standing: $jsonValue['standing'] as int,
-                          title: $jsonValue['title'] as int,
+                          standing: ($jsonValue['standing'] as num).toInt(),
+                          title: ($jsonValue['title'] as num).toInt(),
                         ),
                       ))
                   .toList()),
@@ -67,22 +68,22 @@ Profile _$ProfileFromJson(Map json) => $checkedCreate(
               (v) => _$recordConvertAny(
                     v,
                     ($jsonValue) => (
-                      cavia: $jsonValue['cavia'] as int,
-                      conclave: $jsonValue['conclave'] as int,
-                      daily: $jsonValue['daily'] as int,
-                      entrati: $jsonValue['entrati'] as int,
-                      holdfasts: $jsonValue['holdfasts'] as int,
-                      kahl: $jsonValue['kahl'] as int,
-                      necraloid: $jsonValue['necraloid'] as int,
-                      ostron: $jsonValue['ostron'] as int,
-                      quills: $jsonValue['quills'] as int,
-                      simaris: $jsonValue['simaris'] as int,
-                      solaris: $jsonValue['solaris'] as int,
-                      ventKids: $jsonValue['ventKids'] as int,
-                      voxSolaris: $jsonValue['voxSolaris'] as int,
+                      cavia: ($jsonValue['cavia'] as num).toInt(),
+                      conclave: ($jsonValue['conclave'] as num).toInt(),
+                      daily: ($jsonValue['daily'] as num).toInt(),
+                      entrati: ($jsonValue['entrati'] as num).toInt(),
+                      holdfasts: ($jsonValue['holdfasts'] as num).toInt(),
+                      kahl: ($jsonValue['kahl'] as num).toInt(),
+                      necraloid: ($jsonValue['necraloid'] as num).toInt(),
+                      ostron: ($jsonValue['ostron'] as num).toInt(),
+                      quills: ($jsonValue['quills'] as num).toInt(),
+                      simaris: ($jsonValue['simaris'] as num).toInt(),
+                      solaris: ($jsonValue['solaris'] as num).toInt(),
+                      ventKids: ($jsonValue['ventKids'] as num).toInt(),
+                      voxSolaris: ($jsonValue['voxSolaris'] as num).toInt(),
                     ),
                   )),
-          dailyFocus: $checkedConvert('dailyFocus', (v) => v as int),
+          dailyFocus: $checkedConvert('dailyFocus', (v) => (v as num).toInt()),
           wishList: $checkedConvert('wishList', (v) => v),
           unlockedOperator:
               $checkedConvert('unlockedOperator', (v) => v as bool),
@@ -100,7 +101,7 @@ Profile _$ProfileFromJson(Map json) => $checkedCreate(
                     v,
                     ($jsonValue) => (
                       alignment: ($jsonValue['alignment'] as num).toDouble(),
-                      wisdom: $jsonValue['wisdom'] as int,
+                      wisdom: ($jsonValue['wisdom'] as num).toInt(),
                     ),
                   )),
         );
@@ -117,7 +118,7 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) {
     'loadout': instance.loadout.toJson(),
     'intrinsics': instance.intrinsics.toJson(),
     'challengeProgress': instance.challengeProgress
-        .map((e) => {
+        .map((e) => <String, dynamic>{
               'name': e.name,
               'progress': e.progress,
             })
@@ -136,13 +137,13 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) {
     'migratedToConsole': instance.migratedToConsole,
     'missions': instance.missions.map((e) => e.toJson()).toList(),
     'syndicates': instance.syndicates
-        .map((e) => {
+        .map((e) => <String, dynamic>{
               'name': e.name,
               'standing': e.standing,
               'title': e.title,
             })
         .toList(),
-    'dailyStanding': {
+    'dailyStanding': <String, dynamic>{
       'cavia': instance.dailyStanding.cavia,
       'conclave': instance.dailyStanding.conclave,
       'daily': instance.dailyStanding.daily,
@@ -171,7 +172,7 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) {
   val['unlockedAlignment'] = instance.unlockedAlignment;
   val['operatorLoadouts'] =
       instance.operatorLoadouts.map((e) => e.toJson()).toList();
-  val['alignment'] = {
+  val['alignment'] = <String, dynamic>{
     'alignment': instance.alignment.alignment,
     'wisdom': instance.alignment.wisdom,
   };

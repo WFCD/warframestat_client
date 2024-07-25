@@ -46,6 +46,7 @@ class Amp extends Secondary {
     required super.masteryReq,
     required super.marketCost,
     required super.itemCount,
+    required super.buildPrice,
   });
 
   /// Creates [Amp] from json data.

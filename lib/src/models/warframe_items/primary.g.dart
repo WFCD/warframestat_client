@@ -31,7 +31,8 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
                   : Damage.fromJson(Map<String, dynamic>.from(v as Map))),
           damagePerShot: $checkedConvert('damagePerShot',
               (v) => (v as List<dynamic>).map((e) => e as num).toList()),
-          disposition: $checkedConvert('disposition', (v) => v as int?),
+          disposition:
+              $checkedConvert('disposition', (v) => (v as num?)?.toInt()),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
           omegaAttenuation:
               $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
@@ -39,7 +40,7 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           procChance:
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
-          slot: $checkedConvert('slot', (v) => v as int?),
+          slot: $checkedConvert('slot', (v) => (v as num?)?.toInt()),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
@@ -48,7 +49,8 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
           wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
           reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
-          maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
+          maxLevelCap:
+              $checkedConvert('maxLevelCap', (v) => (v as num?)?.toInt() ?? 30),
           excludeFromCodex:
               $checkedConvert('excludeFromCodex', (v) => v as bool?),
           attacks: $checkedConvert(
@@ -64,8 +66,9 @@ Primary _$PrimaryFromJson(Map json) => $checkedCreate(
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           accuracy: $checkedConvert('accuracy', (v) => v as num?),
-          magazineSize: $checkedConvert('magazineSize', (v) => v as int?),
-          multishot: $checkedConvert('multishot', (v) => v as int?),
+          magazineSize:
+              $checkedConvert('magazineSize', (v) => (v as num?)?.toInt()),
+          multishot: $checkedConvert('multishot', (v) => (v as num?)?.toInt()),
           noise: $checkedConvert('noise', (v) => v as String?),
           trigger: $checkedConvert('trigger', (v) => v as String?),
         );
@@ -159,7 +162,7 @@ PrimaryBuildable _$PrimaryBuildableFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           procChance:
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
-          slot: $checkedConvert('slot', (v) => v as int?),
+          slot: $checkedConvert('slot', (v) => (v as num?)?.toInt()),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
@@ -168,16 +171,21 @@ PrimaryBuildable _$PrimaryBuildableFromJson(Map json) => $checkedCreate(
           wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
           accuracy: $checkedConvert('accuracy', (v) => v as num?),
-          magazineSize: $checkedConvert('magazineSize', (v) => v as int?),
-          multishot: $checkedConvert('multishot', (v) => v as int?),
+          magazineSize:
+              $checkedConvert('magazineSize', (v) => (v as num?)?.toInt()),
+          multishot: $checkedConvert('multishot', (v) => (v as num?)?.toInt()),
           noise: $checkedConvert('noise', (v) => v as String?),
           trigger: $checkedConvert('trigger', (v) => v as String?),
           reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
-          maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
-          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
-          marketCost: $checkedConvert('marketCost', (v) => v as int?),
-          itemCount: $checkedConvert('itemCount', (v) => v as int?),
-          disposition: $checkedConvert('disposition', (v) => v as int?),
+          maxLevelCap:
+              $checkedConvert('maxLevelCap', (v) => (v as num?)?.toInt() ?? 30),
+          masteryReq:
+              $checkedConvert('masteryReq', (v) => (v as num?)?.toInt()),
+          marketCost:
+              $checkedConvert('marketCost', (v) => (v as num?)?.toInt()),
+          itemCount: $checkedConvert('itemCount', (v) => (v as num?)?.toInt()),
+          disposition:
+              $checkedConvert('disposition', (v) => (v as num?)?.toInt()),
           attacks: $checkedConvert(
               'attacks',
               (v) => (v as List<dynamic>?)
@@ -190,12 +198,14 @@ PrimaryBuildable _$PrimaryBuildableFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          bpCost: $checkedConvert('bpCost', (v) => v as int?),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
-          buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
-          buildTime: $checkedConvert('buildTime', (v) => v as int),
+          bpCost: $checkedConvert('bpCost', (v) => (v as num?)?.toInt()),
+          buildPrice:
+              $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
+          buildQuantity:
+              $checkedConvert('buildQuantity', (v) => (v as num).toInt()),
+          buildTime: $checkedConvert('buildTime', (v) => (v as num).toInt()),
           skipBuildTimePrice:
-              $checkedConvert('skipBuildTimePrice', (v) => v as int),
+              $checkedConvert('skipBuildTimePrice', (v) => (v as num).toInt()),
           consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
         );

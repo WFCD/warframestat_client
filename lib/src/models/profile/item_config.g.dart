@@ -40,8 +40,8 @@ ItemConfig _$ItemConfigFromJson(Map json) => $checkedCreate(
                                   position: _$recordConvertAny(
                                     $jsonValue['position'],
                                     ($jsonValue) => (
-                                      col: $jsonValue['col'] as int,
-                                      row: $jsonValue['row'] as int,
+                                      col: ($jsonValue['col'] as num).toInt(),
+                                      row: ($jsonValue['row'] as num).toInt(),
                                     ),
                                   ),
                                 ),
@@ -70,8 +70,8 @@ ItemConfig _$ItemConfigFromJson(Map json) => $checkedCreate(
                                   position: _$recordConvertAny(
                                     $jsonValue['position'],
                                     ($jsonValue) => (
-                                      col: $jsonValue['col'] as int,
-                                      row: $jsonValue['row'] as int,
+                                      col: ($jsonValue['col'] as num).toInt(),
+                                      row: ($jsonValue['row'] as num).toInt(),
                                     ),
                                   ),
                                 ),
@@ -100,8 +100,8 @@ ItemConfig _$ItemConfigFromJson(Map json) => $checkedCreate(
                                   position: _$recordConvertAny(
                                     $jsonValue['position'],
                                     ($jsonValue) => (
-                                      col: $jsonValue['col'] as int,
-                                      row: $jsonValue['row'] as int,
+                                      col: ($jsonValue['col'] as num).toInt(),
+                                      row: ($jsonValue['row'] as num).toInt(),
                                     ),
                                   ),
                                 ),
@@ -130,8 +130,8 @@ ItemConfig _$ItemConfigFromJson(Map json) => $checkedCreate(
                                   position: _$recordConvertAny(
                                     $jsonValue['position'],
                                     ($jsonValue) => (
-                                      col: $jsonValue['col'] as int,
-                                      row: $jsonValue['row'] as int,
+                                      col: ($jsonValue['col'] as num).toInt(),
+                                      row: ($jsonValue['row'] as num).toInt(),
                                     ),
                                   ),
                                 ),
@@ -159,15 +159,15 @@ Map<String, dynamic> _$ItemConfigToJson(ItemConfig instance) {
       'primaryColor',
       instance.primaryColor == null
           ? null
-          : {
+          : <String, dynamic>{
               'hex': instance.primaryColor!.hex,
               'matches': instance.primaryColor!.matches
-                  ?.map((e) => {
-                        'palette': {
+                  ?.map((e) => <String, dynamic>{
+                        'palette': <String, dynamic>{
                           'description': e.palette.description,
                           'name': e.palette.name,
                         },
-                        'position': {
+                        'position': <String, dynamic>{
                           'col': e.position.col,
                           'row': e.position.row,
                         },
@@ -178,15 +178,15 @@ Map<String, dynamic> _$ItemConfigToJson(ItemConfig instance) {
       'sigilColor',
       instance.sigilColor == null
           ? null
-          : {
+          : <String, dynamic>{
               'hex': instance.sigilColor!.hex,
               'matches': instance.sigilColor!.matches
-                  ?.map((e) => {
-                        'palette': {
+                  ?.map((e) => <String, dynamic>{
+                        'palette': <String, dynamic>{
                           'description': e.palette.description,
                           'name': e.palette.name,
                         },
-                        'position': {
+                        'position': <String, dynamic>{
                           'col': e.position.col,
                           'row': e.position.row,
                         },
@@ -197,15 +197,15 @@ Map<String, dynamic> _$ItemConfigToJson(ItemConfig instance) {
       'attachmentsColor',
       instance.attachmentsColor == null
           ? null
-          : {
+          : <String, dynamic>{
               'hex': instance.attachmentsColor!.hex,
               'matches': instance.attachmentsColor!.matches
-                  ?.map((e) => {
-                        'palette': {
+                  ?.map((e) => <String, dynamic>{
+                        'palette': <String, dynamic>{
                           'description': e.palette.description,
                           'name': e.palette.name,
                         },
-                        'position': {
+                        'position': <String, dynamic>{
                           'col': e.position.col,
                           'row': e.position.row,
                         },
@@ -216,15 +216,15 @@ Map<String, dynamic> _$ItemConfigToJson(ItemConfig instance) {
       'syandanaColor',
       instance.syandanaColor == null
           ? null
-          : {
+          : <String, dynamic>{
               'hex': instance.syandanaColor!.hex,
               'matches': instance.syandanaColor!.matches
-                  ?.map((e) => {
-                        'palette': {
+                  ?.map((e) => <String, dynamic>{
+                        'palette': <String, dynamic>{
                           'description': e.palette.description,
                           'name': e.palette.name,
                         },
-                        'position': {
+                        'position': <String, dynamic>{
                           'col': e.position.col,
                           'row': e.position.row,
                         },

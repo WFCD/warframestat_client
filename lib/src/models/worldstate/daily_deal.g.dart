@@ -17,11 +17,12 @@ DailyDeal _$DailyDealFromJson(Map json) => $checkedCreate(
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
           item: $checkedConvert('item', (v) => v as String),
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
-          originalPrice: $checkedConvert('originalPrice', (v) => v as int),
-          salePrice: $checkedConvert('salePrice', (v) => v as int),
-          total: $checkedConvert('total', (v) => v as int),
-          sold: $checkedConvert('sold', (v) => v as int),
-          discount: $checkedConvert('discount', (v) => v as int),
+          originalPrice:
+              $checkedConvert('originalPrice', (v) => (v as num).toInt()),
+          salePrice: $checkedConvert('salePrice', (v) => (v as num).toInt()),
+          total: $checkedConvert('total', (v) => (v as num).toInt()),
+          sold: $checkedConvert('sold', (v) => (v as num).toInt()),
+          discount: $checkedConvert('discount', (v) => (v as num).toInt()),
         );
         return val;
       },

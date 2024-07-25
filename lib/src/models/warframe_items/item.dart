@@ -111,6 +111,7 @@ abstract class EquipableItem extends Item {
   });
 
   /// Whether the [Item] is a prime item.
+  @JsonKey(defaultValue: false)
   final bool isPrime;
 
   /// Whether the [Item] has been removed from the drop rotation.

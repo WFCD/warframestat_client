@@ -20,9 +20,9 @@ Nightwave _$NightwaveFromJson(Map json) => $checkedCreate(
               'params', (v) => Map<String, dynamic>.from(v as Map)),
           rewardTypes: $checkedConvert('rewardTypes',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          season: $checkedConvert('season', (v) => v as int),
+          season: $checkedConvert('season', (v) => (v as num).toInt()),
           ta: $checkedConvert('ta', (v) => v as String?),
-          phase: $checkedConvert('phase', (v) => v as int),
+          phase: $checkedConvert('phase', (v) => (v as num).toInt()),
           possibleChallenges: $checkedConvert(
               'possibleChallenges',
               (v) => (v as List<dynamic>)
@@ -77,7 +77,7 @@ Challenge _$ChallengeFromJson(Map json) => $checkedCreate(
           expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
           title: $checkedConvert('title', (v) => v as String),
           desc: $checkedConvert('desc', (v) => v as String),
-          reputation: $checkedConvert('reputation', (v) => v as int),
+          reputation: $checkedConvert('reputation', (v) => (v as num).toInt()),
           active: $checkedConvert('active', (v) => v as bool),
           isElite: $checkedConvert('isElite', (v) => v as bool),
           isDaily: $checkedConvert('isDaily', (v) => v as bool? ?? false),

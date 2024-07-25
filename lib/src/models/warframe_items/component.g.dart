@@ -21,7 +21,7 @@ Component _$ComponentFromJson(Map json) => $checkedCreate(
                   ?.map(
                       (e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          itemCount: $checkedConvert('itemCount', (v) => v as int),
+          itemCount: $checkedConvert('itemCount', (v) => (v as num).toInt()),
           imageName: $checkedConvert('imageName', (v) => v as String?),
         );
         return val;

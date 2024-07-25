@@ -79,11 +79,13 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
           tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
-          buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
-          buildTime: $checkedConvert('buildTime', (v) => v as int),
+          buildPrice:
+              $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
+          buildQuantity:
+              $checkedConvert('buildQuantity', (v) => (v as num).toInt()),
+          buildTime: $checkedConvert('buildTime', (v) => (v as num).toInt()),
           skipBuildTimePrice:
-              $checkedConvert('skipBuildTimePrice', (v) => v as int),
+              $checkedConvert('skipBuildTimePrice', (v) => (v as num).toInt()),
           consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
           components: $checkedConvert(
               'components',
@@ -92,7 +94,6 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String),
-          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           patchlogs: $checkedConvert(
               'patchlogs',
               (v) => (v as List<dynamic>?)
@@ -104,10 +105,13 @@ SkinBuildable _$SkinBuildableFromJson(Map json) => $checkedCreate(
               $checkedConvert('wikiaThumbnail', (v) => v as String?),
           wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
-          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
-          marketCost: $checkedConvert('marketCost', (v) => v as int?),
-          bpCost: $checkedConvert('bpCost', (v) => v as int?),
-          itemCount: $checkedConvert('itemCount', (v) => v as int?),
+          masteryReq:
+              $checkedConvert('masteryReq', (v) => (v as num?)?.toInt()),
+          marketCost:
+              $checkedConvert('marketCost', (v) => (v as num?)?.toInt()),
+          bpCost: $checkedConvert('bpCost', (v) => (v as num?)?.toInt()),
+          itemCount: $checkedConvert('itemCount', (v) => (v as num?)?.toInt()),
+          isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
         );
         return val;
       },

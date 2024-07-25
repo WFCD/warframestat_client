@@ -65,8 +65,8 @@ class PetResourcesBuildable extends BuildableItem implements PetResources {
     required super.itemCount,
     required super.wikiaThumbnail,
     required super.wikiaUrl,
-    required super.isPrime,
-  });
+    bool? isPrime,
+  }) : super(isPrime: isPrime ?? false);
 
   /// Creates [PetResourcesBuildable] from a json map.
   factory PetResourcesBuildable.fromJson(Map<String, dynamic> json) {

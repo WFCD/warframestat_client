@@ -44,7 +44,7 @@ class Warframe extends PowerSuit {
     required this.conclave,
     required this.introduced,
     required this.sprint,
-    super.buildPrice = 0,
+    required super.buildPrice,
     super.buildQuantity = 1,
     super.buildTime = 0,
     super.skipBuildTimePrice = 0,

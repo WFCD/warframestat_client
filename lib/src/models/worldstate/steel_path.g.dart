@@ -52,7 +52,7 @@ SteelPathReward _$SteelPathRewardFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = SteelPathReward(
           name: $checkedConvert('name', (v) => v as String),
-          cost: $checkedConvert('cost', (v) => v as int),
+          cost: $checkedConvert('cost', (v) => (v as num).toInt()),
         );
         return val;
       },

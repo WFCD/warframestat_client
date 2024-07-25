@@ -31,8 +31,9 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
                   ?.map(
                       (e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          baseDrain: $checkedConvert('baseDrain', (v) => v as int?),
-          fusionLimit: $checkedConvert('fusionLimit', (v) => v as int?),
+          baseDrain: $checkedConvert('baseDrain', (v) => (v as num?)?.toInt()),
+          fusionLimit:
+              $checkedConvert('fusionLimit', (v) => (v as num?)?.toInt()),
           isAugment: $checkedConvert('isAugment', (v) => v as bool?),
           levelStats: $checkedConvert(
               'levelStats',
@@ -135,7 +136,7 @@ ModSet _$ModSetFromJson(Map json) => $checkedCreate(
                       (e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           numUpgradesInSet:
-              $checkedConvert('numUpgradesInSet', (v) => v as int),
+              $checkedConvert('numUpgradesInSet', (v) => (v as num).toInt()),
           stats: $checkedConvert('stats',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
         );

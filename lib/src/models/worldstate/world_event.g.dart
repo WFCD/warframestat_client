@@ -18,10 +18,14 @@ WorldEvent _$WorldEventFromJson(Map json) => $checkedCreate(
           previousId: $checkedConvert('previousId', (v) => v as String?),
           startString: $checkedConvert('startString', (v) => v as String),
           active: $checkedConvert('active', (v) => v as bool),
-          maximumScore: $checkedConvert('maximumScore', (v) => v as int?),
-          currentScore: $checkedConvert('currentScore', (v) => v as int?),
-          smallInterval: $checkedConvert('smallInterval', (v) => v as int?),
-          largeInterval: $checkedConvert('largeInterval', (v) => v as int?),
+          maximumScore:
+              $checkedConvert('maximumScore', (v) => (v as num?)?.toInt()),
+          currentScore:
+              $checkedConvert('currentScore', (v) => (v as num?)?.toInt()),
+          smallInterval:
+              $checkedConvert('smallInterval', (v) => (v as num?)?.toInt()),
+          largeInterval:
+              $checkedConvert('largeInterval', (v) => (v as num?)?.toInt()),
           faction: $checkedConvert('faction', (v) => v as String?),
           description: $checkedConvert('description', (v) => v as String),
           tooltip: $checkedConvert('tooltip', (v) => v as String?),
@@ -64,7 +68,8 @@ WorldEvent _$WorldEventFromJson(Map json) => $checkedCreate(
                   .map((e) => ProgressStep.fromJson(
                       Map<String, dynamic>.from(e as Map)))
                   .toList()),
-          progressTotal: $checkedConvert('progressTotal', (v) => v as int?),
+          progressTotal:
+              $checkedConvert('progressTotal', (v) => (v as num?)?.toInt()),
           showTotalAtEndOfMission:
               $checkedConvert('showTotalAtEndOfMission', (v) => v as bool?),
           isPersonal: $checkedConvert('isPersonal', (v) => v as bool?),
@@ -78,8 +83,11 @@ WorldEvent _$WorldEventFromJson(Map json) => $checkedCreate(
               (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
                   )),
-          completionBonuses: $checkedConvert('completionBonuses',
-              (v) => (v as List<dynamic>?)?.map((e) => e as int).toList()),
+          completionBonuses: $checkedConvert(
+              'completionBonuses',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => (e as num).toInt())
+                  .toList()),
           scoreVar: $checkedConvert('scoreVar', (v) => v as String?),
           asString: $checkedConvert('asString', (v) => v as String),
           altExpiry:
@@ -151,7 +159,7 @@ InterimStep _$InterimStepFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = InterimStep(
-          goal: $checkedConvert('goal', (v) => v as int),
+          goal: $checkedConvert('goal', (v) => (v as num).toInt()),
           reward: $checkedConvert('reward',
               (v) => Reward.fromJson(Map<String, dynamic>.from(v as Map))),
           message: $checkedConvert('message',
@@ -206,7 +214,8 @@ ProgressStep _$ProgressStepFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = ProgressStep(
           type: $checkedConvert('type', (v) => v as String),
-          progressAmt: $checkedConvert('progressAmt', (v) => v as int),
+          progressAmt:
+              $checkedConvert('progressAmt', (v) => (v as num).toInt()),
         );
         return val;
       },

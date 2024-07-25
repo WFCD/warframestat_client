@@ -43,7 +43,8 @@ Amp _$AmpFromJson(Map json) => $checkedCreate(
                   : Damage.fromJson(Map<String, dynamic>.from(v as Map))),
           damagePerShot: $checkedConvert('damagePerShot',
               (v) => (v as List<dynamic>).map((e) => e as num).toList()),
-          disposition: $checkedConvert('disposition', (v) => v as int?),
+          disposition:
+              $checkedConvert('disposition', (v) => (v as num?)?.toInt()),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
           isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
           omegaAttenuation:
@@ -52,7 +53,7 @@ Amp _$AmpFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           procChance:
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
-          slot: $checkedConvert('slot', (v) => v as int?),
+          slot: $checkedConvert('slot', (v) => (v as num?)?.toInt()),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
@@ -61,15 +62,21 @@ Amp _$AmpFromJson(Map json) => $checkedCreate(
           wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
           accuracy: $checkedConvert('accuracy', (v) => v as num?),
-          magazineSize: $checkedConvert('magazineSize', (v) => v as int?),
-          multishot: $checkedConvert('multishot', (v) => v as int?),
+          magazineSize:
+              $checkedConvert('magazineSize', (v) => (v as num?)?.toInt()),
+          multishot: $checkedConvert('multishot', (v) => (v as num?)?.toInt()),
           noise: $checkedConvert('noise', (v) => v as String?),
           trigger: $checkedConvert('trigger', (v) => v as String?),
           reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
-          maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
-          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
-          marketCost: $checkedConvert('marketCost', (v) => v as int?),
-          itemCount: $checkedConvert('itemCount', (v) => v as int?),
+          maxLevelCap:
+              $checkedConvert('maxLevelCap', (v) => (v as num?)?.toInt() ?? 30),
+          masteryReq:
+              $checkedConvert('masteryReq', (v) => (v as num?)?.toInt()),
+          marketCost:
+              $checkedConvert('marketCost', (v) => (v as num?)?.toInt()),
+          itemCount: $checkedConvert('itemCount', (v) => (v as num?)?.toInt()),
+          buildPrice:
+              $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
         );
         return val;
       },
@@ -98,6 +105,7 @@ Map<String, dynamic> _$AmpToJson(Amp instance) {
   writeNotNull('wikiaUrl', instance.wikiaUrl);
   val['isPrime'] = instance.isPrime;
   writeNotNull('masteryReq', instance.masteryReq);
+  val['buildPrice'] = instance.buildPrice;
   writeNotNull(
       'components', instance.components?.map((e) => e.toJson()).toList());
   writeNotNull('marketCost', instance.marketCost);
@@ -147,13 +155,15 @@ AmpBuildable _$AmpBuildableFromJson(Map json) => $checkedCreate(
                       Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String),
-          buildQuantity: $checkedConvert('buildQuantity', (v) => v as int),
-          buildTime: $checkedConvert('buildTime', (v) => v as int),
+          buildQuantity:
+              $checkedConvert('buildQuantity', (v) => (v as num).toInt()),
+          buildTime: $checkedConvert('buildTime', (v) => (v as num).toInt()),
           skipBuildTimePrice:
-              $checkedConvert('skipBuildTimePrice', (v) => v as int),
+              $checkedConvert('skipBuildTimePrice', (v) => (v as num).toInt()),
           consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
-          masteryReq: $checkedConvert('masteryReq', (v) => v as int?),
+          masteryReq:
+              $checkedConvert('masteryReq', (v) => (v as num?)?.toInt()),
           components: $checkedConvert(
               'components',
               (v) => (v as List<dynamic>?)
@@ -161,9 +171,10 @@ AmpBuildable _$AmpBuildableFromJson(Map json) => $checkedCreate(
                       Component.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
-          marketCost: $checkedConvert('marketCost', (v) => v as int?),
-          bpCost: $checkedConvert('bpCost', (v) => v as int?),
-          itemCount: $checkedConvert('itemCount', (v) => v as int?),
+          marketCost:
+              $checkedConvert('marketCost', (v) => (v as num?)?.toInt()),
+          bpCost: $checkedConvert('bpCost', (v) => (v as num?)?.toInt()),
+          itemCount: $checkedConvert('itemCount', (v) => (v as num?)?.toInt()),
           wikiaThumbnail:
               $checkedConvert('wikiaThumbnail', (v) => v as String?),
           wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
@@ -183,7 +194,8 @@ AmpBuildable _$AmpBuildableFromJson(Map json) => $checkedCreate(
                   : Damage.fromJson(Map<String, dynamic>.from(v as Map))),
           damagePerShot: $checkedConvert('damagePerShot',
               (v) => (v as List<dynamic>).map((e) => e as num).toList()),
-          disposition: $checkedConvert('disposition', (v) => v as int?),
+          disposition:
+              $checkedConvert('disposition', (v) => (v as num?)?.toInt()),
           fireRate: $checkedConvert('fireRate', (v) => v as num),
           omegaAttenuation:
               $checkedConvert('omegaAttenuation', (v) => (v as num).toDouble()),
@@ -191,18 +203,21 @@ AmpBuildable _$AmpBuildableFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           procChance:
               $checkedConvert('procChance', (v) => (v as num).toDouble()),
-          slot: $checkedConvert('slot', (v) => v as int?),
+          slot: $checkedConvert('slot', (v) => (v as num?)?.toInt()),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           totalDamage: $checkedConvert('totalDamage', (v) => v as num),
-          maxLevelCap: $checkedConvert('maxLevelCap', (v) => v as int? ?? 30),
+          maxLevelCap:
+              $checkedConvert('maxLevelCap', (v) => (v as num?)?.toInt() ?? 30),
           accuracy: $checkedConvert('accuracy', (v) => v as num?),
-          magazineSize: $checkedConvert('magazineSize', (v) => v as int?),
-          multishot: $checkedConvert('multishot', (v) => v as int?),
+          magazineSize:
+              $checkedConvert('magazineSize', (v) => (v as num?)?.toInt()),
+          multishot: $checkedConvert('multishot', (v) => (v as num?)?.toInt()),
           noise: $checkedConvert('noise', (v) => v as String?),
           trigger: $checkedConvert('trigger', (v) => v as String?),
           reloadTime: $checkedConvert('reloadTime', (v) => v as num?),
-          buildPrice: $checkedConvert('buildPrice', (v) => v as int? ?? 0),
+          buildPrice:
+              $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
         );
         return val;
       },

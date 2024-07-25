@@ -61,8 +61,7 @@ class ResourceBuildable extends BuildableItem implements Resource {
     required super.itemCount,
     required super.wikiaThumbnail,
     required super.wikiaUrl,
-    super.isPrime = false,
-  });
+  }) : super(isPrime: false);
 
   /// Creates a Resource from Json map
   factory ResourceBuildable.fromJson(Map<String, dynamic> data) =>
