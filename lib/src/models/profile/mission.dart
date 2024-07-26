@@ -11,6 +11,7 @@ class ProfileMission extends Equatable {
   /// {@macro profile_missions}
   const ProfileMission({
     required this.node,
+    required this.nodeKey,
     required this.missionType,
     required this.faction,
     required this.highScore,
@@ -25,6 +26,9 @@ class ProfileMission extends Equatable {
 
   /// Node name
   final String node;
+
+  /// Node uniqueName
+  final String nodeKey;
 
   /// Node mission type
   final String? missionType;
@@ -46,6 +50,6 @@ class ProfileMission extends Equatable {
 
   @override
   List<Object?> get props {
-    return [node, missionType, faction, highScore, completes, tier];
+    return [node, nodeKey, missionType, faction, highScore, completes, tier];
   }
 }

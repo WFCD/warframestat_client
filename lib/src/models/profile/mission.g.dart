@@ -12,6 +12,7 @@ ProfileMission _$ProfileMissionFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = ProfileMission(
           node: $checkedConvert('node', (v) => v as String),
+          nodeKey: $checkedConvert('nodeKey', (v) => v as String),
           missionType: $checkedConvert('missionType', (v) => v as String?),
           faction: $checkedConvert('faction', (v) => v as String?),
           highScore: $checkedConvert('highScore', (v) => (v as num?)?.toInt()),
@@ -25,6 +26,7 @@ ProfileMission _$ProfileMissionFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$ProfileMissionToJson(ProfileMission instance) {
   final val = <String, dynamic>{
     'node': instance.node,
+    'nodeKey': instance.nodeKey,
   };
 
   void writeNotNull(String key, dynamic value) {
