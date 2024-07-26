@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/WFCD/warframestat_client/compare/v3.8.11...v3.9.0) (2024-07-26)
+
+
+### Features
+
+* **profile:** add nodeKey to mission nodes ([9e13a08](https://github.com/WFCD/warframestat_client/commit/9e13a08a6e40b9ac637ac5a72d6a14e2cebc3673))
+
 ## [3.8.11](https://github.com/WFCD/warframestat_client/compare/v3.8.10...v3.8.11) (2024-06-25)
 
 
