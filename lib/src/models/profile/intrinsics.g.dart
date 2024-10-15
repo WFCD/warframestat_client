@@ -11,7 +11,7 @@ Intrinsics _$IntrinsicsFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Intrinsics(
-          space: $checkedConvert('space', (v) => (v as num).toInt()),
+          railjack: $checkedConvert('railjack', (v) => (v as num).toInt()),
           engineering:
               $checkedConvert('engineering', (v) => (v as num).toInt()),
           gunnery: $checkedConvert('gunnery', (v) => (v as num).toInt()),
@@ -31,7 +31,7 @@ Intrinsics _$IntrinsicsFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$IntrinsicsToJson(Intrinsics instance) =>
     <String, dynamic>{
-      'space': instance.space,
+      'railjack': instance.railjack,
       'engineering': instance.engineering,
       'gunnery': instance.gunnery,
       'piloting': instance.piloting,

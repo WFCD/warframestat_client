@@ -10,7 +10,7 @@ part 'intrinsics.g.dart';
 class Intrinsics extends Equatable {
   /// {@macro intrinsics}
   const Intrinsics({
-    required this.space,
+    required this.railjack,
     required this.engineering,
     required this.gunnery,
     required this.piloting,
@@ -31,7 +31,7 @@ class Intrinsics extends Equatable {
   /// Railjack affinity owned
   ///
   /// Can be used to find intrinsic points
-  final int space;
+  final int railjack;
 
   /// Railjack engineering rank
   final int engineering;
@@ -71,7 +71,7 @@ class Intrinsics extends Equatable {
   @override
   List<Object?> get props {
     return [
-      space,
+      railjack,
       engineering,
       gunnery,
       piloting,
