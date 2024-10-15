@@ -17,8 +17,8 @@ GlobalUpgrade _$GlobalUpgradeFromJson(Map json) => $checkedCreate(
           operation: $checkedConvert('operation', (v) => v as String),
           operationSymbol:
               $checkedConvert('operationSymbol', (v) => v as String),
-          upgradeOperationValue:
-              $checkedConvert('upgradeOperationValue', (v) => v as int),
+          upgradeOperationValue: $checkedConvert(
+              'upgradeOperationValue', (v) => (v as num).toInt()),
           expired: $checkedConvert('expired', (v) => v as bool),
           desc: $checkedConvert('desc', (v) => v as String),
         );

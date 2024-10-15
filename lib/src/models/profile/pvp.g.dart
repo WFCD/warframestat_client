@@ -12,9 +12,11 @@ Pvp _$PvpFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = Pvp(
           uniqueName: $checkedConvert('uniqueName', (v) => v as String),
-          suitDeaths: $checkedConvert('suitDeaths', (v) => v as int?),
-          suitKills: $checkedConvert('suitKills', (v) => v as int?),
-          weaponKills: $checkedConvert('weaponKills', (v) => v as int?),
+          suitDeaths:
+              $checkedConvert('suitDeaths', (v) => (v as num?)?.toInt()),
+          suitKills: $checkedConvert('suitKills', (v) => (v as num?)?.toInt()),
+          weaponKills:
+              $checkedConvert('weaponKills', (v) => (v as num?)?.toInt()),
         );
         return val;
       },

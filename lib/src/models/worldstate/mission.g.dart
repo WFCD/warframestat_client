@@ -20,9 +20,12 @@ Mission _$MissionFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : Reward.fromJson(Map<String, dynamic>.from(v as Map))),
-          maxEnemyLevel: $checkedConvert('maxEnemyLevel', (v) => v as int?),
-          minEnemyLevel: $checkedConvert('minEnemyLevel', (v) => v as int?),
-          maxWaveNum: $checkedConvert('maxWaveNum', (v) => v as int?),
+          maxEnemyLevel:
+              $checkedConvert('maxEnemyLevel', (v) => (v as num?)?.toInt()),
+          minEnemyLevel:
+              $checkedConvert('minEnemyLevel', (v) => (v as num?)?.toInt()),
+          maxWaveNum:
+              $checkedConvert('maxWaveNum', (v) => (v as num?)?.toInt()),
           type: $checkedConvert('type', (v) => v as String),
           typeKey: $checkedConvert('typeKey', (v) => v as String?),
           nightmare: $checkedConvert('nightmare', (v) => v as bool?),

@@ -12,8 +12,8 @@ TraderItem _$TraderItemFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = TraderItem(
           item: $checkedConvert('item', (v) => v as String),
-          ducats: $checkedConvert('ducats', (v) => v as int?),
-          credits: $checkedConvert('credits', (v) => v as int?),
+          ducats: $checkedConvert('ducats', (v) => (v as num?)?.toInt()),
+          credits: $checkedConvert('credits', (v) => (v as num?)?.toInt()),
         );
         return val;
       },
