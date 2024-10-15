@@ -1,3 +1,16 @@
+# [3.10.0](https://github.com/WFCD/warframestat_client/compare/v3.9.0...v3.10.0) (2024-10-15)
+
+
+### Bug Fixes
+
+* **profile:** change `space` to `railjack` ([ed69277](https://github.com/WFCD/warframestat_client/commit/ed692770323c7b5a5707bf10e1f108fcef8c1ed8))
+
+
+### Features
+
+* **worldstate:** add Deep Archimedea models ([4f137d1](https://github.com/WFCD/warframestat_client/commit/4f137d1da0abd6f1a63620a7a00aa7ccf358c905))
+* **worldstate:** add kinepage model ([0711415](https://github.com/WFCD/warframestat_client/commit/0711415d009ab83fb256cb07f0f0ec87f947aa5b))
+
 # [3.9.0](https://github.com/WFCD/warframestat_client/compare/v3.8.11...v3.9.0) (2024-07-26)
 
 
