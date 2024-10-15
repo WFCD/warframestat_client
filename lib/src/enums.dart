@@ -41,7 +41,19 @@ enum Language {
   sr,
 
   /// Czech
-  cs
+  cs,
+
+  /// United Kingdowm
+  uk,
+
+  /// Japanese
+  ja,
+
+  /// Traditional Chines
+  tc,
+
+  /// Thai
+  th
 }
 
 extension on Language {

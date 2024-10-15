@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:warframestat_client/src/models/worldstate/kinepage.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 part 'worldstate.g.dart';
@@ -40,6 +41,7 @@ class Worldstate extends Equatable {
     required this.steelPath,
     required this.zarimanCycle,
     required this.duviriCycle,
+    required this.kinepage,
     required this.deepArchimedea,
   });
 
@@ -136,6 +138,9 @@ class Worldstate extends Equatable {
   /// Duviri cycle data.
   final DuviriCycle duviriCycle;
 
+  /// Recent kinepage message
+  final Kinepage kinepage;
+
   /// Deep Archimedea data
   final DeepArchimedea deepArchimedea;
 
@@ -171,6 +176,7 @@ class Worldstate extends Equatable {
         simaris,
         steelPath,
         duviriCycle,
+        kinepage,
         deepArchimedea,
       ];
 }
