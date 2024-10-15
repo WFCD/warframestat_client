@@ -40,6 +40,7 @@ class Worldstate extends Equatable {
     required this.steelPath,
     required this.zarimanCycle,
     required this.duviriCycle,
+    required this.deepArchimedea,
   });
 
   /// Creates a Worldstate from Json map
@@ -135,6 +136,9 @@ class Worldstate extends Equatable {
   /// Duviri cycle data.
   final DuviriCycle duviriCycle;
 
+  /// Deep Archimedea data
+  final DeepArchimedea deepArchimedea;
+
   /// Creates a Json map from a Worldstate
   Map<String, dynamic> toJson() => _$WorldstateToJson(this);
 
@@ -167,5 +171,6 @@ class Worldstate extends Equatable {
         simaris,
         steelPath,
         duviriCycle,
+        deepArchimedea,
       ];
 }
