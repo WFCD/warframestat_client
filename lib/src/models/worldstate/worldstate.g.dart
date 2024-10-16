@@ -141,8 +141,10 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
               (v) => Kinepage.fromJson(Map<String, dynamic>.from(v as Map))),
           deepArchimedea: $checkedConvert(
               'deepArchimedea',
-              (v) =>
-                  DeepArchimedea.fromJson(Map<String, dynamic>.from(v as Map))),
+              (v) => v == null
+                  ? null
+                  : DeepArchimedea.fromJson(
+                      Map<String, dynamic>.from(v as Map))),
         );
         return val;
       },
@@ -192,6 +194,6 @@ Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
   val['zarimanCycle'] = instance.zarimanCycle.toJson();
   val['duviriCycle'] = instance.duviriCycle.toJson();
   val['kinepage'] = instance.kinepage.toJson();
-  val['deepArchimedea'] = instance.deepArchimedea.toJson();
+  writeNotNull('deepArchimedea', instance.deepArchimedea?.toJson());
   return val;
 }

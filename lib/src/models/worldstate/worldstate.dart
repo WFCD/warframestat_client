@@ -142,7 +142,7 @@ class Worldstate extends Equatable {
   final Kinepage kinepage;
 
   /// Deep Archimedea data
-  final DeepArchimedea deepArchimedea;
+  final DeepArchimedea? deepArchimedea;
 
   /// Creates a Json map from a Worldstate
   Map<String, dynamic> toJson() => _$WorldstateToJson(this);
