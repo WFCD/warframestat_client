@@ -1,3 +1,10 @@
+## [3.10.1](https://github.com/WFCD/warframestat_client/compare/v3.10.0...v3.10.1) (2024-10-16)
+
+
+### Bug Fixes
+
+* deep archimedea may be nullable between rotations ([ccf0c67](https://github.com/WFCD/warframestat_client/commit/ccf0c671ab0c30b1cf423f3d92565b745dbc5833))
+
 # [3.10.0](https://github.com/WFCD/warframestat_client/compare/v3.9.0...v3.10.0) (2024-10-15)
 
 
