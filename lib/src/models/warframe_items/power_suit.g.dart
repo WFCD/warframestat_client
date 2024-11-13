@@ -13,6 +13,7 @@ Ability _$AbilityFromJson(Map json) => $checkedCreate(
         final val = Ability(
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
+          imageName: $checkedConvert('imageName', (v) => v as String),
         );
         return val;
       },
@@ -21,4 +22,5 @@ Ability _$AbilityFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$AbilityToJson(Ability instance) => <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
+      'imageName': instance.imageName,
     };

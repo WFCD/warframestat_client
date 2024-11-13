@@ -83,7 +83,11 @@ abstract class PowerSuit extends BuildableItem {
 @JsonSerializable()
 class Ability extends Equatable {
   /// {@macro ability}
-  const Ability({required this.name, required this.description});
+  const Ability({
+    required this.name,
+    required this.description,
+    required this.imageName,
+  });
 
   /// Creats an [Ability] from a json map.
   factory Ability.fromJson(Map<String, dynamic> json) {
@@ -95,6 +99,9 @@ class Ability extends Equatable {
 
   /// Ability desccription.
   final String description;
+
+  /// Image name
+  final String imageName;
 
   /// Creates a json map from an [Ability]
   Map<String, dynamic> toJson() => _$AbilityToJson(this);
