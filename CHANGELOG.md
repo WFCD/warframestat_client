@@ -1,3 +1,15 @@
+# [3.11.0](https://github.com/WFCD/warframestat_client/compare/v3.10.1...v3.11.0) (2024-11-13)
+
+
+### Bug Fixes
+
+* parse Helminth into it's own type ([d3a4d35](https://github.com/WFCD/warframestat_client/commit/d3a4d352afd0d210584b72f8519f597e690ad08f))
+
+
+### Features
+
+* add `imageName` to `Ability` ([8080de6](https://github.com/WFCD/warframestat_client/commit/8080de6a2a8376aa034ac76211d6ee1d65ea1864))
+
 ## [3.10.1](https://github.com/WFCD/warframestat_client/compare/v3.10.0...v3.10.1) (2024-10-16)
 
 
