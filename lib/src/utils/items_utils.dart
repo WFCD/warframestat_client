@@ -1,3 +1,4 @@
+import 'package:warframestat_client/src/models/warframe_items/helminth.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 /// Converts search items to a list of [MinimalItem]s.
@@ -87,8 +88,9 @@ Item toItem(Map<String, dynamic> item) {
     case ItemType.warframes:
       // NecroMechs and Warframes are stored with the same cateogry so we need
       // to filter by productCateogry here.
-      final productCategory = item['productCategory'] as String;
+      final productCategory = item['productCategory'] as String?;
       if (productCategory == 'MechSuits') return Necramech.fromJson(item);
+      if (name == 'Helminth') return Helminth.fromJson(item);
 
       return Warframe.fromJson(item);
     case ItemType.companionWeapon:
