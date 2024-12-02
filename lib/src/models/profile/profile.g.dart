@@ -110,74 +110,64 @@ Profile _$ProfileFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'username': 'displayName'},
     );
 
-Map<String, dynamic> _$ProfileToJson(Profile instance) {
-  final val = <String, dynamic>{
-    'accountId': instance.accountId,
-    'displayName': instance.username,
-    'masteryRank': instance.masteryRank,
-    'loadout': instance.loadout.toJson(),
-    'intrinsics': instance.intrinsics.toJson(),
-    'challengeProgress': instance.challengeProgress
-        .map((e) => <String, dynamic>{
-              'name': e.name,
-              'progress': e.progress,
-            })
-        .toList(),
-    'guildId': instance.guildId,
-    'guildName': instance.guildName,
-    'guildTier': instance.guildTier,
-    'guildXp': instance.guildXp,
-    'guildClass': instance.guildClass,
-    'guildEmblem': instance.guildEmblem,
-    'allianceId': instance.allianceId,
-    'deathMarks': instance.deathMarks,
-    'harvestable': instance.harvestable,
-    'deathSquadable': instance.deathSquadable,
-    'created': instance.created.toIso8601String(),
-    'migratedToConsole': instance.migratedToConsole,
-    'missions': instance.missions.map((e) => e.toJson()).toList(),
-    'syndicates': instance.syndicates
-        .map((e) => <String, dynamic>{
-              'name': e.name,
-              'standing': e.standing,
-              'title': e.title,
-            })
-        .toList(),
-    'dailyStanding': <String, dynamic>{
-      'cavia': instance.dailyStanding.cavia,
-      'conclave': instance.dailyStanding.conclave,
-      'daily': instance.dailyStanding.daily,
-      'entrati': instance.dailyStanding.entrati,
-      'holdfasts': instance.dailyStanding.holdfasts,
-      'kahl': instance.dailyStanding.kahl,
-      'necraloid': instance.dailyStanding.necraloid,
-      'ostron': instance.dailyStanding.ostron,
-      'quills': instance.dailyStanding.quills,
-      'simaris': instance.dailyStanding.simaris,
-      'solaris': instance.dailyStanding.solaris,
-      'ventKids': instance.dailyStanding.ventKids,
-      'voxSolaris': instance.dailyStanding.voxSolaris,
-    },
-    'dailyFocus': instance.dailyFocus,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('wishList', instance.wishList);
-  val['unlockedOperator'] = instance.unlockedOperator;
-  val['unlockedAlignment'] = instance.unlockedAlignment;
-  val['operatorLoadouts'] =
-      instance.operatorLoadouts.map((e) => e.toJson()).toList();
-  val['alignment'] = <String, dynamic>{
-    'alignment': instance.alignment.alignment,
-    'wisdom': instance.alignment.wisdom,
-  };
-  return val;
-}
+Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
+      'accountId': instance.accountId,
+      'displayName': instance.username,
+      'masteryRank': instance.masteryRank,
+      'loadout': instance.loadout.toJson(),
+      'intrinsics': instance.intrinsics.toJson(),
+      'challengeProgress': instance.challengeProgress
+          .map((e) => <String, dynamic>{
+                'name': e.name,
+                'progress': e.progress,
+              })
+          .toList(),
+      'guildId': instance.guildId,
+      'guildName': instance.guildName,
+      'guildTier': instance.guildTier,
+      'guildXp': instance.guildXp,
+      'guildClass': instance.guildClass,
+      'guildEmblem': instance.guildEmblem,
+      'allianceId': instance.allianceId,
+      'deathMarks': instance.deathMarks,
+      'harvestable': instance.harvestable,
+      'deathSquadable': instance.deathSquadable,
+      'created': instance.created.toIso8601String(),
+      'migratedToConsole': instance.migratedToConsole,
+      'missions': instance.missions.map((e) => e.toJson()).toList(),
+      'syndicates': instance.syndicates
+          .map((e) => <String, dynamic>{
+                'name': e.name,
+                'standing': e.standing,
+                'title': e.title,
+              })
+          .toList(),
+      'dailyStanding': <String, dynamic>{
+        'cavia': instance.dailyStanding.cavia,
+        'conclave': instance.dailyStanding.conclave,
+        'daily': instance.dailyStanding.daily,
+        'entrati': instance.dailyStanding.entrati,
+        'holdfasts': instance.dailyStanding.holdfasts,
+        'kahl': instance.dailyStanding.kahl,
+        'necraloid': instance.dailyStanding.necraloid,
+        'ostron': instance.dailyStanding.ostron,
+        'quills': instance.dailyStanding.quills,
+        'simaris': instance.dailyStanding.simaris,
+        'solaris': instance.dailyStanding.solaris,
+        'ventKids': instance.dailyStanding.ventKids,
+        'voxSolaris': instance.dailyStanding.voxSolaris,
+      },
+      'dailyFocus': instance.dailyFocus,
+      if (instance.wishList case final value?) 'wishList': value,
+      'unlockedOperator': instance.unlockedOperator,
+      'unlockedAlignment': instance.unlockedAlignment,
+      'operatorLoadouts':
+          instance.operatorLoadouts.map((e) => e.toJson()).toList(),
+      'alignment': <String, dynamic>{
+        'alignment': instance.alignment.alignment,
+        'wisdom': instance.alignment.wisdom,
+      },
+    };
 
 $Rec _$recordConvertAny<$Rec>(
   Object? value,

@@ -59,43 +59,35 @@ Mod _$ModFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ModToJson(Mod instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('releaseDate', instance.releaseDate);
-  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
-  writeNotNull('wikiaUrl', instance.wikiaUrl);
-  writeNotNull('rarity', _$RarityEnumMap[instance.rarity]);
-  writeNotNull('drops', instance.drops?.map((e) => e.toJson()).toList());
-  val['isPrime'] = instance.isPrime;
-  writeNotNull('polarity', instance.polarity);
-  writeNotNull('baseDrain', instance.baseDrain);
-  writeNotNull('compatName', instance.compatName);
-  writeNotNull('fusionLimit', instance.fusionLimit);
-  writeNotNull('isAugment', instance.isAugment);
-  writeNotNull(
-      'levelStats', instance.levelStats?.map((e) => e.toJson()).toList());
-  writeNotNull('transmutable', instance.transmutable);
-  writeNotNull('modSet', instance.modSet);
-  return val;
-}
+Map<String, dynamic> _$ModToJson(Mod instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      'tradable': instance.tradable,
+      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
+        'patchlogs': value,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.releaseDate case final value?) 'releaseDate': value,
+      if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
+      if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
+      if (_$RarityEnumMap[instance.rarity] case final value?) 'rarity': value,
+      if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
+        'drops': value,
+      'isPrime': instance.isPrime,
+      if (instance.polarity case final value?) 'polarity': value,
+      if (instance.baseDrain case final value?) 'baseDrain': value,
+      if (instance.compatName case final value?) 'compatName': value,
+      if (instance.fusionLimit case final value?) 'fusionLimit': value,
+      if (instance.isAugment case final value?) 'isAugment': value,
+      if (instance.levelStats?.map((e) => e.toJson()).toList()
+          case final value?)
+        'levelStats': value,
+      if (instance.transmutable case final value?) 'transmutable': value,
+      if (instance.modSet case final value?) 'modSet': value,
+    };
 
 const _$RarityEnumMap = {
   Rarity.common: 'Common',
@@ -144,31 +136,22 @@ ModSet _$ModSetFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ModSetToJson(ModSet instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('releaseDate', instance.releaseDate);
-  writeNotNull('rarity', _$RarityEnumMap[instance.rarity]);
-  writeNotNull('drops', instance.drops?.map((e) => e.toJson()).toList());
-  val['isPrime'] = instance.isPrime;
-  val['numUpgradesInSet'] = instance.numUpgradesInSet;
-  val['stats'] = instance.stats;
-  return val;
-}
+Map<String, dynamic> _$ModSetToJson(ModSet instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      'tradable': instance.tradable,
+      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
+        'patchlogs': value,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.releaseDate case final value?) 'releaseDate': value,
+      if (_$RarityEnumMap[instance.rarity] case final value?) 'rarity': value,
+      if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
+        'drops': value,
+      'isPrime': instance.isPrime,
+      'numUpgradesInSet': instance.numUpgradesInSet,
+      'stats': instance.stats,
+    };

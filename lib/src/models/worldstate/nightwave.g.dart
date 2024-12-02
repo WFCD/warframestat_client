@@ -40,31 +40,21 @@ Nightwave _$NightwaveFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$NightwaveToJson(Nightwave instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'activation': instance.activation.toIso8601String(),
-    'expiry': instance.expiry.toIso8601String(),
-    'active': instance.active,
-    'params': instance.params,
-    'rewardTypes': instance.rewardTypes,
-    'season': instance.season,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ta', instance.ta);
-  val['phase'] = instance.phase;
-  val['possibleChallenges'] =
-      instance.possibleChallenges.map((e) => e.toJson()).toList();
-  val['activeChallenges'] =
-      instance.activeChallenges.map((e) => e.toJson()).toList();
-  return val;
-}
+Map<String, dynamic> _$NightwaveToJson(Nightwave instance) => <String, dynamic>{
+      'id': instance.id,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'active': instance.active,
+      'params': instance.params,
+      'rewardTypes': instance.rewardTypes,
+      'season': instance.season,
+      if (instance.ta case final value?) 'ta': value,
+      'phase': instance.phase,
+      'possibleChallenges':
+          instance.possibleChallenges.map((e) => e.toJson()).toList(),
+      'activeChallenges':
+          instance.activeChallenges.map((e) => e.toJson()).toList(),
+    };
 
 Challenge _$ChallengeFromJson(Map json) => $checkedCreate(
       'Challenge',
@@ -86,23 +76,15 @@ Challenge _$ChallengeFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ChallengeToJson(Challenge instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('activation', instance.activation?.toIso8601String());
-  writeNotNull('expiry', instance.expiry?.toIso8601String());
-  val['title'] = instance.title;
-  val['desc'] = instance.desc;
-  val['reputation'] = instance.reputation;
-  val['active'] = instance.active;
-  val['isDaily'] = instance.isDaily;
-  val['isElite'] = instance.isElite;
-  return val;
-}
+Map<String, dynamic> _$ChallengeToJson(Challenge instance) => <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.activation?.toIso8601String() case final value?)
+        'activation': value,
+      if (instance.expiry?.toIso8601String() case final value?) 'expiry': value,
+      'title': instance.title,
+      'desc': instance.desc,
+      'reputation': instance.reputation,
+      'active': instance.active,
+      'isDaily': instance.isDaily,
+      'isElite': instance.isElite,
+    };

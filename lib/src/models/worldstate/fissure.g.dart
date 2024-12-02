@@ -31,29 +31,19 @@ Fissure _$FissureFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$FissureToJson(Fissure instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'activation': instance.activation.toIso8601String(),
-    'expiry': instance.expiry.toIso8601String(),
-    'active': instance.active,
-    'node': instance.node,
-    'expired': instance.expired,
-    'missionType': instance.missionType,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('missionKey', instance.missionKey);
-  val['tier'] = instance.tier;
-  val['tierNum'] = instance.tierNum;
-  val['enemy'] = instance.enemy;
-  writeNotNull('enemyKey', instance.enemyKey);
-  val['isStorm'] = instance.isStorm;
-  val['isHard'] = instance.isHard;
-  return val;
-}
+Map<String, dynamic> _$FissureToJson(Fissure instance) => <String, dynamic>{
+      'id': instance.id,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'active': instance.active,
+      'node': instance.node,
+      'expired': instance.expired,
+      'missionType': instance.missionType,
+      if (instance.missionKey case final value?) 'missionKey': value,
+      'tier': instance.tier,
+      'tierNum': instance.tierNum,
+      'enemy': instance.enemy,
+      if (instance.enemyKey case final value?) 'enemyKey': value,
+      'isStorm': instance.isStorm,
+      'isHard': instance.isHard,
+    };

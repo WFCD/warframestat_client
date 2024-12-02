@@ -101,58 +101,54 @@ WorldEvent _$WorldEventFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'activation': instance.activation.toIso8601String(),
-    'expiry': instance.expiry.toIso8601String(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('previousId', instance.previousId);
-  val['startString'] = instance.startString;
-  val['active'] = instance.active;
-  writeNotNull('maximumScore', instance.maximumScore);
-  writeNotNull('currentScore', instance.currentScore);
-  writeNotNull('smallInterval', instance.smallInterval);
-  writeNotNull('largeInterval', instance.largeInterval);
-  writeNotNull('faction', instance.faction);
-  val['description'] = instance.description;
-  writeNotNull('tooltip', instance.tooltip);
-  writeNotNull('node', instance.node);
-  val['concurrentNodes'] = instance.concurrentNodes;
-  writeNotNull('victimNode', instance.victimNode);
-  writeNotNull('scoreLocTag', instance.scoreLocTag);
-  val['rewards'] = instance.rewards.map((e) => e.toJson()).toList();
-  val['expired'] = instance.expired;
-  writeNotNull('health', instance.health);
-  writeNotNull('affiliatedWith', instance.affiliatedWith);
-  writeNotNull('jobs', instance.jobs?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'previousJobs', instance.previousJobs?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'interimSteps', instance.interimSteps?.map((e) => e.toJson()).toList());
-  val['progressSteps'] = instance.progressSteps.map((e) => e.toJson()).toList();
-  writeNotNull('progressTotal', instance.progressTotal);
-  writeNotNull('showTotalAtEndOfMission', instance.showTotalAtEndOfMission);
-  writeNotNull('isPersonal', instance.isPersonal);
-  writeNotNull('isCommunity', instance.isCommunity);
-  writeNotNull('regionDrops', instance.regionDrops);
-  writeNotNull('archwingDrops', instance.archwingDrops);
-  writeNotNull('metadata', instance.metadata);
-  writeNotNull('completionBonuses', instance.completionBonuses);
-  writeNotNull('scoreVar', instance.scoreVar);
-  val['asString'] = instance.asString;
-  val['altExpiry'] = instance.altExpiry.toIso8601String();
-  val['altActivation'] = instance.altActivation.toIso8601String();
-  val['nextAlt'] = instance.nextAlt.toJson();
-  return val;
-}
+Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      if (instance.previousId case final value?) 'previousId': value,
+      'startString': instance.startString,
+      'active': instance.active,
+      if (instance.maximumScore case final value?) 'maximumScore': value,
+      if (instance.currentScore case final value?) 'currentScore': value,
+      if (instance.smallInterval case final value?) 'smallInterval': value,
+      if (instance.largeInterval case final value?) 'largeInterval': value,
+      if (instance.faction case final value?) 'faction': value,
+      'description': instance.description,
+      if (instance.tooltip case final value?) 'tooltip': value,
+      if (instance.node case final value?) 'node': value,
+      'concurrentNodes': instance.concurrentNodes,
+      if (instance.victimNode case final value?) 'victimNode': value,
+      if (instance.scoreLocTag case final value?) 'scoreLocTag': value,
+      'rewards': instance.rewards.map((e) => e.toJson()).toList(),
+      'expired': instance.expired,
+      if (instance.health case final value?) 'health': value,
+      if (instance.affiliatedWith case final value?) 'affiliatedWith': value,
+      if (instance.jobs?.map((e) => e.toJson()).toList() case final value?)
+        'jobs': value,
+      if (instance.previousJobs?.map((e) => e.toJson()).toList()
+          case final value?)
+        'previousJobs': value,
+      if (instance.interimSteps?.map((e) => e.toJson()).toList()
+          case final value?)
+        'interimSteps': value,
+      'progressSteps': instance.progressSteps.map((e) => e.toJson()).toList(),
+      if (instance.progressTotal case final value?) 'progressTotal': value,
+      if (instance.showTotalAtEndOfMission case final value?)
+        'showTotalAtEndOfMission': value,
+      if (instance.isPersonal case final value?) 'isPersonal': value,
+      if (instance.isCommunity case final value?) 'isCommunity': value,
+      if (instance.regionDrops case final value?) 'regionDrops': value,
+      if (instance.archwingDrops case final value?) 'archwingDrops': value,
+      if (instance.metadata case final value?) 'metadata': value,
+      if (instance.completionBonuses case final value?)
+        'completionBonuses': value,
+      if (instance.scoreVar case final value?) 'scoreVar': value,
+      'asString': instance.asString,
+      'altExpiry': instance.altExpiry.toIso8601String(),
+      'altActivation': instance.altActivation.toIso8601String(),
+      'nextAlt': instance.nextAlt.toJson(),
+    };
 
 InterimStep _$InterimStepFromJson(Map json) => $checkedCreate(
       'InterimStep',
@@ -191,22 +187,13 @@ Message _$MessageFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$MessageToJson(Message instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('sender', instance.sender);
-  writeNotNull('subject', instance.subject);
-  writeNotNull('message', instance.message);
-  writeNotNull('senderIcon', instance.senderIcon);
-  writeNotNull('attachments', instance.attachments);
-  return val;
-}
+Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
+      if (instance.sender case final value?) 'sender': value,
+      if (instance.subject case final value?) 'subject': value,
+      if (instance.message case final value?) 'message': value,
+      if (instance.senderIcon case final value?) 'senderIcon': value,
+      if (instance.attachments case final value?) 'attachments': value,
+    };
 
 ProgressStep _$ProgressStepFromJson(Map json) => $checkedCreate(
       'ProgressStep',

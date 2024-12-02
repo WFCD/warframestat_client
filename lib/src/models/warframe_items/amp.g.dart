@@ -82,56 +82,48 @@ Amp _$AmpFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$AmpToJson(Amp instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('releaseDate', instance.releaseDate);
-  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
-  writeNotNull('wikiaUrl', instance.wikiaUrl);
-  val['isPrime'] = instance.isPrime;
-  writeNotNull('masteryReq', instance.masteryReq);
-  val['buildPrice'] = instance.buildPrice;
-  writeNotNull(
-      'components', instance.components?.map((e) => e.toJson()).toList());
-  writeNotNull('marketCost', instance.marketCost);
-  writeNotNull('itemCount', instance.itemCount);
-  writeNotNull('attacks', instance.attacks?.map((e) => e.toJson()).toList());
-  val['criticalChance'] = instance.criticalChance;
-  val['criticalMultiplier'] = instance.criticalMultiplier;
-  writeNotNull('damage', instance.damage?.toJson());
-  val['damagePerShot'] = instance.damagePerShot;
-  writeNotNull('disposition', instance.disposition);
-  val['fireRate'] = instance.fireRate;
-  val['omegaAttenuation'] = instance.omegaAttenuation;
-  writeNotNull('polarities', instance.polarities);
-  val['procChance'] = instance.procChance;
-  writeNotNull('slot', instance.slot);
-  writeNotNull('tags', instance.tags);
-  val['totalDamage'] = instance.totalDamage;
-  val['maxLevelCap'] = instance.maxLevelCap;
-  writeNotNull('accuracy', instance.accuracy);
-  writeNotNull('magazineSize', instance.magazineSize);
-  writeNotNull('multishot', instance.multishot);
-  writeNotNull('noise', instance.noise);
-  writeNotNull('trigger', instance.trigger);
-  writeNotNull('reloadTime', instance.reloadTime);
-  return val;
-}
+Map<String, dynamic> _$AmpToJson(Amp instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      'tradable': instance.tradable,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.releaseDate case final value?) 'releaseDate': value,
+      if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
+      if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
+      'isPrime': instance.isPrime,
+      if (instance.masteryReq case final value?) 'masteryReq': value,
+      'buildPrice': instance.buildPrice,
+      if (instance.components?.map((e) => e.toJson()).toList()
+          case final value?)
+        'components': value,
+      if (instance.marketCost case final value?) 'marketCost': value,
+      if (instance.itemCount case final value?) 'itemCount': value,
+      if (instance.attacks?.map((e) => e.toJson()).toList() case final value?)
+        'attacks': value,
+      'criticalChance': instance.criticalChance,
+      'criticalMultiplier': instance.criticalMultiplier,
+      if (instance.damage?.toJson() case final value?) 'damage': value,
+      'damagePerShot': instance.damagePerShot,
+      if (instance.disposition case final value?) 'disposition': value,
+      'fireRate': instance.fireRate,
+      'omegaAttenuation': instance.omegaAttenuation,
+      if (instance.polarities case final value?) 'polarities': value,
+      'procChance': instance.procChance,
+      if (instance.slot case final value?) 'slot': value,
+      if (instance.tags case final value?) 'tags': value,
+      'totalDamage': instance.totalDamage,
+      'maxLevelCap': instance.maxLevelCap,
+      if (instance.accuracy case final value?) 'accuracy': value,
+      if (instance.magazineSize case final value?) 'magazineSize': value,
+      if (instance.multishot case final value?) 'multishot': value,
+      if (instance.noise case final value?) 'noise': value,
+      if (instance.trigger case final value?) 'trigger': value,
+      if (instance.reloadTime case final value?) 'reloadTime': value,
+    };
 
 AmpBuildable _$AmpBuildableFromJson(Map json) => $checkedCreate(
       'AmpBuildable',
@@ -223,61 +215,54 @@ AmpBuildable _$AmpBuildableFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$AmpBuildableToJson(AmpBuildable instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('releaseDate', instance.releaseDate);
-  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
-  writeNotNull('wikiaUrl', instance.wikiaUrl);
-  val['isPrime'] = instance.isPrime;
-  writeNotNull('vaulted', instance.vaulted);
-  writeNotNull('masteryReq', instance.masteryReq);
-  val['buildPrice'] = instance.buildPrice;
-  val['buildQuantity'] = instance.buildQuantity;
-  val['buildTime'] = instance.buildTime;
-  val['skipBuildTimePrice'] = instance.skipBuildTimePrice;
-  val['consumeOnBuild'] = instance.consumeOnBuild;
-  writeNotNull(
-      'components', instance.components?.map((e) => e.toJson()).toList());
-  writeNotNull('marketCost', instance.marketCost);
-  writeNotNull('bpCost', instance.bpCost);
-  writeNotNull('itemCount', instance.itemCount);
-  writeNotNull('attacks', instance.attacks?.map((e) => e.toJson()).toList());
-  val['criticalChance'] = instance.criticalChance;
-  val['criticalMultiplier'] = instance.criticalMultiplier;
-  writeNotNull('damage', instance.damage?.toJson());
-  val['damagePerShot'] = instance.damagePerShot;
-  writeNotNull('disposition', instance.disposition);
-  val['fireRate'] = instance.fireRate;
-  val['omegaAttenuation'] = instance.omegaAttenuation;
-  writeNotNull('polarities', instance.polarities);
-  val['procChance'] = instance.procChance;
-  writeNotNull('slot', instance.slot);
-  writeNotNull('tags', instance.tags);
-  val['totalDamage'] = instance.totalDamage;
-  val['maxLevelCap'] = instance.maxLevelCap;
-  writeNotNull('accuracy', instance.accuracy);
-  writeNotNull('magazineSize', instance.magazineSize);
-  writeNotNull('multishot', instance.multishot);
-  writeNotNull('noise', instance.noise);
-  writeNotNull('trigger', instance.trigger);
-  writeNotNull('reloadTime', instance.reloadTime);
-  return val;
-}
+Map<String, dynamic> _$AmpBuildableToJson(AmpBuildable instance) =>
+    <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      'tradable': instance.tradable,
+      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
+        'patchlogs': value,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.releaseDate case final value?) 'releaseDate': value,
+      if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
+      if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
+      'isPrime': instance.isPrime,
+      if (instance.vaulted case final value?) 'vaulted': value,
+      if (instance.masteryReq case final value?) 'masteryReq': value,
+      'buildPrice': instance.buildPrice,
+      'buildQuantity': instance.buildQuantity,
+      'buildTime': instance.buildTime,
+      'skipBuildTimePrice': instance.skipBuildTimePrice,
+      'consumeOnBuild': instance.consumeOnBuild,
+      if (instance.components?.map((e) => e.toJson()).toList()
+          case final value?)
+        'components': value,
+      if (instance.marketCost case final value?) 'marketCost': value,
+      if (instance.bpCost case final value?) 'bpCost': value,
+      if (instance.itemCount case final value?) 'itemCount': value,
+      if (instance.attacks?.map((e) => e.toJson()).toList() case final value?)
+        'attacks': value,
+      'criticalChance': instance.criticalChance,
+      'criticalMultiplier': instance.criticalMultiplier,
+      if (instance.damage?.toJson() case final value?) 'damage': value,
+      'damagePerShot': instance.damagePerShot,
+      if (instance.disposition case final value?) 'disposition': value,
+      'fireRate': instance.fireRate,
+      'omegaAttenuation': instance.omegaAttenuation,
+      if (instance.polarities case final value?) 'polarities': value,
+      'procChance': instance.procChance,
+      if (instance.slot case final value?) 'slot': value,
+      if (instance.tags case final value?) 'tags': value,
+      'totalDamage': instance.totalDamage,
+      'maxLevelCap': instance.maxLevelCap,
+      if (instance.accuracy case final value?) 'accuracy': value,
+      if (instance.magazineSize case final value?) 'magazineSize': value,
+      if (instance.multishot case final value?) 'multishot': value,
+      if (instance.noise case final value?) 'noise': value,
+      if (instance.trigger case final value?) 'trigger': value,
+      if (instance.reloadTime case final value?) 'reloadTime': value,
+    };

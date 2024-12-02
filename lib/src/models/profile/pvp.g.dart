@@ -22,19 +22,9 @@ Pvp _$PvpFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$PvpToJson(Pvp instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('suitDeaths', instance.suitDeaths);
-  writeNotNull('suitKills', instance.suitKills);
-  writeNotNull('weaponKills', instance.weaponKills);
-  return val;
-}
+Map<String, dynamic> _$PvpToJson(Pvp instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      if (instance.suitDeaths case final value?) 'suitDeaths': value,
+      if (instance.suitKills case final value?) 'suitKills': value,
+      if (instance.weaponKills case final value?) 'weaponKills': value,
+    };

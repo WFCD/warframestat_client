@@ -150,50 +150,43 @@ Worldstate _$WorldstateFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$WorldstateToJson(Worldstate instance) {
-  final val = <String, dynamic>{
-    'timestamp': instance.timestamp.toIso8601String(),
-    'alerts': instance.alerts.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('arbitration', instance.arbitration?.toJson());
-  val['weeklyChallenges'] =
-      instance.weeklyChallenges.map((e) => e.toJson()).toList();
-  val['archonHunt'] = instance.archonHunt.toJson();
-  val['cambionCycle'] = instance.cambionCycle.toJson();
-  val['syndicateMissions'] =
-      instance.syndicateMissions.map((e) => e.toJson()).toList();
-  val['cetusCycle'] = instance.cetusCycle.toJson();
-  val['conclaveChallenges'] =
-      instance.conclaveChallenges.map((e) => e.toJson()).toList();
-  val['constructionProgress'] = instance.constructionProgress.toJson();
-  val['dailyDeals'] = instance.dailyDeals.map((e) => e.toJson()).toList();
-  val['earthCycle'] = instance.earthCycle.toJson();
-  val['events'] = instance.events.map((e) => e.toJson()).toList();
-  val['fissures'] = instance.fissures.map((e) => e.toJson()).toList();
-  val['flashSales'] = instance.flashSales.map((e) => e.toJson()).toList();
-  val['globalUpgrades'] =
-      instance.globalUpgrades.map((e) => e.toJson()).toList();
-  val['invasions'] = instance.invasions.map((e) => e.toJson()).toList();
-  val['kuva'] = instance.kuva.map((e) => e.toJson()).toList();
-  val['news'] = instance.news.map((e) => e.toJson()).toList();
-  writeNotNull('nightwave', instance.nightwave?.toJson());
-  val['sortie'] = instance.sortie.toJson();
-  val['vallisCycle'] = instance.vallisCycle.toJson();
-  val['voidTraders'] = instance.voidTraders.map((e) => e.toJson()).toList();
-  val['vaultTrader'] = instance.vaultTrader.toJson();
-  writeNotNull('sentientOutposts', instance.sentientOutposts?.toJson());
-  val['simaris'] = instance.simaris.toJson();
-  val['steelPath'] = instance.steelPath.toJson();
-  val['zarimanCycle'] = instance.zarimanCycle.toJson();
-  val['duviriCycle'] = instance.duviriCycle.toJson();
-  val['kinepage'] = instance.kinepage.toJson();
-  writeNotNull('deepArchimedea', instance.deepArchimedea?.toJson());
-  return val;
-}
+Map<String, dynamic> _$WorldstateToJson(Worldstate instance) =>
+    <String, dynamic>{
+      'timestamp': instance.timestamp.toIso8601String(),
+      'alerts': instance.alerts.map((e) => e.toJson()).toList(),
+      if (instance.arbitration?.toJson() case final value?)
+        'arbitration': value,
+      'weeklyChallenges':
+          instance.weeklyChallenges.map((e) => e.toJson()).toList(),
+      'archonHunt': instance.archonHunt.toJson(),
+      'cambionCycle': instance.cambionCycle.toJson(),
+      'syndicateMissions':
+          instance.syndicateMissions.map((e) => e.toJson()).toList(),
+      'cetusCycle': instance.cetusCycle.toJson(),
+      'conclaveChallenges':
+          instance.conclaveChallenges.map((e) => e.toJson()).toList(),
+      'constructionProgress': instance.constructionProgress.toJson(),
+      'dailyDeals': instance.dailyDeals.map((e) => e.toJson()).toList(),
+      'earthCycle': instance.earthCycle.toJson(),
+      'events': instance.events.map((e) => e.toJson()).toList(),
+      'fissures': instance.fissures.map((e) => e.toJson()).toList(),
+      'flashSales': instance.flashSales.map((e) => e.toJson()).toList(),
+      'globalUpgrades': instance.globalUpgrades.map((e) => e.toJson()).toList(),
+      'invasions': instance.invasions.map((e) => e.toJson()).toList(),
+      'kuva': instance.kuva.map((e) => e.toJson()).toList(),
+      'news': instance.news.map((e) => e.toJson()).toList(),
+      if (instance.nightwave?.toJson() case final value?) 'nightwave': value,
+      'sortie': instance.sortie.toJson(),
+      'vallisCycle': instance.vallisCycle.toJson(),
+      'voidTraders': instance.voidTraders.map((e) => e.toJson()).toList(),
+      'vaultTrader': instance.vaultTrader.toJson(),
+      if (instance.sentientOutposts?.toJson() case final value?)
+        'sentientOutposts': value,
+      'simaris': instance.simaris.toJson(),
+      'steelPath': instance.steelPath.toJson(),
+      'zarimanCycle': instance.zarimanCycle.toJson(),
+      'duviriCycle': instance.duviriCycle.toJson(),
+      'kinepage': instance.kinepage.toJson(),
+      if (instance.deepArchimedea?.toJson() case final value?)
+        'deepArchimedea': value,
+    };

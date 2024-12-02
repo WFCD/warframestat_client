@@ -71,48 +71,39 @@ Archwing _$ArchwingFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ArchwingToJson(Archwing instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('releaseDate', instance.releaseDate);
-  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
-  writeNotNull('wikiaUrl', instance.wikiaUrl);
-  val['isPrime'] = instance.isPrime;
-  writeNotNull('vaulted', instance.vaulted);
-  writeNotNull('masteryReq', instance.masteryReq);
-  val['buildPrice'] = instance.buildPrice;
-  val['buildQuantity'] = instance.buildQuantity;
-  val['buildTime'] = instance.buildTime;
-  val['skipBuildTimePrice'] = instance.skipBuildTimePrice;
-  val['consumeOnBuild'] = instance.consumeOnBuild;
-  writeNotNull(
-      'components', instance.components?.map((e) => e.toJson()).toList());
-  writeNotNull('marketCost', instance.marketCost);
-  writeNotNull('bpCost', instance.bpCost);
-  writeNotNull('itemCount', instance.itemCount);
-  val['shield'] = instance.shield;
-  val['armor'] = instance.armor;
-  val['health'] = instance.health;
-  val['stamina'] = instance.stamina;
-  val['power'] = instance.power;
-  writeNotNull('polarities', instance.polarities);
-  val['abilities'] = instance.abilities.map((e) => e.toJson()).toList();
-  return val;
-}
+Map<String, dynamic> _$ArchwingToJson(Archwing instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      'tradable': instance.tradable,
+      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
+        'patchlogs': value,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.releaseDate case final value?) 'releaseDate': value,
+      if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
+      if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
+      'isPrime': instance.isPrime,
+      if (instance.vaulted case final value?) 'vaulted': value,
+      if (instance.masteryReq case final value?) 'masteryReq': value,
+      'buildPrice': instance.buildPrice,
+      'buildQuantity': instance.buildQuantity,
+      'buildTime': instance.buildTime,
+      'skipBuildTimePrice': instance.skipBuildTimePrice,
+      'consumeOnBuild': instance.consumeOnBuild,
+      if (instance.components?.map((e) => e.toJson()).toList()
+          case final value?)
+        'components': value,
+      if (instance.marketCost case final value?) 'marketCost': value,
+      if (instance.bpCost case final value?) 'bpCost': value,
+      if (instance.itemCount case final value?) 'itemCount': value,
+      'shield': instance.shield,
+      'armor': instance.armor,
+      'health': instance.health,
+      'stamina': instance.stamina,
+      'power': instance.power,
+      if (instance.polarities case final value?) 'polarities': value,
+      'abilities': instance.abilities.map((e) => e.toJson()).toList(),
+    };

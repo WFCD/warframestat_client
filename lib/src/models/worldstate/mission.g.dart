@@ -52,37 +52,31 @@ Mission _$MissionFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$MissionToJson(Mission instance) {
-  final val = <String, dynamic>{
-    'node': instance.node,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('nodeKey', instance.nodeKey);
-  writeNotNull('faction', instance.faction);
-  writeNotNull('factionKey', instance.factionKey);
-  writeNotNull('reward', instance.reward?.toJson());
-  writeNotNull('maxEnemyLevel', instance.maxEnemyLevel);
-  writeNotNull('minEnemyLevel', instance.minEnemyLevel);
-  writeNotNull('maxWaveNum', instance.maxWaveNum);
-  val['type'] = instance.type;
-  writeNotNull('typeKey', instance.typeKey);
-  writeNotNull('nightmare', instance.nightmare);
-  writeNotNull('archwingRequired', instance.archwingRequired);
-  writeNotNull('isSharkwing', instance.isSharkwing);
-  writeNotNull('enemySpec', instance.enemySpec);
-  writeNotNull('levelOverride', instance.levelOverride);
-  writeNotNull('advancedSpawners', instance.advancedSpawners);
-  writeNotNull('requiredItems', instance.requiredItems);
-  writeNotNull('consumeRequiredItems', instance.consumeRequiredItems);
-  writeNotNull('leadersAlwwaysAllowed', instance.leadersAlwwaysAllowed);
-  writeNotNull('levelAuras', instance.levelAuras);
-  writeNotNull('description', instance.description);
-  writeNotNull('exclusiveWeapon', instance.exclusiveWeapon);
-  return val;
-}
+Map<String, dynamic> _$MissionToJson(Mission instance) => <String, dynamic>{
+      'node': instance.node,
+      if (instance.nodeKey case final value?) 'nodeKey': value,
+      if (instance.faction case final value?) 'faction': value,
+      if (instance.factionKey case final value?) 'factionKey': value,
+      if (instance.reward?.toJson() case final value?) 'reward': value,
+      if (instance.maxEnemyLevel case final value?) 'maxEnemyLevel': value,
+      if (instance.minEnemyLevel case final value?) 'minEnemyLevel': value,
+      if (instance.maxWaveNum case final value?) 'maxWaveNum': value,
+      'type': instance.type,
+      if (instance.typeKey case final value?) 'typeKey': value,
+      if (instance.nightmare case final value?) 'nightmare': value,
+      if (instance.archwingRequired case final value?)
+        'archwingRequired': value,
+      if (instance.isSharkwing case final value?) 'isSharkwing': value,
+      if (instance.enemySpec case final value?) 'enemySpec': value,
+      if (instance.levelOverride case final value?) 'levelOverride': value,
+      if (instance.advancedSpawners case final value?)
+        'advancedSpawners': value,
+      if (instance.requiredItems case final value?) 'requiredItems': value,
+      if (instance.consumeRequiredItems case final value?)
+        'consumeRequiredItems': value,
+      if (instance.leadersAlwwaysAllowed case final value?)
+        'leadersAlwwaysAllowed': value,
+      if (instance.levelAuras case final value?) 'levelAuras': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.exclusiveWeapon case final value?) 'exclusiveWeapon': value,
+    };

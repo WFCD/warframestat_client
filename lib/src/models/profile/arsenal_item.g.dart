@@ -176,117 +176,111 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'id': 'itemId', 'upgradeVersion': 'upgradeVer'},
     );
 
-Map<String, dynamic> _$ArsenalItemToJson(ArsenalItem instance) {
-  final val = <String, dynamic>{
-    'itemId': instance.id,
-    'uniqueName': instance.uniqueName,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('item', instance.item?.toJson());
-  writeNotNull('nemesis', instance.nemesis);
-  val['configs'] = instance.configs.map((e) => e.toJson()).toList();
-  writeNotNull('upgradeTypes', instance.upgradeTypes);
-  writeNotNull('upgradeFingerPrint', instance.upgradeFingerPrint);
-  writeNotNull('features', instance.features);
-  val['upgradeVer'] = instance.upgradeVersion;
-  val['xp'] = instance.xp;
-  writeNotNull('polarized', instance.polarized);
-  writeNotNull(
-      'polarities',
-      instance.polarities
-          ?.map((e) => <String, dynamic>{
-                'polarity': e.polarity,
-                'slot': e.slot,
-              })
-          .toList());
-  writeNotNull('focusLens', instance.focusLens);
-  writeNotNull('customizationSlots', instance.customizationSlots);
-  writeNotNull(
-      'primaryColor',
-      instance.primaryColor == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.primaryColor!.hex,
-              'matches': instance.primaryColor!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull(
-      'sigilColor',
-      instance.sigilColor == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.sigilColor!.hex,
-              'matches': instance.sigilColor!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull(
-      'attachmentsColor',
-      instance.attachmentsColor == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.attachmentsColor!.hex,
-              'matches': instance.attachmentsColor!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull(
-      'syandanaColor',
-      instance.syandanaColor == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.syandanaColor!.hex,
-              'matches': instance.syandanaColor!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull('infestationDate', instance.infestationDate?.toIso8601String());
-  return val;
-}
+Map<String, dynamic> _$ArsenalItemToJson(ArsenalItem instance) =>
+    <String, dynamic>{
+      'itemId': instance.id,
+      'uniqueName': instance.uniqueName,
+      if (instance.name case final value?) 'name': value,
+      if (instance.item?.toJson() case final value?) 'item': value,
+      if (instance.nemesis case final value?) 'nemesis': value,
+      'configs': instance.configs.map((e) => e.toJson()).toList(),
+      if (instance.upgradeTypes case final value?) 'upgradeTypes': value,
+      if (instance.upgradeFingerPrint case final value?)
+        'upgradeFingerPrint': value,
+      if (instance.features case final value?) 'features': value,
+      'upgradeVer': instance.upgradeVersion,
+      'xp': instance.xp,
+      if (instance.polarized case final value?) 'polarized': value,
+      if (instance.polarities
+              ?.map((e) => <String, dynamic>{
+                    'polarity': e.polarity,
+                    'slot': e.slot,
+                  })
+              .toList()
+          case final value?)
+        'polarities': value,
+      if (instance.focusLens case final value?) 'focusLens': value,
+      if (instance.customizationSlots case final value?)
+        'customizationSlots': value,
+      if (instance.primaryColor == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.primaryColor!.hex,
+                  'matches': instance.primaryColor!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'primaryColor': value,
+      if (instance.sigilColor == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.sigilColor!.hex,
+                  'matches': instance.sigilColor!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'sigilColor': value,
+      if (instance.attachmentsColor == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.attachmentsColor!.hex,
+                  'matches': instance.attachmentsColor!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'attachmentsColor': value,
+      if (instance.syandanaColor == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.syandanaColor!.hex,
+                  'matches': instance.syandanaColor!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'syandanaColor': value,
+      if (instance.infestationDate?.toIso8601String() case final value?)
+        'infestationDate': value,
+    };
 
 $Rec _$recordConvertAny<$Rec>(
   Object? value,

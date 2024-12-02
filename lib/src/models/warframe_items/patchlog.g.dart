@@ -23,22 +23,12 @@ Patchlog _$PatchlogFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$PatchlogToJson(Patchlog instance) {
-  final val = <String, dynamic>{
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('imgUrl', instance.imgUrl);
-  val['date'] = instance.date.toIso8601String();
-  val['url'] = instance.url;
-  val['additions'] = instance.additions;
-  val['changes'] = instance.changes;
-  val['fixes'] = instance.fixes;
-  return val;
-}
+Map<String, dynamic> _$PatchlogToJson(Patchlog instance) => <String, dynamic>{
+      'name': instance.name,
+      if (instance.imgUrl case final value?) 'imgUrl': value,
+      'date': instance.date.toIso8601String(),
+      'url': instance.url,
+      'additions': instance.additions,
+      'changes': instance.changes,
+      'fixes': instance.fixes,
+    };

@@ -38,29 +38,20 @@ Glyph _$GlyphFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$GlyphToJson(Glyph instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('releaseDate', instance.releaseDate);
-  writeNotNull('excludeFromCodex', instance.excludeFromCodex);
-  writeNotNull('wikiaThumbnail', instance.wikiaThumbnail);
-  writeNotNull('wikiaUrl', instance.wikiaUrl);
-  return val;
-}
+Map<String, dynamic> _$GlyphToJson(Glyph instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      'tradable': instance.tradable,
+      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
+        'patchlogs': value,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.releaseDate case final value?) 'releaseDate': value,
+      if (instance.excludeFromCodex case final value?)
+        'excludeFromCodex': value,
+      if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
+      if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
+    };

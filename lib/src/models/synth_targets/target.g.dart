@@ -24,18 +24,9 @@ SynthTarget _$SynthTargetFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$SynthTargetToJson(SynthTarget instance) {
-  final val = <String, dynamic>{
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('imageKey', instance.imageKey);
-  val['locations'] = instance.locations.map((e) => e.toJson()).toList();
-  return val;
-}
+Map<String, dynamic> _$SynthTargetToJson(SynthTarget instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      if (instance.imageKey case final value?) 'imageKey': value,
+      'locations': instance.locations.map((e) => e.toJson()).toList(),
+    };

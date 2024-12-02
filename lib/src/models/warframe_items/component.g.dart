@@ -28,22 +28,13 @@ Component _$ComponentFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ComponentToJson(Component instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['tradable'] = instance.tradable;
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('drops', instance.drops?.map((e) => e.toJson()).toList());
-  val['itemCount'] = instance.itemCount;
-  return val;
-}
+Map<String, dynamic> _$ComponentToJson(Component instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'tradable': instance.tradable,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
+        'drops': value,
+      'itemCount': instance.itemCount,
+    };

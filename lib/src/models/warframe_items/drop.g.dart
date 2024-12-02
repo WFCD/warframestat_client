@@ -22,23 +22,13 @@ Drop _$DropFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$DropToJson(Drop instance) {
-  final val = <String, dynamic>{
-    'location': instance.location,
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('rarity', _$RarityEnumMap[instance.rarity]);
-  writeNotNull('chance', instance.chance);
-  writeNotNull('rotation', instance.rotation);
-  return val;
-}
+Map<String, dynamic> _$DropToJson(Drop instance) => <String, dynamic>{
+      'location': instance.location,
+      'type': instance.type,
+      if (_$RarityEnumMap[instance.rarity] case final value?) 'rarity': value,
+      if (instance.chance case final value?) 'chance': value,
+      if (instance.rotation case final value?) 'rotation': value,
+    };
 
 const _$RarityEnumMap = {
   Rarity.common: 'Common',

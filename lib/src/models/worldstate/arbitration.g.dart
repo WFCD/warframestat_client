@@ -28,25 +28,17 @@ Arbitration _$ArbitrationFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ArbitrationToJson(Arbitration instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  val['activation'] = instance.activation.toIso8601String();
-  val['expiry'] = instance.expiry.toIso8601String();
-  val['node'] = instance.node;
-  val['nodeKey'] = instance.nodeKey;
-  writeNotNull('enemy', instance.enemy);
-  val['type'] = instance.type;
-  val['typeKey'] = instance.typeKey;
-  writeNotNull('archwing', instance.archwing);
-  writeNotNull('sharkwing', instance.sharkwing);
-  val['expired'] = instance.expired;
-  return val;
-}
+Map<String, dynamic> _$ArbitrationToJson(Arbitration instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'node': instance.node,
+      'nodeKey': instance.nodeKey,
+      if (instance.enemy case final value?) 'enemy': value,
+      'type': instance.type,
+      'typeKey': instance.typeKey,
+      if (instance.archwing case final value?) 'archwing': value,
+      if (instance.sharkwing case final value?) 'sharkwing': value,
+      'expired': instance.expired,
+    };

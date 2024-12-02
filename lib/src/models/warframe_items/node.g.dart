@@ -41,30 +41,20 @@ Node _$NodeFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$NodeToJson(Node instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-    'type': const ItemTypeConverter().toJson(instance.type),
-    'category': instance.category,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productCategory', instance.productCategory);
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  val['factionIndex'] = instance.factionIndex;
-  val['masteryReq'] = instance.masteryReq;
-  val['maxEnemyLevel'] = instance.maxEnemyLevel;
-  val['minEnemyLevel'] = instance.minEnemyLevel;
-  val['nodeType'] = instance.nodeType;
-  val['systemIndex'] = instance.systemIndex;
-  val['systemName'] = instance.systemName;
-  return val;
-}
+Map<String, dynamic> _$NodeToJson(Node instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
+        'patchlogs': value,
+      'factionIndex': instance.factionIndex,
+      'masteryReq': instance.masteryReq,
+      'maxEnemyLevel': instance.maxEnemyLevel,
+      'minEnemyLevel': instance.minEnemyLevel,
+      'nodeType': instance.nodeType,
+      'systemIndex': instance.systemIndex,
+      'systemName': instance.systemName,
+    };

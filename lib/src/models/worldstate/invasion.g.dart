@@ -76,17 +76,9 @@ InvasionFaction _$InvasionFactionFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$InvasionFactionToJson(InvasionFaction instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('reward', instance.reward?.toJson());
-  val['faction'] = instance.faction;
-  val['factionKey'] = instance.factionKey;
-  return val;
-}
+Map<String, dynamic> _$InvasionFactionToJson(InvasionFaction instance) =>
+    <String, dynamic>{
+      if (instance.reward?.toJson() case final value?) 'reward': value,
+      'faction': instance.faction,
+      'factionKey': instance.factionKey,
+    };

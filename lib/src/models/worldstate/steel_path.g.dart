@@ -78,17 +78,9 @@ Incursion _$IncursionFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$IncursionToJson(Incursion instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('activation', instance.activation?.toIso8601String());
-  writeNotNull('expiry', instance.expiry?.toIso8601String());
-  return val;
-}
+Map<String, dynamic> _$IncursionToJson(Incursion instance) => <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.activation?.toIso8601String() case final value?)
+        'activation': value,
+      if (instance.expiry?.toIso8601String() case final value?) 'expiry': value,
+    };

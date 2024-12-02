@@ -33,26 +33,17 @@ MinimalItem _$MinimalItemFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$MinimalItemToJson(MinimalItem instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('vaultDate', instance.vaultDate);
-  writeNotNull('vaulted', instance.vaulted);
-  return val;
-}
+Map<String, dynamic> _$MinimalItemToJson(MinimalItem instance) =>
+    <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
+        'patchlogs': value,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.vaultDate case final value?) 'vaultDate': value,
+      if (instance.vaulted case final value?) 'vaulted': value,
+    };

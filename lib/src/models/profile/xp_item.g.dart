@@ -20,18 +20,8 @@ XpItem _$XpItemFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$XpItemToJson(XpItem instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'xp': instance.xp,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('item', instance.item?.toJson());
-  return val;
-}
+Map<String, dynamic> _$XpItemToJson(XpItem instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'xp': instance.xp,
+      if (instance.item?.toJson() case final value?) 'item': value,
+    };

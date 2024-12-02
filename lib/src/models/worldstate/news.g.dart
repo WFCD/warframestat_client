@@ -31,27 +31,19 @@ News _$NewsFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$NewsToJson(News instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  val['message'] = instance.message;
-  val['link'] = instance.link;
-  val['priority'] = instance.priority;
-  val['imageLink'] = instance.imageLink;
-  val['date'] = instance.date.toIso8601String();
-  writeNotNull('endDate', instance.endDate?.toIso8601String());
-  val['eta'] = instance.eta;
-  val['primeAccess'] = instance.primeAccess;
-  val['stream'] = instance.stream;
-  val['update'] = instance.update;
-  val['translations'] = instance.translations;
-  val['asString'] = instance.asString;
-  return val;
-}
+Map<String, dynamic> _$NewsToJson(News instance) => <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      'message': instance.message,
+      'link': instance.link,
+      'priority': instance.priority,
+      'imageLink': instance.imageLink,
+      'date': instance.date.toIso8601String(),
+      if (instance.endDate?.toIso8601String() case final value?)
+        'endDate': value,
+      'eta': instance.eta,
+      'primeAccess': instance.primeAccess,
+      'stream': instance.stream,
+      'update': instance.update,
+      'translations': instance.translations,
+      'asString': instance.asString,
+    };

@@ -235,154 +235,145 @@ OperatorLoadout _$OperatorLoadoutFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$OperatorLoadoutToJson(OperatorLoadout instance) {
-  final val = <String, dynamic>{
-    'skins': instance.skins.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('operatorAmp', instance.operatorAmp);
-  val['upgrades'] = instance.upgrades;
-  writeNotNull(
-      'primaryColor',
-      instance.primaryColor == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.primaryColor!.hex,
-              'matches': instance.primaryColor!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull(
-      'sigilColor',
-      instance.sigilColor == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.sigilColor!.hex,
-              'matches': instance.sigilColor!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull(
-      'attachmentsColor',
-      instance.attachmentsColor == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.attachmentsColor!.hex,
-              'matches': instance.attachmentsColor!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull(
-      'syandanaColor',
-      instance.syandanaColor == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.syandanaColor!.hex,
-              'matches': instance.syandanaColor!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull(
-      'eyeColor',
-      instance.eyeColor == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.eyeColor!.hex,
-              'matches': instance.eyeColor!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull(
-      'facial',
-      instance.facial == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.facial!.hex,
-              'matches': instance.facial!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  writeNotNull(
-      'cloth',
-      instance.cloth == null
-          ? null
-          : <String, dynamic>{
-              'hex': instance.cloth!.hex,
-              'matches': instance.cloth!.matches
-                  ?.map((e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      })
-                  .toList(),
-            });
-  return val;
-}
+Map<String, dynamic> _$OperatorLoadoutToJson(OperatorLoadout instance) =>
+    <String, dynamic>{
+      'skins': instance.skins.map((e) => e.toJson()).toList(),
+      if (instance.operatorAmp case final value?) 'operatorAmp': value,
+      'upgrades': instance.upgrades,
+      if (instance.primaryColor == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.primaryColor!.hex,
+                  'matches': instance.primaryColor!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'primaryColor': value,
+      if (instance.sigilColor == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.sigilColor!.hex,
+                  'matches': instance.sigilColor!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'sigilColor': value,
+      if (instance.attachmentsColor == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.attachmentsColor!.hex,
+                  'matches': instance.attachmentsColor!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'attachmentsColor': value,
+      if (instance.syandanaColor == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.syandanaColor!.hex,
+                  'matches': instance.syandanaColor!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'syandanaColor': value,
+      if (instance.eyeColor == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.eyeColor!.hex,
+                  'matches': instance.eyeColor!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'eyeColor': value,
+      if (instance.facial == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.facial!.hex,
+                  'matches': instance.facial!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'facial': value,
+      if (instance.cloth == null
+              ? null
+              : <String, dynamic>{
+                  'hex': instance.cloth!.hex,
+                  'matches': instance.cloth!.matches
+                      ?.map((e) => <String, dynamic>{
+                            'palette': <String, dynamic>{
+                              'description': e.palette.description,
+                              'name': e.palette.name,
+                            },
+                            'position': <String, dynamic>{
+                              'col': e.position.col,
+                              'row': e.position.row,
+                            },
+                          })
+                      .toList(),
+                }
+          case final value?)
+        'cloth': value,
+    };
 
 $Rec _$recordConvertAny<$Rec>(
   Object? value,

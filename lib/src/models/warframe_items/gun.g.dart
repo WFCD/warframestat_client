@@ -33,24 +33,14 @@ GunAttack _$GunAttackFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$GunAttackToJson(GunAttack instance) {
-  final val = <String, dynamic>{
-    'name': instance.name,
-    'speed': instance.speed,
-    'crit_chance': instance.critChance,
-    'crit_mult': instance.critMult,
-    'status_chance': instance.statusChance,
-    'damage': instance.damage.toJson(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shot_type', instance.shotType);
-  writeNotNull('shot_speed', instance.shotSpeed);
-  writeNotNull('flight', instance.flight);
-  return val;
-}
+Map<String, dynamic> _$GunAttackToJson(GunAttack instance) => <String, dynamic>{
+      'name': instance.name,
+      'speed': instance.speed,
+      'crit_chance': instance.critChance,
+      'crit_mult': instance.critMult,
+      'status_chance': instance.statusChance,
+      'damage': instance.damage.toJson(),
+      if (instance.shotType case final value?) 'shot_type': value,
+      if (instance.shotSpeed case final value?) 'shot_speed': value,
+      if (instance.flight case final value?) 'flight': value,
+    };

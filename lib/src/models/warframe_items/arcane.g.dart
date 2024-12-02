@@ -44,28 +44,20 @@ Arcane _$ArcaneFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ArcaneToJson(Arcane instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('drops', instance.drops?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'levelStats', instance.levelStats?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$ArcaneToJson(Arcane instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      'tradable': instance.tradable,
+      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
+        'patchlogs': value,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
+        'drops': value,
+      if (instance.levelStats?.map((e) => e.toJson()).toList()
+          case final value?)
+        'levelStats': value,
+    };

@@ -56,33 +56,24 @@ Relic _$RelicFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$RelicToJson(Relic instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['type'] = const ItemTypeConverter().toJson(instance.type);
-  val['category'] = instance.category;
-  writeNotNull('productCategory', instance.productCategory);
-  val['tradable'] = instance.tradable;
-  writeNotNull(
-      'patchlogs', instance.patchlogs?.map((e) => e.toJson()).toList());
-  writeNotNull('imageName', instance.imageName);
-  writeNotNull('drops', instance.drops?.map((e) => e.toJson()).toList());
-  val['locations'] = instance.locations.map((e) => e.toJson()).toList();
-  writeNotNull('marketInfo', instance.marketInfo?.toJson());
-  val['rewards'] = instance.rewards.map((e) => e.toJson()).toList();
-  writeNotNull('vaulted', instance.vaulted);
-  return val;
-}
+Map<String, dynamic> _$RelicToJson(Relic instance) => <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      if (instance.productCategory case final value?) 'productCategory': value,
+      'tradable': instance.tradable,
+      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
+        'patchlogs': value,
+      if (instance.imageName case final value?) 'imageName': value,
+      if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
+        'drops': value,
+      'locations': instance.locations.map((e) => e.toJson()).toList(),
+      if (instance.marketInfo?.toJson() case final value?) 'marketInfo': value,
+      'rewards': instance.rewards.map((e) => e.toJson()).toList(),
+      if (instance.vaulted case final value?) 'vaulted': value,
+    };
 
 Location _$LocationFromJson(Map json) => $checkedCreate(
       'Location',
@@ -150,18 +141,10 @@ RewardItem _$RewardItemFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$RewardItemToJson(RewardItem instance) {
-  final val = <String, dynamic>{
-    'uniqueName': instance.uniqueName,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('warframeMarket', instance.warframeMarket?.toJson());
-  return val;
-}
+Map<String, dynamic> _$RewardItemToJson(RewardItem instance) =>
+    <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      if (instance.warframeMarket?.toJson() case final value?)
+        'warframeMarket': value,
+    };

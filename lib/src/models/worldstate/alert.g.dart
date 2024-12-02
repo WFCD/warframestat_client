@@ -28,24 +28,14 @@ Alert _$AlertFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$AlertToJson(Alert instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'activation': instance.activation.toIso8601String(),
-    'expiry': instance.expiry.toIso8601String(),
-    'startString': instance.startString,
-    'active': instance.active,
-    'mission': instance.mission.toJson(),
-    'rewardTypes': instance.rewardTypes,
-    'eta': instance.eta,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('tag', instance.tag);
-  return val;
-}
+Map<String, dynamic> _$AlertToJson(Alert instance) => <String, dynamic>{
+      'id': instance.id,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'startString': instance.startString,
+      'active': instance.active,
+      'mission': instance.mission.toJson(),
+      'rewardTypes': instance.rewardTypes,
+      'eta': instance.eta,
+      if (instance.tag case final value?) 'tag': value,
+    };

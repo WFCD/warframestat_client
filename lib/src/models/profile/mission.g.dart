@@ -23,22 +23,13 @@ ProfileMission _$ProfileMissionFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ProfileMissionToJson(ProfileMission instance) {
-  final val = <String, dynamic>{
-    'node': instance.node,
-    'nodeKey': instance.nodeKey,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('missionType', instance.missionType);
-  writeNotNull('faction', instance.faction);
-  writeNotNull('highScore', instance.highScore);
-  writeNotNull('completes', instance.completes);
-  writeNotNull('tier', instance.tier);
-  return val;
-}
+Map<String, dynamic> _$ProfileMissionToJson(ProfileMission instance) =>
+    <String, dynamic>{
+      'node': instance.node,
+      'nodeKey': instance.nodeKey,
+      if (instance.missionType case final value?) 'missionType': value,
+      if (instance.faction case final value?) 'faction': value,
+      if (instance.highScore case final value?) 'highScore': value,
+      if (instance.completes case final value?) 'completes': value,
+      if (instance.tier case final value?) 'tier': value,
+    };

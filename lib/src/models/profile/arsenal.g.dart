@@ -52,22 +52,14 @@ Arsenal _$ArsenalFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$ArsenalToJson(Arsenal instance) {
-  final val = <String, dynamic>{
-    'weaponSkins': instance.weaponSkins.map((e) => e.toJson()).toList(),
-    'suits': instance.suits.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('primary', instance.primary?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'secondary', instance.secondary?.map((e) => e.toJson()).toList());
-  writeNotNull('melee', instance.melee?.map((e) => e.toJson()).toList());
-  val['xpInfo'] = instance.xpInfo.map((e) => e.toJson()).toList();
-  return val;
-}
+Map<String, dynamic> _$ArsenalToJson(Arsenal instance) => <String, dynamic>{
+      'weaponSkins': instance.weaponSkins.map((e) => e.toJson()).toList(),
+      'suits': instance.suits.map((e) => e.toJson()).toList(),
+      if (instance.primary?.map((e) => e.toJson()).toList() case final value?)
+        'primary': value,
+      if (instance.secondary?.map((e) => e.toJson()).toList() case final value?)
+        'secondary': value,
+      if (instance.melee?.map((e) => e.toJson()).toList() case final value?)
+        'melee': value,
+      'xpInfo': instance.xpInfo.map((e) => e.toJson()).toList(),
+    };
