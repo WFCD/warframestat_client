@@ -1,3 +1,10 @@
+# [3.12.0](https://github.com/WFCD/warframestat_client/compare/v3.11.0...v3.12.0) (2024-12-02)
+
+
+### Features
+
+* add `isPrimary`, `isSecondary`, `isMelee`, and `isWeapon` to `ItemType` ([d3c59c2](https://github.com/WFCD/warframestat_client/commit/d3c59c2a086e189b1a2b0548135cfa1b1c3a441d))
+
 # [3.11.0](https://github.com/WFCD/warframestat_client/compare/v3.10.1...v3.11.0) (2024-11-13)
 
 

@@ -1,5 +1,5 @@
 name: warframestat_client
-version: 3.11.0
+version: 3.12.0
 description: A simple client wrapper around WFCD worldstate api with included models for warframe-items.
 homepage: https://github.com/WFCD
 repository: https://github.com/WFCD/warframestat_client
