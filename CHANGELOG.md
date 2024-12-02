@@ -1,3 +1,10 @@
+## [3.13.2](https://github.com/WFCD/warframestat_client/compare/v3.13.1...v3.13.2) (2024-12-02)
+
+
+### Bug Fixes
+
+* `XpItem.item` is no longer required ([e3751a0](https://github.com/WFCD/warframestat_client/commit/e3751a000ba5bab19352c7e9f247ffe3d15f3b5a))
+
 ## [3.13.1](https://github.com/WFCD/warframestat_client/compare/v3.13.0...v3.13.1) (2024-12-02)
 
 
