@@ -15,6 +15,6 @@ class ItemTypeConverter extends JsonConverter<ItemType, String> {
 
   @override
   String toJson(ItemType object) {
-    return object.category;
+    return object.type;
   }
 }

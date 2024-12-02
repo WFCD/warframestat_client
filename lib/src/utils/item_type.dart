@@ -151,19 +151,45 @@ enum ItemType {
   kDriveComponent('K-Drive Component'),
 
   /// Zaw Component
-  zawComponent('Zaw Component');
+  zawComponent('Zaw Component'),
 
-  const ItemType(this.category);
+  /// Kitgun Component
+  kitGunComponent('Kitgun Component');
+
+  const ItemType(this.type);
 
   /// Item Category name.
-  final String category;
+  final String type;
 
   /// Returns an [ItemType] from an Item type.
-  static ItemType byType(String name) {
+  static ItemType byType(String type) {
     try {
-      return ItemType.values.firstWhere((v) => v.category == name);
+      return ItemType.values.firstWhere((v) => v.type == type);
     } catch (e) {
       return ItemType.misc;
     }
   }
+
+  /// Whether the type is a primary weapon or not
+  bool get isPrimary => this == ItemType.rifle || this == ItemType.shotgun;
+
+  /// Whether the type is a secondary weapon or not
+  bool get isSecondary =>
+      this == ItemType.pistol ||
+      this == ItemType.dualPistols ||
+      this == ItemType.kitgunRiven ||
+      this == ItemType.throwing;
+
+  /// Whether the type is a melee weapon or not
+  bool get isMelee => this == ItemType.zawComponent || this == ItemType.melee;
+
+  /// Whether the type is a weapon or not
+  bool get isWeapon =>
+      isPrimary ||
+      isSecondary ||
+      isMelee ||
+      this == ItemType.amp ||
+      this == ItemType.companionWeapon ||
+      this == ItemType.archGun ||
+      this == ItemType.archMelee;
 }
