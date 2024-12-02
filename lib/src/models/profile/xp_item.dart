@@ -15,7 +15,7 @@ class XpItem extends Equatable {
   const XpItem({
     required this.uniqueName,
     required this.xp,
-    required this.item,
+    this.item,
   });
 
   /// Creates an instance from json map
