@@ -1,3 +1,10 @@
+# [3.13.0](https://github.com/WFCD/warframestat_client/compare/v3.12.0...v3.13.0) (2024-12-02)
+
+
+### Features
+
+* `fetchAllWeapons` and `fetchAllWarframes` can now return `MinimalItem` ([5f3a0d3](https://github.com/WFCD/warframestat_client/commit/5f3a0d345036ac7b5c23211874cdecaf0f529240))
+
 # [3.12.0](https://github.com/WFCD/warframestat_client/compare/v3.11.0...v3.12.0) (2024-12-02)
 
 
