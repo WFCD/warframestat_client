@@ -1,3 +1,10 @@
+## [3.13.1](https://github.com/WFCD/warframestat_client/compare/v3.13.0...v3.13.1) (2024-12-02)
+
+
+### Bug Fixes
+
+* remove patchlogs from `MinimalItem` constructor ([ee06056](https://github.com/WFCD/warframestat_client/commit/ee06056ca5f98c32309f391b682324bd0d57e403))
+
 # [3.13.0](https://github.com/WFCD/warframestat_client/compare/v3.12.0...v3.13.0) (2024-12-02)
 
 
