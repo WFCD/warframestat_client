@@ -19,12 +19,6 @@ MinimalItem _$MinimalItemFromJson(Map json) => $checkedCreate(
           category: $checkedConvert('category', (v) => v as String),
           productCategory:
               $checkedConvert('productCategory', (v) => v as String?),
-          patchlogs: $checkedConvert(
-              'patchlogs',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
-                  .toList()),
           imageName: $checkedConvert('imageName', (v) => v as String?),
           vaultDate: $checkedConvert('vaultDate', (v) => v as String?),
           vaulted: $checkedConvert('vaulted', (v) => v as bool?),
@@ -41,8 +35,6 @@ Map<String, dynamic> _$MinimalItemToJson(MinimalItem instance) =>
       'type': const ItemTypeConverter().toJson(instance.type),
       'category': instance.category,
       if (instance.productCategory case final value?) 'productCategory': value,
-      if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-        'patchlogs': value,
       if (instance.imageName case final value?) 'imageName': value,
       if (instance.vaultDate case final value?) 'vaultDate': value,
       if (instance.vaulted case final value?) 'vaulted': value,

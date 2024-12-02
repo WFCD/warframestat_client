@@ -16,7 +16,6 @@ class MinimalItem implements Item {
     required this.type,
     required this.category,
     required this.productCategory,
-    required this.patchlogs,
     required this.imageName,
     required this.vaultDate,
     required this.vaulted,
@@ -55,10 +54,6 @@ class MinimalItem implements Item {
   @override
   final String? productCategory;
 
-  /// Item changes throughout game version.
-  @override
-  final List<Patchlog>? patchlogs;
-
   /// Item image name.
   @override
   final String? imageName;
@@ -81,7 +76,6 @@ class MinimalItem implements Item {
       category,
       productCategory,
       tradable,
-      patchlogs,
       imageName,
     ];
   }
@@ -109,4 +103,8 @@ class MinimalItem implements Item {
   /// Not implemented for [MinimalItem]
   @override
   String? get wikiaUrl => null;
+
+  /// Not implemented for [MinimalItem]
+  @override
+  List<Patchlog>? get patchlogs => null;
 }
