@@ -29,8 +29,6 @@ class Intrinsics extends Equatable {
   }
 
   /// Railjack affinity owned
-  ///
-  /// Can be used to find intrinsic points
   final int railjack;
 
   /// Railjack engineering rank
@@ -49,8 +47,6 @@ class Intrinsics extends Equatable {
   final int command;
 
   /// Drifter affinity owned
-  ///
-  /// Can be used to find intrinsic points
   final int drifter;
 
   /// Drifter riding rank
