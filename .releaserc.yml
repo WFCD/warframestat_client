@@ -9,6 +9,6 @@ plugins:
   - "@semantic-release/github"
   - - "@semantic-release/git"
     - assets: ["pubspec.yaml", "CHANGELOG.md"]
-      message: "chore(release): ${nextRelease.version}"
+      message: "chore(release): ${nextRelease.version} [skip ci]"
 branches:
   - master
