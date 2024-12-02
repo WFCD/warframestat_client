@@ -4,6 +4,9 @@ import 'dart:isolate';
 
 import 'package:warframestat_client/warframestat_client.dart';
 
+const _minimalOpts =
+    'uniqueName,name,description,imageName,category,type,vaulted,vaultDate';
+
 /// {@template warframeitemsclient}
 /// Client for all warframe-items endpoints.
 /// {@endtemplate}
@@ -20,12 +23,9 @@ class WarframeItemsClient extends WarframestatClient {
 
   /// Returns all [Item]s that match the search query.
   Future<List<MinimalItem>> search(String query) async {
-    const opts =
-        'uniqueName,name,description,imageName,category,type,vaulted,vaultDate';
-
     final response = await _get<List<dynamic>>(
       '/search/$query',
-      query: {'only': opts},
+      query: {'only': _minimalOpts},
     );
 
     return Isolate.run(() => toSearchItems(response));
@@ -48,16 +48,23 @@ class WarframeItemsClient extends WarframestatClient {
 
   /// Returns a list of all [Warframe]s.
   ///
-  /// Becasue [Necramech]s and [Warframe]s share the same category one can use.
-  /// [includeMechs] is you want to filter out necromechs or not.
-  Future<List<PowerSuit>> fetchAllWarframes({bool includeMechs = true}) async {
-    final response = await get('/warframes');
+  /// [includeMechs]: Whether or not to inlcude Necramechs
+  /// [minimal]: Whether or not you want the full [Item] or a [MinimalItem]
+  Future<List<Item>> fetchAllWarframes({
+    bool includeMechs = true,
+    bool minimal = false,
+  }) async {
+    final response = await get(
+      '/warframes',
+      query: minimal ? {'only': _minimalOpts} : null,
+    );
+
     final json = jsonDecode(response.body) as List<dynamic>;
     final items = await Isolate.run(() => toItems(json));
 
-    return includeMechs
-        ? items.whereType<PowerSuit>().toList()
-        : items.whereType<Warframe>().toList();
+    if (!includeMechs) return items.whereType<Necramech>().toList();
+
+    return items;
   }
 
   /// Get data for the closest matching warframe.
@@ -86,15 +93,23 @@ class WarframeItemsClient extends WarframestatClient {
   /// WARNING:
   /// THIS IS A LOT OF DATA AND IT IS RECOMMENDED TO RUN THIS FUNCTION IN AN
   /// ISOLATE.
-  Future<List<Weapon>> fetchAllWeapons() async {
-    final response = await get('/weapons');
-    final json = jsonDecode(response.body) as List<dynamic>;
-    final items = await Isolate.run(() => toItems(json));
+  Future<List<Item>> fetchAllWeapons({bool minimal = false}) async {
+    final response = await get(
+      '/weapons',
+      query: minimal ? {'only': _minimalOpts} : null,
+    );
 
-    return items.whereType<Weapon>().toList();
+    final json = jsonDecode(response.body) as List<dynamic>;
+
+    return Isolate.run(() => toItems(json));
   }
 
   /// Get data for the closest matching weapon.
+  ///
+  /// Throws:
+  ///
+  /// * [WeaponNotValid] if the item parsed as a different item
+  ///   that is not a [Weapon] type
   Future<Weapon> fetchWeapon(String query) async {
     final response = await get('/weapons/$query');
     final json = jsonDecode(response.body) as Map<String, dynamic>;
@@ -104,7 +119,7 @@ class WarframeItemsClient extends WarframestatClient {
       Primary() => item,
       Secondary() => item,
       Melee() => item,
-      _ => throw Exception('Item is not a valid weapon type')
+      _ => throw WeaponNotValid(item.name, item.type)
     };
   }
 
@@ -117,7 +132,9 @@ class WarframeItemsClient extends WarframestatClient {
 
   /// Pulls an item useing it's uniqueName.
   ///
-  /// Returns null when an item with the uniqueName doesn't exist.
+  /// Throws:
+  ///
+  /// * [ItemNotFound] if the API returns an empty response
   Future<Item> fetchItem(String uniqueName) async {
     final encodedUniqueName = Uri.encodeQueryComponent(uniqueName);
     final request = await _get<Map<String, dynamic>>(
