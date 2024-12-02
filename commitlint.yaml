@@ -9,3 +9,4 @@ rules:
       - synthTargets
       - websocket
       - profile
+      - deps
