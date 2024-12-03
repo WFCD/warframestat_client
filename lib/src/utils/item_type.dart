@@ -177,7 +177,7 @@ enum ItemType {
   bool get isSecondary =>
       this == ItemType.pistol ||
       this == ItemType.dualPistols ||
-      this == ItemType.kitgunRiven ||
+      this == ItemType.kitGunComponent ||
       this == ItemType.throwing;
 
   /// Whether the type is a melee weapon or not
