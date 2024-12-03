@@ -1,3 +1,15 @@
+# [3.14.0](https://github.com/WFCD/warframestat_client/compare/v3.13.2...v3.14.0) (2024-12-03)
+
+
+### Bug Fixes
+
+* `fetchAll` functions were still returning the full item ([d6342fe](https://github.com/WFCD/warframestat_client/commit/d6342fe470b35882a3e77641edaab2661d74fed1))
+
+
+### Features
+
+* optional ability to return all items as `MinimalItem` ([33ba7de](https://github.com/WFCD/warframestat_client/commit/33ba7de9d0baac9059d7aae3acb799ab9370b49d))
+
 ## [3.13.2](https://github.com/WFCD/warframestat_client/compare/v3.13.1...v3.13.2) (2024-12-02)
 
 
