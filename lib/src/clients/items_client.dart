@@ -15,6 +15,8 @@ class WarframeItemsClient extends WarframestatClient {
   WarframeItemsClient({super.language, super.ua, super.client});
 
   /// Returns a list of all warframe items.
+  ///
+  /// [minimal]: returns a list of [MinimalItem] instead of a full [Item]
   Future<List<Item>> fetchAllItems({bool minimal = false}) async {
     final response = await _get<List<dynamic>>(
       '/',
@@ -63,11 +65,13 @@ class WarframeItemsClient extends WarframestatClient {
     );
 
     final json = jsonDecode(response.body) as List<dynamic>;
-    final items = await Isolate.run(() => toItems(json));
+    final items = await Isolate.run(() => toItems(json, minimal: minimal));
 
-    if (!includeMechs) return items.whereType<Necramech>().toList();
+    if (includeMechs) return items;
 
-    return items;
+    return minimal
+        ? items.where((i) => i.type == ItemType.warframes).toList()
+        : items.whereType<Warframe>().toList();
   }
 
   /// Get data for the closest matching warframe.
@@ -104,7 +108,7 @@ class WarframeItemsClient extends WarframestatClient {
 
     final json = jsonDecode(response.body) as List<dynamic>;
 
-    return Isolate.run(() => toItems(json));
+    return Isolate.run(() => toItems(json, minimal: minimal));
   }
 
   /// Get data for the closest matching weapon.
