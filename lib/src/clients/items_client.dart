@@ -15,10 +15,13 @@ class WarframeItemsClient extends WarframestatClient {
   WarframeItemsClient({super.language, super.ua, super.client});
 
   /// Returns a list of all warframe items.
-  Future<List<Item>> fetchAllItems() async {
-    final response = await _get<List<dynamic>>('/');
+  Future<List<Item>> fetchAllItems({bool minimal = false}) async {
+    final response = await _get<List<dynamic>>(
+      '/',
+      query: minimal ? {'only': _minimalOpts} : null,
+    );
 
-    return Isolate.run(() => toItems(response));
+    return Isolate.run(() => toItems(response, minimal: minimal));
   }
 
   /// Returns all [Item]s that match the search query.

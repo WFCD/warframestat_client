@@ -10,10 +10,10 @@ List<MinimalItem> toSearchItems(List<dynamic> data) {
 }
 
 /// Converts a json decoded list into [Item] objects
-List<Item> toItems(List<dynamic> data) {
+List<Item> toItems(List<dynamic> data, {bool minimal = false}) {
   return data
       .map((e) => Map<String, dynamic>.from(e as Map))
-      .map(toItem)
+      .map((i) => minimal ? MinimalItem.fromJson(i) : toItem(i))
       .toList();
 }
 
