@@ -1,3 +1,10 @@
+## [3.14.1](https://github.com/WFCD/warframestat_client/compare/v3.14.0...v3.14.1) (2024-12-03)
+
+
+### Bug Fixes
+
+* `kitgunRiven` are not secondary weapons ([7858224](https://github.com/WFCD/warframestat_client/commit/78582244a46c304ede7a2e14fb6f56c73df10c1e))
+
 # [3.14.0](https://github.com/WFCD/warframestat_client/compare/v3.13.2...v3.14.0) (2024-12-03)
 
 
