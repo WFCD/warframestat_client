@@ -138,11 +138,7 @@ class WarframeItemsClient extends WarframestatClient {
   }
 
   /// Pulls an item useing it's uniqueName.
-  ///
-  /// Throws:
-  ///
-  /// * [ItemNotFound] if the API returns an empty response
-  Future<Item> fetchItem(String uniqueName) async {
+  Future<Item?> fetchItem(String uniqueName) async {
     final encodedUniqueName = Uri.encodeQueryComponent(uniqueName);
     final request = await _get<Map<String, dynamic>>(
       '/$encodedUniqueName/',
@@ -150,9 +146,7 @@ class WarframeItemsClient extends WarframestatClient {
     );
 
     final statusCode = request['code'] as int?;
-    if (statusCode == HttpStatus.notFound) {
-      throw ItemNotFound(uniqueName);
-    }
+    if (statusCode != HttpStatus.ok) return null;
 
     return toItem(request);
   }
