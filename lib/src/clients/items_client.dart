@@ -4,8 +4,8 @@ import 'dart:isolate';
 
 import 'package:warframestat_client/warframestat_client.dart';
 
-const _minimalOpts =
-    'uniqueName,name,description,imageName,category,type,vaulted,vaultDate';
+const _minimalOpts = 'uniqueName,name,description,imageName,category,type,'
+    'vaulted,vaultDate,excludeFromCodex,masterable,tradable';
 
 /// {@template warframeitemsclient}
 /// Client for all warframe-items endpoints.
