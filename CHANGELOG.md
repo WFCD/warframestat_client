@@ -1,3 +1,10 @@
+## [3.15.1](https://github.com/WFCD/warframestat_client/compare/v3.15.0...v3.15.1) (2024-12-04)
+
+
+### Bug Fixes
+
+* `fetchItem` now returns null instead of throwing ([d923322](https://github.com/WFCD/warframestat_client/commit/d9233229268c95cc41b6e60e80e2b931f1b6cccc))
+
 # [3.15.0](https://github.com/WFCD/warframestat_client/compare/v3.14.1...v3.15.0) (2024-12-04)
 
 
