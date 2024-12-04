@@ -1,3 +1,10 @@
+# [3.15.0](https://github.com/WFCD/warframestat_client/compare/v3.14.1...v3.15.0) (2024-12-04)
+
+
+### Features
+
+* included `tradable`, `excludeFromCodex`, and `masterable` to `MinimalItem` ([c0a8069](https://github.com/WFCD/warframestat_client/commit/c0a80690552c985bb269c8c19e56dd49b374cd49))
+
 ## [3.14.1](https://github.com/WFCD/warframestat_client/compare/v3.14.0...v3.14.1) (2024-12-03)
 
 
