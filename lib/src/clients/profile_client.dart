@@ -8,7 +8,12 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 class ProfileClient extends WarframestatClient {
   /// {@macro profile_client}
-  ProfileClient({required this.username, super.language, super.client});
+  ProfileClient({
+    required this.username,
+    super.language,
+    super.ua,
+    super.client,
+  });
 
   /// Player username
   final String username;
