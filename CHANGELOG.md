@@ -1,3 +1,10 @@
+## [3.15.2](https://github.com/WFCD/warframestat_client/compare/v3.15.1...v3.15.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* profile client was missing `ua` for user-agent ([8f06e53](https://github.com/WFCD/warframestat_client/commit/8f06e538b373cb107775a5cfb83f8a766744541e))
+
 ## [3.15.1](https://github.com/WFCD/warframestat_client/compare/v3.15.0...v3.15.1) (2024-12-04)
 
 
