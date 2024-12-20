@@ -23,7 +23,7 @@ class WarframeItemsClient extends WarframestatClient {
       query: minimal ? {'only': _minimalOpts} : null,
     );
 
-    return Isolate.run(() => toItems(response, minimal: minimal));
+    return Isolate.run(() => toItems(response.data, minimal: minimal));
   }
 
   /// Returns all [Item]s that match the search query.
@@ -33,13 +33,13 @@ class WarframeItemsClient extends WarframestatClient {
       query: {'only': _minimalOpts},
     );
 
-    return Isolate.run(() => toSearchItems(response));
+    return Isolate.run(() => toSearchItems(response.data));
   }
 
   /// Returns a list of all mods and mod set mods.
   Future<List<BaseMod>> fetchAllMods() async {
     final response = await _get<List<dynamic>>('/mods');
-    final items = await Isolate.run(() => toItems(response));
+    final items = await Isolate.run(() => toItems(response.data));
 
     return items.whereType<BaseMod>().toList();
   }
@@ -48,7 +48,7 @@ class WarframeItemsClient extends WarframestatClient {
   Future<Mod> fetchMod(String query) async {
     final response = await _get<Map<String, dynamic>>('/mods/$query');
 
-    return Mod.fromJson(response);
+    return Mod.fromJson(response.data);
   }
 
   /// Returns a list of all [Warframe]s.
@@ -134,7 +134,7 @@ class WarframeItemsClient extends WarframestatClient {
   Future<List<Weapon>> searchWeapon(String query) async {
     final response = await _get<List<dynamic>>('/weapons/search/$query');
 
-    return toItems(response).whereType<Weapon>().toList();
+    return toItems(response.data).whereType<Weapon>().toList();
   }
 
   /// Pulls an item useing it's uniqueName.
@@ -145,15 +145,21 @@ class WarframeItemsClient extends WarframestatClient {
       query: {'by': 'uniqueName'},
     );
 
-    final statusCode = request['code'] as int?;
+    final statusCode = request.data['code'] as int? ?? request.statusCode;
     if (statusCode != HttpStatus.ok) return null;
 
-    return toItem(request);
+    return toItem(request.data);
   }
 
-  Future<T> _get<T>(String path, {Map<String, dynamic>? query}) async {
+  Future<({int statusCode, T data})> _get<T>(
+    String path, {
+    Map<String, dynamic>? query,
+  }) async {
     final response = await get('/items$path', query: query);
 
-    return Isolate.run(() => json.decode(response.body) as T);
+    return (
+      statusCode: response.statusCode,
+      data: await Isolate.run(() => json.decode(response.body) as T)
+    );
   }
 }
