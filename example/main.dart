@@ -19,7 +19,7 @@ Future<void> main() async {
     '/Lotus/Powersuits/Archwing/DemolitionJetPack/ExhaustTrailAugmentCard',
   );
 
-  print(item.name);
+  print(item?.name);
 
   final synthTargetClient = SynthTaretClient();
   // If you find a target that isn't in here you can make a PR here
