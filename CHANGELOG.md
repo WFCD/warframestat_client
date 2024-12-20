@@ -1,3 +1,10 @@
+## [3.15.3](https://github.com/WFCD/warframestat_client/compare/v3.15.2...v3.15.3) (2024-12-20)
+
+
+### Bug Fixes
+
+* `fetchItem` returns null even when item exist ([86cf58f](https://github.com/WFCD/warframestat_client/commit/86cf58f54e107db99d3cd991288fc2a8e8ccf1eb))
+
 ## [3.15.2](https://github.com/WFCD/warframestat_client/compare/v3.15.1...v3.15.2) (2024-12-18)
 
 
