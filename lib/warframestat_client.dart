@@ -6,7 +6,7 @@
 // https://opensource.org/licenses/MIT.
 
 /// A Very Good Project created by Very Good CLI.
-library warframestat_client;
+library;
 
 export 'src/clients/clients.dart';
 export 'src/enums.dart';

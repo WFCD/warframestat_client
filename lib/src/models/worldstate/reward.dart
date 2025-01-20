@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -66,14 +65,19 @@ class Reward extends Equatable {
   }
 }
 
+/// {@template counted_item}
+/// A reward item that may or may not be more then one item
+/// {@endtemplate}
 @JsonSerializable()
 class CountedItem extends Equatable {
+  /// {@macro counted_item}
   const CountedItem({
     required this.count,
     required this.type,
     required this.key,
   });
 
+  /// [CountedItem] from a json map
   factory CountedItem.fromJson(Map<String, dynamic> json) {
     return _$CountedItemFromJson(json);
   }
@@ -82,15 +86,12 @@ class CountedItem extends Equatable {
   final int count;
 
   /// Type of reward.
-  ///
-  /// This key is translated.
   final String type;
 
-  /// Type of reward.
-  ///
-  /// This key is not translated.
+  /// None translated version of [type]
   final String key;
 
+  /// Get a json map
   Map<String, dynamic> toJson() => _$CountedItemToJson(this);
 
   @override

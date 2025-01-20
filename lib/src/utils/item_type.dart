@@ -163,11 +163,8 @@ enum ItemType {
 
   /// Returns an [ItemType] from an Item type.
   static ItemType byType(String type) {
-    try {
-      return ItemType.values.firstWhere((v) => v.type == type);
-    } catch (e) {
-      return ItemType.misc;
-    }
+    return ItemType.values
+        .firstWhere((v) => v.type == type, orElse: () => ItemType.misc);
   }
 
   /// Whether the type is a primary weapon or not
