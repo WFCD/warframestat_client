@@ -109,5 +109,4 @@ Item toItem(Map<String, dynamic> item) {
     case _:
       return Misc.fromJson(item);
   }
-  
 }
