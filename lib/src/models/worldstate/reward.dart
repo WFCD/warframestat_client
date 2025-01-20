@@ -66,7 +66,8 @@ class Reward extends Equatable {
 }
 
 /// {@template counted_item}
-/// A reward item that may or may not be more then one item
+/// Represents a reward item with its quantity. Used to track multiple instances
+/// of the same item type in a reward.
 /// {@endtemplate}
 @JsonSerializable()
 class CountedItem extends Equatable {
@@ -88,7 +89,7 @@ class CountedItem extends Equatable {
   /// Type of reward.
   final String type;
 
-  /// None translated version of [type]
+  /// Non-translated version of [type]
   final String key;
 
   /// Get a json map

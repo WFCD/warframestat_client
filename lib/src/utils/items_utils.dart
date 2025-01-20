@@ -77,7 +77,8 @@ Item toItem(Map<String, dynamic> item) {
     case ItemType.kDriveComponent:
       return Secondary.fromJson(item);
 
-    case ItemType.melee || ItemType.archMelee:
+    case ItemType.melee:
+    case ItemType.archMelee:
       return Melee.fromJson(item);
 
     case ItemType.sentinels:

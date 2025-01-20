@@ -49,5 +49,5 @@ class Drop extends Equatable {
 
   @override
   List<Object?> get props =>
-      [uniqueName, location, type, rarity, chance, rotation];
+      [location, type, uniqueName, rarity, chance, rotation];
 }
