@@ -1,3 +1,10 @@
+# [3.16.0](https://github.com/WFCD/warframestat_client/compare/v3.15.3...v3.16.0) (2025-01-20)
+
+
+### Features
+
+* add uniqueName to component relic drops ([#24](https://github.com/WFCD/warframestat_client/issues/24)) ([f8d5a95](https://github.com/WFCD/warframestat_client/commit/f8d5a95468eede58758ec460c20d04a5db0b7177))
+
 ## [3.15.3](https://github.com/WFCD/warframestat_client/compare/v3.15.2...v3.15.3) (2024-12-20)
 
 
