@@ -20,9 +20,7 @@ void main() {
     expect(profile, const TypeMatcher<Profile>());
   });
   test('Profile.loadout.xpInfo => contains no misc items', () {
-    final profile = Profile.fromJson(json);
-    final xpInfo = profile.loadout.xpInfo;
-    final items = xpInfo.map((xp) => xp.item);
+    final items = Profile.fromJson(json).loadout.xpInfo.map((xp) => xp.item);
 
     expect(items.whereType<Misc>().isEmpty, true);
   });

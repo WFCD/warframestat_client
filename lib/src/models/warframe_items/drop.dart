@@ -15,6 +15,7 @@ class Drop extends Equatable {
   const Drop({
     required this.location,
     required this.type,
+    this.uniqueName,
     this.rarity,
     this.chance,
     this.rotation,
@@ -24,6 +25,9 @@ class Drop extends Equatable {
   factory Drop.fromJson(Map<String, dynamic> json) {
     return _$DropFromJson(json);
   }
+
+  /// If the drop is a relic a uniqueName will be included
+  final String? uniqueName;
 
   /// Location where the [Item] drops.
   final String location;
@@ -44,5 +48,6 @@ class Drop extends Equatable {
   Map<String, dynamic> toJson() => _$DropToJson(this);
 
   @override
-  List<Object?> get props => [location, type, rarity, chance, rotation];
+  List<Object?> get props =>
+      [location, type, uniqueName, rarity, chance, rotation];
 }

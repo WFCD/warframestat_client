@@ -61,30 +61,42 @@ Item toItem(Map<String, dynamic> item) {
       return isBuildable
           ? PetResourcesBuildable.fromJson(item)
           : PetResources.fromJson(item);
+
     case ItemType.sigils:
       return Sigil.fromJson(item);
-    case ItemType.rifle || ItemType.archGun || ItemType.shotgun:
+
+    case ItemType.rifle:
+    case ItemType.archGun:
+    case ItemType.shotgun:
       return Primary.fromJson(item);
-    case ItemType.pistol ||
-          ItemType.dualPistols ||
-          ItemType.throwing ||
-          ItemType.zawComponent ||
-          ItemType.kDriveComponent:
+
+    case ItemType.pistol:
+    case ItemType.dualPistols:
+    case ItemType.throwing:
+    case ItemType.zawComponent:
+    case ItemType.kDriveComponent:
       return Secondary.fromJson(item);
-    case ItemType.melee || ItemType.archMelee:
+
+    case ItemType.melee:
+    case ItemType.archMelee:
       return Melee.fromJson(item);
+
     case ItemType.sentinels:
       return isBuildable
           ? SentinelBuildable.fromJson(item)
           : Sentinel.fromJson(item);
+
     case ItemType.resources:
       return isBuildable
           ? ResourceBuildable.fromJson(item)
           : Resource.fromJson(item);
+
     case ItemType.skin:
       return isBuildable ? SkinBuildable.fromJson(item) : Skin.fromJson(item);
+
     case ItemType.gear:
       return isBuildable ? GearBuildable.fromJson(item) : Gear.fromJson(item);
+
     case ItemType.warframes:
       // NecroMechs and Warframes are stored with the same cateogry so we need
       // to filter by productCateogry here.
