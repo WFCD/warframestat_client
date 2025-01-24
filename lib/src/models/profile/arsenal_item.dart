@@ -76,7 +76,7 @@ class ArsenalItem extends Equatable {
   final int upgradeVersion;
 
   ///  XP earned with this weapon
-  final int xp;
+  final int? xp;
 
   /// How many mod slots are currently polarized.
   final int? polarized;
