@@ -1,3 +1,10 @@
+## [3.16.1](https://github.com/WFCD/warframestat_client/compare/v3.16.0...v3.16.1) (2025-01-24)
+
+
+### Bug Fixes
+
+* loadout item may have nullable xp ([#25](https://github.com/WFCD/warframestat_client/issues/25)) ([4001c30](https://github.com/WFCD/warframestat_client/commit/4001c30d5c10047ffe27e7a4fbfd9d0cb4d7a29b))
+
 # [3.16.0](https://github.com/WFCD/warframestat_client/compare/v3.15.3...v3.16.0) (2025-01-20)
 
 
