@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/WFCD/warframestat_client/compare/v3.16.1...v4.0.0) (2025-01-28)
+
+
+### Bug Fixes
+
+* refactor `WarframestatWebsocket` for websocket usuage ([#26](https://github.com/WFCD/warframestat_client/issues/26)) ([0a55149](https://github.com/WFCD/warframestat_client/commit/0a55149240a2b556951a6e3af4c7815ae723b747))
+
+
+### BREAKING CHANGES
+
+* Websocket now comes from WarframestatWebsocket
+
 ## [3.16.1](https://github.com/WFCD/warframestat_client/compare/v3.16.0...v3.16.1) (2025-01-24)
 
 
