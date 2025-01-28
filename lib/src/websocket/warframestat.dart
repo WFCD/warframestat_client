@@ -34,7 +34,13 @@ class WarframestatWebsocket {
   Stream<Worldstate> worldstate() {
     return packets(WarframestatEvents.update)
         .where((e) => e['language'] == language.name)
-        .map((e) => Worldstate.fromJson(e['data'] as Map<String, dynamic>));
+        .map((e) {
+      try {
+        return Worldstate.fromJson(e['data'] as Map<String, dynamic>);
+      } on Exception catch (e, stack) {
+        throw FormatException('Failed to parse worldstate: $e\n$stack');
+      }
+    });
   }
 
   /// Complete stream of websocket events filterd down to the packets themselves
