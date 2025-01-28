@@ -26,5 +26,5 @@ abstract class WorldstateObject extends Equatable {
   Duration? get remaining => expiry?.toLocal().difference(DateTime.now());
 
   @override
-  List<Object?> get props => [id];
+  List<Object?> get props => [id, activation, expiry];
 }

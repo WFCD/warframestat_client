@@ -31,4 +31,8 @@ Future<void> main() async {
   final profile = await profileClient.fetchProfile();
 
   print(profile.username);
+
+  final ws = WarframestatWebsocket();
+
+  ws.worldstate().listen((data) => print(data.timestamp));
 }

@@ -3,25 +3,27 @@ import 'dart:convert';
 import 'package:warframestat_client/warframestat_client.dart';
 import 'package:web_socket_client/web_socket_client.dart';
 
+const _pingInterval = Duration(milliseconds: 25000);
 final _baseUrl = Uri.parse('wss://api.warframestat.us/socket');
+
+/// Warframestat websocket event types
+enum WarframestatEvents {
+  /// Worldstate update
+  update('ws:update');
+
+  const WarframestatEvents(this.raw);
+
+  /// Event string
+  final String raw;
+}
 
 /// {@template warframestat_websocket}
 /// Subscribes to warframestat's websock.
 /// {@endtemplate}
 class WarframestatWebsocket {
   /// {@macro warframestat_websocket}
-  WarframestatWebsocket(WebSocket websocket, this.language)
-      : _websocket = websocket;
-
-  /// Creates a static websocket instance.
-  factory WarframestatWebsocket.connect({Language language = Language.en}) {
-    final socket = WebSocket(
-      _baseUrl,
-      pingInterval: const Duration(milliseconds: 25000),
-    );
-
-    return WarframestatWebsocket(socket, language);
-  }
+  WarframestatWebsocket([this.language = Language.en])
+      : _websocket = WebSocket(_baseUrl, pingInterval: _pingInterval);
 
   /// The language code to filter by
   final Language language;
@@ -29,17 +31,23 @@ class WarframestatWebsocket {
   final WebSocket _websocket;
 
   /// A stream of worldstate events
-  Stream<Worldstate> worldstateEvents() {
-    const eventName = 'ws:update';
+  Stream<Worldstate> worldstate() {
+    return packets(WarframestatEvents.update)
+        .where((e) => e['language'] == language.name)
+        .map((e) {
+      try {
+        return Worldstate.fromJson(e['data'] as Map<String, dynamic>);
+      } on Exception catch (e, stack) {
+        throw FormatException('Failed to parse worldstate: $e\n$stack');
+      }
+    });
+  }
 
-    Worldstate toState(Map<String, dynamic> event) =>
-        Worldstate.fromJson(event['data'] as Map<String, dynamic>);
-
+  /// Complete stream of websocket events filterd down to the packets themselves
+  Stream<Map<String, dynamic>> packets(WarframestatEvents event) {
     return _websocket.messages
-        .map((event) => json.decode(event as String) as Map<String, dynamic>)
-        .where((event) => event['event'] == eventName)
-        .map((event) => event['packet'] as Map<String, dynamic>)
-        .where((event) => event['language'] == language.name)
-        .map(toState);
+        .map((e) => json.decode(e as String) as Map<String, dynamic>)
+        .where((e) => e['event'] == event.raw)
+        .map((e) => e['packet'] as Map<String, dynamic>);
   }
 }

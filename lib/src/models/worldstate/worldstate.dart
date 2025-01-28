@@ -149,6 +149,7 @@ class Worldstate extends Equatable {
 
   @override
   List<Object?> get props => [
+        timestamp,
         alerts,
         arbitration,
         weeklyChallenges,
