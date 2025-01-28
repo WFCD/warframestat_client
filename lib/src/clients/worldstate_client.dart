@@ -3,7 +3,6 @@ import 'dart:isolate';
 
 import 'package:meta/meta.dart';
 import 'package:warframestat_client/warframestat_client.dart';
-import 'package:web_socket_client/web_socket_client.dart';
 
 /// {@template warframestat_client}
 /// Exposes all endpoints pertaining to worldstate.
@@ -11,23 +10,6 @@ import 'package:web_socket_client/web_socket_client.dart';
 class WorldstateClient extends WarframestatClient {
   /// {@macro warframestat_client}
   WorldstateClient({super.language, super.ua, super.client});
-
-  /// Opens a websocket connection for worldstate updates.
-  @Deprecated('User WarframestatWebsocket instead')
-  Stream<Worldstate> worldstateWebSocket([WebSocket? webSocket]) {
-    final ws = Uri.parse('wss://api.warframestat.us/socket');
-    final socket = webSocket ??
-        WebSocket(ws, pingInterval: const Duration(milliseconds: 30000));
-
-    return socket.messages
-        .map((event) => json.decode(event as String) as Map<String, dynamic>)
-        .where((event) => event['event'] == 'ws:update')
-        .map((event) => event['packet'] as Map<String, dynamic>)
-        .where((event) => event['language'] == language.name)
-        .map(
-          (event) => Worldstate.fromJson(event['data'] as Map<String, dynamic>),
-        );
-  }
 
   /// Retrives a fully translated [Worldstate].
   Future<Worldstate> fetchWorldstate() async {
