@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/WFCD/warframestat_client/compare/v4.0.0...v4.0.1) (2025-02-07)
+
+
+### Bug Fixes
+
+* include baro item uniquename in parsing ([1ac0556](https://github.com/WFCD/warframestat_client/commit/1ac05566fa5c69990bfc353e6fa068fc5a8b3d08))
+
 # [4.0.0](https://github.com/WFCD/warframestat_client/compare/v3.16.1...v4.0.0) (2025-01-28)
 
 
