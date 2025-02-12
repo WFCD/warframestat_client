@@ -21,12 +21,18 @@ class ProfileClient extends WarframestatClient {
   /// Will fetch the player's profile that will include their current loadout
   /// (both arsenal and operator) and items that contributed to player's
   /// mastery rank
+  @Deprecated(
+    'DE put the profile endpoint behind auth so all calls will time out',
+  )
   Future<Profile> fetchProfile() async {
     return _fetch<Map<String, dynamic>, Profile>('/', Profile.fromJson);
   }
 
   /// Will fetch just the item that have contributed to the player's
   /// mastery rank
+  @Deprecated(
+    'DE put the profile endpoint behind auth so all calls will time out',
+  )
   Future<List<XpItem>> fetchXpInfo() async {
     return _fetch<List<dynamic>, List<XpItem>>(
       '/xpInfo',
