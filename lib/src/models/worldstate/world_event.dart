@@ -49,6 +49,7 @@ class WorldEvent extends WorldstateObject {
     required this.altExpiry,
     required this.altActivation,
     required this.nextAlt,
+    required this.tag,
   });
 
   /// Creates a Event from Json map
@@ -182,6 +183,10 @@ class WorldEvent extends WorldstateObject {
 
   /// A description for nextAlt
   final NextAlt nextAlt;
+
+  /// A unique identifier or category label for the event, used to group or
+  /// filter related events.
+  final String tag;
 
   /// Returns the event health using either [health] or
   /// [currentScore] and [maximumScore].

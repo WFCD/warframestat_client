@@ -96,6 +96,7 @@ WorldEvent _$WorldEventFromJson(Map json) => $checkedCreate(
               'altActivation', (v) => DateTime.parse(v as String)),
           nextAlt: $checkedConvert('nextAlt',
               (v) => NextAlt.fromJson(Map<String, dynamic>.from(v as Map))),
+          tag: $checkedConvert('tag', (v) => v as String),
         );
         return val;
       },
@@ -148,6 +149,7 @@ Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) =>
       'altExpiry': instance.altExpiry.toIso8601String(),
       'altActivation': instance.altActivation.toIso8601String(),
       'nextAlt': instance.nextAlt.toJson(),
+      'tag': instance.tag,
     };
 
 InterimStep _$InterimStepFromJson(Map json) => $checkedCreate(
