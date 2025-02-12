@@ -1,3 +1,11 @@
+## [4.0.2](https://github.com/WFCD/warframestat_client/compare/v4.0.1...v4.0.2) (2025-02-12)
+
+
+### Bug Fixes
+
+* add warning to profile endpoints ([3c01c4a](https://github.com/WFCD/warframestat_client/commit/3c01c4aad2bb34c2788734b73c8d072d257136b1))
+* parse tag for `WorldEvent` ([ac5fa3e](https://github.com/WFCD/warframestat_client/commit/ac5fa3e37a9f8c8b1b1b2c3bdabf949f1dcda6bc))
+
 ## [4.0.1](https://github.com/WFCD/warframestat_client/compare/v4.0.0...v4.0.1) (2025-02-07)
 
 
