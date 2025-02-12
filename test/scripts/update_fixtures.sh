@@ -10,4 +10,4 @@ wget https://github.com/WFCD/warframe-items/raw/master/data/json/All.json -O ./t
 wget https://raw.githubusercontent.com/WFCD/warframe-items/master/data/json/Enemy.json -O ./test/fixtures/enemy.json
 
 # Get a player profile
-wget https://api.warframestat.us/profile/OrnsteinTheSlayer/ -O ./test/fixtures/OrnsteinTheSlayer.json
+# wget https://api.warframestat.us/profile/OrnsteinTheSlayer/ -O ./test/fixtures/OrnsteinTheSlayer.json
