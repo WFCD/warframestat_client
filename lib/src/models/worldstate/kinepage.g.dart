@@ -6,31 +6,29 @@ part of 'kinepage.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Kinepage _$KinepageFromJson(Map json) => $checkedCreate(
-      'Kinepage',
-      json,
-      ($checkedConvert) {
-        final val = Kinepage(
-          timestamp:
-              $checkedConvert('timestamp', (v) => DateTime.parse(v as String)),
-          message: $checkedConvert('message', (v) => v as String),
-          translations: $checkedConvert(
-              'translations',
-              (v) => (v as Map).map(
-                    (k, e) => MapEntry(
-                        $enumDecode(_$LanguageEnumMap, k), e as String),
-                  )),
-        );
-        return val;
-      },
-    );
+Kinepage _$KinepageFromJson(Map json) => $checkedCreate('Kinepage', json, (
+  $checkedConvert,
+) {
+  final val = Kinepage(
+    timestamp: $checkedConvert('timestamp', (v) => DateTime.parse(v as String)),
+    message: $checkedConvert('message', (v) => v as String),
+    translations: $checkedConvert(
+      'translations',
+      (v) => (v as Map).map(
+        (k, e) => MapEntry($enumDecode(_$LanguageEnumMap, k), e as String),
+      ),
+    ),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$KinepageToJson(Kinepage instance) => <String, dynamic>{
-      'timestamp': instance.timestamp.toIso8601String(),
-      'message': instance.message,
-      'translations': instance.translations
-          .map((k, e) => MapEntry(_$LanguageEnumMap[k]!, e)),
-    };
+  'timestamp': instance.timestamp.toIso8601String(),
+  'message': instance.message,
+  'translations': instance.translations.map(
+    (k, e) => MapEntry(_$LanguageEnumMap[k]!, e),
+  ),
+};
 
 const _$LanguageEnumMap = {
   Language.de: 'de',

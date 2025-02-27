@@ -6,25 +6,23 @@ part of 'global_upgrade.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GlobalUpgrade _$GlobalUpgradeFromJson(Map json) => $checkedCreate(
-      'GlobalUpgrade',
-      json,
-      ($checkedConvert) {
-        final val = GlobalUpgrade(
-          start: $checkedConvert('start', (v) => v as String),
-          end: $checkedConvert('end', (v) => v as String),
-          upgrade: $checkedConvert('upgrade', (v) => v as String),
-          operation: $checkedConvert('operation', (v) => v as String),
-          operationSymbol:
-              $checkedConvert('operationSymbol', (v) => v as String),
-          upgradeOperationValue: $checkedConvert(
-              'upgradeOperationValue', (v) => (v as num).toInt()),
-          expired: $checkedConvert('expired', (v) => v as bool),
-          desc: $checkedConvert('desc', (v) => v as String),
-        );
-        return val;
-      },
-    );
+GlobalUpgrade _$GlobalUpgradeFromJson(Map json) =>
+    $checkedCreate('GlobalUpgrade', json, ($checkedConvert) {
+      final val = GlobalUpgrade(
+        start: $checkedConvert('start', (v) => v as String),
+        end: $checkedConvert('end', (v) => v as String),
+        upgrade: $checkedConvert('upgrade', (v) => v as String),
+        operation: $checkedConvert('operation', (v) => v as String),
+        operationSymbol: $checkedConvert('operationSymbol', (v) => v as String),
+        upgradeOperationValue: $checkedConvert(
+          'upgradeOperationValue',
+          (v) => (v as num).toInt(),
+        ),
+        expired: $checkedConvert('expired', (v) => v as bool),
+        desc: $checkedConvert('desc', (v) => v as String),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$GlobalUpgradeToJson(GlobalUpgrade instance) =>
     <String, dynamic>{

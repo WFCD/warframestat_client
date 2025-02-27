@@ -7,17 +7,16 @@ part of 'skin.dart';
 // **************************************************************************
 
 ArsenalSkin _$ArsenalSkinFromJson(Map json) => $checkedCreate(
-      'ArsenalSkin',
-      json,
-      ($checkedConvert) {
-        final val = ArsenalSkin(
-          uniqueName: $checkedConvert('uniqueName', (v) => v as String),
-          item: $checkedConvert(
-              'item', (v) => _toItem(v as Map<String, dynamic>?)),
-        );
-        return val;
-      },
+  'ArsenalSkin',
+  json,
+  ($checkedConvert) {
+    final val = ArsenalSkin(
+      uniqueName: $checkedConvert('uniqueName', (v) => v as String),
+      item: $checkedConvert('item', (v) => _toItem(v as Map<String, dynamic>?)),
     );
+    return val;
+  },
+);
 
 Map<String, dynamic> _$ArsenalSkinToJson(ArsenalSkin instance) =>
     <String, dynamic>{

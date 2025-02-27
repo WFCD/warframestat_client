@@ -6,22 +6,23 @@ part of 'vallis_cycle.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-VallisCycle _$VallisCycleFromJson(Map json) => $checkedCreate(
-      'VallisCycle',
-      json,
-      ($checkedConvert) {
-        final val = VallisCycle(
-          id: $checkedConvert('id', (v) => v as String),
-          activation:
-              $checkedConvert('activation', (v) => DateTime.parse(v as String)),
-          expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
-          isWarm: $checkedConvert('isWarm', (v) => v as bool),
-          state: $checkedConvert(
-              'state', (v) => $enumDecode(_$VallisStateEnumMap, v)),
-        );
-        return val;
-      },
-    );
+VallisCycle _$VallisCycleFromJson(Map json) =>
+    $checkedCreate('VallisCycle', json, ($checkedConvert) {
+      final val = VallisCycle(
+        id: $checkedConvert('id', (v) => v as String),
+        activation: $checkedConvert(
+          'activation',
+          (v) => DateTime.parse(v as String),
+        ),
+        expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
+        isWarm: $checkedConvert('isWarm', (v) => v as bool),
+        state: $checkedConvert(
+          'state',
+          (v) => $enumDecode(_$VallisStateEnumMap, v),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$VallisCycleToJson(VallisCycle instance) =>
     <String, dynamic>{

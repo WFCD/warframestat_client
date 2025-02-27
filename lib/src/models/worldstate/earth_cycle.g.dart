@@ -6,22 +6,23 @@ part of 'earth_cycle.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EarthCycle _$EarthCycleFromJson(Map json) => $checkedCreate(
-      'EarthCycle',
-      json,
-      ($checkedConvert) {
-        final val = EarthCycle(
-          id: $checkedConvert('id', (v) => v as String),
-          activation:
-              $checkedConvert('activation', (v) => DateTime.parse(v as String)),
-          expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
-          isDay: $checkedConvert('isDay', (v) => v as bool),
-          state: $checkedConvert(
-              'state', (v) => $enumDecode(_$EarthStateEnumMap, v)),
-        );
-        return val;
-      },
-    );
+EarthCycle _$EarthCycleFromJson(Map json) =>
+    $checkedCreate('EarthCycle', json, ($checkedConvert) {
+      final val = EarthCycle(
+        id: $checkedConvert('id', (v) => v as String),
+        activation: $checkedConvert(
+          'activation',
+          (v) => DateTime.parse(v as String),
+        ),
+        expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
+        isDay: $checkedConvert('isDay', (v) => v as bool),
+        state: $checkedConvert(
+          'state',
+          (v) => $enumDecode(_$EarthStateEnumMap, v),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$EarthCycleToJson(EarthCycle instance) =>
     <String, dynamic>{
@@ -32,7 +33,4 @@ Map<String, dynamic> _$EarthCycleToJson(EarthCycle instance) =>
       'state': _$EarthStateEnumMap[instance.state]!,
     };
 
-const _$EarthStateEnumMap = {
-  EarthState.day: 'day',
-  EarthState.night: 'night',
-};
+const _$EarthStateEnumMap = {EarthState.day: 'day', EarthState.night: 'night'};

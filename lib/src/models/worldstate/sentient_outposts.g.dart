@@ -6,26 +6,29 @@ part of 'sentient_outposts.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SentientOutpost _$SentientOutpostFromJson(Map json) => $checkedCreate(
-      'SentientOutpost',
-      json,
-      ($checkedConvert) {
-        final val = SentientOutpost(
-          id: $checkedConvert('id', (v) => v as String),
-          activation: $checkedConvert('activation',
-              (v) => v == null ? null : DateTime.parse(v as String)),
-          expiry: $checkedConvert(
-              'expiry', (v) => v == null ? null : DateTime.parse(v as String)),
-          mission: $checkedConvert(
-              'mission',
-              (v) => v == null
+SentientOutpost _$SentientOutpostFromJson(Map json) =>
+    $checkedCreate('SentientOutpost', json, ($checkedConvert) {
+      final val = SentientOutpost(
+        id: $checkedConvert('id', (v) => v as String),
+        activation: $checkedConvert(
+          'activation',
+          (v) => v == null ? null : DateTime.parse(v as String),
+        ),
+        expiry: $checkedConvert(
+          'expiry',
+          (v) => v == null ? null : DateTime.parse(v as String),
+        ),
+        mission: $checkedConvert(
+          'mission',
+          (v) =>
+              v == null
                   ? null
-                  : Mission.fromJson(Map<String, dynamic>.from(v as Map))),
-          active: $checkedConvert('active', (v) => v as bool),
-        );
-        return val;
-      },
-    );
+                  : Mission.fromJson(Map<String, dynamic>.from(v as Map)),
+        ),
+        active: $checkedConvert('active', (v) => v as bool),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$SentientOutpostToJson(SentientOutpost instance) =>
     <String, dynamic>{
