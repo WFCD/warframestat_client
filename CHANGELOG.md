@@ -1,3 +1,10 @@
+## [4.1.1](https://github.com/WFCD/warframestat_client/compare/v4.1.0...v4.1.1) (2025-02-27)
+
+
+### Bug Fixes
+
+* calendar and kinpage not being exported ([bf15167](https://github.com/WFCD/warframestat_client/commit/bf15167e44dc4c4d5f3e510e00054a41650c6fec))
+
 # [4.1.0](https://github.com/WFCD/warframestat_client/compare/v4.0.2...v4.1.0) (2025-02-27)
 
 
