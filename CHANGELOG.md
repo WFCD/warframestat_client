@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/WFCD/warframestat_client/compare/v4.0.2...v4.1.0) (2025-02-27)
+
+
+### Features
+
+* add hex calendar ([ef832bc](https://github.com/WFCD/warframestat_client/commit/ef832bc049c615a6babf86514d181a9c632e182a))
+
 ## [4.0.2](https://github.com/WFCD/warframestat_client/compare/v4.0.1...v4.0.2) (2025-02-12)
 
 
