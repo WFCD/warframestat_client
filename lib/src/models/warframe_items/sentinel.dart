@@ -30,8 +30,7 @@ class Sentinel extends Companion {
   });
 
   /// Creates a Sentinal from Json map
-  factory Sentinel.fromJson(Map<String, dynamic> data) =>
-      _$SentinelFromJson(data);
+  factory Sentinel.fromJson(Map<String, dynamic> data) => _$SentinelFromJson(data);
 
   /// Armor health.
   final int armor;
@@ -50,8 +49,7 @@ class Sentinel extends Companion {
   Map<String, dynamic> toJson() => _$SentinelToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props..addAll([armor, health, shield, stamina]);
+  List<Object?> get props => super.props..addAll([armor, health, shield, stamina]);
 }
 
 /// {@template sentinal_buildable}
@@ -92,8 +90,7 @@ class SentinelBuildable extends BuildableItem implements Sentinel {
   });
 
   /// Creates a Sentinal from Json map
-  factory SentinelBuildable.fromJson(Map<String, dynamic> data) =>
-      _$SentinelBuildableFromJson(data);
+  factory SentinelBuildable.fromJson(Map<String, dynamic> data) => _$SentinelBuildableFromJson(data);
 
   /// Armor health.
   @override
@@ -116,8 +113,7 @@ class SentinelBuildable extends BuildableItem implements Sentinel {
   Map<String, dynamic> toJson() => _$SentinelBuildableToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props..addAll([armor, health, shield, stamina, isPrime]);
+  List<Object?> get props => super.props..addAll([armor, health, shield, stamina, isPrime]);
 }
 
 /// {@template sentinel_weapon}

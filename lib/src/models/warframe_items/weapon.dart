@@ -81,19 +81,18 @@ abstract class Weapon extends Item {
 
   @override
   List<Object?> get props {
-    return super.props
-      ..addAll([
-        criticalChance,
-        criticalMultiplier,
-        disposition,
-        fireRate,
-        omegaAttenuation,
-        polarities,
-        procChance,
-        slot,
-        tags,
-        totalDamage,
-        maxLevelCap,
-      ]);
+    return super.props..addAll([
+      criticalChance,
+      criticalMultiplier,
+      disposition,
+      fireRate,
+      omegaAttenuation,
+      polarities,
+      procChance,
+      slot,
+      tags,
+      totalDamage,
+      maxLevelCap,
+    ]);
   }
 }

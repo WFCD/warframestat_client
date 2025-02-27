@@ -66,16 +66,6 @@ class Kuva extends WorldstateObject {
 
   @override
   List<Object?> get props {
-    return super.props
-      ..addAll([
-        active,
-        node,
-        enemy,
-        enemyKey,
-        type,
-        typeKey,
-        archwing,
-        sharkwing,
-      ]);
+    return super.props..addAll([active, node, enemy, enemyKey, type, typeKey, archwing, sharkwing]);
   }
 }

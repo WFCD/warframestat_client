@@ -49,6 +49,5 @@ class Pet extends Companion {
   Map<String, dynamic> toJson() => _$PetToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props..addAll([armor, health, shield, stamina]);
+  List<Object?> get props => super.props..addAll([armor, health, shield, stamina]);
 }

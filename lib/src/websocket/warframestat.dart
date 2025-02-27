@@ -22,8 +22,7 @@ enum WarframestatEvents {
 /// {@endtemplate}
 class WarframestatWebsocket {
   /// {@macro warframestat_websocket}
-  WarframestatWebsocket([this.language = Language.en])
-      : _websocket = WebSocket(_baseUrl, pingInterval: _pingInterval);
+  WarframestatWebsocket([this.language = Language.en]) : _websocket = WebSocket(_baseUrl, pingInterval: _pingInterval);
 
   /// The language code to filter by
   final Language language;
@@ -32,9 +31,7 @@ class WarframestatWebsocket {
 
   /// A stream of worldstate events
   Stream<Worldstate> worldstate() {
-    return packets(WarframestatEvents.update)
-        .where((e) => e['language'] == language.name)
-        .map((e) {
+    return packets(WarframestatEvents.update).where((e) => e['language'] == language.name).map((e) {
       try {
         return Worldstate.fromJson(e['data'] as Map<String, dynamic>);
       } on Exception catch (e, stack) {

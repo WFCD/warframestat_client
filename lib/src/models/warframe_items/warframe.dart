@@ -52,8 +52,7 @@ class Warframe extends PowerSuit {
   });
 
   /// Creates a Warframe from Json map
-  factory Warframe.fromJson(Map<String, dynamic> data) =>
-      _$WarframeFromJson(data);
+  factory Warframe.fromJson(Map<String, dynamic> data) => _$WarframeFromJson(data);
 
   /// Aura slot polarity
   final String? aura;
@@ -85,16 +84,6 @@ class Warframe extends PowerSuit {
   Map<String, dynamic> toJson() => _$WarframeToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([
-      abilities,
-      aura,
-      sex,
-      sprintSpeed,
-      passiveDescription,
-      color,
-      conclave,
-      introduced,
-      sprint,
-    ]);
+  List<Object?> get props =>
+      super.props..addAll([abilities, aura, sex, sprintSpeed, passiveDescription, color, conclave, introduced, sprint]);
 }

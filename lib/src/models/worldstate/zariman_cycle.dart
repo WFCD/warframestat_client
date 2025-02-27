@@ -9,7 +9,7 @@ enum ZarimanState {
   corpus,
 
   /// Grineer
-  grineer
+  grineer,
 }
 
 /// {@template zariman_cycle}
@@ -27,8 +27,7 @@ class ZarimanCycle extends WorldstateObject {
   });
 
   /// Creates a ZarimanCycle from Json map
-  factory ZarimanCycle.fromJson(Map<String, dynamic> json) =>
-      _$ZarimanCycleFromJson(json);
+  factory ZarimanCycle.fromJson(Map<String, dynamic> json) => _$ZarimanCycleFromJson(json);
 
   @override
   String get id => super.id!;

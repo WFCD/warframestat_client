@@ -9,7 +9,7 @@ enum VallisState {
   cold,
 
   /// Warm
-  warm
+  warm,
 }
 
 /// {@template vallis_cycle}
@@ -27,8 +27,7 @@ class VallisCycle extends WorldstateObject {
   });
 
   /// Creates a VallisCycle from Json map
-  factory VallisCycle.fromJson(Map<String, dynamic> json) =>
-      _$VallisCycleFromJson(json);
+  factory VallisCycle.fromJson(Map<String, dynamic> json) => _$VallisCycleFromJson(json);
 
   @override
   String get id => super.id!;

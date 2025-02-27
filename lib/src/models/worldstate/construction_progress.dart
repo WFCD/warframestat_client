@@ -17,8 +17,7 @@ class ConstructionProgress extends WorldstateObject {
   });
 
   /// Creates a ConstructionProgress from Json map
-  factory ConstructionProgress.fromJson(Map<String, dynamic> json) =>
-      _$ConstructionProgressFromJson(json);
+  factory ConstructionProgress.fromJson(Map<String, dynamic> json) => _$ConstructionProgressFromJson(json);
 
   @override
   String get id => super.id!;
@@ -42,6 +41,5 @@ class ConstructionProgress extends WorldstateObject {
   Map<String, dynamic> toJson() => _$ConstructionProgressToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([fomorianProgress, razorbackProgress, unknownProgress]);
+  List<Object?> get props => super.props..addAll([fomorianProgress, razorbackProgress, unknownProgress]);
 }

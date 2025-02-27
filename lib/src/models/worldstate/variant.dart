@@ -17,8 +17,7 @@ class Variant extends Equatable {
   });
 
   /// Creates a Variant from Json map
-  factory Variant.fromJson(Map<String, dynamic> data) =>
-      _$VariantFromJson(data);
+  factory Variant.fromJson(Map<String, dynamic> data) => _$VariantFromJson(data);
 
   /// A description for missionType
   final String missionType;
@@ -33,12 +32,7 @@ class Variant extends Equatable {
   final String node;
 
   @override
-  List<Object?> get props => [
-        missionType,
-        modifier,
-        modifierDescription,
-        node,
-      ];
+  List<Object?> get props => [missionType, modifier, modifierDescription, node];
 
   /// Creates a Json map from a Variant
   Map<String, dynamic> toJson() => _$VariantToJson(this);

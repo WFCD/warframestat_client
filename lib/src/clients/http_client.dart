@@ -13,11 +13,7 @@ const _timeout = Duration(seconds: 60);
 /// {@endtemplate}
 abstract class WarframestatClient {
   /// {@macro wfcdclient}
-  WarframestatClient({
-    http.Client? client,
-    this.language = Language.en,
-    this.ua,
-  }) : _client = client ?? http.Client();
+  WarframestatClient({http.Client? client, this.language = Language.en, this.ua}) : _client = client ?? http.Client();
 
   final http.Client _client;
 
@@ -31,10 +27,7 @@ abstract class WarframestatClient {
 
   /// Fetches Warframestat API endpoint.
   Future<http.Response> get(String path, {Map<String, dynamic>? query}) async {
-    final requiredQueries = {
-      'language': language.name,
-      if (ua != null) 'ua': ua,
-    };
+    final requiredQueries = {'language': language.name, if (ua != null) 'ua': ua};
 
     if (query != null) {
       query.addAll(requiredQueries);
@@ -42,12 +35,7 @@ abstract class WarframestatClient {
       query = requiredQueries;
     }
 
-    final uri = Uri(
-      scheme: 'https',
-      host: authority,
-      path: path,
-      queryParameters: query,
-    );
+    final uri = Uri(scheme: 'https', host: authority, path: path, queryParameters: query);
 
     return _client.get(uri).timeout(_timeout);
   }

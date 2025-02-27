@@ -54,14 +54,7 @@ class Reward extends Equatable {
 
   @override
   List<Object?> get props {
-    return [
-      countedItems,
-      thumbnail,
-      color,
-      credits,
-      items,
-      itemString,
-    ];
+    return [countedItems, thumbnail, color, credits, items, itemString];
   }
 }
 
@@ -72,11 +65,7 @@ class Reward extends Equatable {
 @JsonSerializable()
 class CountedItem extends Equatable {
   /// {@macro counted_item}
-  const CountedItem({
-    required this.count,
-    required this.type,
-    required this.key,
-  });
+  const CountedItem({required this.count, required this.type, required this.key});
 
   /// [CountedItem] from a json map
   factory CountedItem.fromJson(Map<String, dynamic> json) {

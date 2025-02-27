@@ -23,8 +23,7 @@ class Resource extends DroppableItem {
   });
 
   /// Creates a Resource from Json map
-  factory Resource.fromJson(Map<String, dynamic> data) =>
-      _$ResourceFromJson(data);
+  factory Resource.fromJson(Map<String, dynamic> data) => _$ResourceFromJson(data);
 
   /// Creates a Json map from a Resource
   @override
@@ -64,8 +63,7 @@ class ResourceBuildable extends BuildableItem implements Resource {
   }) : super(isPrime: false);
 
   /// Creates a Resource from Json map
-  factory ResourceBuildable.fromJson(Map<String, dynamic> data) =>
-      _$ResourceBuildableFromJson(data);
+  factory ResourceBuildable.fromJson(Map<String, dynamic> data) => _$ResourceBuildableFromJson(data);
 
   /// Creates a Json map from a Resource
   @override

@@ -22,8 +22,7 @@ class FlashSale extends WorldstateObject {
   });
 
   /// Creates a FlashSale from Json map
-  factory FlashSale.fromJson(Map<String, dynamic> json) =>
-      _$FlashSaleFromJson(json);
+  factory FlashSale.fromJson(Map<String, dynamic> json) => _$FlashSaleFromJson(json);
 
   @override
   String get id => super.id!;
@@ -56,6 +55,5 @@ class FlashSale extends WorldstateObject {
   Map<String, dynamic> toJson() => _$FlashSaleToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([item, expired, discount, premiumOverride, isPopular, isFeatured]);
+  List<Object?> get props => super.props..addAll([item, expired, discount, premiumOverride, isPopular, isFeatured]);
 }

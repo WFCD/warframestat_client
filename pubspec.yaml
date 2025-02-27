@@ -5,7 +5,7 @@ homepage: https://github.com/WFCD
 repository: https://github.com/WFCD/warframestat_client
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.7.0
 
 dependencies:
   collection: ">=1.17.0 <2.0.0"

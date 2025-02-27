@@ -42,13 +42,6 @@ abstract class Attack extends Equatable {
 
   @override
   List<Object?> get props {
-    return [
-      name,
-      speed,
-      critChance,
-      critMult,
-      statusChance,
-      damage,
-    ];
+    return [name, speed, critChance, critMult, statusChance, damage];
   }
 }

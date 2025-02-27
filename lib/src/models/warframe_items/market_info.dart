@@ -9,14 +9,10 @@ part 'market_info.g.dart';
 @JsonSerializable()
 class MarketInfo extends Equatable {
   /// {@macro market_info}
-  const MarketInfo({
-    required this.id,
-    required this.urlName,
-  });
+  const MarketInfo({required this.id, required this.urlName});
 
   /// Creates a MarketInfo from Json map
-  factory MarketInfo.fromJson(Map<String, dynamic> data) =>
-      _$MarketInfoFromJson(data);
+  factory MarketInfo.fromJson(Map<String, dynamic> data) => _$MarketInfoFromJson(data);
 
   /// Market ID.
   final String id;

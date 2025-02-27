@@ -19,8 +19,7 @@ class TargetLocation {
   });
 
   /// Creates a Location from Json map
-  factory TargetLocation.fromJson(Map<String, dynamic> data) =>
-      _$TargetLocationFromJson(data);
+  factory TargetLocation.fromJson(Map<String, dynamic> data) => _$TargetLocationFromJson(data);
 
   /// Last time the target was verified.
   @JsonKey(name: 'last_verified')

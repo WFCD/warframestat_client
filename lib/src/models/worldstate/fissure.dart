@@ -77,18 +77,7 @@ class Fissure extends WorldstateObject {
   Map<String, dynamic> toJson() => _$FissureToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([
-      active,
-      node,
-      expired,
-      missionType,
-      missionKey,
-      tier,
-      tierNum,
-      enemy,
-      enemyKey,
-      isStorm,
-      isHard,
-    ]);
+  List<Object?> get props =>
+      super.props
+        ..addAll([active, node, expired, missionType, missionKey, tier, tierNum, enemy, enemyKey, isStorm, isHard]);
 }

@@ -19,8 +19,7 @@ class CetusCycle extends WorldstateObject {
   });
 
   /// Creates a CetusCycle from Json map
-  factory CetusCycle.fromJson(Map<String, dynamic> json) =>
-      _$CetusCycleFromJson(json);
+  factory CetusCycle.fromJson(Map<String, dynamic> json) => _$CetusCycleFromJson(json);
 
   @override
   String get id => super.id!;

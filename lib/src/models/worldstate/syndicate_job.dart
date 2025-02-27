@@ -20,8 +20,7 @@ class SyndicateJob extends Equatable {
   });
 
   /// Creates a Syndicatemission from Json map
-  factory SyndicateJob.fromJson(Map<String, dynamic> json) =>
-      _$SyndicateJobFromJson(json);
+  factory SyndicateJob.fromJson(Map<String, dynamic> json) => _$SyndicateJobFromJson(json);
 
   /// Job id.
   final String id;
@@ -48,8 +47,7 @@ class SyndicateJob extends Equatable {
   Map<String, dynamic> toJson() => _$SyndicateJobToJson(this);
 
   @override
-  List<Object?> get props =>
-      [id, rewardPool, type, enemyLevels, standingStages, minMr, expiry];
+  List<Object?> get props => [id, rewardPool, type, enemyLevels, standingStages, minMr, expiry];
 
   @override
   bool? get stringify => false;

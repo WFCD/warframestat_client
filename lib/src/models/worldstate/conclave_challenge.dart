@@ -23,8 +23,7 @@ class ConclaveChallenge extends WorldstateObject {
   });
 
   /// Creates a ConclaveChallenge from Json map
-  factory ConclaveChallenge.fromJson(Map<String, dynamic> json) =>
-      _$ConclaveChallengeFromJson(json);
+  factory ConclaveChallenge.fromJson(Map<String, dynamic> json) => _$ConclaveChallengeFromJson(json);
 
   @override
   String get id => super.id!;
@@ -60,14 +59,5 @@ class ConclaveChallenge extends WorldstateObject {
   Map<String, dynamic> toJson() => _$ConclaveChallengeToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([
-      mode,
-      amount,
-      expired,
-      daily,
-      description,
-      category,
-      rootChallenge,
-    ]);
+  List<Object?> get props => super.props..addAll([mode, amount, expired, daily, description, category, rootChallenge]);
 }

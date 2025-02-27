@@ -12,11 +12,7 @@ Item? _toItem(Map<String, dynamic>? json) => json != null ? toItem(json) : null;
 @JsonSerializable()
 class XpItem extends Equatable {
   /// {@macro xp_item}
-  const XpItem({
-    required this.uniqueName,
-    required this.xp,
-    this.item,
-  });
+  const XpItem({required this.uniqueName, required this.xp, this.item});
 
   /// Creates an instance from json map
   factory XpItem.fromJson(Map<String, dynamic> json) {

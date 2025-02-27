@@ -74,17 +74,7 @@ class Sortie extends WorldstateObject {
   Map<String, dynamic> toJson() => _$SortieToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([
-      startString,
-      active,
-      rewardPool,
-      variants,
-      missions,
-      boss,
-      faction,
-      factionKey,
-      expired,
-      eta,
-    ]);
+  List<Object?> get props =>
+      super.props
+        ..addAll([startString, active, rewardPool, variants, missions, boss, faction, factionKey, expired, eta]);
 }

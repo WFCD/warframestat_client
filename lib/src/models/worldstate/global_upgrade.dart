@@ -21,8 +21,7 @@ class GlobalUpgrade extends Equatable {
   });
 
   /// Creates a GlobalUpgrade from Json map
-  factory GlobalUpgrade.fromJson(Map<String, dynamic> json) =>
-      _$GlobalUpgradeFromJson(json);
+  factory GlobalUpgrade.fromJson(Map<String, dynamic> json) => _$GlobalUpgradeFromJson(json);
 
   /// A description for start
   final String start;
@@ -53,15 +52,6 @@ class GlobalUpgrade extends Equatable {
 
   @override
   List<Object> get props {
-    return [
-      start,
-      end,
-      upgrade,
-      operation,
-      operationSymbol,
-      upgradeOperationValue,
-      expired,
-      desc,
-    ];
+    return [start, end, upgrade, operation, operationSymbol, upgradeOperationValue, expired, desc];
   }
 }

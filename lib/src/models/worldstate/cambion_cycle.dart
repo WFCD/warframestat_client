@@ -9,7 +9,7 @@ enum CambionState {
   fass,
 
   /// Vome
-  vome
+  vome,
 }
 
 /// {@template cambion_cycle}
@@ -30,8 +30,7 @@ class CambionCycle extends WorldstateObject {
   });
 
   /// Creates a CambionCycle from Json map
-  factory CambionCycle.fromJson(Map<String, dynamic> json) =>
-      _$CambionCycleFromJson(json);
+  factory CambionCycle.fromJson(Map<String, dynamic> json) => _$CambionCycleFromJson(json);
 
   @override
   String get id => super.id!;

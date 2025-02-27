@@ -72,19 +72,19 @@ abstract class Item extends Equatable {
 
   @override
   List<Object?> get props => [
-        name,
-        description,
-        type,
-        category,
-        productCategory,
-        tradable,
-        patchlogs,
-        imageName,
-        releaseDate,
-        excludeFromCodex,
-        wikiaThumbnail,
-        wikiaUrl,
-      ];
+    name,
+    description,
+    type,
+    category,
+    productCategory,
+    tradable,
+    patchlogs,
+    imageName,
+    releaseDate,
+    excludeFromCodex,
+    wikiaThumbnail,
+    wikiaUrl,
+  ];
 }
 
 /// {@template equipableitem}
@@ -224,18 +224,17 @@ abstract class BuildableItem extends EquipableItem {
 
   @override
   List<Object?> get props {
-    return super.props
-      ..addAll([
-        masteryReq,
-        buildPrice,
-        buildQuantity,
-        buildTime,
-        skipBuildTimePrice,
-        consumeOnBuild,
-        components,
-        marketCost,
-        bpCost,
-        itemCount,
-      ]);
+    return super.props..addAll([
+      masteryReq,
+      buildPrice,
+      buildQuantity,
+      buildTime,
+      skipBuildTimePrice,
+      consumeOnBuild,
+      components,
+      marketCost,
+      bpCost,
+      itemCount,
+    ]);
   }
 }

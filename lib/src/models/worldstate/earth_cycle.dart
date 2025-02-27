@@ -9,7 +9,7 @@ enum EarthState {
   day,
 
   /// Night
-  night
+  night,
 }
 
 /// {@template earth_cycle}
@@ -27,8 +27,7 @@ class EarthCycle extends WorldstateObject {
   });
 
   /// Creates a EarthCycle from Json map
-  factory EarthCycle.fromJson(Map<String, dynamic> json) =>
-      _$EarthCycleFromJson(json);
+  factory EarthCycle.fromJson(Map<String, dynamic> json) => _$EarthCycleFromJson(json);
 
   @override
   String get id => super.id!;

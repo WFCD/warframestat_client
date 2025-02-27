@@ -23,8 +23,7 @@ class DailyDeal extends WorldstateObject {
   });
 
   /// Creates a DailyDeals from Json map
-  factory DailyDeal.fromJson(Map<String, dynamic> json) =>
-      _$DailyDealFromJson(json);
+  factory DailyDeal.fromJson(Map<String, dynamic> json) => _$DailyDealFromJson(json);
 
   @override
   String get id => super.id!;
@@ -63,14 +62,5 @@ class DailyDeal extends WorldstateObject {
   Map<String, dynamic> toJson() => _$DailyDealToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([
-      item,
-      uniqueName,
-      originalPrice,
-      salePrice,
-      total,
-      sold,
-      discount,
-    ]);
+  List<Object?> get props => super.props..addAll([item, uniqueName, originalPrice, salePrice, total, sold, discount]);
 }

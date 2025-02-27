@@ -3,10 +3,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 
 /// Converts search items to a list of [MinimalItem]s.
 List<MinimalItem> toSearchItems(List<dynamic> data) {
-  return data
-      .map((e) => Map<String, dynamic>.from(e as Map))
-      .map(MinimalItem.fromJson)
-      .toList();
+  return data.map((e) => Map<String, dynamic>.from(e as Map)).map(MinimalItem.fromJson).toList();
 }
 
 /// Converts a json decoded list into [Item] objects
@@ -33,8 +30,7 @@ Item toItem(Map<String, dynamic> item) {
   if (name.contains('Arcane')) return Arcane.fromJson(item);
   if (name.contains('Gravimag')) return ResourceBuildable.fromJson(item);
   if (type.contains('Mod')) return Mod.fromJson(item);
-  if ((item['uniqueName'] as String)
-      .contains(RegExp('MoaPetParts|ZanukaPetParts'))) {
+  if ((item['uniqueName'] as String).contains(RegExp('MoaPetParts|ZanukaPetParts'))) {
     type = 'Pet Resource';
   }
 
@@ -58,9 +54,7 @@ Item toItem(Map<String, dynamic> item) {
     case ItemType.pets:
       return Pet.fromJson(item);
     case ItemType.petResource:
-      return isBuildable
-          ? PetResourcesBuildable.fromJson(item)
-          : PetResources.fromJson(item);
+      return isBuildable ? PetResourcesBuildable.fromJson(item) : PetResources.fromJson(item);
 
     case ItemType.sigils:
       return Sigil.fromJson(item);
@@ -82,14 +76,10 @@ Item toItem(Map<String, dynamic> item) {
       return Melee.fromJson(item);
 
     case ItemType.sentinels:
-      return isBuildable
-          ? SentinelBuildable.fromJson(item)
-          : Sentinel.fromJson(item);
+      return isBuildable ? SentinelBuildable.fromJson(item) : Sentinel.fromJson(item);
 
     case ItemType.resources:
-      return isBuildable
-          ? ResourceBuildable.fromJson(item)
-          : Resource.fromJson(item);
+      return isBuildable ? ResourceBuildable.fromJson(item) : Resource.fromJson(item);
 
     case ItemType.skin:
       return isBuildable ? SkinBuildable.fromJson(item) : Skin.fromJson(item);

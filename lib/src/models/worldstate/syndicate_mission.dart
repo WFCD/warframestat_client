@@ -21,8 +21,7 @@ class SyndicateMission extends WorldstateObject {
   });
 
   /// Creates a Syndicatemission from Json map
-  factory SyndicateMission.fromJson(Map<String, dynamic> json) =>
-      _$SyndicateMissionFromJson(json);
+  factory SyndicateMission.fromJson(Map<String, dynamic> json) => _$SyndicateMissionFromJson(json);
 
   @override
   String get id => super.id!;
@@ -52,6 +51,5 @@ class SyndicateMission extends WorldstateObject {
   Map<String, dynamic> toJson() => _$SyndicateMissionToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props..addAll([active, syndicate, syndicateKey, nodes, jobs]);
+  List<Object?> get props => super.props..addAll([active, syndicate, syndicateKey, nodes, jobs]);
 }

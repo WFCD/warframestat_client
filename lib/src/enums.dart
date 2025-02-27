@@ -53,15 +53,14 @@ enum Language {
   tc,
 
   /// Thai
-  th
+  th,
 }
 
 extension on Language {
   /// Returns a [Language] from a language code or null.
   // ignore: unused_element
   Language? fromLanguageCode(String languageCode) {
-    return Language.values
-        .firstWhereOrNull((e) => languageCode.contains(e.name));
+    return Language.values.firstWhereOrNull((e) => languageCode.contains(e.name));
   }
 }
 

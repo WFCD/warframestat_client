@@ -9,15 +9,10 @@ part 'target.g.dart';
 @JsonSerializable()
 class SynthTarget {
   /// {@macro target}
-  const SynthTarget({
-    required this.name,
-    required this.imageKey,
-    required this.locations,
-  });
+  const SynthTarget({required this.name, required this.imageKey, required this.locations});
 
   /// Creates a Target from Json map
-  factory SynthTarget.fromJson(Map<String, dynamic> data) =>
-      _$SynthTargetFromJson(data);
+  factory SynthTarget.fromJson(Map<String, dynamic> data) => _$SynthTargetFromJson(data);
 
   /// Target name.
   final String name;

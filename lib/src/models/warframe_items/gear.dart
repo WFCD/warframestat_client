@@ -67,8 +67,7 @@ class GearBuildable extends BuildableItem implements Gear {
   });
 
   /// Creates [Gear] from a json map.
-  factory GearBuildable.fromJson(Map<String, dynamic> json) =>
-      _$GearBuildableFromJson(json);
+  factory GearBuildable.fromJson(Map<String, dynamic> json) => _$GearBuildableFromJson(json);
 
   /// Creates a json map from [Gear].
   @override

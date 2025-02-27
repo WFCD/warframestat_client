@@ -63,8 +63,7 @@ abstract class Gun extends Weapon {
   final num? reloadTime;
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([accuracy, magazineSize, multishot, noise, trigger, reloadTime]);
+  List<Object?> get props => super.props..addAll([accuracy, magazineSize, multishot, noise, trigger, reloadTime]);
 }
 
 /// {@template gunattack}

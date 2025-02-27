@@ -17,12 +17,7 @@ class Component extends DroppableItem {
     required super.drops,
     required this.itemCount,
     super.imageName,
-  }) : super(
-          patchlogs: const <Patchlog>[],
-          type: ItemType.misc,
-          category: '',
-          productCategory: '',
-        );
+  }) : super(patchlogs: const <Patchlog>[], type: ItemType.misc, category: '', productCategory: '');
 
   /// Creates [Component] from json map.
   factory Component.fromJson(Map<String, dynamic> json) {

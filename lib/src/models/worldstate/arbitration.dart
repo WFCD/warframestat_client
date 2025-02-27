@@ -26,8 +26,7 @@ class Arbitration extends WorldstateObject {
   });
 
   /// Creates a Arbitration from Json map
-  factory Arbitration.fromJson(Map<String, dynamic> json) =>
-      _$ArbitrationFromJson(json);
+  factory Arbitration.fromJson(Map<String, dynamic> json) => _$ArbitrationFromJson(json);
 
   @override
   DateTime get activation => super.activation!;
@@ -66,15 +65,5 @@ class Arbitration extends WorldstateObject {
   Map<String, dynamic> toJson() => _$ArbitrationToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([
-      node,
-      nodeKey,
-      enemy,
-      type,
-      typeKey,
-      archwing,
-      sharkwing,
-      expired,
-    ]);
+  List<Object?> get props => super.props..addAll([node, nodeKey, enemy, type, typeKey, archwing, sharkwing, expired]);
 }

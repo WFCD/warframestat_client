@@ -25,8 +25,7 @@ class Nightwave extends WorldstateObject {
   });
 
   /// Creates a Nightwave from Json map
-  factory Nightwave.fromJson(Map<String, dynamic> json) =>
-      _$NightwaveFromJson(json);
+  factory Nightwave.fromJson(Map<String, dynamic> json) => _$NightwaveFromJson(json);
 
   @override
   String get id => super.id!;
@@ -76,16 +75,7 @@ class Nightwave extends WorldstateObject {
 
   @override
   List<Object?> get props {
-    return [
-      active,
-      params,
-      rewardTypes,
-      season,
-      ta,
-      phase,
-      possibleChallenges,
-      activeChallenges,
-    ];
+    return [active, params, rewardTypes, season, ta, phase, possibleChallenges, activeChallenges];
   }
 }
 
@@ -135,14 +125,6 @@ class Challenge extends WorldstateObject {
 
   @override
   List<Object?> get props {
-    return super.props
-      ..addAll([
-        title,
-        desc,
-        reputation,
-        active,
-        isDaily,
-        isElite,
-      ]);
+    return super.props..addAll([title, desc, reputation, active, isDaily, isElite]);
   }
 }

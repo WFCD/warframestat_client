@@ -52,8 +52,7 @@ class Enemy extends DroppableItem {
   Map<String, dynamic> toJson() => _$EnemyToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props..addAll([health, shield, armor, regionBits]);
+  List<Object?> get props => super.props..addAll([health, shield, armor, regionBits]);
 }
 
 /// {@template resistance}
@@ -62,11 +61,7 @@ class Enemy extends DroppableItem {
 @JsonSerializable()
 class Resistance extends Equatable {
   /// {@macro resistance}
-  const Resistance({
-    required this.amount,
-    required this.type,
-    required this.affectors,
-  });
+  const Resistance({required this.amount, required this.type, required this.affectors});
 
   /// Creates [Resistance] from json map.
   factory Resistance.fromJson(Map<String, dynamic> json) {

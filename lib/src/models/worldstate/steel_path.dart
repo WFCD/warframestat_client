@@ -20,8 +20,7 @@ class SteelPath extends WorldstateObject {
   }) : super(id: '');
 
   /// Creates a SteelPath from Json map
-  factory SteelPath.fromJson(Map<String, dynamic> json) =>
-      _$SteelPathFromJson(json);
+  factory SteelPath.fromJson(Map<String, dynamic> json) => _$SteelPathFromJson(json);
 
   @override
   DateTime get activation => super.activation!;
@@ -80,11 +79,7 @@ class SteelPathReward extends Equatable {
 @JsonSerializable()
 class Incursion extends WorldstateObject {
   /// {@macro incursion}
-  const Incursion({
-    required String super.id,
-    required DateTime super.activation,
-    required DateTime super.expiry,
-  });
+  const Incursion({required String super.id, required DateTime super.activation, required DateTime super.expiry});
 
   /// Creates a [Incursion] from a json map.
   factory Incursion.fromJson(Map<String, dynamic> json) {

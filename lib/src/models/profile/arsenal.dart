@@ -49,13 +49,6 @@ class Arsenal extends Equatable {
 
   @override
   List<Object?> get props {
-    return [
-      weaponSkins,
-      suits,
-      primary,
-      secondary,
-      melee,
-      xpInfo,
-    ];
+    return [weaponSkins, suits, primary, secondary, melee, xpInfo];
   }
 }

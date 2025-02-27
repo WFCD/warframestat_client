@@ -100,17 +100,8 @@ class Mod extends BaseMod {
   Map<String, dynamic> toJson() => _$ModToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([
-      baseDrain,
-      compatName,
-      fusionLimit,
-      isAugment,
-      levelStats,
-      transmutable,
-      polarity,
-      modSet,
-    ]);
+  List<Object?> get props =>
+      super.props..addAll([baseDrain, compatName, fusionLimit, isAugment, levelStats, transmutable, polarity, modSet]);
 }
 
 /// {@template modset}

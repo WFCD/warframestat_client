@@ -15,9 +15,7 @@ Future<void> main() async {
   final results = await itemsClient.search('AfterBurner');
   print(results.first.name);
 
-  final item = await itemsClient.fetchItem(
-    '/Lotus/Powersuits/Archwing/DemolitionJetPack/ExhaustTrailAugmentCard',
-  );
+  final item = await itemsClient.fetchItem('/Lotus/Powersuits/Archwing/DemolitionJetPack/ExhaustTrailAugmentCard');
 
   print(item?.name);
 

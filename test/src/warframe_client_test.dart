@@ -33,9 +33,7 @@ Future<void> main() async {
   });
 
   test('Get the current worldstate', () async {
-    when(() => mockClient.get(uri(''))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadWorldstate()),
-    );
+    when(() => mockClient.get(uri(''))).thenAnswer((_) async => response(await worldstateFixtures.loadWorldstate()));
 
     final state = await worldstateClient.fetchWorldstate();
 
@@ -43,9 +41,7 @@ Future<void> main() async {
   });
 
   test('Get alerts', () async {
-    when(() => mockClient.get(uri('/alerts'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadAlert()),
-    );
+    when(() => mockClient.get(uri('/alerts'))).thenAnswer((_) async => response(await worldstateFixtures.loadAlert()));
 
     final alerts = await worldstateClient.fetchAlerts();
 
@@ -55,9 +51,9 @@ Future<void> main() async {
   test(
     'Get arbitration',
     () async {
-      when(() => mockClient.get(uri('/arbitration'))).thenAnswer(
-        (_) async => response((await worldstateFixtures.loadArbitration())!),
-      );
+      when(
+        () => mockClient.get(uri('/arbitration')),
+      ).thenAnswer((_) async => response((await worldstateFixtures.loadArbitration())!));
 
       final arbitration = await worldstateClient.fetchArbitration();
 
@@ -68,9 +64,9 @@ Future<void> main() async {
   );
 
   test('Get archon hunt', () async {
-    when(() => mockClient.get(uri('/archonHunt'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadArchonHunt()),
-    );
+    when(
+      () => mockClient.get(uri('/archonHunt')),
+    ).thenAnswer((_) async => response(await worldstateFixtures.loadArchonHunt()));
 
     final archonHunt = await worldstateClient.fetchArchonHunt();
 
@@ -78,9 +74,9 @@ Future<void> main() async {
   });
 
   test('Get cambion cycle', () async {
-    when(() => mockClient.get(uri('/cambionCycle'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadCambionCycle()),
-    );
+    when(
+      () => mockClient.get(uri('/cambionCycle')),
+    ).thenAnswer((_) async => response(await worldstateFixtures.loadCambionCycle()));
 
     final cambionCycle = await worldstateClient.fetchCambionCycle();
 
@@ -88,9 +84,9 @@ Future<void> main() async {
   });
 
   test('Get cetus cycle', () async {
-    when(() => mockClient.get(uri('/cetusCycle'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadCetusCycle()),
-    );
+    when(
+      () => mockClient.get(uri('/cetusCycle')),
+    ).thenAnswer((_) async => response(await worldstateFixtures.loadCetusCycle()));
 
     final cetusCycle = await worldstateClient.fetchCetusCycle();
 
@@ -98,9 +94,9 @@ Future<void> main() async {
   });
 
   test('Get conclave challenges', () async {
-    when(() => mockClient.get(uri('/conclaveChallenges'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadConclaveChallenges()),
-    );
+    when(
+      () => mockClient.get(uri('/conclaveChallenges')),
+    ).thenAnswer((_) async => response(await worldstateFixtures.loadConclaveChallenges()));
 
     final conclaveChallenges = await worldstateClient.fetchConclaveChallenges();
 
@@ -108,21 +104,19 @@ Future<void> main() async {
   });
 
   test('Get construction progress', () async {
-    when(() => mockClient.get(uri('/constructionProgress'))).thenAnswer(
-      (_) async =>
-          response(await worldstateFixtures.loadConstructionProgress()),
-    );
+    when(
+      () => mockClient.get(uri('/constructionProgress')),
+    ).thenAnswer((_) async => response(await worldstateFixtures.loadConstructionProgress()));
 
-    final constructionProgress =
-        await worldstateClient.fetchConstrcutionProgress();
+    final constructionProgress = await worldstateClient.fetchConstrcutionProgress();
 
     expect(constructionProgress, const TypeMatcher<ConstructionProgress>());
   });
 
   test('Get daily deals', () async {
-    when(() => mockClient.get(uri('/dailyDeals'))).thenAnswer(
-      (_) async => response(await worldstateFixtures.loadDailyDeals()),
-    );
+    when(
+      () => mockClient.get(uri('/dailyDeals')),
+    ).thenAnswer((_) async => response(await worldstateFixtures.loadDailyDeals()));
 
     final dailyDeals = await worldstateClient.fetchDailyDeals();
 
@@ -131,17 +125,9 @@ Future<void> main() async {
 }
 
 Uri uri(String path) {
-  return Uri.https(
-    authority,
-    '/pc$path',
-    {'language': Language.en.name},
-  );
+  return Uri.https(authority, '/pc$path', {'language': Language.en.name});
 }
 
 Response response(String body, [int statusCode = 200]) {
-  return Response(
-    body,
-    statusCode,
-    headers: {HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'},
-  );
+  return Response(body, statusCode, headers: {HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'});
 }

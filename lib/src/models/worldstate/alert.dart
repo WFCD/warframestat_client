@@ -55,6 +55,5 @@ class Alert extends WorldstateObject {
   Map<String, dynamic> toJson() => _$AlertToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props..addAll([startString, active, mission, rewardTypes, tag]);
+  List<Object?> get props => super.props..addAll([startString, active, mission, rewardTypes, tag]);
 }

@@ -47,13 +47,6 @@ class ItemConfig extends Equatable {
 
   @override
   List<Object?> get props {
-    return [
-      skins,
-      conclaveUpgrades,
-      primaryColor,
-      sigilColor,
-      attachmentsColor,
-      syandanaColor,
-    ];
+    return [skins, conclaveUpgrades, primaryColor, sigilColor, attachmentsColor, syandanaColor];
   }
 }

@@ -13,13 +13,9 @@ void main() {
     final itemFixture = await ItemsFixture().loadWarframeItems();
     final enemyFixture = await ItemsFixture().loadEnemies();
 
-    items = List<Map<String, dynamic>>.from(
-      json.decode(itemFixture) as List<dynamic>,
-    ).toList();
+    items = List<Map<String, dynamic>>.from(json.decode(itemFixture) as List<dynamic>).toList();
 
-    enemies = List<Map<String, dynamic>>.from(
-      json.decode(enemyFixture) as List<dynamic>,
-    ).toList();
+    enemies = List<Map<String, dynamic>>.from(json.decode(enemyFixture) as List<dynamic>).toList();
 
     items
       ..addAll(enemies)
@@ -29,10 +25,7 @@ void main() {
   group('Serlization check', () {
     test('[Item]', () => expect(toItems(items), isList));
 
-    test(
-      '[MinimalItem]',
-      () => expect(items.map(MinimalItem.fromJson).toList(), isList),
-    );
+    test('[MinimalItem]', () => expect(items.map(MinimalItem.fromJson).toList(), isList));
   });
 
   group('Type checks', () {
@@ -49,8 +42,7 @@ void main() {
 
     test('[PetResources]', () {
       final resources = toItems(items).whereType<PetResources>();
-      final dnaStabilizers =
-          resources.firstWhere((r) => r.name == 'Dna Stabilizers');
+      final dnaStabilizers = resources.firstWhere((r) => r.name == 'Dna Stabilizers');
       final hinta = resources.firstWhere((r) => r.name == 'Hinta Stabilizer');
 
       expect(dnaStabilizers, const TypeMatcher<PetResources>());
@@ -66,8 +58,7 @@ void main() {
       final names = disruptors.map((e) => e.name);
       final types = disruptors.map((e) => e.type);
 
-      final disruptor =
-          enemies.firstWhere((e) => e.name == 'Ancient Disruptor');
+      final disruptor = enemies.firstWhere((e) => e.name == 'Ancient Disruptor');
 
       expect(names.contains('Ancient Disruptor'), true);
       expect(types.contains(ItemType.shotGunMod), false);

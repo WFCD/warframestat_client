@@ -29,8 +29,7 @@ class Invasion extends WorldstateObject {
   });
 
   /// Creates a Invasion from Json map
-  factory Invasion.fromJson(Map<String, dynamic> json) =>
-      _$InvasionFromJson(json);
+  factory Invasion.fromJson(Map<String, dynamic> json) => _$InvasionFromJson(json);
 
   @override
   String get id => super.id!;
@@ -82,23 +81,22 @@ class Invasion extends WorldstateObject {
 
   @override
   List<Object?> get props {
-    return super.props
-      ..addAll([
-        activation,
-        attacker,
-        attackingFaction,
-        completed,
-        completion,
-        count,
-        defender,
-        desc,
-        node,
-        nodeKey,
-        requiredRuns,
-        rewardTypes,
-        vsInfestation,
-        eta,
-      ]);
+    return super.props..addAll([
+      activation,
+      attacker,
+      attackingFaction,
+      completed,
+      completion,
+      count,
+      defender,
+      desc,
+      node,
+      nodeKey,
+      requiredRuns,
+      rewardTypes,
+      vsInfestation,
+      eta,
+    ]);
   }
 }
 
@@ -108,11 +106,7 @@ class Invasion extends WorldstateObject {
 @JsonSerializable()
 class InvasionFaction extends Equatable {
   /// {@macro invasionfaction}
-  const InvasionFaction({
-    required this.reward,
-    required this.faction,
-    required this.factionKey,
-  });
+  const InvasionFaction({required this.reward, required this.faction, required this.factionKey});
 
   /// Creates an [InvasionFaction] from a json map.
   factory InvasionFaction.fromJson(Map<String, dynamic> json) {

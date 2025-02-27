@@ -65,16 +65,7 @@ abstract class PowerSuit extends BuildableItem {
   final List<Ability> abilities;
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([
-      shield,
-      armor,
-      health,
-      stamina,
-      power,
-      abilities,
-      polarities,
-    ]);
+  List<Object?> get props => super.props..addAll([shield, armor, health, stamina, power, abilities, polarities]);
 }
 
 /// {@template ability}
@@ -83,11 +74,7 @@ abstract class PowerSuit extends BuildableItem {
 @JsonSerializable()
 class Ability extends Equatable {
   /// {@macro ability}
-  const Ability({
-    required this.name,
-    required this.description,
-    required this.imageName,
-  });
+  const Ability({required this.name, required this.description, required this.imageName});
 
   /// Creats an [Ability] from a json map.
   factory Ability.fromJson(Map<String, dynamic> json) {

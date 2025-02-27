@@ -36,8 +36,7 @@ class Mission extends Equatable {
   });
 
   /// Creates a Mission from Json map
-  factory Mission.fromJson(Map<String, dynamic> data) =>
-      _$MissionFromJson(data);
+  factory Mission.fromJson(Map<String, dynamic> data) => _$MissionFromJson(data);
 
   /// The node the mission is taking place in.
   ///

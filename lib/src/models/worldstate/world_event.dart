@@ -53,8 +53,7 @@ class WorldEvent extends WorldstateObject {
   });
 
   /// Creates a Event from Json map
-  factory WorldEvent.fromJson(Map<String, dynamic> json) =>
-      _$WorldEventFromJson(json);
+  factory WorldEvent.fromJson(Map<String, dynamic> json) => _$WorldEventFromJson(json);
 
   @override
   String get id => super.id!;
@@ -216,43 +215,42 @@ class WorldEvent extends WorldstateObject {
 
   @override
   List<Object?> get props {
-    return super.props
-      ..addAll([
-        previousId,
-        startString,
-        active,
-        maximumScore,
-        currentScore,
-        smallInterval,
-        largeInterval,
-        faction,
-        description,
-        tooltip,
-        node,
-        concurrentNodes,
-        victimNode,
-        scoreLocTag,
-        rewards,
-        expired,
-        health,
-        affiliatedWith,
-        jobs,
-        previousJobs,
-        interimSteps,
-        progressTotal,
-        showTotalAtEndOfMission,
-        isPersonal,
-        isCommunity,
-        regionDrops,
-        archwingDrops,
-        metadata,
-        completionBonuses,
-        scoreVar,
-        asString,
-        altExpiry,
-        altActivation,
-        nextAlt,
-      ]);
+    return super.props..addAll([
+      previousId,
+      startString,
+      active,
+      maximumScore,
+      currentScore,
+      smallInterval,
+      largeInterval,
+      faction,
+      description,
+      tooltip,
+      node,
+      concurrentNodes,
+      victimNode,
+      scoreLocTag,
+      rewards,
+      expired,
+      health,
+      affiliatedWith,
+      jobs,
+      previousJobs,
+      interimSteps,
+      progressTotal,
+      showTotalAtEndOfMission,
+      isPersonal,
+      isCommunity,
+      regionDrops,
+      archwingDrops,
+      metadata,
+      completionBonuses,
+      scoreVar,
+      asString,
+      altExpiry,
+      altActivation,
+      nextAlt,
+    ]);
   }
 }
 
@@ -262,11 +260,7 @@ class WorldEvent extends WorldstateObject {
 @JsonSerializable()
 class InterimStep extends Equatable {
   /// {@macro interimstep}
-  const InterimStep({
-    required this.goal,
-    required this.reward,
-    required this.message,
-  });
+  const InterimStep({required this.goal, required this.reward, required this.message});
 
   /// Creates an InterimStep from a json map.
   factory InterimStep.fromJson(Map<String, dynamic> json) {
@@ -332,8 +326,7 @@ class Message extends Equatable {
   Map<String, dynamic> toJson() => _$MessageToJson(this);
 
   @override
-  List<Object?> get props =>
-      [sender, subject, message, senderIcon, attachments];
+  List<Object?> get props => [sender, subject, message, senderIcon, attachments];
 }
 
 /// {@template progressstep}
@@ -370,8 +363,7 @@ class NextAlt extends Equatable {
   const NextAlt({required this.activation, required this.expiry});
 
   /// Creates [NextAlt] from json map.
-  factory NextAlt.fromJson(Map<String, dynamic> json) =>
-      _$NextAltFromJson(json);
+  factory NextAlt.fromJson(Map<String, dynamic> json) => _$NextAltFromJson(json);
 
   /// The next alt activation time.
   final DateTime activation;

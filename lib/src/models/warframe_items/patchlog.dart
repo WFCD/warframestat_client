@@ -50,6 +50,5 @@ class Patchlog extends Equatable {
   Map<String, dynamic> toJson() => _$PatchlogToJson(this);
 
   @override
-  List<Object?> get props =>
-      [name, imgUrl, date, url, additions, changes, fixes];
+  List<Object?> get props => [name, imgUrl, date, url, additions, changes, fixes];
 }

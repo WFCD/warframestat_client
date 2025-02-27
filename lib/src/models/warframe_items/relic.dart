@@ -56,11 +56,7 @@ class Relic extends DroppableItem {
 @JsonSerializable()
 class Location extends Equatable {
   /// {@macro location}
-  const Location({
-    required this.location,
-    required this.rarity,
-    required this.chance,
-  });
+  const Location({required this.location, required this.rarity, required this.chance});
 
   /// Creates a Location from Json map
   factory Location.fromJson(Map<String, dynamic> json) {
@@ -89,11 +85,7 @@ class Location extends Equatable {
 @JsonSerializable()
 class RelicReward extends Equatable {
   /// {@macro reward}
-  const RelicReward({
-    required this.rarity,
-    required this.chance,
-    required this.item,
-  });
+  const RelicReward({required this.rarity, required this.chance, required this.item});
 
   /// Creates a Reward from Json map.
   factory RelicReward.fromJson(Map<String, dynamic> json) {
@@ -122,11 +114,7 @@ class RelicReward extends Equatable {
 @JsonSerializable()
 class RewardItem extends Equatable {
   /// {@macro rewarditem}
-  const RewardItem({
-    required this.uniqueName,
-    required this.name,
-    required this.warframeMarket,
-  });
+  const RewardItem({required this.uniqueName, required this.name, required this.warframeMarket});
 
   /// Creates a RewardItem from Json map.
   factory RewardItem.fromJson(Map<String, dynamic> json) {

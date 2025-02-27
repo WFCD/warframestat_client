@@ -9,14 +9,10 @@ part 'trader_schedule.g.dart';
 @JsonSerializable()
 class TraderSchedule extends Equatable {
   /// {@macro void_trader_schedule}
-  const TraderSchedule({
-    required this.expiry,
-    required this.item,
-  });
+  const TraderSchedule({required this.expiry, required this.item});
 
   /// Creates a VoidTraderSchedule from Json map
-  factory TraderSchedule.fromJson(Map<String, dynamic> json) =>
-      _$TraderScheduleFromJson(json);
+  factory TraderSchedule.fromJson(Map<String, dynamic> json) => _$TraderScheduleFromJson(json);
 
   /// A description for expiry
   final DateTime expiry;

@@ -67,8 +67,7 @@ class SkinBuildable extends BuildableItem implements Skin {
   }) : super(isPrime: isPrime ?? false);
 
   /// Creates a Skin from Json map
-  factory SkinBuildable.fromJson(Map<String, dynamic> data) =>
-      _$SkinBuildableFromJson(data);
+  factory SkinBuildable.fromJson(Map<String, dynamic> data) => _$SkinBuildableFromJson(data);
 
   /// Creates a Json map from a Skin
   @override

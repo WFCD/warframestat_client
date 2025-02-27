@@ -69,11 +69,7 @@ class DuviriCycle extends WorldstateObject {
 @JsonSerializable()
 class Choice extends Equatable {
   /// {@macro choice}
-  const Choice({
-    required this.category,
-    required this.categoryKey,
-    required this.choices,
-  });
+  const Choice({required this.category, required this.categoryKey, required this.choices});
 
   /// Creates a [Choice] object from json.
   factory Choice.fromJson(Map<String, dynamic> json) {

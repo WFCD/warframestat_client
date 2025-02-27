@@ -41,11 +41,7 @@ typedef Modifier = ({String key, String name, String description});
 @JsonSerializable()
 class DeepArchimedeaMission {
   /// {@macro Deep_archimedea_mission}
-  DeepArchimedeaMission({
-    required this.mission,
-    required this.deviation,
-    required this.riskVariables,
-  });
+  DeepArchimedeaMission({required this.mission, required this.deviation, required this.riskVariables});
 
   /// Creates a [DeepArchimedeaMission] from Json map
   factory DeepArchimedeaMission.fromJson(Map<String, dynamic> json) {

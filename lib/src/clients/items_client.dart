@@ -4,7 +4,8 @@ import 'dart:isolate';
 
 import 'package:warframestat_client/warframestat_client.dart';
 
-const _minimalOpts = 'uniqueName,name,description,imageName,category,type,'
+const _minimalOpts =
+    'uniqueName,name,description,imageName,category,type,'
     'vaulted,vaultDate,excludeFromCodex,masterable,tradable';
 
 /// {@template warframeitemsclient}
@@ -18,20 +19,14 @@ class WarframeItemsClient extends WarframestatClient {
   ///
   /// [minimal]: returns a list of [MinimalItem] instead of a full [Item]
   Future<List<Item>> fetchAllItems({bool minimal = false}) async {
-    final response = await _get<List<dynamic>>(
-      '/',
-      query: minimal ? {'only': _minimalOpts} : null,
-    );
+    final response = await _get<List<dynamic>>('/', query: minimal ? {'only': _minimalOpts} : null);
 
     return Isolate.run(() => toItems(response.data, minimal: minimal));
   }
 
   /// Returns all [Item]s that match the search query.
   Future<List<MinimalItem>> search(String query) async {
-    final response = await _get<List<dynamic>>(
-      '/search/$query',
-      query: {'only': _minimalOpts},
-    );
+    final response = await _get<List<dynamic>>('/search/$query', query: {'only': _minimalOpts});
 
     return Isolate.run(() => toSearchItems(response.data));
   }
@@ -55,23 +50,15 @@ class WarframeItemsClient extends WarframestatClient {
   ///
   /// [includeMechs]: Whether or not to inlcude Necramechs
   /// [minimal]: Whether or not you want the full [Item] or a [MinimalItem]
-  Future<List<Item>> fetchAllWarframes({
-    bool includeMechs = true,
-    bool minimal = false,
-  }) async {
-    final response = await get(
-      '/warframes',
-      query: minimal ? {'only': _minimalOpts} : null,
-    );
+  Future<List<Item>> fetchAllWarframes({bool includeMechs = true, bool minimal = false}) async {
+    final response = await get('/warframes', query: minimal ? {'only': _minimalOpts} : null);
 
     final json = jsonDecode(response.body) as List<dynamic>;
     final items = await Isolate.run(() => toItems(json, minimal: minimal));
 
     if (includeMechs) return items;
 
-    return minimal
-        ? items.where((i) => i.type == ItemType.warframes).toList()
-        : items.whereType<Warframe>().toList();
+    return minimal ? items.where((i) => i.type == ItemType.warframes).toList() : items.whereType<Warframe>().toList();
   }
 
   /// Get data for the closest matching warframe.
@@ -101,10 +88,7 @@ class WarframeItemsClient extends WarframestatClient {
   /// THIS IS A LOT OF DATA AND IT IS RECOMMENDED TO RUN THIS FUNCTION IN AN
   /// ISOLATE.
   Future<List<Item>> fetchAllWeapons({bool minimal = false}) async {
-    final response = await get(
-      '/weapons',
-      query: minimal ? {'only': _minimalOpts} : null,
-    );
+    final response = await get('/weapons', query: minimal ? {'only': _minimalOpts} : null);
 
     final json = jsonDecode(response.body) as List<dynamic>;
 
@@ -126,7 +110,7 @@ class WarframeItemsClient extends WarframestatClient {
       Primary() => item,
       Secondary() => item,
       Melee() => item,
-      _ => throw WeaponNotValid(item.name, item.type)
+      _ => throw WeaponNotValid(item.name, item.type),
     };
   }
 
@@ -140,10 +124,7 @@ class WarframeItemsClient extends WarframestatClient {
   /// Pulls an item useing it's uniqueName.
   Future<Item?> fetchItem(String uniqueName) async {
     final encodedUniqueName = Uri.encodeQueryComponent(uniqueName);
-    final request = await _get<Map<String, dynamic>>(
-      '/$encodedUniqueName/',
-      query: {'by': 'uniqueName'},
-    );
+    final request = await _get<Map<String, dynamic>>('/$encodedUniqueName/', query: {'by': 'uniqueName'});
 
     final statusCode = request.data['code'] as int? ?? request.statusCode;
     if (statusCode != HttpStatus.ok) return null;
@@ -151,15 +132,9 @@ class WarframeItemsClient extends WarframestatClient {
     return toItem(request.data);
   }
 
-  Future<({int statusCode, T data})> _get<T>(
-    String path, {
-    Map<String, dynamic>? query,
-  }) async {
+  Future<({int statusCode, T data})> _get<T>(String path, {Map<String, dynamic>? query}) async {
     final response = await get('/items$path', query: query);
 
-    return (
-      statusCode: response.statusCode,
-      data: await Isolate.run(() => json.decode(response.body) as T)
-    );
+    return (statusCode: response.statusCode, data: await Isolate.run(() => json.decode(response.body) as T));
   }
 }

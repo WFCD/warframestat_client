@@ -17,9 +17,7 @@ class SynthTaretClient extends WarframestatClient {
     return Isolate.run(() {
       final data = json.decode(response.body) as List<dynamic>;
 
-      return data
-          .map((e) => SynthTarget.fromJson(e as Map<String, dynamic>))
-          .toList();
+      return data.map((e) => SynthTarget.fromJson(e as Map<String, dynamic>)).toList();
     });
   }
 }

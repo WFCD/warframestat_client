@@ -55,6 +55,5 @@ class Trader extends WorldstateObject {
   Map<String, dynamic> toJson() => _$TraderToJson(this);
 
   @override
-  List<Object?> get props => super.props
-    ..addAll([active, character, location, inventory, initialStart, schedule]);
+  List<Object?> get props => super.props..addAll([active, character, location, inventory, initialStart, schedule]);
 }

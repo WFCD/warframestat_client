@@ -9,14 +9,10 @@ part 'simaris.g.dart';
 @JsonSerializable()
 class Simaris extends Equatable {
   /// {@macro simaris}
-  const Simaris({
-    required this.target,
-    required this.isTargetActive,
-  });
+  const Simaris({required this.target, required this.isTargetActive});
 
   /// Creates a Simaris from Json map
-  factory Simaris.fromJson(Map<String, dynamic> json) =>
-      _$SimarisFromJson(json);
+  factory Simaris.fromJson(Map<String, dynamic> json) => _$SimarisFromJson(json);
 
   /// The target's name.
   final String target;

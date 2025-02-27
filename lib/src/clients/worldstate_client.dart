@@ -22,9 +22,7 @@ class WorldstateClient extends WarframestatClient {
   Future<List<Alert>> fetchAlerts() async {
     final alerts = await _get<List<dynamic>>('/alerts');
 
-    return alerts
-        .map((e) => Alert.fromJson(e as Map<String, dynamic>))
-        .toList();
+    return alerts.map((e) => Alert.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrives the current [Arbitration].
@@ -59,9 +57,7 @@ class WorldstateClient extends WarframestatClient {
   Future<List<ConclaveChallenge>> fetchConclaveChallenges() async {
     final challenges = await _get<List<dynamic>>('/conclaveChallenges');
 
-    return challenges
-        .map((e) => ConclaveChallenge.fromJson(e as Map<String, dynamic>))
-        .toList();
+    return challenges.map((e) => ConclaveChallenge.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrives the current [ConstructionProgress] for razorback
@@ -78,9 +74,7 @@ class WorldstateClient extends WarframestatClient {
   Future<List<DailyDeal>> fetchDailyDeals() async {
     final deals = await _get<List<dynamic>>('/dailyDeals');
 
-    return deals
-        .map((e) => DailyDeal.fromJson(e as Map<String, dynamic>))
-        .toList();
+    return deals.map((e) => DailyDeal.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrives data on the [EarthCycle].
@@ -94,18 +88,14 @@ class WorldstateClient extends WarframestatClient {
   Future<List<WorldEvent>> fetchEvents() async {
     final events = await _get<List<dynamic>>('/events');
 
-    return events
-        .map((e) => WorldEvent.fromJson(e as Map<String, dynamic>))
-        .toList();
+    return events.map((e) => WorldEvent.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrives a list of ongoing void [Fissure]s.
   Future<List<Fissure>> fetchFissures() async {
     final fissures = await _get<List<dynamic>>('/fissures');
 
-    return fissures
-        .map((e) => Fissure.fromJson(e as Map<String, dynamic>))
-        .toList();
+    return fissures.map((e) => Fissure.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrives a list of current [FlashSale]s that darvo has to offfer.
@@ -114,9 +104,7 @@ class WorldstateClient extends WarframestatClient {
   Future<List<FlashSale>> fetchFlashSales() async {
     final sales = await _get<List<dynamic>>('/flashSales');
 
-    return sales
-        .map((e) => FlashSale.fromJson(e as Map<String, dynamic>))
-        .toList();
+    return sales.map((e) => FlashSale.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrive a list of current [GlobalUpgrade].
@@ -125,18 +113,14 @@ class WorldstateClient extends WarframestatClient {
   Future<List<GlobalUpgrade>> fetchGlobalUpgrades() async {
     final upgrades = await _get<List<dynamic>>('/globalUpgrades');
 
-    return upgrades
-        .map((e) => GlobalUpgrade.fromJson(e as Map<String, dynamic>))
-        .toList();
+    return upgrades.map((e) => GlobalUpgrade.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrives a list of ongoing [Invasion]s.
   Future<List<Invasion>> fetchInvasions() async {
     final invasions = await _get<List<dynamic>>('/invasions');
 
-    return invasions
-        .map((e) => Invasion.fromJson(e as Map<String, dynamic>))
-        .toList();
+    return invasions.map((e) => Invasion.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrives a list of currently active [Kuva] missions.
@@ -195,9 +179,7 @@ class WorldstateClient extends WarframestatClient {
   Future<List<SyndicateMission>> fetchSyndicateMissions() async {
     final missions = await _get<List<dynamic>>('/syndicateMissions');
 
-    return missions
-        .map((e) => SyndicateMission.fromJson(e as Map<String, dynamic>))
-        .toList();
+    return missions.map((e) => SyndicateMission.fromJson(e as Map<String, dynamic>)).toList();
   }
 
   /// Retrives the time the worldstate was last generated at.

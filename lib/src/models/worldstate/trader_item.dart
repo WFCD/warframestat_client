@@ -9,16 +9,10 @@ part 'trader_item.g.dart';
 @JsonSerializable()
 class TraderItem extends Equatable {
   /// {@macro void_trader_item}
-  const TraderItem({
-    required this.uniqueName,
-    required this.item,
-    required this.ducats,
-    required this.credits,
-  });
+  const TraderItem({required this.uniqueName, required this.item, required this.ducats, required this.credits});
 
   /// Creates a VoidTraderItem from Json map
-  factory TraderItem.fromJson(Map<String, dynamic> json) =>
-      _$TraderItemFromJson(json);
+  factory TraderItem.fromJson(Map<String, dynamic> json) => _$TraderItemFromJson(json);
 
   /// Item uniquename
   final String uniqueName;

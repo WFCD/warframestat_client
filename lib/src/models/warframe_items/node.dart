@@ -86,14 +86,14 @@ class Node implements Item {
 
   @override
   List<Object?> get props => [
-        factionIndex,
-        masteryReq,
-        maxEnemyLevel,
-        minEnemyLevel,
-        nodeType,
-        systemIndex,
-        systemName,
-      ];
+    factionIndex,
+    masteryReq,
+    maxEnemyLevel,
+    minEnemyLevel,
+    nodeType,
+    systemIndex,
+    systemName,
+  ];
 
   /// Not implemented for [Node]
   @override
