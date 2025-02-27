@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:warframestat_client/src/models/worldstate/calendar.dart';
 import 'package:warframestat_client/src/models/worldstate/kinepage.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
@@ -43,6 +44,7 @@ class Worldstate extends Equatable {
     required this.duviriCycle,
     required this.kinepage,
     required this.deepArchimedea,
+    required this.calendar,
   });
 
   /// Creates a Worldstate from Json map
@@ -144,6 +146,9 @@ class Worldstate extends Equatable {
   /// Deep Archimedea data
   final DeepArchimedea? deepArchimedea;
 
+  /// Current Hex calendar information.
+  final List<Calendar> calendar;
+
   /// Creates a Json map from a Worldstate
   Map<String, dynamic> toJson() => _$WorldstateToJson(this);
 
@@ -179,5 +184,6 @@ class Worldstate extends Equatable {
     duviriCycle,
     kinepage,
     deepArchimedea,
+    calendar,
   ];
 }

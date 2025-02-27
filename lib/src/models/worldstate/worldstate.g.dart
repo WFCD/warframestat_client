@@ -205,6 +205,15 @@ Worldstate _$WorldstateFromJson(
               ? null
               : DeepArchimedea.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
+    calendar: $checkedConvert(
+      'calendar',
+      (v) =>
+          (v as List<dynamic>)
+              .map(
+                (e) => Calendar.fromJson(Map<String, dynamic>.from(e as Map)),
+              )
+              .toList(),
+    ),
   );
   return val;
 });
@@ -247,4 +256,5 @@ Map<String, dynamic> _$WorldstateToJson(
   'kinepage': instance.kinepage.toJson(),
   if (instance.deepArchimedea?.toJson() case final value?)
     'deepArchimedea': value,
+  'calendar': instance.calendar.map((e) => e.toJson()).toList(),
 };
