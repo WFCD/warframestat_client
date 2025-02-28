@@ -1,3 +1,10 @@
+## [4.1.2](https://github.com/WFCD/warframestat_client/compare/v4.1.1...v4.1.2) (2025-02-28)
+
+
+### Bug Fixes
+
+* `MinimalItem` now parses wikia fields ([2557767](https://github.com/WFCD/warframestat_client/commit/2557767590f4983783fd65eb81bf75c0d38f312c))
+
 ## [4.1.1](https://github.com/WFCD/warframestat_client/compare/v4.1.0...v4.1.1) (2025-02-27)
 
 
