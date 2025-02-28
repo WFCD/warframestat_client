@@ -14,6 +14,7 @@ Future<void> main() async {
   // full item
   final results = await itemsClient.search('AfterBurner');
   print(results.first.name);
+  print(results.first.wikiaUrl);
 
   final item = await itemsClient.fetchItem('/Lotus/Powersuits/Archwing/DemolitionJetPack/ExhaustTrailAugmentCard');
 
@@ -25,10 +26,11 @@ Future<void> main() async {
   final targets = await synthTargetClient.fetchTargets();
   print(targets.first.name);
 
-  final profileClient = ProfileClient(username: 'OrnsteinTheSlayer');
-  final profile = await profileClient.fetchProfile();
+  // Doesn't work anymore... :(
+  // final profileClient = ProfileClient(username: 'OrnsteinTheSlayer');
+  // final profile = await profileClient.fetchProfile();
 
-  print(profile.username);
+  // print(profile.username);
 
   final ws = WarframestatWebsocket();
 

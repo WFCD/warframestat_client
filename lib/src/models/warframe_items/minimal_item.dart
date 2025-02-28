@@ -19,11 +19,13 @@ class MinimalItem extends Item {
     required super.imageName,
     required super.tradable,
     required super.excludeFromCodex,
+    required super.releaseDate,
+    required super.wikiaThumbnail,
     required super.wikiaUrl,
     required this.vaultDate,
     required this.vaulted,
     required this.masterable,
-  }) : super(patchlogs: null, releaseDate: null, wikiaThumbnail: null);
+  }) : super(patchlogs: null);
 
   /// Creates an instance of [MinimalItem] from json.
   factory MinimalItem.fromJson(Map<String, dynamic> json) {
@@ -44,6 +46,6 @@ class MinimalItem extends Item {
 
   @override
   List<Object?> get props {
-    return [name, description, type, category, productCategory, tradable, imageName];
+    return super.props..addAll([vaultDate, vaulted, masterable]);
   }
 }
