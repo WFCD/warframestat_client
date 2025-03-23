@@ -203,7 +203,7 @@ Worldstate _$WorldstateFromJson(
       (v) =>
           v == null
               ? null
-              : DeepArchimedea.fromJson(Map<String, dynamic>.from(v as Map)),
+              : Archimedea.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     calendar: $checkedConvert(
       'calendar',
@@ -213,6 +213,13 @@ Worldstate _$WorldstateFromJson(
                 (e) => Calendar.fromJson(Map<String, dynamic>.from(e as Map)),
               )
               .toList(),
+    ),
+    temporalArchimedea: $checkedConvert(
+      'temporalArchimedea',
+      (v) =>
+          v == null
+              ? null
+              : Archimedea.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
   );
   return val;
@@ -256,5 +263,7 @@ Map<String, dynamic> _$WorldstateToJson(
   'kinepage': instance.kinepage.toJson(),
   if (instance.deepArchimedea?.toJson() case final value?)
     'deepArchimedea': value,
+  if (instance.temporalArchimedea?.toJson() case final value?)
+    'temporalArchimedea': value,
   'calendar': instance.calendar.map((e) => e.toJson()).toList(),
 };

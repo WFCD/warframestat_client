@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'deep_archimedea.dart';
+part of 'archimedea.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-DeepArchimedea _$DeepArchimedeaFromJson(Map json) =>
-    $checkedCreate('DeepArchimedea', json, ($checkedConvert) {
-      final val = DeepArchimedea(
+Archimedea _$ArchimedeaFromJson(Map json) =>
+    $checkedCreate('Archimedea', json, ($checkedConvert) {
+      final val = Archimedea(
         id: $checkedConvert('id', (v) => v as String),
         activation: $checkedConvert(
           'activation',
@@ -20,7 +20,7 @@ DeepArchimedea _$DeepArchimedeaFromJson(Map json) =>
           (v) =>
               (v as List<dynamic>)
                   .map(
-                    (e) => DeepArchimedeaMission.fromJson(
+                    (e) => ArchimedeaMission.fromJson(
                       Map<String, dynamic>.from(e as Map),
                     ),
                   )
@@ -46,8 +46,8 @@ DeepArchimedea _$DeepArchimedeaFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$DeepArchimedeaToJson(
-  DeepArchimedea instance,
+Map<String, dynamic> _$ArchimedeaToJson(
+  Archimedea instance,
 ) => <String, dynamic>{
   if (instance.id case final value?) 'id': value,
   if (instance.activation?.toIso8601String() case final value?)
@@ -69,9 +69,9 @@ Map<String, dynamic> _$DeepArchimedeaToJson(
 $Rec _$recordConvertAny<$Rec>(Object? value, $Rec Function(Map) convert) =>
     convert(value as Map);
 
-DeepArchimedeaMission _$DeepArchimedeaMissionFromJson(Map json) =>
-    $checkedCreate('DeepArchimedeaMission', json, ($checkedConvert) {
-      final val = DeepArchimedeaMission(
+ArchimedeaMission _$ArchimedeaMissionFromJson(Map json) =>
+    $checkedCreate('ArchimedeaMission', json, ($checkedConvert) {
+      final val = ArchimedeaMission(
         mission: $checkedConvert('mission', (v) => v as String),
         deviation: $checkedConvert(
           'deviation',
@@ -104,8 +104,8 @@ DeepArchimedeaMission _$DeepArchimedeaMissionFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$DeepArchimedeaMissionToJson(
-  DeepArchimedeaMission instance,
+Map<String, dynamic> _$ArchimedeaMissionToJson(
+  ArchimedeaMission instance,
 ) => <String, dynamic>{
   'mission': instance.mission,
   'deviation': <String, dynamic>{

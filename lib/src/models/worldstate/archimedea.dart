@@ -1,15 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:warframestat_client/src/models/worldstate/state.dart';
 
-part 'deep_archimedea.g.dart';
+part 'archimedea.g.dart';
 
 /// {@template  deep_archimedea}
 /// Contains data on the current Deep Archimedea
 /// {@endtemplate}
 @JsonSerializable()
-class DeepArchimedea extends WorldstateObject {
+class Archimedea extends WorldstateObject {
   /// {@macro deep_archimedea}
-  const DeepArchimedea({
+  const Archimedea({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -17,19 +17,19 @@ class DeepArchimedea extends WorldstateObject {
     required this.personalModifiers,
   });
 
-  /// Creates a [DeepArchimedea] from Json map
-  factory DeepArchimedea.fromJson(Map<String, dynamic> json) {
-    return _$DeepArchimedeaFromJson(json);
+  /// Creates a [Archimedea] from Json map
+  factory Archimedea.fromJson(Map<String, dynamic> json) {
+    return _$ArchimedeaFromJson(json);
   }
 
   /// Current rotation's mission
-  final List<DeepArchimedeaMission> missions;
+  final List<ArchimedeaMission> missions;
 
   /// Current rotation's personal modifiers
   final List<Modifier> personalModifiers;
 
-  /// Creates a Json map from a [DeepArchimedea]
-  Map<String, dynamic> toJson() => _$DeepArchimedeaToJson(this);
+  /// Creates a Json map from a [Archimedea]
+  Map<String, dynamic> toJson() => _$ArchimedeaToJson(this);
 }
 
 /// Data on a personal or mission modifier
@@ -39,13 +39,13 @@ typedef Modifier = ({String key, String name, String description});
 /// Data containing a Deep Archimedea mission information.
 /// {@endtemplate}
 @JsonSerializable()
-class DeepArchimedeaMission {
+class ArchimedeaMission {
   /// {@macro Deep_archimedea_mission}
-  DeepArchimedeaMission({required this.mission, required this.deviation, required this.riskVariables});
+  ArchimedeaMission({required this.mission, required this.deviation, required this.riskVariables});
 
-  /// Creates a [DeepArchimedeaMission] from Json map
-  factory DeepArchimedeaMission.fromJson(Map<String, dynamic> json) {
-    return _$DeepArchimedeaMissionFromJson(json);
+  /// Creates a [ArchimedeaMission] from Json map
+  factory ArchimedeaMission.fromJson(Map<String, dynamic> json) {
+    return _$ArchimedeaMissionFromJson(json);
   }
 
   /// Mission type
@@ -57,6 +57,6 @@ class DeepArchimedeaMission {
   /// Mission risk variables
   final List<Modifier> riskVariables;
 
-  /// Creates a Json map from a [DeepArchimedeaMission]
-  Map<String, dynamic> toJson() => _$DeepArchimedeaMissionToJson(this);
+  /// Creates a Json map from a [ArchimedeaMission]
+  Map<String, dynamic> toJson() => _$ArchimedeaMissionToJson(this);
 }

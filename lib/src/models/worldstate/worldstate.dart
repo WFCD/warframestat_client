@@ -43,6 +43,7 @@ class Worldstate extends Equatable {
     required this.kinepage,
     required this.deepArchimedea,
     required this.calendar,
+    required this.temporalArchimedea,
   });
 
   /// Creates a Worldstate from Json map
@@ -142,7 +143,10 @@ class Worldstate extends Equatable {
   final Kinepage kinepage;
 
   /// Deep Archimedea data
-  final DeepArchimedea? deepArchimedea;
+  final Archimedea? deepArchimedea;
+
+  /// Temporal Archimedea
+  final Archimedea? temporalArchimedea;
 
   /// Current Hex calendar information.
   final List<Calendar> calendar;

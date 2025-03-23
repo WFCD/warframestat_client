@@ -1,12 +1,12 @@
 export 'alert.dart';
 export 'arbitration.dart';
+export 'archimedea.dart';
 export 'calendar.dart';
 export 'cambion_cycle.dart';
 export 'cetus_cycle.dart';
 export 'conclave_challenge.dart';
 export 'construction_progress.dart';
 export 'daily_deal.dart';
-export 'deep_archimedea.dart';
 export 'duviri_cycle.dart';
 export 'earth_cycle.dart';
 export 'fissure.dart';
