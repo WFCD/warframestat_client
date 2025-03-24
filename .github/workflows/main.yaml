@@ -25,4 +25,6 @@ jobs:
   build:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
     with:
+      coverage_excludes: "lib/src/models/**/*.g.dart"
+      format_line_length: 120
       min_coverage: 25
