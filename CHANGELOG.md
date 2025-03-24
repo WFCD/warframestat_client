@@ -1,3 +1,15 @@
+# [4.2.0](https://github.com/WFCD/warframestat_client/compare/v4.1.2...v4.2.0) (2025-03-24)
+
+
+### Bug Fixes
+
+* unmark profile endpoints as deprecated but leave an unstable comment in docs ([7cf93c6](https://github.com/WFCD/warframestat_client/commit/7cf93c639c423022f1bef417fe1540c6a8d1d18b))
+
+
+### Features
+
+* add `Temporal Archimedea` to worldstate ([b6e5242](https://github.com/WFCD/warframestat_client/commit/b6e52420e284cc86223458389f7eaa2c5eb7fd8a))
+
 ## [4.1.2](https://github.com/WFCD/warframestat_client/compare/v4.1.1...v4.1.2) (2025-02-28)
 
 
