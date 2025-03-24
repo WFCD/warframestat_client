@@ -7,7 +7,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@template warframestat_client}
 /// Exposes all endpoints pertaining to worldstate.
 /// {@endtemplate}
-class WorldstateClient extends WarframestatClient {
+class WorldstateClient extends WarframestatHttpClient {
   /// {@macro warframestat_client}
   WorldstateClient({super.language, super.ua, super.client});
 

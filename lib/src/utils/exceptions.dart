@@ -30,3 +30,17 @@ class WeaponNotValid implements Exception {
   @override
   String toString() => '$name is ${type.type}';
 }
+
+/// {@template profile_not_found}
+/// Thrown when a profile was not found
+/// {@endtemplate}
+class ProfileNotFound implements Exception {
+  /// {@macro profile_not_found}
+  const ProfileNotFound(this.playerId);
+
+  /// The player ID that was not found.
+  final String playerId;
+
+  @override
+  String toString() => '$playerId was not found';
+}

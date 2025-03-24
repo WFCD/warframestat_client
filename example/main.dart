@@ -20,7 +20,7 @@ Future<void> main() async {
 
   print(item?.name);
 
-  final synthTargetClient = SynthTaretClient();
+  final synthTargetClient = SynthTargetClient();
   // If you find a target that isn't in here you can make a PR here
   // https://github.com/WFCD/warframe-worldstate-data
   final targets = await synthTargetClient.fetchTargets();

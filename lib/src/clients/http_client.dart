@@ -11,9 +11,10 @@ const _timeout = Duration(seconds: 60);
 /// {@template wfcdclient}
 /// Http client for all other clients.
 /// {@endtemplate}
-abstract class WarframestatClient {
+abstract class WarframestatHttpClient {
   /// {@macro wfcdclient}
-  WarframestatClient({http.Client? client, this.language = Language.en, this.ua}) : _client = client ?? http.Client();
+  WarframestatHttpClient({http.Client? client, this.language = Language.en, this.ua})
+    : _client = client ?? http.Client();
 
   final http.Client _client;
 

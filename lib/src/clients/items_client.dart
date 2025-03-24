@@ -11,7 +11,7 @@ const _minimalOpts =
 /// {@template warframeitemsclient}
 /// Client for all warframe-items endpoints.
 /// {@endtemplate}
-class WarframeItemsClient extends WarframestatClient {
+class WarframeItemsClient extends WarframestatHttpClient {
   /// {@macro warframeitemsclient}
   WarframeItemsClient({super.language, super.ua, super.client});
 

@@ -6,6 +6,7 @@ import 'package:test/test.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 import '../helpers/fixtures.dart';
+import '../helpers/profile_fixture.dart';
 
 class MockHttpClient extends Mock implements Client {}
 
@@ -15,117 +16,146 @@ Future<void> main() async {
   final skipArbi = await WarframestatFixture().loadArbitration() == null;
 
   late Client mockClient;
-  late WarframestatFixture worldstateFixtures;
-  late WorldstateClient worldstateClient;
+  late WarframestatClient warframestat;
 
   setUp(() {
     mockClient = MockHttpClient();
-    worldstateFixtures = WarframestatFixture();
-    worldstateClient = WorldstateClient(client: mockClient);
+    warframestat = WarframestatClient(client: mockClient);
 
     registerFallbackValue(FakeUri());
   });
 
-  test('Intergration test for [Worldstate]', () async {
-    final client = WorldstateClient();
+  tearDown(() => reset(mockClient));
 
-    expect(await client.fetchWorldstate(), const TypeMatcher<Worldstate>());
-  });
+  group('Profile', () {
+    late ProfileFixture profileFixture;
 
-  test('Get the current worldstate', () async {
-    when(() => mockClient.get(uri(''))).thenAnswer((_) async => response(await worldstateFixtures.loadWorldstate()));
+    Uri pUri(String path) => uri('profile/$path');
 
-    final state = await worldstateClient.fetchWorldstate();
+    setUp(() => profileFixture = ProfileFixture());
 
-    expect(state, const TypeMatcher<Worldstate>());
-  });
-
-  test('Get alerts', () async {
-    when(() => mockClient.get(uri('/alerts'))).thenAnswer((_) async => response(await worldstateFixtures.loadAlert()));
-
-    final alerts = await worldstateClient.fetchAlerts();
-
-    expect(alerts, const TypeMatcher<List<Alert>>());
-  });
-
-  test(
-    'Get arbitration',
-    () async {
+    test('Get player profile', () async {
       when(
-        () => mockClient.get(uri('/arbitration')),
-      ).thenAnswer((_) async => response((await worldstateFixtures.loadArbitration())!));
+        () => mockClient.get(pUri('572b6e1a3ade7fa43b58d9c4')),
+      ).thenAnswer((_) async => response(await profileFixture.loadProfile()));
 
-      final arbitration = await worldstateClient.fetchArbitration();
+      final profile = await warframestat.profile('572b6e1a3ade7fa43b58d9c4').fetchProfile();
 
-      expect(arbitration, const TypeMatcher<Arbitration>());
-    },
-    // A lot of time Arbitrations are gonna be null when fixtures are updated.
-    skip: skipArbi,
-  );
+      // DE inserts platform specfic symbols that I have not parsed out yet
+      expect(profile.username, contains('OrnsteinTheSlayer'));
+    });
 
-  test('Get archon hunt', () async {
-    when(
-      () => mockClient.get(uri('/archonHunt')),
-    ).thenAnswer((_) async => response(await worldstateFixtures.loadArchonHunt()));
+    test('Throw when player is not found', () async {
+      when(() => mockClient.get(pUri('notfound'))).thenThrow(const ProfileNotFound('notfound'));
 
-    final archonHunt = await worldstateClient.fetchArchonHunt();
-
-    expect(archonHunt, const TypeMatcher<Sortie>());
+      expect(() => warframestat.profile('notfound').fetchProfile(), throwsA(const TypeMatcher<ProfileNotFound>()));
+    });
   });
 
-  test('Get cambion cycle', () async {
-    when(
-      () => mockClient.get(uri('/cambionCycle')),
-    ).thenAnswer((_) async => response(await worldstateFixtures.loadCambionCycle()));
+  group('Worldstate', () {
+    late WarframestatFixture worldstateFixtures;
 
-    final cambionCycle = await worldstateClient.fetchCambionCycle();
+    Uri wUri(String path) => uri('pc$path');
 
-    expect(cambionCycle, const TypeMatcher<CambionCycle>());
-  });
+    setUp(() => worldstateFixtures = WarframestatFixture());
 
-  test('Get cetus cycle', () async {
-    when(
-      () => mockClient.get(uri('/cetusCycle')),
-    ).thenAnswer((_) async => response(await worldstateFixtures.loadCetusCycle()));
+    test('Get the current worldstate', () async {
+      when(() => mockClient.get(wUri(''))).thenAnswer((_) async => response(await worldstateFixtures.loadWorldstate()));
 
-    final cetusCycle = await worldstateClient.fetchCetusCycle();
+      final state = await warframestat.worldstate.fetchWorldstate();
 
-    expect(cetusCycle, const TypeMatcher<CetusCycle>());
-  });
+      expect(state, const TypeMatcher<Worldstate>());
+    });
 
-  test('Get conclave challenges', () async {
-    when(
-      () => mockClient.get(uri('/conclaveChallenges')),
-    ).thenAnswer((_) async => response(await worldstateFixtures.loadConclaveChallenges()));
+    test('Get alerts', () async {
+      when(
+        () => mockClient.get(wUri('/alerts')),
+      ).thenAnswer((_) async => response(await worldstateFixtures.loadAlert()));
 
-    final conclaveChallenges = await worldstateClient.fetchConclaveChallenges();
+      final alerts = await warframestat.worldstate.fetchAlerts();
 
-    expect(conclaveChallenges, const TypeMatcher<List<ConclaveChallenge>>());
-  });
+      expect(alerts, const TypeMatcher<List<Alert>>());
+    });
 
-  test('Get construction progress', () async {
-    when(
-      () => mockClient.get(uri('/constructionProgress')),
-    ).thenAnswer((_) async => response(await worldstateFixtures.loadConstructionProgress()));
+    test(
+      'Get arbitration',
+      () async {
+        when(
+          () => mockClient.get(wUri('/arbitration')),
+        ).thenAnswer((_) async => response((await worldstateFixtures.loadArbitration())!));
 
-    final constructionProgress = await worldstateClient.fetchConstrcutionProgress();
+        final arbitration = await warframestat.worldstate.fetchArbitration();
 
-    expect(constructionProgress, const TypeMatcher<ConstructionProgress>());
-  });
+        expect(arbitration, const TypeMatcher<Arbitration>());
+      },
+      // A lot of time Arbitrations are gonna be null when fixtures are updated.
+      skip: skipArbi,
+    );
 
-  test('Get daily deals', () async {
-    when(
-      () => mockClient.get(uri('/dailyDeals')),
-    ).thenAnswer((_) async => response(await worldstateFixtures.loadDailyDeals()));
+    test('Get archon hunt', () async {
+      when(
+        () => mockClient.get(wUri('/archonHunt')),
+      ).thenAnswer((_) async => response(await worldstateFixtures.loadArchonHunt()));
 
-    final dailyDeals = await worldstateClient.fetchDailyDeals();
+      final archonHunt = await warframestat.worldstate.fetchArchonHunt();
 
-    expect(dailyDeals, const TypeMatcher<List<DailyDeal>>());
+      expect(archonHunt, const TypeMatcher<Sortie>());
+    });
+
+    test('Get cambion cycle', () async {
+      when(
+        () => mockClient.get(wUri('/cambionCycle')),
+      ).thenAnswer((_) async => response(await worldstateFixtures.loadCambionCycle()));
+
+      final cambionCycle = await warframestat.worldstate.fetchCambionCycle();
+
+      expect(cambionCycle, const TypeMatcher<CambionCycle>());
+    });
+
+    test('Get cetus cycle', () async {
+      when(
+        () => mockClient.get(wUri('/cetusCycle')),
+      ).thenAnswer((_) async => response(await worldstateFixtures.loadCetusCycle()));
+
+      final cetusCycle = await warframestat.worldstate.fetchCetusCycle();
+
+      expect(cetusCycle, const TypeMatcher<CetusCycle>());
+    });
+
+    test('Get conclave challenges', () async {
+      when(
+        () => mockClient.get(wUri('/conclaveChallenges')),
+      ).thenAnswer((_) async => response(await worldstateFixtures.loadConclaveChallenges()));
+
+      final conclaveChallenges = await warframestat.worldstate.fetchConclaveChallenges();
+
+      expect(conclaveChallenges, const TypeMatcher<List<ConclaveChallenge>>());
+    });
+
+    test('Get construction progress', () async {
+      when(
+        () => mockClient.get(wUri('/constructionProgress')),
+      ).thenAnswer((_) async => response(await worldstateFixtures.loadConstructionProgress()));
+
+      final constructionProgress = await warframestat.worldstate.fetchConstrcutionProgress();
+
+      expect(constructionProgress, const TypeMatcher<ConstructionProgress>());
+    });
+
+    test('Get daily deals', () async {
+      when(
+        () => mockClient.get(wUri('/dailyDeals')),
+      ).thenAnswer((_) async => response(await worldstateFixtures.loadDailyDeals()));
+
+      final dailyDeals = await warframestat.worldstate.fetchDailyDeals();
+
+      expect(dailyDeals, const TypeMatcher<List<DailyDeal>>());
+    });
   });
 }
 
 Uri uri(String path) {
-  return Uri.https(authority, '/pc$path', {'language': Language.en.name});
+  return Uri.https(authority, path, {'language': Language.en.name});
 }
 
 Response response(String body, [int statusCode = 200]) {
