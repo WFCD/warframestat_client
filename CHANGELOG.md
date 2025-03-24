@@ -1,3 +1,10 @@
+## [4.2.1](https://github.com/WFCD/warframestat_client/compare/v4.2.0...v4.2.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* `fetchProfile()` now throws when a profile was not found ([17b8b4b](https://github.com/WFCD/warframestat_client/commit/17b8b4be8de1338030856807a02a1fc04145e584))
+
 # [4.2.0](https://github.com/WFCD/warframestat_client/compare/v4.1.2...v4.2.0) (2025-03-24)
 
 
