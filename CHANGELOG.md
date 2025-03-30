@@ -1,3 +1,10 @@
+## [4.2.3](https://github.com/WFCD/warframestat_client/compare/v4.2.2...v4.2.3) (2025-03-30)
+
+
+### Bug Fixes
+
+* construction progress can have null activation/expiry ([64fca0a](https://github.com/WFCD/warframestat_client/commit/64fca0a68b8320d5f1ac326c6ae58f68dea53ab3))
+
 ## [4.2.2](https://github.com/WFCD/warframestat_client/compare/v4.2.1...v4.2.2) (2025-03-30)
 
 
