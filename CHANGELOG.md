@@ -1,3 +1,11 @@
+## [4.2.2](https://github.com/WFCD/warframestat_client/compare/v4.2.1...v4.2.2) (2025-03-30)
+
+
+### Bug Fixes
+
+* override `Live heart cell` type to `Misc` ([24abdc2](https://github.com/WFCD/warframestat_client/commit/24abdc266e3def552e85a13943026f221cdef300))
+* zariman activation takes in the current time if activation is null in data ([5b4e6c6](https://github.com/WFCD/warframestat_client/commit/5b4e6c67489c5dc74f3bf77208a05054054af7b6))
+
 ## [4.2.1](https://github.com/WFCD/warframestat_client/compare/v4.2.0...v4.2.1) (2025-03-24)
 
 
