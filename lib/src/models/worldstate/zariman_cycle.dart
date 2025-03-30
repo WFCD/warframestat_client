@@ -33,10 +33,10 @@ class ZarimanCycle extends WorldstateObject {
   String get id => super.id!;
 
   @override
-  DateTime get activation => super.activation!;
+  DateTime get activation => super.activation ?? DateTime.timestamp();
 
   @override
-  DateTime get expiry => super.expiry!;
+  DateTime get expiry => super.expiry ?? activation.add(const Duration(seconds: 60));
 
   /// Whether or not the Zariman is currently being occupied by corpus or not.
   final bool isCorpus;
