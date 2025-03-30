@@ -22,12 +22,6 @@ class ConstructionProgress extends WorldstateObject {
   @override
   String get id => super.id!;
 
-  @override
-  DateTime get activation => super.activation!;
-
-  @override
-  DateTime get expiry => super.expiry!;
-
   /// Fomorian consruction progress.
   final String fomorianProgress;
 
