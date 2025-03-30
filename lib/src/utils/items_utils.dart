@@ -1,6 +1,10 @@
 import 'package:warframestat_client/src/models/warframe_items/helminth.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
+// Sometimes types are wrong in warframe-items, so use this as a temp fix until it's fixed upstream
+// Only use uniqueName to match overrides as this keeps it strict
+const _overrides = <String, String>{'/Lotus/Types/Items/MiscItems/CodaWeaponBucks': 'Misc'};
+
 /// Converts search items to a list of [MinimalItem]s.
 List<MinimalItem> toSearchItems(List<dynamic> data) {
   return data.map((e) => Map<String, dynamic>.from(e as Map)).map(MinimalItem.fromJson).toList();
@@ -17,9 +21,12 @@ List<Item> toItems(List<dynamic> data, {bool minimal = false}) {
 /// Serializes giving json values into their proper [Item] type
 Item toItem(Map<String, dynamic> item) {
   final name = item['name'] as String;
-  var type = item['type'] as String;
+  final uniqueName = item['uniqueName'];
   final category = item['category'] as String;
   final isBuildable = item['components'] != null;
+
+  var type = item['type'] as String;
+  if (_overrides.containsKey(uniqueName)) type = _overrides[uniqueName]!;
 
   if (name == 'Venari' || name == 'Venari Prime') {
     item['type'] = 'Pets';
