@@ -1,3 +1,11 @@
+## [4.2.4](https://github.com/WFCD/warframestat_client/compare/v4.2.3...v4.2.4) (2025-03-31)
+
+
+### Bug Fixes
+
+* `WorldEvent.tag` can be nullable ([4fb3f1a](https://github.com/WFCD/warframestat_client/commit/4fb3f1a01b66896c6c9161e65731d760f47e9768))
+* possible null uniqueName for vaultTrader ([ee33d92](https://github.com/WFCD/warframestat_client/commit/ee33d92204063c22b13d4e571837e3ec3dff18e5))
+
 ## [4.2.3](https://github.com/WFCD/warframestat_client/compare/v4.2.2...v4.2.3) (2025-03-30)
 
 
