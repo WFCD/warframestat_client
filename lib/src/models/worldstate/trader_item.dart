@@ -15,7 +15,7 @@ class TraderItem extends Equatable {
   factory TraderItem.fromJson(Map<String, dynamic> json) => _$TraderItemFromJson(json);
 
   /// Item uniquename
-  final String uniqueName;
+  final String? uniqueName;
 
   /// Item name
   final String item;
