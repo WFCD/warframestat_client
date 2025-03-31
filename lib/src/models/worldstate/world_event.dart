@@ -185,7 +185,7 @@ class WorldEvent extends WorldstateObject {
 
   /// A unique identifier or category label for the event, used to group or
   /// filter related events.
-  final String tag;
+  final String? tag;
 
   /// Returns the event health using either [health] or
   /// [currentScore] and [maximumScore].
