@@ -1,3 +1,10 @@
+## [4.2.5](https://github.com/WFCD/warframestat_client/compare/v4.2.4...v4.2.5) (2025-04-01)
+
+
+### Bug Fixes
+
+* add `regularOverride` and `isShownInMarket` to `FlashSale` ([6e35c9f](https://github.com/WFCD/warframestat_client/commit/6e35c9ff00dcf85cc9234301c9eeb8a126483db0))
+
 ## [4.2.4](https://github.com/WFCD/warframestat_client/compare/v4.2.3...v4.2.4) (2025-03-31)
 
 
