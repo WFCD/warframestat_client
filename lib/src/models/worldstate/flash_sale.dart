@@ -16,9 +16,11 @@ class FlashSale extends WorldstateObject {
     required this.item,
     required this.expired,
     required this.discount,
+    required this.regularOverride,
     required this.premiumOverride,
     this.isPopular = false,
     this.isFeatured = false,
+    this.isShownInMarket = false,
   });
 
   /// Creates a FlashSale from Json map
@@ -33,16 +35,19 @@ class FlashSale extends WorldstateObject {
   @override
   DateTime get expiry => super.expiry!;
 
-  /// A description for item
+  /// Item on sale
   final String item;
 
-  /// A description for expired
+  /// Whether this sale is expired or not
   final bool expired;
 
-  /// A description for discount
+  /// The discount percentage
   final int discount;
 
-  /// A description for premiumOverride
+  /// The item's discounted credit price
+  final int regularOverride;
+
+  /// The discounted platinum price
   final int premiumOverride;
 
   /// A description for isPopular
@@ -50,6 +55,9 @@ class FlashSale extends WorldstateObject {
 
   /// A description for isFeatured
   final bool isFeatured;
+
+  /// Whether or not the item is visible the in-game market
+  final bool isShownInMarket;
 
   /// Creates a Json map from a FlashSale
   Map<String, dynamic> toJson() => _$FlashSaleToJson(this);

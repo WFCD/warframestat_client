@@ -18,12 +18,20 @@ FlashSale _$FlashSaleFromJson(Map json) =>
         item: $checkedConvert('item', (v) => v as String),
         expired: $checkedConvert('expired', (v) => v as bool),
         discount: $checkedConvert('discount', (v) => (v as num).toInt()),
+        regularOverride: $checkedConvert(
+          'regularOverride',
+          (v) => (v as num).toInt(),
+        ),
         premiumOverride: $checkedConvert(
           'premiumOverride',
           (v) => (v as num).toInt(),
         ),
         isPopular: $checkedConvert('isPopular', (v) => v as bool? ?? false),
         isFeatured: $checkedConvert('isFeatured', (v) => v as bool? ?? false),
+        isShownInMarket: $checkedConvert(
+          'isShownInMarket',
+          (v) => v as bool? ?? false,
+        ),
       );
       return val;
     });
@@ -35,7 +43,9 @@ Map<String, dynamic> _$FlashSaleToJson(FlashSale instance) => <String, dynamic>{
   'item': instance.item,
   'expired': instance.expired,
   'discount': instance.discount,
+  'regularOverride': instance.regularOverride,
   'premiumOverride': instance.premiumOverride,
   'isPopular': instance.isPopular,
   'isFeatured': instance.isFeatured,
+  'isShownInMarket': instance.isShownInMarket,
 };
