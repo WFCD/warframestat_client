@@ -43,7 +43,6 @@ class Warframe extends PowerSuit {
     required this.color,
     required this.conclave,
     required this.introduced,
-    required this.sprint,
     required super.buildPrice,
     super.buildQuantity = 1,
     super.buildTime = 0,
@@ -58,7 +57,7 @@ class Warframe extends PowerSuit {
   final String? aura;
 
   /// Warframe sex.
-  final String sex;
+  final String? sex;
 
   /// Sprint speed.
   final num sprintSpeed;
@@ -68,16 +67,13 @@ class Warframe extends PowerSuit {
 
   /// Warframe color.
   // @JsonKey(includeIfNull: true)
-  final num color;
+  final num? color;
 
   /// I have no idea what this does.
-  final bool conclave;
+  final bool? conclave;
 
   /// Information on when the [Warframe] was introduced.
-  final Introduced introduced;
-
-  /// Warframe sprint speed.
-  final num sprint;
+  final Introduced? introduced;
 
   /// Creates a Json map from a Warframe
   @override
@@ -85,5 +81,6 @@ class Warframe extends PowerSuit {
 
   @override
   List<Object?> get props =>
-      super.props..addAll([abilities, aura, sex, sprintSpeed, passiveDescription, color, conclave, introduced, sprint]);
+      super.props
+        ..addAll([abilities, aura, sex, sprintSpeed, passiveDescription, color, conclave, introduced, sprintSpeed]);
 }

@@ -65,19 +65,21 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate('Warframe', json, (
               .toList(),
     ),
     aura: $checkedConvert('aura', (v) => v as String?),
-    sex: $checkedConvert('sex', (v) => v as String),
+    sex: $checkedConvert('sex', (v) => v as String?),
     sprintSpeed: $checkedConvert('sprintSpeed', (v) => v as num),
     passiveDescription: $checkedConvert(
       'passiveDescription',
       (v) => v as String?,
     ),
-    color: $checkedConvert('color', (v) => v as num),
-    conclave: $checkedConvert('conclave', (v) => v as bool),
+    color: $checkedConvert('color', (v) => v as num?),
+    conclave: $checkedConvert('conclave', (v) => v as bool?),
     introduced: $checkedConvert(
       'introduced',
-      (v) => Introduced.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) =>
+          v == null
+              ? null
+              : Introduced.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
-    sprint: $checkedConvert('sprint', (v) => v as num),
     buildPrice: $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
     buildQuantity: $checkedConvert(
       'buildQuantity',
@@ -131,12 +133,11 @@ Map<String, dynamic> _$WarframeToJson(Warframe instance) => <String, dynamic>{
   if (instance.polarities case final value?) 'polarities': value,
   'abilities': instance.abilities.map((e) => e.toJson()).toList(),
   if (instance.aura case final value?) 'aura': value,
-  'sex': instance.sex,
+  if (instance.sex case final value?) 'sex': value,
   'sprintSpeed': instance.sprintSpeed,
   if (instance.passiveDescription case final value?)
     'passiveDescription': value,
-  'color': instance.color,
-  'conclave': instance.conclave,
-  'introduced': instance.introduced.toJson(),
-  'sprint': instance.sprint,
+  if (instance.color case final value?) 'color': value,
+  if (instance.conclave case final value?) 'conclave': value,
+  if (instance.introduced?.toJson() case final value?) 'introduced': value,
 };
