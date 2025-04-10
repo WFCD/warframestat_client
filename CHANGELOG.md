@@ -1,3 +1,10 @@
+## [4.2.6](https://github.com/WFCD/warframestat_client/compare/v4.2.5...v4.2.6) (2025-04-10)
+
+
+### Bug Fixes
+
+* `sex`, `color`, `conclave`, and `introduced` are now marked nullable for `Warframe` ([0432176](https://github.com/WFCD/warframestat_client/commit/0432176b43ae58fdf2adb589f77678cbf6703ef0))
+
 ## [4.2.5](https://github.com/WFCD/warframestat_client/compare/v4.2.4...v4.2.5) (2025-04-01)
 
 
