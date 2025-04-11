@@ -1,3 +1,10 @@
+## [4.2.7](https://github.com/WFCD/warframestat_client/compare/v4.2.6...v4.2.7) (2025-04-11)
+
+
+### Bug Fixes
+
+* `FlashSale.regualrOverride` marked as nullable ([8ab9ec0](https://github.com/WFCD/warframestat_client/commit/8ab9ec0378999fc7dc09ad674b8be899b26ecf63))
+
 ## [4.2.6](https://github.com/WFCD/warframestat_client/compare/v4.2.5...v4.2.6) (2025-04-10)
 
 
