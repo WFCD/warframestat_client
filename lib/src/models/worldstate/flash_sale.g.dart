@@ -20,7 +20,7 @@ FlashSale _$FlashSaleFromJson(Map json) =>
         discount: $checkedConvert('discount', (v) => (v as num).toInt()),
         regularOverride: $checkedConvert(
           'regularOverride',
-          (v) => (v as num).toInt(),
+          (v) => (v as num?)?.toInt(),
         ),
         premiumOverride: $checkedConvert(
           'premiumOverride',
@@ -43,7 +43,7 @@ Map<String, dynamic> _$FlashSaleToJson(FlashSale instance) => <String, dynamic>{
   'item': instance.item,
   'expired': instance.expired,
   'discount': instance.discount,
-  'regularOverride': instance.regularOverride,
+  if (instance.regularOverride case final value?) 'regularOverride': value,
   'premiumOverride': instance.premiumOverride,
   'isPopular': instance.isPopular,
   'isFeatured': instance.isFeatured,

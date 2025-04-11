@@ -45,7 +45,7 @@ class FlashSale extends WorldstateObject {
   final int discount;
 
   /// The item's discounted credit price
-  final int regularOverride;
+  final int? regularOverride;
 
   /// The discounted platinum price
   final int premiumOverride;
