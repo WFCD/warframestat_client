@@ -29,8 +29,11 @@ class WarframestatWebsocket {
 
   final WebSocket _websocket;
 
+  /// Exposes websocket connection stream
+  Connection get connection => _websocket.connection;
+
   /// A stream of worldstate events
-  Stream<Worldstate> worldstate() {
+  Stream<Worldstate> get worldstate {
     return packets(WarframestatEvents.update).where((e) => e['language'] == language.name).map((e) {
       try {
         return Worldstate.fromJson(e['data'] as Map<String, dynamic>);
