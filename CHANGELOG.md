@@ -1,3 +1,10 @@
+## [4.2.8](https://github.com/WFCD/warframestat_client/compare/v4.2.7...v4.2.8) (2025-04-22)
+
+
+### Bug Fixes
+
+* expose websocker connection state ([c17c248](https://github.com/WFCD/warframestat_client/commit/c17c24857df8003d8e956f70428e8daa924d6a34))
+
 ## [4.2.7](https://github.com/WFCD/warframestat_client/compare/v4.2.6...v4.2.7) (2025-04-11)
 
 
