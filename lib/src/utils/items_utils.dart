@@ -1,9 +1,15 @@
+import 'dart:convert';
+import 'dart:isolate';
+
 import 'package:warframestat_client/src/models/warframe_items/helminth.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 // Sometimes types are wrong in warframe-items, so use this as a temp fix until it's fixed upstream
 // Only use uniqueName to match overrides as this keeps it strict
 const _overrides = <String, String>{'/Lotus/Types/Items/MiscItems/CodaWeaponBucks': 'Misc'};
+
+/// Helps run json parsing on a seperate thread
+Future<T> jsonDecode<T>(String data) => Isolate.run(() => json.decode(data) as T);
 
 /// Converts search items to a list of [MinimalItem]s.
 List<MinimalItem> toSearchItems(List<dynamic> data) {

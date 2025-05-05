@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
 
@@ -135,6 +134,6 @@ class WarframeItemsClient extends WarframestatHttpClient {
   Future<({int statusCode, T data})> _get<T>(String path, {Map<String, dynamic>? query}) async {
     final response = await get('/items$path', query: query);
 
-    return (statusCode: response.statusCode, data: await Isolate.run(() => json.decode(response.body) as T));
+    return (statusCode: response.statusCode, data: await jsonDecode<T>(response.body));
   }
 }

@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:isolate';
-
 import 'package:warframestat_client/warframestat_client.dart';
 
 /// {@template profile_client}
@@ -41,6 +38,6 @@ class ProfileClient extends WarframestatHttpClient {
     final response = await get('profile/$playerId$path');
     if (response.statusCode != 200) throw ProfileNotFound(playerId);
 
-    return Isolate.run(() => json.decode(response.body) as T);
+    return jsonDecode<T>(response.body);
   }
 }
