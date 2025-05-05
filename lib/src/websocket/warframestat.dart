@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:warframestat_client/warframestat_client.dart';
 import 'package:web_socket_client/web_socket_client.dart';
 
@@ -46,7 +44,7 @@ class WarframestatWebsocket {
   /// Complete stream of websocket events filterd down to the packets themselves
   Stream<Map<String, dynamic>> packets(WarframestatEvents event) {
     return _websocket.messages
-        .map((e) => json.decode(e as String) as Map<String, dynamic>)
+        .asyncMap((e) => jsonDecode<Map<String, dynamic>>(e as String))
         .where((e) => e['event'] == event.raw)
         .map((e) => e['packet'] as Map<String, dynamic>);
   }
