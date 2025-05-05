@@ -1,3 +1,15 @@
+## [4.2.9](https://github.com/WFCD/warframestat_client/compare/v4.2.8...v4.2.9) (2025-05-05)
+
+
+### Bug Fixes
+
+* safer `Isolate.run` ([36c9866](https://github.com/WFCD/warframestat_client/commit/36c98667085e01cad105f1935a1c2fb558b07a37))
+
+
+### Performance Improvements
+
+* add isolate parsing for websocket events ([5fcbac2](https://github.com/WFCD/warframestat_client/commit/5fcbac23f3b93bda7649db6f15e727bd434186bf))
+
 ## [4.2.8](https://github.com/WFCD/warframestat_client/compare/v4.2.7...v4.2.8) (2025-04-22)
 
 
