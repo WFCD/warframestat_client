@@ -95,21 +95,21 @@ class Melee extends Weapon {
   Map<String, dynamic> toJson() => _$MeleeToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props..addAll([
-        followThrough,
-        stancePolarity,
-        heavyAttackDamage,
-        heavySlamAttack,
-        heavySlamRadialDamage,
-        heavySlamRadius,
-        slamAttack,
-        slamRadialDamage,
-        slamRadius,
-        slideAttack,
-        windUp,
-        range,
-      ]);
+  List<Object?> get props => super.props
+    ..addAll([
+      followThrough,
+      stancePolarity,
+      heavyAttackDamage,
+      heavySlamAttack,
+      heavySlamRadialDamage,
+      heavySlamRadius,
+      slamAttack,
+      slamRadialDamage,
+      slamRadius,
+      slideAttack,
+      windUp,
+      range,
+    ]);
 }
 
 /// {@template melee_buildable}
@@ -272,21 +272,21 @@ class MeleeBuildable extends BuildableItem implements Melee {
   Map<String, dynamic> toJson() => _$MeleeBuildableToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props..addAll([
-        followThrough,
-        stancePolarity,
-        heavyAttackDamage,
-        heavySlamAttack,
-        heavySlamRadialDamage,
-        heavySlamRadius,
-        slamAttack,
-        slamRadialDamage,
-        slamRadius,
-        slideAttack,
-        windUp,
-        range,
-      ]);
+  List<Object?> get props => super.props
+    ..addAll([
+      followThrough,
+      stancePolarity,
+      heavyAttackDamage,
+      heavySlamAttack,
+      heavySlamRadialDamage,
+      heavySlamRadius,
+      slamAttack,
+      slamRadialDamage,
+      slamRadius,
+      slideAttack,
+      windUp,
+      range,
+    ]);
 }
 
 /// {@template meleeattack}

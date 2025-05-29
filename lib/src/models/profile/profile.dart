@@ -8,22 +8,21 @@ import 'package:warframestat_client/src/models/profile/operator_loadout.dart';
 part 'profile.g.dart';
 
 /// Player daily standing per syndicate
-typedef DailyStanding =
-    ({
-      int daily,
-      int conclave,
-      int simaris,
-      int ostron,
-      int quills,
-      int solaris,
-      int ventKids,
-      int voxSolaris,
-      int entrati,
-      int necraloid,
-      int holdfasts,
-      int kahl,
-      int cavia,
-    });
+typedef DailyStanding = ({
+  int daily,
+  int conclave,
+  int simaris,
+  int ostron,
+  int quills,
+  int solaris,
+  int ventKids,
+  int voxSolaris,
+  int entrati,
+  int necraloid,
+  int holdfasts,
+  int kahl,
+  int cavia,
+});
 
 /// Player alignment
 typedef Alignment = ({int wisdom, double alignment});
