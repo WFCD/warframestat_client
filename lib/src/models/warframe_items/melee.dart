@@ -360,7 +360,7 @@ class Radial extends Equatable {
   final String? element;
 
   /// Radius.
-  final num radius;
+  final num? radius;
 
   /// Creates a json map from [Radial].
   Map<String, dynamic> toJson() => _$RadialToJson(this);

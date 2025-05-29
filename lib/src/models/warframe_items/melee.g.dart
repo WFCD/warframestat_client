@@ -414,7 +414,7 @@ Radial _$RadialFromJson(Map json) =>
     $checkedCreate('Radial', json, ($checkedConvert) {
       final val = Radial(
         damage: $checkedConvert('damage', (v) => v as String),
-        radius: $checkedConvert('radius', (v) => v as num),
+        radius: $checkedConvert('radius', (v) => v as num?),
         element: $checkedConvert('element', (v) => v as String?),
       );
       return val;
@@ -423,5 +423,5 @@ Radial _$RadialFromJson(Map json) =>
 Map<String, dynamic> _$RadialToJson(Radial instance) => <String, dynamic>{
   'damage': instance.damage,
   if (instance.element case final value?) 'element': value,
-  'radius': instance.radius,
+  if (instance.radius case final value?) 'radius': value,
 };
