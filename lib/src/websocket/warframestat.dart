@@ -2,7 +2,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 import 'package:web_socket_client/web_socket_client.dart';
 
 const _pingInterval = Duration(milliseconds: 25000);
-final _baseUrl = Uri.parse('wss://api.warframestat.us/socket');
+final Uri _baseUrl = Uri.parse('wss://api.warframestat.us/socket');
 
 /// Warframestat websocket event types
 enum WarframestatEvents {
