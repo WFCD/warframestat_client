@@ -1,3 +1,10 @@
+## [4.2.10](https://github.com/WFCD/warframestat_client/compare/v4.2.9...v4.2.10) (2025-05-29)
+
+
+### Bug Fixes
+
+* `Radial.radius` nullable for melee weapon ([08a2ee9](https://github.com/WFCD/warframestat_client/commit/08a2ee9084b9b8b5f505ac682854a36072399bbc))
+
 ## [4.2.9](https://github.com/WFCD/warframestat_client/compare/v4.2.8...v4.2.9) (2025-05-05)
 
 
