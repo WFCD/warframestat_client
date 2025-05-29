@@ -26,13 +26,13 @@ Future<void> main() async {
   final targets = await synthTargetClient.fetchTargets();
   print(targets.first.name);
 
-  // Doesn't work anymore... :(
-  // final profileClient = ProfileClient(username: 'OrnsteinTheSlayer');
-  // final profile = await profileClient.fetchProfile();
+  // playId comes from either EE.log or Warframe login cookie
+  final profileClient = ProfileClient(playerId: 'OrnsteinTheSlayer');
+  final profile = await profileClient.fetchProfile();
 
-  // print(profile.username);
+  print(profile.username);
 
   final ws = WarframestatWebsocket();
 
-  ws.worldstate().listen((data) => print(data.timestamp));
+  ws.worldstate.listen((data) => print(data.timestamp));
 }
