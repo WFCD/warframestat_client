@@ -5,7 +5,7 @@ homepage: https://github.com/WFCD
 repository: https://github.com/WFCD/warframestat_client
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.8.0
 
 dependencies:
   collection: ">=1.17.0 <2.0.0"
@@ -19,8 +19,8 @@ dev_dependencies:
   build_runner: ^2.4.13
   commitlint_cli: ^0.8.1
   husky: ^0.1.7
-  json_serializable: ^6.9.0
+  json_serializable: ^6.9.5
   mocktail: ^1.0.4
   path: ^1.8.3
-  test: ^1.25.9
-  very_good_analysis: ^7.0.0
+  test: ^1.26.2
+  very_good_analysis: ^8.0.0
