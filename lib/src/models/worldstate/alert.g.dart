@@ -45,5 +45,5 @@ Map<String, dynamic> _$AlertToJson(Alert instance) => <String, dynamic>{
   'mission': instance.mission.toJson(),
   'rewardTypes': instance.rewardTypes,
   'eta': instance.eta,
-  if (instance.tag case final value?) 'tag': value,
+  'tag': ?instance.tag,
 };

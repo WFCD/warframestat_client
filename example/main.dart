@@ -12,7 +12,7 @@ Future<void> main() async {
 
   // Search returns minimal results. You should use fetchItem() if you want the
   // full item
-  final results = await itemsClient.search('AfterBurner');
+  final results = await itemsClient.search<Mod>('AfterBurner');
   print(results.first.name);
   print(results.first.wikiaUrl);
 

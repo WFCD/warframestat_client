@@ -26,12 +26,9 @@ DuviriCycle _$DuviriCycleFromJson(Map json) =>
         ),
         choices: $checkedConvert(
           'choices',
-          (v) =>
-              (v as List<dynamic>)
-                  .map(
-                    (e) => Choice.fromJson(Map<String, dynamic>.from(e as Map)),
-                  )
-                  .toList(),
+          (v) => (v as List<dynamic>)
+              .map((e) => Choice.fromJson(Map<String, dynamic>.from(e as Map)))
+              .toList(),
         ),
       );
       return val;

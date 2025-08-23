@@ -7,7 +7,7 @@ part 'glyph.g.dart';
 /// Glyph data.
 /// {@endtemplate}
 @JsonSerializable()
-class Glyph extends Item {
+class Glyph extends ItemCommon {
   /// {@macro glyph}
   const Glyph({
     required super.uniqueName,

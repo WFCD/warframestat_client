@@ -21,12 +21,9 @@ Resource _$ResourceFromJson(Map json) => $checkedCreate('Resource', json, (
     imageName: $checkedConvert('imageName', (v) => v as String?),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     type: $checkedConvert(
       'type',
@@ -37,10 +34,9 @@ Resource _$ResourceFromJson(Map json) => $checkedCreate('Resource', json, (
     tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
     drops: $checkedConvert(
       'drops',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
   );
   return val;
@@ -49,16 +45,14 @@ Resource _$ResourceFromJson(Map json) => $checkedCreate('Resource', json, (
 Map<String, dynamic> _$ResourceToJson(Resource instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
-    'drops': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'drops': ?instance.drops?.map((e) => e.toJson()).toList(),
 };
 
 ResourceBuildable _$ResourceBuildableFromJson(
@@ -86,21 +80,15 @@ ResourceBuildable _$ResourceBuildableFromJson(
     consumeOnBuild: $checkedConvert('consumeOnBuild', (v) => v as bool),
     components: $checkedConvert(
       'components',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Component.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Component.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     vaulted: $checkedConvert('vaulted', (v) => v as bool?),
     masteryReq: $checkedConvert('masteryReq', (v) => (v as num?)?.toInt()),
@@ -114,32 +102,29 @@ ResourceBuildable _$ResourceBuildableFromJson(
   return val;
 });
 
-Map<String, dynamic> _$ResourceBuildableToJson(
-  ResourceBuildable instance,
-) => <String, dynamic>{
-  'uniqueName': instance.uniqueName,
-  'name': instance.name,
-  if (instance.description case final value?) 'description': value,
-  'type': const ItemTypeConverter().toJson(instance.type),
-  'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
-  'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
-  if (instance.vaulted case final value?) 'vaulted': value,
-  if (instance.masteryReq case final value?) 'masteryReq': value,
-  'buildPrice': instance.buildPrice,
-  'buildQuantity': instance.buildQuantity,
-  'buildTime': instance.buildTime,
-  'skipBuildTimePrice': instance.skipBuildTimePrice,
-  'consumeOnBuild': instance.consumeOnBuild,
-  if (instance.components?.map((e) => e.toJson()).toList() case final value?)
-    'components': value,
-  if (instance.marketCost case final value?) 'marketCost': value,
-  if (instance.bpCost case final value?) 'bpCost': value,
-  if (instance.itemCount case final value?) 'itemCount': value,
-};
+Map<String, dynamic> _$ResourceBuildableToJson(ResourceBuildable instance) =>
+    <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      'description': ?instance.description,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      'productCategory': ?instance.productCategory,
+      'tradable': instance.tradable,
+      'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+      'imageName': ?instance.imageName,
+      'releaseDate': ?instance.releaseDate,
+      'wikiaThumbnail': ?instance.wikiaThumbnail,
+      'wikiaUrl': ?instance.wikiaUrl,
+      'vaulted': ?instance.vaulted,
+      'masteryReq': ?instance.masteryReq,
+      'buildPrice': instance.buildPrice,
+      'buildQuantity': instance.buildQuantity,
+      'buildTime': instance.buildTime,
+      'skipBuildTimePrice': instance.skipBuildTimePrice,
+      'consumeOnBuild': instance.consumeOnBuild,
+      'components': ?instance.components?.map((e) => e.toJson()).toList(),
+      'marketCost': ?instance.marketCost,
+      'bpCost': ?instance.bpCost,
+      'itemCount': ?instance.itemCount,
+    };

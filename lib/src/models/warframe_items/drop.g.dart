@@ -28,12 +28,12 @@ Drop _$DropFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$DropToJson(Drop instance) => <String, dynamic>{
-  if (instance.uniqueName case final value?) 'uniqueName': value,
+  'uniqueName': ?instance.uniqueName,
   'location': instance.location,
   'type': instance.type,
-  if (_$RarityEnumMap[instance.rarity] case final value?) 'rarity': value,
-  if (instance.chance case final value?) 'chance': value,
-  if (instance.rotation case final value?) 'rotation': value,
+  'rarity': ?_$RarityEnumMap[instance.rarity],
+  'chance': ?instance.chance,
+  'rotation': ?instance.rotation,
 };
 
 const _$RarityEnumMap = {

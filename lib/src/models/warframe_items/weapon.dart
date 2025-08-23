@@ -4,7 +4,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@template weapon}
 /// Base class for all weapons.
 /// {@endtemplate}
-abstract class Weapon extends Item {
+abstract class Weapon extends ItemCommon {
   /// {@macro weapon}
   const Weapon({
     required super.uniqueName,

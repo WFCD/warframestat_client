@@ -27,7 +27,7 @@ Patchlog _$PatchlogFromJson(Map json) =>
 
 Map<String, dynamic> _$PatchlogToJson(Patchlog instance) => <String, dynamic>{
   'name': instance.name,
-  if (instance.imgUrl case final value?) 'imgUrl': value,
+  'imgUrl': ?instance.imgUrl,
   'date': instance.date.toIso8601String(),
   'url': instance.url,
   'additions': instance.additions,

@@ -7,7 +7,15 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 abstract class Item extends Equatable {
   /// {@macro item}
-  const Item({
+  const Item();
+}
+
+/// {@template item_common}
+/// Common properties between all items
+/// {@endtemplate}
+abstract class ItemCommon extends Item {
+  /// {@macro item_common}
+  const ItemCommon({
     required this.uniqueName,
     required this.name,
     required this.description,
@@ -88,9 +96,9 @@ abstract class Item extends Equatable {
 }
 
 /// {@template equipableitem}
-/// Represents [Item]s that can be equiped.
+/// Represents [ItemCommon]s that can be equiped.
 /// {@endtemplate}
-abstract class EquipableItem extends Item {
+abstract class EquipableItem extends ItemCommon {
   /// {@macro equipableitem}
   const EquipableItem({
     required super.uniqueName,
@@ -110,11 +118,11 @@ abstract class EquipableItem extends Item {
     this.vaulted,
   });
 
-  /// Whether the [Item] is a prime item.
+  /// Whether the [ItemCommon] is a prime item.
   @JsonKey(defaultValue: false)
   final bool isPrime;
 
-  /// Whether the [Item] has been removed from the drop rotation.
+  /// Whether the [ItemCommon] has been removed from the drop rotation.
   final bool? vaulted;
 
   @override
@@ -122,9 +130,9 @@ abstract class EquipableItem extends Item {
 }
 
 /// {@template droppableitem}
-/// Contains extra data for [Item]s that drop in-game.
+/// Contains extra data for [ItemCommon]s that drop in-game.
 /// {@endtemplate}
-abstract class DroppableItem extends Item {
+abstract class DroppableItem extends ItemCommon {
   /// {@macro droppableitem}
   const DroppableItem({
     required super.uniqueName,
@@ -145,14 +153,14 @@ abstract class DroppableItem extends Item {
     super.wikiaUrl,
   });
 
-  /// [Item] rarity.
+  /// [ItemCommon] rarity.
 
   final Rarity? rarity;
 
-  /// Chances of the [Item] dropping.
+  /// Chances of the [ItemCommon] dropping.
   final num? probability;
 
-  /// List of drop [Item] locations.
+  /// List of drop [ItemCommon] locations.
   final List<Drop>? drops;
 
   @override
@@ -160,7 +168,7 @@ abstract class DroppableItem extends Item {
 }
 
 /// {@template buildableitem}
-/// [Item]s that require building.
+/// [ItemCommon]s that require building.
 /// {@endtemplate}
 abstract class BuildableItem extends EquipableItem {
   /// {@macro buildableitem}
@@ -198,7 +206,7 @@ abstract class BuildableItem extends EquipableItem {
   @JsonKey(defaultValue: 0)
   final int buildPrice;
 
-  /// Amount of [Item]s built per blueprint.
+  /// Amount of [ItemCommon]s built per blueprint.
   final int buildQuantity;
 
   /// Time it takes for the build to finish.

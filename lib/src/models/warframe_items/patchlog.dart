@@ -5,7 +5,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 part 'patchlog.g.dart';
 
 /// {@template patchlog}
-/// Data on an [Item]'s update changes.
+/// Data on an [ItemCommon]'s update changes.
 /// {@endtemplate}
 @JsonSerializable()
 class Patchlog extends Equatable {
@@ -37,13 +37,13 @@ class Patchlog extends Equatable {
   /// Link to the update's full changelog.
   final String url;
 
-  /// Additions specfic to the [Item].
+  /// Additions specfic to the [ItemCommon].
   final String additions;
 
-  /// Changes specfic to the [Item].
+  /// Changes specfic to the [ItemCommon].
   final String changes;
 
-  /// Fixes specfic to the [Item].
+  /// Fixes specfic to the [ItemCommon].
   final String fixes;
 
   /// Creates a json map from [Patchlog].

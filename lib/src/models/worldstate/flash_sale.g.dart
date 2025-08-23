@@ -48,7 +48,7 @@ Map<String, dynamic> _$FlashSaleToJson(FlashSale instance) => <String, dynamic>{
   'item': instance.item,
   'expired': instance.expired,
   'discount': instance.discount,
-  if (instance.regularOverride case final value?) 'regularOverride': value,
+  'regularOverride': ?instance.regularOverride,
   'premiumOverride': instance.premiumOverride,
   'isPopular': instance.isPopular,
   'isFeatured': instance.isFeatured,

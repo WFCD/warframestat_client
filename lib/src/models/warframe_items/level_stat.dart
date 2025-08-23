@@ -5,7 +5,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 part 'level_stat.g.dart';
 
 /// {@template levelstats}
-/// Contains rank stats for an [Item].
+/// Contains rank stats for an [ItemCommon].
 ///
 /// i.e. mod ranks or arcanes.
 /// {@endtemplate}
@@ -14,7 +14,7 @@ class LevelStat extends Equatable {
   /// {@macro levelstats}
   const LevelStat({required this.stats});
 
-  /// Creates a [Item] from a json map.
+  /// Creates a [ItemCommon] from a json map.
   factory LevelStat.fromJson(Map<String, dynamic> json) {
     return _$LevelStatFromJson(json);
   }
@@ -24,7 +24,7 @@ class LevelStat extends Equatable {
   /// A mod/arcane can have multiple stat descriptions.
   final List<String> stats;
 
-  /// Creates a json map from [Item].
+  /// Creates a json map from [ItemCommon].
   Map<String, dynamic> toJson() => _$LevelStatToJson(this);
 
   @override

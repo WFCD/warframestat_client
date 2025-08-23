@@ -64,18 +64,18 @@ extension on Language {
   }
 }
 
-/// How rare an [Item] drops.
+/// How rare an [ItemCommon] drops.
 @JsonEnum(fieldRename: FieldRename.pascal)
 enum Rarity {
-  /// [Item] drops commonly.
+  /// [ItemCommon] drops commonly.
   common,
 
-  /// [Item] drop is uncommon.
+  /// [ItemCommon] drop is uncommon.
   uncommon,
 
-  /// [Item] drop is harder to come by.
+  /// [ItemCommon] drop is harder to come by.
   rare,
 
-  /// [Item] wow... that's shiny.
+  /// [ItemCommon] wow... that's shiny.
   legendary,
 }

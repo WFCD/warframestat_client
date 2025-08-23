@@ -18,28 +18,24 @@ Worldstate _$WorldstateFromJson(
     timestamp: $checkedConvert('timestamp', (v) => DateTime.parse(v as String)),
     alerts: $checkedConvert(
       'alerts',
-      (v) =>
-          (v as List<dynamic>)
-              .map((e) => Alert.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Alert.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     arbitration: $checkedConvert(
       'arbitration',
-      (v) =>
-          v == null
-              ? null
-              : Arbitration.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Arbitration.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     weeklyChallenges: $checkedConvert(
       'weeklyChallenges',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => ConclaveChallenge.fromJson(
-                  Map<String, dynamic>.from(e as Map),
-                ),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) =>
+                ConclaveChallenge.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     archonHunt: $checkedConvert(
       'archonHunt',
@@ -51,14 +47,12 @@ Worldstate _$WorldstateFromJson(
     ),
     syndicateMissions: $checkedConvert(
       'syndicateMissions',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => SyndicateMission.fromJson(
-                  Map<String, dynamic>.from(e as Map),
-                ),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) =>
+                SyndicateMission.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     cetusCycle: $checkedConvert(
       'cetusCycle',
@@ -66,14 +60,12 @@ Worldstate _$WorldstateFromJson(
     ),
     conclaveChallenges: $checkedConvert(
       'conclaveChallenges',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => ConclaveChallenge.fromJson(
-                  Map<String, dynamic>.from(e as Map),
-                ),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) =>
+                ConclaveChallenge.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     constructionProgress: $checkedConvert(
       'constructionProgress',
@@ -81,12 +73,9 @@ Worldstate _$WorldstateFromJson(
     ),
     dailyDeals: $checkedConvert(
       'dailyDeals',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => DailyDeal.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => DailyDeal.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     earthCycle: $checkedConvert(
       'earthCycle',
@@ -94,68 +83,53 @@ Worldstate _$WorldstateFromJson(
     ),
     events: $checkedConvert(
       'events',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => WorldEvent.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => WorldEvent.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     fissures: $checkedConvert(
       'fissures',
-      (v) =>
-          (v as List<dynamic>)
-              .map((e) => Fissure.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Fissure.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     flashSales: $checkedConvert(
       'flashSales',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => FlashSale.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => FlashSale.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     globalUpgrades: $checkedConvert(
       'globalUpgrades',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) =>
-                    GlobalUpgrade.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) => GlobalUpgrade.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     invasions: $checkedConvert(
       'invasions',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => Invasion.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Invasion.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     kuva: $checkedConvert(
       'kuva',
-      (v) =>
-          (v as List<dynamic>)
-              .map((e) => Kuva.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Kuva.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     news: $checkedConvert(
       'news',
-      (v) =>
-          (v as List<dynamic>)
-              .map((e) => News.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => News.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     nightwave: $checkedConvert(
       'nightwave',
-      (v) =>
-          v == null
-              ? null
-              : Nightwave.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Nightwave.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     sortie: $checkedConvert(
       'sortie',
@@ -167,10 +141,9 @@ Worldstate _$WorldstateFromJson(
     ),
     voidTraders: $checkedConvert(
       'voidTraders',
-      (v) =>
-          (v as List<dynamic>)
-              .map((e) => Trader.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Trader.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     vaultTrader: $checkedConvert(
       'vaultTrader',
@@ -178,10 +151,9 @@ Worldstate _$WorldstateFromJson(
     ),
     sentientOutposts: $checkedConvert(
       'sentientOutposts',
-      (v) =>
-          v == null
-              ? null
-              : SentientOutpost.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : SentientOutpost.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     simaris: $checkedConvert(
       'simaris',
@@ -205,26 +177,21 @@ Worldstate _$WorldstateFromJson(
     ),
     deepArchimedea: $checkedConvert(
       'deepArchimedea',
-      (v) =>
-          v == null
-              ? null
-              : Archimedea.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Archimedea.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     calendar: $checkedConvert(
       'calendar',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => Calendar.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Calendar.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     temporalArchimedea: $checkedConvert(
       'temporalArchimedea',
-      (v) =>
-          v == null
-              ? null
-              : Archimedea.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Archimedea.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
   );
   return val;
@@ -235,15 +202,17 @@ Map<String, dynamic> _$WorldstateToJson(
 ) => <String, dynamic>{
   'timestamp': instance.timestamp.toIso8601String(),
   'alerts': instance.alerts.map((e) => e.toJson()).toList(),
-  if (instance.arbitration?.toJson() case final value?) 'arbitration': value,
+  'arbitration': ?instance.arbitration?.toJson(),
   'weeklyChallenges': instance.weeklyChallenges.map((e) => e.toJson()).toList(),
   'archonHunt': instance.archonHunt.toJson(),
   'cambionCycle': instance.cambionCycle.toJson(),
-  'syndicateMissions':
-      instance.syndicateMissions.map((e) => e.toJson()).toList(),
+  'syndicateMissions': instance.syndicateMissions
+      .map((e) => e.toJson())
+      .toList(),
   'cetusCycle': instance.cetusCycle.toJson(),
-  'conclaveChallenges':
-      instance.conclaveChallenges.map((e) => e.toJson()).toList(),
+  'conclaveChallenges': instance.conclaveChallenges
+      .map((e) => e.toJson())
+      .toList(),
   'constructionProgress': instance.constructionProgress.toJson(),
   'dailyDeals': instance.dailyDeals.map((e) => e.toJson()).toList(),
   'earthCycle': instance.earthCycle.toJson(),
@@ -254,21 +223,18 @@ Map<String, dynamic> _$WorldstateToJson(
   'invasions': instance.invasions.map((e) => e.toJson()).toList(),
   'kuva': instance.kuva.map((e) => e.toJson()).toList(),
   'news': instance.news.map((e) => e.toJson()).toList(),
-  if (instance.nightwave?.toJson() case final value?) 'nightwave': value,
+  'nightwave': ?instance.nightwave?.toJson(),
   'sortie': instance.sortie.toJson(),
   'vallisCycle': instance.vallisCycle.toJson(),
   'voidTraders': instance.voidTraders.map((e) => e.toJson()).toList(),
   'vaultTrader': instance.vaultTrader.toJson(),
-  if (instance.sentientOutposts?.toJson() case final value?)
-    'sentientOutposts': value,
+  'sentientOutposts': ?instance.sentientOutposts?.toJson(),
   'simaris': instance.simaris.toJson(),
   'steelPath': instance.steelPath.toJson(),
   'zarimanCycle': instance.zarimanCycle.toJson(),
   'duviriCycle': instance.duviriCycle.toJson(),
   'kinepage': instance.kinepage.toJson(),
-  if (instance.deepArchimedea?.toJson() case final value?)
-    'deepArchimedea': value,
-  if (instance.temporalArchimedea?.toJson() case final value?)
-    'temporalArchimedea': value,
+  'deepArchimedea': ?instance.deepArchimedea?.toJson(),
+  'temporalArchimedea': ?instance.temporalArchimedea?.toJson(),
   'calendar': instance.calendar.map((e) => e.toJson()).toList(),
 };

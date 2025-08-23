@@ -7,7 +7,7 @@ part 'quest.g.dart';
 /// Quest description
 /// {@endtemplate}
 @JsonSerializable()
-class Quest extends Item {
+class Quest extends ItemCommon {
   /// {@macro quest}
   const Quest({
     required super.uniqueName,

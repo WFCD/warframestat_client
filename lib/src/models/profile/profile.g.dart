@@ -28,18 +28,17 @@ Profile _$ProfileFromJson(Map json) => $checkedCreate('Profile', json, (
     ),
     challengeProgress: $checkedConvert(
       'challengeProgress',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => _$recordConvertAny(
-                  e,
-                  ($jsonValue) => (
-                    name: $jsonValue['name'] as String,
-                    progress: ($jsonValue['progress'] as num).toInt(),
-                  ),
-                ),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) => _$recordConvertAny(
+              e,
+              ($jsonValue) => (
+                name: $jsonValue['name'] as String,
+                progress: ($jsonValue['progress'] as num).toInt(),
+              ),
+            ),
+          )
+          .toList(),
     ),
     guildId: $checkedConvert('guildId', (v) => v as String),
     guildName: $checkedConvert('guildName', (v) => v as String),
@@ -58,30 +57,26 @@ Profile _$ProfileFromJson(Map json) => $checkedCreate('Profile', json, (
     migratedToConsole: $checkedConvert('migratedToConsole', (v) => v as bool),
     missions: $checkedConvert(
       'missions',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => ProfileMission.fromJson(
-                  Map<String, dynamic>.from(e as Map),
-                ),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) => ProfileMission.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     syndicates: $checkedConvert(
       'syndicates',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => _$recordConvertAny(
-                  e,
-                  ($jsonValue) => (
-                    name: $jsonValue['name'] as String,
-                    standing: ($jsonValue['standing'] as num).toInt(),
-                    title: ($jsonValue['title'] as num).toInt(),
-                  ),
-                ),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) => _$recordConvertAny(
+              e,
+              ($jsonValue) => (
+                name: $jsonValue['name'] as String,
+                standing: ($jsonValue['standing'] as num).toInt(),
+                title: ($jsonValue['title'] as num).toInt(),
+              ),
+            ),
+          )
+          .toList(),
     ),
     dailyStanding: $checkedConvert(
       'dailyStanding',
@@ -110,14 +105,12 @@ Profile _$ProfileFromJson(Map json) => $checkedCreate('Profile', json, (
     unlockedAlignment: $checkedConvert('unlockedAlignment', (v) => v as bool),
     operatorLoadouts: $checkedConvert(
       'operatorLoadouts',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => OperatorLoadout.fromJson(
-                  Map<String, dynamic>.from(e as Map),
-                ),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) =>
+                OperatorLoadout.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     alignment: $checkedConvert(
       'alignment',
@@ -139,10 +132,9 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
   'masteryRank': instance.masteryRank,
   'loadout': instance.loadout.toJson(),
   'intrinsics': instance.intrinsics.toJson(),
-  'challengeProgress':
-      instance.challengeProgress
-          .map((e) => <String, dynamic>{'name': e.name, 'progress': e.progress})
-          .toList(),
+  'challengeProgress': instance.challengeProgress
+      .map((e) => <String, dynamic>{'name': e.name, 'progress': e.progress})
+      .toList(),
   'guildId': instance.guildId,
   'guildName': instance.guildName,
   'guildTier': instance.guildTier,
@@ -156,16 +148,15 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
   'created': instance.created.toIso8601String(),
   'migratedToConsole': instance.migratedToConsole,
   'missions': instance.missions.map((e) => e.toJson()).toList(),
-  'syndicates':
-      instance.syndicates
-          .map(
-            (e) => <String, dynamic>{
-              'name': e.name,
-              'standing': e.standing,
-              'title': e.title,
-            },
-          )
-          .toList(),
+  'syndicates': instance.syndicates
+      .map(
+        (e) => <String, dynamic>{
+          'name': e.name,
+          'standing': e.standing,
+          'title': e.title,
+        },
+      )
+      .toList(),
   'dailyStanding': <String, dynamic>{
     'cavia': instance.dailyStanding.cavia,
     'conclave': instance.dailyStanding.conclave,
@@ -182,7 +173,7 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
     'voxSolaris': instance.dailyStanding.voxSolaris,
   },
   'dailyFocus': instance.dailyFocus,
-  if (instance.wishList case final value?) 'wishList': value,
+  'wishList': ?instance.wishList,
   'unlockedOperator': instance.unlockedOperator,
   'unlockedAlignment': instance.unlockedAlignment,
   'operatorLoadouts': instance.operatorLoadouts.map((e) => e.toJson()).toList(),

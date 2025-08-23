@@ -28,28 +28,21 @@ Arcane _$ArcaneFromJson(Map json) => $checkedCreate('Arcane', json, (
     imageName: $checkedConvert('imageName', (v) => v as String?),
     drops: $checkedConvert(
       'drops',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     levelStats: $checkedConvert(
       'levelStats',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => LevelStat.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => LevelStat.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
   );
   return val;
@@ -58,16 +51,13 @@ Arcane _$ArcaneFromJson(Map json) => $checkedCreate('Arcane', json, (
 Map<String, dynamic> _$ArcaneToJson(Arcane instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
-    'drops': value,
-  if (instance.levelStats?.map((e) => e.toJson()).toList() case final value?)
-    'levelStats': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'drops': ?instance.drops?.map((e) => e.toJson()).toList(),
+  'levelStats': ?instance.levelStats?.map((e) => e.toJson()).toList(),
 };

@@ -1,10 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:warframestat_client/src/converters/item_converter.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 part 'xp_item.g.dart';
-
-Item? _toItem(Map<String, dynamic>? json) => json != null ? toItem(json) : null;
 
 /// {@template xp_item}
 /// An item the player has earned XP in
@@ -26,7 +25,7 @@ class XpItem extends Equatable {
   final int xp;
 
   /// The item itself if found in warframe-items
-  @JsonKey(fromJson: _toItem)
+  @ItemConverter()
   final Item? item;
 
   /// Creates a json map from [XpItem]

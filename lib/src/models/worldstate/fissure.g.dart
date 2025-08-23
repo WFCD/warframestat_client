@@ -43,11 +43,11 @@ Map<String, dynamic> _$FissureToJson(Fissure instance) => <String, dynamic>{
   'node': instance.node,
   'expired': instance.expired,
   'missionType': instance.missionType,
-  if (instance.missionKey case final value?) 'missionKey': value,
+  'missionKey': ?instance.missionKey,
   'tier': instance.tier,
   'tierNum': instance.tierNum,
   'enemy': instance.enemy,
-  if (instance.enemyKey case final value?) 'enemyKey': value,
+  'enemyKey': ?instance.enemyKey,
   'isStorm': instance.isStorm,
   'isHard': instance.isHard,
 };

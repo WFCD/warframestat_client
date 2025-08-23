@@ -1,10 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:warframestat_client/src/converters/item_converter.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 part 'skin.g.dart';
-
-Item? _toItem(Map<String, dynamic>? json) => json != null ? toItem(json) : null;
 
 /// {@template weapon_skin}
 /// Skins applied to weapons and warframe
@@ -23,7 +22,7 @@ class ArsenalSkin extends Equatable {
   final String uniqueName;
 
   /// Item found using [uniqueName]
-  @JsonKey(fromJson: _toItem)
+  @ItemConverter()
   final Item? item;
 
   /// Creates a json map from [ArsenalSkin]

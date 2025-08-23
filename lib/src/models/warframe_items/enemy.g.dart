@@ -21,12 +21,9 @@ Enemy _$EnemyFromJson(Map json) => $checkedCreate('Enemy', json, (
     imageName: $checkedConvert('imageName', (v) => v as String?),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     type: $checkedConvert(
       'type',
@@ -37,19 +34,15 @@ Enemy _$EnemyFromJson(Map json) => $checkedCreate('Enemy', json, (
     tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
     drops: $checkedConvert(
       'drops',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     resistances: $checkedConvert(
       'resistances',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => Resistance.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Resistance.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     health: $checkedConvert('health', (v) => (v as num).toInt()),
     shield: $checkedConvert('shield', (v) => (v as num).toInt()),
@@ -62,16 +55,14 @@ Enemy _$EnemyFromJson(Map json) => $checkedCreate('Enemy', json, (
 Map<String, dynamic> _$EnemyToJson(Enemy instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
-    'drops': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'drops': ?instance.drops?.map((e) => e.toJson()).toList(),
   'health': instance.health,
   'shield': instance.shield,
   'armor': instance.armor,
@@ -88,12 +79,9 @@ Resistance _$ResistanceFromJson(Map json) => $checkedCreate(
       type: $checkedConvert('type', (v) => v as String),
       affectors: $checkedConvert(
         'affectors',
-        (v) =>
-            (v as List<dynamic>)
-                .map(
-                  (e) => Affector.fromJson(Map<String, dynamic>.from(e as Map)),
-                )
-                .toList(),
+        (v) => (v as List<dynamic>)
+            .map((e) => Affector.fromJson(Map<String, dynamic>.from(e as Map)))
+            .toList(),
       ),
     );
     return val;

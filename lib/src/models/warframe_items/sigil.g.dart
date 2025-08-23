@@ -28,19 +28,15 @@ Sigil _$SigilFromJson(Map json) => $checkedCreate('Sigil', json, (
     imageName: $checkedConvert('imageName', (v) => v as String?),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     drops: $checkedConvert(
       'drops',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
   );
   return val;
@@ -49,14 +45,12 @@ Sigil _$SigilFromJson(Map json) => $checkedCreate('Sigil', json, (
 Map<String, dynamic> _$SigilToJson(Sigil instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
-    'drops': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'drops': ?instance.drops?.map((e) => e.toJson()).toList(),
 };

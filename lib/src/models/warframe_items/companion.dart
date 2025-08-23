@@ -3,7 +3,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@template companion}
 /// Base companion class from which all pets and sentinel derive from
 /// {@endtemplate}
-abstract class Companion extends Item {
+abstract class Companion extends ItemCommon {
   /// {@macro companion}
   const Companion({
     required super.uniqueName,

@@ -34,15 +34,15 @@ Arbitration _$ArbitrationFromJson(Map json) =>
 
 Map<String, dynamic> _$ArbitrationToJson(Arbitration instance) =>
     <String, dynamic>{
-      if (instance.id case final value?) 'id': value,
+      'id': ?instance.id,
       'activation': instance.activation.toIso8601String(),
       'expiry': instance.expiry.toIso8601String(),
       'node': instance.node,
       'nodeKey': instance.nodeKey,
-      if (instance.enemy case final value?) 'enemy': value,
+      'enemy': ?instance.enemy,
       'type': instance.type,
       'typeKey': instance.typeKey,
-      if (instance.archwing case final value?) 'archwing': value,
-      if (instance.sharkwing case final value?) 'sharkwing': value,
+      'archwing': ?instance.archwing,
+      'sharkwing': ?instance.sharkwing,
       'expired': instance.expired,
     };

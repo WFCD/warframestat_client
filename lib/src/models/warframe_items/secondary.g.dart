@@ -27,31 +27,24 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate('Secondary', json, (
     tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
     components: $checkedConvert(
       'components',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Component.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Component.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     imageName: $checkedConvert('imageName', (v) => v as String),
     attacks: $checkedConvert(
       'attacks',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => GunAttack.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => GunAttack.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     criticalChance: $checkedConvert('criticalChance', (v) => v as num),
     criticalMultiplier: $checkedConvert('criticalMultiplier', (v) => v as num),
     damage: $checkedConvert(
       'damage',
-      (v) =>
-          v == null
-              ? null
-              : Damage.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Damage.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     damagePerShot: $checkedConvert(
       'damagePerShot',
@@ -94,12 +87,9 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate('Secondary', json, (
     buildPrice: $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     bpCost: $checkedConvert('bpCost', (v) => (v as num?)?.toInt()),
     buildQuantity: $checkedConvert(
@@ -123,49 +113,46 @@ Secondary _$SecondaryFromJson(Map json) => $checkedCreate('Secondary', json, (
 Map<String, dynamic> _$SecondaryToJson(Secondary instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'releaseDate': ?instance.releaseDate,
+  'wikiaThumbnail': ?instance.wikiaThumbnail,
+  'wikiaUrl': ?instance.wikiaUrl,
   'isPrime': instance.isPrime,
-  if (instance.vaulted case final value?) 'vaulted': value,
-  if (instance.masteryReq case final value?) 'masteryReq': value,
+  'vaulted': ?instance.vaulted,
+  'masteryReq': ?instance.masteryReq,
   'buildPrice': instance.buildPrice,
   'buildQuantity': instance.buildQuantity,
   'buildTime': instance.buildTime,
   'skipBuildTimePrice': instance.skipBuildTimePrice,
   'consumeOnBuild': instance.consumeOnBuild,
-  if (instance.components?.map((e) => e.toJson()).toList() case final value?)
-    'components': value,
-  if (instance.marketCost case final value?) 'marketCost': value,
-  if (instance.bpCost case final value?) 'bpCost': value,
-  if (instance.itemCount case final value?) 'itemCount': value,
-  if (instance.attacks?.map((e) => e.toJson()).toList() case final value?)
-    'attacks': value,
+  'components': ?instance.components?.map((e) => e.toJson()).toList(),
+  'marketCost': ?instance.marketCost,
+  'bpCost': ?instance.bpCost,
+  'itemCount': ?instance.itemCount,
+  'attacks': ?instance.attacks?.map((e) => e.toJson()).toList(),
   'criticalChance': instance.criticalChance,
   'criticalMultiplier': instance.criticalMultiplier,
-  if (instance.damage?.toJson() case final value?) 'damage': value,
+  'damage': ?instance.damage?.toJson(),
   'damagePerShot': instance.damagePerShot,
-  if (instance.disposition case final value?) 'disposition': value,
+  'disposition': ?instance.disposition,
   'fireRate': instance.fireRate,
   'omegaAttenuation': instance.omegaAttenuation,
-  if (instance.polarities case final value?) 'polarities': value,
+  'polarities': ?instance.polarities,
   'procChance': instance.procChance,
-  if (instance.slot case final value?) 'slot': value,
-  if (instance.tags case final value?) 'tags': value,
+  'slot': ?instance.slot,
+  'tags': ?instance.tags,
   'totalDamage': instance.totalDamage,
   'maxLevelCap': instance.maxLevelCap,
-  if (instance.accuracy case final value?) 'accuracy': value,
-  if (instance.magazineSize case final value?) 'magazineSize': value,
-  if (instance.multishot case final value?) 'multishot': value,
-  if (instance.noise case final value?) 'noise': value,
-  if (instance.trigger case final value?) 'trigger': value,
-  if (instance.reloadTime case final value?) 'reloadTime': value,
+  'accuracy': ?instance.accuracy,
+  'magazineSize': ?instance.magazineSize,
+  'multishot': ?instance.multishot,
+  'noise': ?instance.noise,
+  'trigger': ?instance.trigger,
+  'reloadTime': ?instance.reloadTime,
 };

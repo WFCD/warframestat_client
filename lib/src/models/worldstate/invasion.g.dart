@@ -69,10 +69,9 @@ InvasionFaction _$InvasionFactionFromJson(Map json) =>
       final val = InvasionFaction(
         reward: $checkedConvert(
           'reward',
-          (v) =>
-              v == null
-                  ? null
-                  : Reward.fromJson(Map<String, dynamic>.from(v as Map)),
+          (v) => v == null
+              ? null
+              : Reward.fromJson(Map<String, dynamic>.from(v as Map)),
         ),
         faction: $checkedConvert('faction', (v) => v as String),
         factionKey: $checkedConvert('factionKey', (v) => v as String),
@@ -82,7 +81,7 @@ InvasionFaction _$InvasionFactionFromJson(Map json) =>
 
 Map<String, dynamic> _$InvasionFactionToJson(InvasionFaction instance) =>
     <String, dynamic>{
-      if (instance.reward?.toJson() case final value?) 'reward': value,
+      'reward': ?instance.reward?.toJson(),
       'faction': instance.faction,
       'factionKey': instance.factionKey,
     };

@@ -81,30 +81,24 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate('Melee', json, (
     range: $checkedConvert('range', (v) => (v as num?)?.toDouble()),
     attacks: $checkedConvert(
       'attacks',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    MeleeAttack.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => MeleeAttack.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     damage: $checkedConvert(
       'damage',
-      (v) =>
-          v == null
-              ? null
-              : Damage.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Damage.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     stancePolarity: $checkedConvert('stancePolarity', (v) => v as String?),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
     wikiaThumbnail: $checkedConvert('wikiaThumbnail', (v) => v as String?),
@@ -120,46 +114,43 @@ Melee _$MeleeFromJson(Map json) => $checkedCreate('Melee', json, (
 Map<String, dynamic> _$MeleeToJson(Melee instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.excludeFromCodex case final value?) 'excludeFromCodex': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
-  if (instance.attacks?.map((e) => e.toJson()).toList() case final value?)
-    'attacks': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'releaseDate': ?instance.releaseDate,
+  'excludeFromCodex': ?instance.excludeFromCodex,
+  'wikiaThumbnail': ?instance.wikiaThumbnail,
+  'wikiaUrl': ?instance.wikiaUrl,
+  'attacks': ?instance.attacks?.map((e) => e.toJson()).toList(),
   'criticalChance': instance.criticalChance,
   'criticalMultiplier': instance.criticalMultiplier,
-  if (instance.damage?.toJson() case final value?) 'damage': value,
+  'damage': ?instance.damage?.toJson(),
   'damagePerShot': instance.damagePerShot,
-  if (instance.disposition case final value?) 'disposition': value,
+  'disposition': ?instance.disposition,
   'fireRate': instance.fireRate,
   'omegaAttenuation': instance.omegaAttenuation,
-  if (instance.polarities case final value?) 'polarities': value,
+  'polarities': ?instance.polarities,
   'procChance': instance.procChance,
-  if (instance.slot case final value?) 'slot': value,
-  if (instance.tags case final value?) 'tags': value,
+  'slot': ?instance.slot,
+  'tags': ?instance.tags,
   'totalDamage': instance.totalDamage,
   'maxLevelCap': instance.maxLevelCap,
-  if (instance.followThrough case final value?) 'followThrough': value,
-  if (instance.stancePolarity case final value?) 'stancePolarity': value,
-  if (instance.heavyAttackDamage case final value?) 'heavyAttackDamage': value,
-  if (instance.heavySlamAttack case final value?) 'heavySlamAttack': value,
-  if (instance.heavySlamRadialDamage case final value?)
-    'heavySlamRadialDamage': value,
-  if (instance.heavySlamRadius case final value?) 'heavySlamRadius': value,
-  if (instance.slamAttack case final value?) 'slamAttack': value,
-  if (instance.slamRadialDamage case final value?) 'slamRadialDamage': value,
-  if (instance.slamRadius case final value?) 'slamRadius': value,
-  if (instance.slideAttack case final value?) 'slideAttack': value,
-  if (instance.windUp case final value?) 'windUp': value,
-  if (instance.range case final value?) 'range': value,
+  'followThrough': ?instance.followThrough,
+  'stancePolarity': ?instance.stancePolarity,
+  'heavyAttackDamage': ?instance.heavyAttackDamage,
+  'heavySlamAttack': ?instance.heavySlamAttack,
+  'heavySlamRadialDamage': ?instance.heavySlamRadialDamage,
+  'heavySlamRadius': ?instance.heavySlamRadius,
+  'slamAttack': ?instance.slamAttack,
+  'slamRadialDamage': ?instance.slamRadialDamage,
+  'slamRadius': ?instance.slamRadius,
+  'slideAttack': ?instance.slideAttack,
+  'windUp': ?instance.windUp,
+  'range': ?instance.range,
 };
 
 MeleeBuildable _$MeleeBuildableFromJson(
@@ -179,32 +170,26 @@ MeleeBuildable _$MeleeBuildableFromJson(
     bpCost: $checkedConvert('bpCost', (v) => (v as num?)?.toInt()),
     components: $checkedConvert(
       'components',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Component.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Component.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     imageName: $checkedConvert('imageName', (v) => v as String),
     attacks: $checkedConvert(
       'attacks',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    MeleeAttack.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => MeleeAttack.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     criticalChance: $checkedConvert('criticalChance', (v) => v as num),
     criticalMultiplier: $checkedConvert('criticalMultiplier', (v) => v as num),
     damage: $checkedConvert(
       'damage',
-      (v) =>
-          v == null
-              ? null
-              : Damage.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Damage.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     damagePerShot: $checkedConvert(
       'damagePerShot',
@@ -256,12 +241,9 @@ MeleeBuildable _$MeleeBuildableFromJson(
     itemCount: $checkedConvert('itemCount', (v) => (v as num?)?.toInt()),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     buildPrice: $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
     buildQuantity: $checkedConvert('buildQuantity', (v) => (v as num).toInt()),
@@ -290,64 +272,59 @@ MeleeBuildable _$MeleeBuildableFromJson(
   return val;
 });
 
-Map<String, dynamic> _$MeleeBuildableToJson(
-  MeleeBuildable instance,
-) => <String, dynamic>{
-  'uniqueName': instance.uniqueName,
-  'name': instance.name,
-  if (instance.description case final value?) 'description': value,
-  'type': const ItemTypeConverter().toJson(instance.type),
-  'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
-  'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
-  'isPrime': instance.isPrime,
-  if (instance.vaulted case final value?) 'vaulted': value,
-  if (instance.masteryReq case final value?) 'masteryReq': value,
-  'buildPrice': instance.buildPrice,
-  'buildQuantity': instance.buildQuantity,
-  'buildTime': instance.buildTime,
-  'skipBuildTimePrice': instance.skipBuildTimePrice,
-  'consumeOnBuild': instance.consumeOnBuild,
-  if (instance.components?.map((e) => e.toJson()).toList() case final value?)
-    'components': value,
-  if (instance.marketCost case final value?) 'marketCost': value,
-  if (instance.bpCost case final value?) 'bpCost': value,
-  if (instance.itemCount case final value?) 'itemCount': value,
-  if (instance.attacks?.map((e) => e.toJson()).toList() case final value?)
-    'attacks': value,
-  'criticalChance': instance.criticalChance,
-  'criticalMultiplier': instance.criticalMultiplier,
-  if (instance.damage?.toJson() case final value?) 'damage': value,
-  'damagePerShot': instance.damagePerShot,
-  if (instance.disposition case final value?) 'disposition': value,
-  'fireRate': instance.fireRate,
-  'omegaAttenuation': instance.omegaAttenuation,
-  if (instance.polarities case final value?) 'polarities': value,
-  'procChance': instance.procChance,
-  if (instance.slot case final value?) 'slot': value,
-  if (instance.tags case final value?) 'tags': value,
-  'totalDamage': instance.totalDamage,
-  'maxLevelCap': instance.maxLevelCap,
-  if (instance.followThrough case final value?) 'followThrough': value,
-  if (instance.stancePolarity case final value?) 'stancePolarity': value,
-  if (instance.heavyAttackDamage case final value?) 'heavyAttackDamage': value,
-  if (instance.heavySlamAttack case final value?) 'heavySlamAttack': value,
-  if (instance.heavySlamRadialDamage case final value?)
-    'heavySlamRadialDamage': value,
-  if (instance.heavySlamRadius case final value?) 'heavySlamRadius': value,
-  if (instance.slamAttack case final value?) 'slamAttack': value,
-  if (instance.slamRadialDamage case final value?) 'slamRadialDamage': value,
-  if (instance.slamRadius case final value?) 'slamRadius': value,
-  if (instance.slideAttack case final value?) 'slideAttack': value,
-  if (instance.windUp case final value?) 'windUp': value,
-  if (instance.range case final value?) 'range': value,
-};
+Map<String, dynamic> _$MeleeBuildableToJson(MeleeBuildable instance) =>
+    <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      'description': ?instance.description,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      'productCategory': ?instance.productCategory,
+      'tradable': instance.tradable,
+      'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+      'imageName': ?instance.imageName,
+      'releaseDate': ?instance.releaseDate,
+      'wikiaThumbnail': ?instance.wikiaThumbnail,
+      'wikiaUrl': ?instance.wikiaUrl,
+      'isPrime': instance.isPrime,
+      'vaulted': ?instance.vaulted,
+      'masteryReq': ?instance.masteryReq,
+      'buildPrice': instance.buildPrice,
+      'buildQuantity': instance.buildQuantity,
+      'buildTime': instance.buildTime,
+      'skipBuildTimePrice': instance.skipBuildTimePrice,
+      'consumeOnBuild': instance.consumeOnBuild,
+      'components': ?instance.components?.map((e) => e.toJson()).toList(),
+      'marketCost': ?instance.marketCost,
+      'bpCost': ?instance.bpCost,
+      'itemCount': ?instance.itemCount,
+      'attacks': ?instance.attacks?.map((e) => e.toJson()).toList(),
+      'criticalChance': instance.criticalChance,
+      'criticalMultiplier': instance.criticalMultiplier,
+      'damage': ?instance.damage?.toJson(),
+      'damagePerShot': instance.damagePerShot,
+      'disposition': ?instance.disposition,
+      'fireRate': instance.fireRate,
+      'omegaAttenuation': instance.omegaAttenuation,
+      'polarities': ?instance.polarities,
+      'procChance': instance.procChance,
+      'slot': ?instance.slot,
+      'tags': ?instance.tags,
+      'totalDamage': instance.totalDamage,
+      'maxLevelCap': instance.maxLevelCap,
+      'followThrough': ?instance.followThrough,
+      'stancePolarity': ?instance.stancePolarity,
+      'heavyAttackDamage': ?instance.heavyAttackDamage,
+      'heavySlamAttack': ?instance.heavySlamAttack,
+      'heavySlamRadialDamage': ?instance.heavySlamRadialDamage,
+      'heavySlamRadius': ?instance.heavySlamRadius,
+      'slamAttack': ?instance.slamAttack,
+      'slamRadialDamage': ?instance.slamRadialDamage,
+      'slamRadius': ?instance.slamRadius,
+      'slideAttack': ?instance.slideAttack,
+      'windUp': ?instance.windUp,
+      'range': ?instance.range,
+    };
 
 MeleeAttack _$MeleeAttackFromJson(Map json) => $checkedCreate(
   'MeleeAttack',
@@ -355,7 +332,7 @@ MeleeAttack _$MeleeAttackFromJson(Map json) => $checkedCreate(
   ($checkedConvert) {
     final val = MeleeAttack(
       name: $checkedConvert('name', (v) => v as String),
-      speed: $checkedConvert('speed', (v) => v as num),
+      speed: $checkedConvert('speed', (v) => v as num?),
       critChance: $checkedConvert('crit_chance', (v) => v as num),
       critMult: $checkedConvert('crit_mult', (v) => v as num),
       statusChance: $checkedConvert('status_chance', (v) => v as num),
@@ -366,10 +343,9 @@ MeleeAttack _$MeleeAttackFromJson(Map json) => $checkedCreate(
       slide: $checkedConvert('slide', (v) => v as String?),
       slam: $checkedConvert(
         'slam',
-        (v) =>
-            v == null
-                ? null
-                : Slam.fromJson(Map<String, dynamic>.from(v as Map)),
+        (v) => v == null
+            ? null
+            : Slam.fromJson(Map<String, dynamic>.from(v as Map)),
       ),
     );
     return val;
@@ -384,13 +360,13 @@ MeleeAttack _$MeleeAttackFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$MeleeAttackToJson(MeleeAttack instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'speed': instance.speed,
+      'speed': ?instance.speed,
       'crit_chance': instance.critChance,
       'crit_mult': instance.critMult,
       'status_chance': instance.statusChance,
       'damage': instance.damage.toJson(),
-      if (instance.slide case final value?) 'slide': value,
-      if (instance.slam?.toJson() case final value?) 'slam': value,
+      'slide': ?instance.slide,
+      'slam': ?instance.slam?.toJson(),
     };
 
 Slam _$SlamFromJson(Map json) =>
@@ -422,6 +398,6 @@ Radial _$RadialFromJson(Map json) =>
 
 Map<String, dynamic> _$RadialToJson(Radial instance) => <String, dynamic>{
   'damage': instance.damage,
-  if (instance.element case final value?) 'element': value,
-  if (instance.radius case final value?) 'radius': value,
+  'element': ?instance.element,
+  'radius': ?instance.radius,
 };

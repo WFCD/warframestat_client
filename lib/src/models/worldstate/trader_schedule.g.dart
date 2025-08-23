@@ -23,5 +23,5 @@ TraderSchedule _$TraderScheduleFromJson(Map json) =>
 Map<String, dynamic> _$TraderScheduleToJson(TraderSchedule instance) =>
     <String, dynamic>{
       'expiry': instance.expiry.toIso8601String(),
-      if (instance.item case final value?) 'item': value,
+      'item': ?instance.item,
     };

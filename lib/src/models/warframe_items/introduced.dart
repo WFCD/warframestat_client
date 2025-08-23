@@ -5,7 +5,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 part 'introduced.g.dart';
 
 /// {@template introduced}
-/// The update the [Item] was intoduced in.
+/// The update the [ItemCommon] was intoduced in.
 /// {@endtemplate}
 @JsonSerializable()
 class Introduced extends Equatable {

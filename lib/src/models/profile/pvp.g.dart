@@ -23,7 +23,7 @@ Pvp _$PvpFromJson(Map json) => $checkedCreate('Pvp', json, ($checkedConvert) {
 
 Map<String, dynamic> _$PvpToJson(Pvp instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
-  if (instance.suitDeaths case final value?) 'suitDeaths': value,
-  if (instance.suitKills case final value?) 'suitKills': value,
-  if (instance.weaponKills case final value?) 'weaponKills': value,
+  'suitDeaths': ?instance.suitDeaths,
+  'suitKills': ?instance.suitKills,
+  'weaponKills': ?instance.weaponKills,
 };

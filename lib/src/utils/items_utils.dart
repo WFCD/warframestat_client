@@ -11,17 +11,9 @@ const _overrides = <String, String>{'/Lotus/Types/Items/MiscItems/CodaWeaponBuck
 /// Helps run json parsing on a seperate thread
 Future<T> jsonDecode<T>(String data) => Isolate.run(() => json.decode(data) as T);
 
-/// Converts search items to a list of [MinimalItem]s.
-List<MinimalItem> toSearchItems(List<dynamic> data) {
-  return data.map((e) => Map<String, dynamic>.from(e as Map)).map(MinimalItem.fromJson).toList();
-}
-
 /// Converts a json decoded list into [Item] objects
-List<Item> toItems(List<dynamic> data, {bool minimal = false}) {
-  return data
-      .map((e) => Map<String, dynamic>.from(e as Map))
-      .map((i) => minimal ? MinimalItem.fromJson(i) : toItem(i))
-      .toList();
+List<Item> toItems(List<dynamic> data) {
+  return data.map((e) => Map<String, dynamic>.from(e as Map)).map(toItem).toList();
 }
 
 /// Serializes giving json values into their proper [Item] type

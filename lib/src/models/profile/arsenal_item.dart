@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:warframestat_client/src/converters/item_converter.dart';
 import 'package:warframestat_client/warframestat_client.dart';
 
 part 'arsenal_item.g.dart';
@@ -51,8 +52,8 @@ class ArsenalItem extends Equatable {
   /// Item name.
   final String? name;
 
-  /// [Item]
-  @JsonKey(fromJson: toItem)
+  /// [ItemCommon]
+  @ItemConverter()
   final Item? item;
 
   /// Nemesis weapon name

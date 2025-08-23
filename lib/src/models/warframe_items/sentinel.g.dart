@@ -28,12 +28,9 @@ Sentinel _$SentinelFromJson(Map json) => $checkedCreate('Sentinel', json, (
     imageName: $checkedConvert('imageName', (v) => v as String?),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     armor: $checkedConvert('armor', (v) => (v as num).toInt()),
     health: $checkedConvert('health', (v) => (v as num).toInt()),
@@ -50,18 +47,17 @@ Sentinel _$SentinelFromJson(Map json) => $checkedCreate('Sentinel', json, (
 Map<String, dynamic> _$SentinelToJson(Sentinel instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.excludeFromCodex case final value?) 'excludeFromCodex': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'releaseDate': ?instance.releaseDate,
+  'excludeFromCodex': ?instance.excludeFromCodex,
+  'wikiaThumbnail': ?instance.wikiaThumbnail,
+  'wikiaUrl': ?instance.wikiaUrl,
   'armor': instance.armor,
   'health': instance.health,
   'shield': instance.shield,
@@ -93,21 +89,15 @@ SentinelBuildable _$SentinelBuildableFromJson(
     imageName: $checkedConvert('imageName', (v) => v as String),
     components: $checkedConvert(
       'components',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => Component.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Component.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
     armor: $checkedConvert('armor', (v) => (v as num).toInt()),
@@ -126,40 +116,37 @@ SentinelBuildable _$SentinelBuildableFromJson(
   return val;
 });
 
-Map<String, dynamic> _$SentinelBuildableToJson(
-  SentinelBuildable instance,
-) => <String, dynamic>{
-  'uniqueName': instance.uniqueName,
-  'name': instance.name,
-  if (instance.description case final value?) 'description': value,
-  'type': const ItemTypeConverter().toJson(instance.type),
-  'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
-  'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
-  'isPrime': instance.isPrime,
-  if (instance.vaulted case final value?) 'vaulted': value,
-  if (instance.masteryReq case final value?) 'masteryReq': value,
-  'buildPrice': instance.buildPrice,
-  'buildQuantity': instance.buildQuantity,
-  'buildTime': instance.buildTime,
-  'skipBuildTimePrice': instance.skipBuildTimePrice,
-  'consumeOnBuild': instance.consumeOnBuild,
-  if (instance.components?.map((e) => e.toJson()).toList() case final value?)
-    'components': value,
-  if (instance.marketCost case final value?) 'marketCost': value,
-  if (instance.bpCost case final value?) 'bpCost': value,
-  if (instance.itemCount case final value?) 'itemCount': value,
-  'armor': instance.armor,
-  'health': instance.health,
-  'shield': instance.shield,
-  'stamina': instance.stamina,
-};
+Map<String, dynamic> _$SentinelBuildableToJson(SentinelBuildable instance) =>
+    <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      'description': ?instance.description,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      'productCategory': ?instance.productCategory,
+      'tradable': instance.tradable,
+      'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+      'imageName': ?instance.imageName,
+      'releaseDate': ?instance.releaseDate,
+      'wikiaThumbnail': ?instance.wikiaThumbnail,
+      'wikiaUrl': ?instance.wikiaUrl,
+      'isPrime': instance.isPrime,
+      'vaulted': ?instance.vaulted,
+      'masteryReq': ?instance.masteryReq,
+      'buildPrice': instance.buildPrice,
+      'buildQuantity': instance.buildQuantity,
+      'buildTime': instance.buildTime,
+      'skipBuildTimePrice': instance.skipBuildTimePrice,
+      'consumeOnBuild': instance.consumeOnBuild,
+      'components': ?instance.components?.map((e) => e.toJson()).toList(),
+      'marketCost': ?instance.marketCost,
+      'bpCost': ?instance.bpCost,
+      'itemCount': ?instance.itemCount,
+      'armor': instance.armor,
+      'health': instance.health,
+      'shield': instance.shield,
+      'stamina': instance.stamina,
+    };
 
 SentinelWeapon _$SentinelWeaponFromJson(
   Map json,
@@ -205,28 +192,21 @@ SentinelWeapon _$SentinelWeaponFromJson(
     wikiaUrl: $checkedConvert('wikiaUrl', (v) => v as String?),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     attacks: $checkedConvert(
       'attacks',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => GunAttack.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => GunAttack.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     damage: $checkedConvert(
       'damage',
-      (v) =>
-          v == null
-              ? null
-              : Damage.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Damage.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     tags: $checkedConvert(
       'tags',
@@ -236,36 +216,33 @@ SentinelWeapon _$SentinelWeaponFromJson(
   return val;
 });
 
-Map<String, dynamic> _$SentinelWeaponToJson(
-  SentinelWeapon instance,
-) => <String, dynamic>{
-  'uniqueName': instance.uniqueName,
-  'name': instance.name,
-  if (instance.description case final value?) 'description': value,
-  'type': const ItemTypeConverter().toJson(instance.type),
-  'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
-  'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.excludeFromCodex case final value?) 'excludeFromCodex': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
-  if (instance.attacks?.map((e) => e.toJson()).toList() case final value?)
-    'attacks': value,
-  'criticalChance': instance.criticalChance,
-  'criticalMultiplier': instance.criticalMultiplier,
-  if (instance.damage?.toJson() case final value?) 'damage': value,
-  'damagePerShot': instance.damagePerShot,
-  if (instance.disposition case final value?) 'disposition': value,
-  'fireRate': instance.fireRate,
-  'omegaAttenuation': instance.omegaAttenuation,
-  if (instance.polarities case final value?) 'polarities': value,
-  'procChance': instance.procChance,
-  if (instance.slot case final value?) 'slot': value,
-  if (instance.tags case final value?) 'tags': value,
-  'totalDamage': instance.totalDamage,
-  'maxLevelCap': instance.maxLevelCap,
-};
+Map<String, dynamic> _$SentinelWeaponToJson(SentinelWeapon instance) =>
+    <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      'description': ?instance.description,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      'productCategory': ?instance.productCategory,
+      'tradable': instance.tradable,
+      'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+      'imageName': ?instance.imageName,
+      'releaseDate': ?instance.releaseDate,
+      'excludeFromCodex': ?instance.excludeFromCodex,
+      'wikiaThumbnail': ?instance.wikiaThumbnail,
+      'wikiaUrl': ?instance.wikiaUrl,
+      'attacks': ?instance.attacks?.map((e) => e.toJson()).toList(),
+      'criticalChance': instance.criticalChance,
+      'criticalMultiplier': instance.criticalMultiplier,
+      'damage': ?instance.damage?.toJson(),
+      'damagePerShot': instance.damagePerShot,
+      'disposition': ?instance.disposition,
+      'fireRate': instance.fireRate,
+      'omegaAttenuation': instance.omegaAttenuation,
+      'polarities': ?instance.polarities,
+      'procChance': instance.procChance,
+      'slot': ?instance.slot,
+      'tags': ?instance.tags,
+      'totalDamage': instance.totalDamage,
+      'maxLevelCap': instance.maxLevelCap,
+    };

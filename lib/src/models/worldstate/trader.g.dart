@@ -26,12 +26,9 @@ Trader _$TraderFromJson(Map json) => $checkedCreate('Trader', json, (
     location: $checkedConvert('location', (v) => v as String),
     inventory: $checkedConvert(
       'inventory',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => TraderItem.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => TraderItem.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     initialStart: $checkedConvert(
       'initialStart',
@@ -39,14 +36,11 @@ Trader _$TraderFromJson(Map json) => $checkedCreate('Trader', json, (
     ),
     schedule: $checkedConvert(
       'schedule',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => TraderSchedule.fromJson(
-                  Map<String, dynamic>.from(e as Map),
-                ),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) => TraderSchedule.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
   );
   return val;

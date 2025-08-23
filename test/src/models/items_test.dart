@@ -24,8 +24,6 @@ void main() {
 
   group('Serlization check', () {
     test('[Item]', () => expect(toItems(items), isList));
-
-    test('[MinimalItem]', () => expect(items.map(MinimalItem.fromJson).toList(), isList));
   });
 
   group('Type checks', () {

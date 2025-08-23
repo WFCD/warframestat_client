@@ -19,17 +19,21 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
       id: $checkedConvert('itemId', (v) => v as String),
       uniqueName: $checkedConvert('uniqueName', (v) => v as String),
       name: $checkedConvert('name', (v) => v as String?),
-      item: $checkedConvert('item', (v) => toItem(v as Map<String, dynamic>)),
+      item: $checkedConvert(
+        'item',
+        (v) => _$JsonConverterFromJson<Map<String, dynamic>, Item>(
+          v,
+          const ItemConverter().fromJson,
+        ),
+      ),
       nemesis: $checkedConvert('nemesis', (v) => v as String?),
       configs: $checkedConvert(
         'configs',
-        (v) =>
-            (v as List<dynamic>)
-                .map(
-                  (e) =>
-                      ItemConfig.fromJson(Map<String, dynamic>.from(e as Map)),
-                )
-                .toList(),
+        (v) => (v as List<dynamic>)
+            .map(
+              (e) => ItemConfig.fromJson(Map<String, dynamic>.from(e as Map)),
+            )
+            .toList(),
       ),
       upgradeTypes: $checkedConvert('upgradeTypes', (v) => v as String?),
       upgradeFingerPrint: $checkedConvert(
@@ -42,18 +46,17 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
       polarized: $checkedConvert('polarized', (v) => (v as num?)?.toInt()),
       polarities: $checkedConvert(
         'polarities',
-        (v) =>
-            (v as List<dynamic>?)
-                ?.map(
-                  (e) => _$recordConvertAny(
-                    e,
-                    ($jsonValue) => (
-                      polarity: $jsonValue['polarity'] as String,
-                      slot: ($jsonValue['slot'] as num).toInt(),
-                    ),
-                  ),
-                )
-                .toList(),
+        (v) => (v as List<dynamic>?)
+            ?.map(
+              (e) => _$recordConvertAny(
+                e,
+                ($jsonValue) => (
+                  polarity: $jsonValue['polarity'] as String,
+                  slot: ($jsonValue['slot'] as num).toInt(),
+                ),
+              ),
+            )
+            .toList(),
       ),
       focusLens: $checkedConvert('focusLens', (v) => v as String?),
       customizationSlots: $checkedConvert(
@@ -66,30 +69,29 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
           v,
           ($jsonValue) => (
             hex: $jsonValue['hex'] as String?,
-            matches:
-                ($jsonValue['matches'] as List<dynamic>?)
-                    ?.map(
-                      (e) => _$recordConvertAny(
-                        e,
+            matches: ($jsonValue['matches'] as List<dynamic>?)
+                ?.map(
+                  (e) => _$recordConvertAny(
+                    e,
+                    ($jsonValue) => (
+                      palette: _$recordConvertAny(
+                        $jsonValue['palette'],
                         ($jsonValue) => (
-                          palette: _$recordConvertAny(
-                            $jsonValue['palette'],
-                            ($jsonValue) => (
-                              description: $jsonValue['description'] as String,
-                              name: $jsonValue['name'] as String,
-                            ),
-                          ),
-                          position: _$recordConvertAny(
-                            $jsonValue['position'],
-                            ($jsonValue) => (
-                              col: ($jsonValue['col'] as num).toInt(),
-                              row: ($jsonValue['row'] as num).toInt(),
-                            ),
-                          ),
+                          description: $jsonValue['description'] as String,
+                          name: $jsonValue['name'] as String,
                         ),
                       ),
-                    )
-                    .toList(),
+                      position: _$recordConvertAny(
+                        $jsonValue['position'],
+                        ($jsonValue) => (
+                          col: ($jsonValue['col'] as num).toInt(),
+                          row: ($jsonValue['row'] as num).toInt(),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
           ),
         ),
       ),
@@ -99,30 +101,29 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
           v,
           ($jsonValue) => (
             hex: $jsonValue['hex'] as String?,
-            matches:
-                ($jsonValue['matches'] as List<dynamic>?)
-                    ?.map(
-                      (e) => _$recordConvertAny(
-                        e,
+            matches: ($jsonValue['matches'] as List<dynamic>?)
+                ?.map(
+                  (e) => _$recordConvertAny(
+                    e,
+                    ($jsonValue) => (
+                      palette: _$recordConvertAny(
+                        $jsonValue['palette'],
                         ($jsonValue) => (
-                          palette: _$recordConvertAny(
-                            $jsonValue['palette'],
-                            ($jsonValue) => (
-                              description: $jsonValue['description'] as String,
-                              name: $jsonValue['name'] as String,
-                            ),
-                          ),
-                          position: _$recordConvertAny(
-                            $jsonValue['position'],
-                            ($jsonValue) => (
-                              col: ($jsonValue['col'] as num).toInt(),
-                              row: ($jsonValue['row'] as num).toInt(),
-                            ),
-                          ),
+                          description: $jsonValue['description'] as String,
+                          name: $jsonValue['name'] as String,
                         ),
                       ),
-                    )
-                    .toList(),
+                      position: _$recordConvertAny(
+                        $jsonValue['position'],
+                        ($jsonValue) => (
+                          col: ($jsonValue['col'] as num).toInt(),
+                          row: ($jsonValue['row'] as num).toInt(),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
           ),
         ),
       ),
@@ -132,30 +133,29 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
           v,
           ($jsonValue) => (
             hex: $jsonValue['hex'] as String?,
-            matches:
-                ($jsonValue['matches'] as List<dynamic>?)
-                    ?.map(
-                      (e) => _$recordConvertAny(
-                        e,
+            matches: ($jsonValue['matches'] as List<dynamic>?)
+                ?.map(
+                  (e) => _$recordConvertAny(
+                    e,
+                    ($jsonValue) => (
+                      palette: _$recordConvertAny(
+                        $jsonValue['palette'],
                         ($jsonValue) => (
-                          palette: _$recordConvertAny(
-                            $jsonValue['palette'],
-                            ($jsonValue) => (
-                              description: $jsonValue['description'] as String,
-                              name: $jsonValue['name'] as String,
-                            ),
-                          ),
-                          position: _$recordConvertAny(
-                            $jsonValue['position'],
-                            ($jsonValue) => (
-                              col: ($jsonValue['col'] as num).toInt(),
-                              row: ($jsonValue['row'] as num).toInt(),
-                            ),
-                          ),
+                          description: $jsonValue['description'] as String,
+                          name: $jsonValue['name'] as String,
                         ),
                       ),
-                    )
-                    .toList(),
+                      position: _$recordConvertAny(
+                        $jsonValue['position'],
+                        ($jsonValue) => (
+                          col: ($jsonValue['col'] as num).toInt(),
+                          row: ($jsonValue['row'] as num).toInt(),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
           ),
         ),
       ),
@@ -165,30 +165,29 @@ ArsenalItem _$ArsenalItemFromJson(Map json) => $checkedCreate(
           v,
           ($jsonValue) => (
             hex: $jsonValue['hex'] as String?,
-            matches:
-                ($jsonValue['matches'] as List<dynamic>?)
-                    ?.map(
-                      (e) => _$recordConvertAny(
-                        e,
+            matches: ($jsonValue['matches'] as List<dynamic>?)
+                ?.map(
+                  (e) => _$recordConvertAny(
+                    e,
+                    ($jsonValue) => (
+                      palette: _$recordConvertAny(
+                        $jsonValue['palette'],
                         ($jsonValue) => (
-                          palette: _$recordConvertAny(
-                            $jsonValue['palette'],
-                            ($jsonValue) => (
-                              description: $jsonValue['description'] as String,
-                              name: $jsonValue['name'] as String,
-                            ),
-                          ),
-                          position: _$recordConvertAny(
-                            $jsonValue['position'],
-                            ($jsonValue) => (
-                              col: ($jsonValue['col'] as num).toInt(),
-                              row: ($jsonValue['row'] as num).toInt(),
-                            ),
-                          ),
+                          description: $jsonValue['description'] as String,
+                          name: $jsonValue['name'] as String,
                         ),
                       ),
-                    )
-                    .toList(),
+                      position: _$recordConvertAny(
+                        $jsonValue['position'],
+                        ($jsonValue) => (
+                          col: ($jsonValue['col'] as num).toInt(),
+                          row: ($jsonValue['row'] as num).toInt(),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
           ),
         ),
       ),
@@ -207,118 +206,107 @@ Map<String, dynamic> _$ArsenalItemToJson(
 ) => <String, dynamic>{
   'itemId': instance.id,
   'uniqueName': instance.uniqueName,
-  if (instance.name case final value?) 'name': value,
-  if (instance.item?.toJson() case final value?) 'item': value,
-  if (instance.nemesis case final value?) 'nemesis': value,
+  'name': ?instance.name,
+  'item': ?_$JsonConverterToJson<Map<String, dynamic>, Item>(
+    instance.item,
+    const ItemConverter().toJson,
+  ),
+  'nemesis': ?instance.nemesis,
   'configs': instance.configs.map((e) => e.toJson()).toList(),
-  if (instance.upgradeTypes case final value?) 'upgradeTypes': value,
-  if (instance.upgradeFingerPrint case final value?)
-    'upgradeFingerPrint': value,
-  if (instance.features case final value?) 'features': value,
+  'upgradeTypes': ?instance.upgradeTypes,
+  'upgradeFingerPrint': ?instance.upgradeFingerPrint,
+  'features': ?instance.features,
   'upgradeVer': instance.upgradeVersion,
-  if (instance.xp case final value?) 'xp': value,
-  if (instance.polarized case final value?) 'polarized': value,
-  if (instance.polarities
-          ?.map(
-            (e) => <String, dynamic>{'polarity': e.polarity, 'slot': e.slot},
-          )
-          .toList()
-      case final value?)
-    'polarities': value,
-  if (instance.focusLens case final value?) 'focusLens': value,
-  if (instance.customizationSlots case final value?)
-    'customizationSlots': value,
-  if (instance.primaryColor == null
-          ? null
-          : <String, dynamic>{
-            'hex': instance.primaryColor!.hex,
-            'matches':
-                instance.primaryColor!.matches
-                    ?.map(
-                      (e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      },
-                    )
-                    .toList(),
-          }
-      case final value?)
-    'primaryColor': value,
-  if (instance.sigilColor == null
-          ? null
-          : <String, dynamic>{
-            'hex': instance.sigilColor!.hex,
-            'matches':
-                instance.sigilColor!.matches
-                    ?.map(
-                      (e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      },
-                    )
-                    .toList(),
-          }
-      case final value?)
-    'sigilColor': value,
-  if (instance.attachmentsColor == null
-          ? null
-          : <String, dynamic>{
-            'hex': instance.attachmentsColor!.hex,
-            'matches':
-                instance.attachmentsColor!.matches
-                    ?.map(
-                      (e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      },
-                    )
-                    .toList(),
-          }
-      case final value?)
-    'attachmentsColor': value,
-  if (instance.syandanaColor == null
-          ? null
-          : <String, dynamic>{
-            'hex': instance.syandanaColor!.hex,
-            'matches':
-                instance.syandanaColor!.matches
-                    ?.map(
-                      (e) => <String, dynamic>{
-                        'palette': <String, dynamic>{
-                          'description': e.palette.description,
-                          'name': e.palette.name,
-                        },
-                        'position': <String, dynamic>{
-                          'col': e.position.col,
-                          'row': e.position.row,
-                        },
-                      },
-                    )
-                    .toList(),
-          }
-      case final value?)
-    'syandanaColor': value,
-  if (instance.infestationDate?.toIso8601String() case final value?)
-    'infestationDate': value,
+  'xp': ?instance.xp,
+  'polarized': ?instance.polarized,
+  'polarities': ?instance.polarities
+      ?.map((e) => <String, dynamic>{'polarity': e.polarity, 'slot': e.slot})
+      .toList(),
+  'focusLens': ?instance.focusLens,
+  'customizationSlots': ?instance.customizationSlots,
+  'primaryColor': ?instance.primaryColor == null
+      ? null
+      : <String, dynamic>{
+          'hex': instance.primaryColor!.hex,
+          'matches': instance.primaryColor!.matches
+              ?.map(
+                (e) => <String, dynamic>{
+                  'palette': <String, dynamic>{
+                    'description': e.palette.description,
+                    'name': e.palette.name,
+                  },
+                  'position': <String, dynamic>{
+                    'col': e.position.col,
+                    'row': e.position.row,
+                  },
+                },
+              )
+              .toList(),
+        },
+  'sigilColor': ?instance.sigilColor == null
+      ? null
+      : <String, dynamic>{
+          'hex': instance.sigilColor!.hex,
+          'matches': instance.sigilColor!.matches
+              ?.map(
+                (e) => <String, dynamic>{
+                  'palette': <String, dynamic>{
+                    'description': e.palette.description,
+                    'name': e.palette.name,
+                  },
+                  'position': <String, dynamic>{
+                    'col': e.position.col,
+                    'row': e.position.row,
+                  },
+                },
+              )
+              .toList(),
+        },
+  'attachmentsColor': ?instance.attachmentsColor == null
+      ? null
+      : <String, dynamic>{
+          'hex': instance.attachmentsColor!.hex,
+          'matches': instance.attachmentsColor!.matches
+              ?.map(
+                (e) => <String, dynamic>{
+                  'palette': <String, dynamic>{
+                    'description': e.palette.description,
+                    'name': e.palette.name,
+                  },
+                  'position': <String, dynamic>{
+                    'col': e.position.col,
+                    'row': e.position.row,
+                  },
+                },
+              )
+              .toList(),
+        },
+  'syandanaColor': ?instance.syandanaColor == null
+      ? null
+      : <String, dynamic>{
+          'hex': instance.syandanaColor!.hex,
+          'matches': instance.syandanaColor!.matches
+              ?.map(
+                (e) => <String, dynamic>{
+                  'palette': <String, dynamic>{
+                    'description': e.palette.description,
+                    'name': e.palette.name,
+                  },
+                  'position': <String, dynamic>{
+                    'col': e.position.col,
+                    'row': e.position.row,
+                  },
+                },
+              )
+              .toList(),
+        },
+  'infestationDate': ?instance.infestationDate?.toIso8601String(),
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
 
 $Rec _$recordConvertAny<$Rec>(Object? value, $Rec Function(Map) convert) =>
     convert(value as Map);
@@ -327,3 +315,8 @@ $Rec? _$recordConvertAnyNullable<$Rec>(
   Object? value,
   $Rec Function(Map) convert,
 ) => value == null ? null : convert(value as Map);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

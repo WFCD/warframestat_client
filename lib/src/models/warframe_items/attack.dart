@@ -20,7 +20,7 @@ abstract class Attack extends Equatable {
   final String name;
 
   /// Attack speed.
-  final num speed;
+  final num? speed;
 
   /// Crit chance.
   @JsonKey(name: 'crit_chance')

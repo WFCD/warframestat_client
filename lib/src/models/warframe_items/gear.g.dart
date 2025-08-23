@@ -27,12 +27,9 @@ Gear _$GearFromJson(Map json) => $checkedCreate('Gear', json, (
     tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     imageName: $checkedConvert('imageName', (v) => v as String?),
     releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
@@ -46,18 +43,17 @@ Gear _$GearFromJson(Map json) => $checkedCreate('Gear', json, (
 Map<String, dynamic> _$GearToJson(Gear instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.excludeFromCodex case final value?) 'excludeFromCodex': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'releaseDate': ?instance.releaseDate,
+  'excludeFromCodex': ?instance.excludeFromCodex,
+  'wikiaThumbnail': ?instance.wikiaThumbnail,
+  'wikiaUrl': ?instance.wikiaUrl,
 };
 
 GearBuildable _$GearBuildableFromJson(
@@ -76,12 +72,9 @@ GearBuildable _$GearBuildableFromJson(
     tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     buildPrice: $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
     buildQuantity: $checkedConvert('buildQuantity', (v) => (v as num).toInt()),
@@ -95,12 +88,9 @@ GearBuildable _$GearBuildableFromJson(
     isPrime: $checkedConvert('isPrime', (v) => v as bool? ?? false),
     components: $checkedConvert(
       'components',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Component.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Component.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     vaulted: $checkedConvert('vaulted', (v) => v as bool?),
     masteryReq: $checkedConvert('masteryReq', (v) => (v as num?)?.toInt()),
@@ -114,33 +104,30 @@ GearBuildable _$GearBuildableFromJson(
   return val;
 });
 
-Map<String, dynamic> _$GearBuildableToJson(
-  GearBuildable instance,
-) => <String, dynamic>{
-  'uniqueName': instance.uniqueName,
-  'name': instance.name,
-  if (instance.description case final value?) 'description': value,
-  'type': const ItemTypeConverter().toJson(instance.type),
-  'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
-  'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
-  'isPrime': instance.isPrime,
-  if (instance.vaulted case final value?) 'vaulted': value,
-  if (instance.masteryReq case final value?) 'masteryReq': value,
-  'buildPrice': instance.buildPrice,
-  'buildQuantity': instance.buildQuantity,
-  'buildTime': instance.buildTime,
-  'skipBuildTimePrice': instance.skipBuildTimePrice,
-  'consumeOnBuild': instance.consumeOnBuild,
-  if (instance.components?.map((e) => e.toJson()).toList() case final value?)
-    'components': value,
-  if (instance.marketCost case final value?) 'marketCost': value,
-  if (instance.bpCost case final value?) 'bpCost': value,
-  if (instance.itemCount case final value?) 'itemCount': value,
-};
+Map<String, dynamic> _$GearBuildableToJson(GearBuildable instance) =>
+    <String, dynamic>{
+      'uniqueName': instance.uniqueName,
+      'name': instance.name,
+      'description': ?instance.description,
+      'type': const ItemTypeConverter().toJson(instance.type),
+      'category': instance.category,
+      'productCategory': ?instance.productCategory,
+      'tradable': instance.tradable,
+      'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+      'imageName': ?instance.imageName,
+      'releaseDate': ?instance.releaseDate,
+      'wikiaThumbnail': ?instance.wikiaThumbnail,
+      'wikiaUrl': ?instance.wikiaUrl,
+      'isPrime': instance.isPrime,
+      'vaulted': ?instance.vaulted,
+      'masteryReq': ?instance.masteryReq,
+      'buildPrice': instance.buildPrice,
+      'buildQuantity': instance.buildQuantity,
+      'buildTime': instance.buildTime,
+      'skipBuildTimePrice': instance.skipBuildTimePrice,
+      'consumeOnBuild': instance.consumeOnBuild,
+      'components': ?instance.components?.map((e) => e.toJson()).toList(),
+      'marketCost': ?instance.marketCost,
+      'bpCost': ?instance.bpCost,
+      'itemCount': ?instance.itemCount,
+    };

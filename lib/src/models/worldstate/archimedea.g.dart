@@ -22,30 +22,28 @@ Archimedea _$ArchimedeaFromJson(Map json) =>
         expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
         missions: $checkedConvert(
           'missions',
-          (v) =>
-              (v as List<dynamic>)
-                  .map(
-                    (e) => ArchimedeaMission.fromJson(
-                      Map<String, dynamic>.from(e as Map),
-                    ),
-                  )
-                  .toList(),
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => ArchimedeaMission.fromJson(
+                  Map<String, dynamic>.from(e as Map),
+                ),
+              )
+              .toList(),
         ),
         personalModifiers: $checkedConvert(
           'personalModifiers',
-          (v) =>
-              (v as List<dynamic>)
-                  .map(
-                    (e) => _$recordConvertAny(
-                      e,
-                      ($jsonValue) => (
-                        description: $jsonValue['description'] as String,
-                        key: $jsonValue['key'] as String,
-                        name: $jsonValue['name'] as String,
-                      ),
-                    ),
-                  )
-                  .toList(),
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => _$recordConvertAny(
+                  e,
+                  ($jsonValue) => (
+                    description: $jsonValue['description'] as String,
+                    key: $jsonValue['key'] as String,
+                    name: $jsonValue['name'] as String,
+                  ),
+                ),
+              )
+              .toList(),
         ),
       );
       return val;
@@ -54,21 +52,19 @@ Archimedea _$ArchimedeaFromJson(Map json) =>
 Map<String, dynamic> _$ArchimedeaToJson(
   Archimedea instance,
 ) => <String, dynamic>{
-  if (instance.id case final value?) 'id': value,
-  if (instance.activation?.toIso8601String() case final value?)
-    'activation': value,
-  if (instance.expiry?.toIso8601String() case final value?) 'expiry': value,
+  'id': ?instance.id,
+  'activation': ?instance.activation?.toIso8601String(),
+  'expiry': ?instance.expiry?.toIso8601String(),
   'missions': instance.missions.map((e) => e.toJson()).toList(),
-  'personalModifiers':
-      instance.personalModifiers
-          .map(
-            (e) => <String, dynamic>{
-              'description': e.description,
-              'key': e.key,
-              'name': e.name,
-            },
-          )
-          .toList(),
+  'personalModifiers': instance.personalModifiers
+      .map(
+        (e) => <String, dynamic>{
+          'description': e.description,
+          'key': e.key,
+          'name': e.name,
+        },
+      )
+      .toList(),
 };
 
 $Rec _$recordConvertAny<$Rec>(Object? value, $Rec Function(Map) convert) =>
@@ -91,19 +87,18 @@ ArchimedeaMission _$ArchimedeaMissionFromJson(Map json) =>
         ),
         riskVariables: $checkedConvert(
           'riskVariables',
-          (v) =>
-              (v as List<dynamic>)
-                  .map(
-                    (e) => _$recordConvertAny(
-                      e,
-                      ($jsonValue) => (
-                        description: $jsonValue['description'] as String,
-                        key: $jsonValue['key'] as String,
-                        name: $jsonValue['name'] as String,
-                      ),
-                    ),
-                  )
-                  .toList(),
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => _$recordConvertAny(
+                  e,
+                  ($jsonValue) => (
+                    description: $jsonValue['description'] as String,
+                    key: $jsonValue['key'] as String,
+                    name: $jsonValue['name'] as String,
+                  ),
+                ),
+              )
+              .toList(),
         ),
       );
       return val;
@@ -118,14 +113,13 @@ Map<String, dynamic> _$ArchimedeaMissionToJson(
     'key': instance.deviation.key,
     'name': instance.deviation.name,
   },
-  'riskVariables':
-      instance.riskVariables
-          .map(
-            (e) => <String, dynamic>{
-              'description': e.description,
-              'key': e.key,
-              'name': e.name,
-            },
-          )
-          .toList(),
+  'riskVariables': instance.riskVariables
+      .map(
+        (e) => <String, dynamic>{
+          'description': e.description,
+          'key': e.key,
+          'name': e.name,
+        },
+      )
+      .toList(),
 };

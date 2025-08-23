@@ -29,14 +29,12 @@ SyndicateMission _$SyndicateMissionFromJson(Map json) =>
         ),
         jobs: $checkedConvert(
           'jobs',
-          (v) =>
-              (v as List<dynamic>)
-                  .map(
-                    (e) => SyndicateJob.fromJson(
-                      Map<String, dynamic>.from(e as Map),
-                    ),
-                  )
-                  .toList(),
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) =>
+                    SyndicateJob.fromJson(Map<String, dynamic>.from(e as Map)),
+              )
+              .toList(),
         ),
       );
       return val;

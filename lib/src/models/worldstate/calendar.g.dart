@@ -22,13 +22,9 @@ Calendar _$CalendarFromJson(Map json) => $checkedCreate('Calendar', json, (
     expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
     days: $checkedConvert(
       'days',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) =>
-                    CalendarDay.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => CalendarDay.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     season: $checkedConvert('season', (v) => v as String),
     yearIteration: $checkedConvert('yearIteration', (v) => (v as num).toInt()),
@@ -59,14 +55,13 @@ CalendarDay _$CalendarDayFromJson(Map json) => $checkedCreate(
       day: $checkedConvert('day', (v) => (v as num).toInt()),
       events: $checkedConvert(
         'events',
-        (v) =>
-            (v as List<dynamic>)
-                .map(
-                  (e) => const CalendarEventConverter().fromJson(
-                    e as Map<String, dynamic>,
-                  ),
-                )
-                .toList(),
+        (v) => (v as List<dynamic>)
+            .map(
+              (e) => const CalendarEventConverter().fromJson(
+                e as Map<String, dynamic>,
+              ),
+            )
+            .toList(),
       ),
     );
     return val;

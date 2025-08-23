@@ -24,7 +24,7 @@ class Component extends DroppableItem {
     return _$ComponentFromJson(json);
   }
 
-  /// Total require [Item] for the blueprint reciepe.
+  /// Total require [ItemCommon] for the blueprint reciepe.
   final int itemCount;
 
   /// Creates a json map from [Component].

@@ -7,7 +7,7 @@ part 'node.g.dart';
 /// Node description
 /// {@endtemplate}
 @JsonSerializable()
-class Node implements Item {
+class Node implements ItemCommon {
   /// {@macro node}
   const Node({
     required this.uniqueName,

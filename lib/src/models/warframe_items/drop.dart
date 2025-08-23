@@ -5,9 +5,9 @@ import 'package:warframestat_client/warframestat_client.dart';
 part 'drop.g.dart';
 
 /// {@template drop}
-/// Drop information on given [Item].
+/// Drop information on given [ItemCommon].
 ///
-/// Not all [Item]s have drops.
+/// Not all [ItemCommon]s have drops.
 /// {@endtemplate}
 @JsonSerializable()
 class Drop extends Equatable {
@@ -22,19 +22,19 @@ class Drop extends Equatable {
   /// If the drop is a relic a uniqueName will be included
   final String? uniqueName;
 
-  /// Location where the [Item] drops.
+  /// Location where the [ItemCommon] drops.
   final String location;
 
-  /// The [Item] type.
+  /// The [ItemCommon] type.
   final String type;
 
-  /// How rare the [Item] is.
+  /// How rare the [ItemCommon] is.
   final Rarity? rarity;
 
-  //// The chances of [Item] dropping.
+  //// The chances of [ItemCommon] dropping.
   final num? chance;
 
-  /// The mission rotation the [Item] drops.
+  /// The mission rotation the [ItemCommon] drops.
   final String? rotation;
 
   /// Creates a json map from [Drop].

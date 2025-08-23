@@ -16,7 +16,6 @@ export 'item.dart';
 export 'level_stat.dart';
 export 'market_info.dart';
 export 'melee.dart';
-export 'minimal_item.dart';
 export 'misc.dart';
 export 'mod.dart';
 export 'necramech.dart';

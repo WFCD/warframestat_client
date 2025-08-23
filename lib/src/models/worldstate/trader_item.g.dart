@@ -24,8 +24,8 @@ TraderItem _$TraderItemFromJson(Map json) =>
 
 Map<String, dynamic> _$TraderItemToJson(TraderItem instance) =>
     <String, dynamic>{
-      if (instance.uniqueName case final value?) 'uniqueName': value,
+      'uniqueName': ?instance.uniqueName,
       'item': instance.item,
-      if (instance.ducats case final value?) 'ducats': value,
-      if (instance.credits case final value?) 'credits': value,
+      'ducats': ?instance.ducats,
+      'credits': ?instance.credits,
     };

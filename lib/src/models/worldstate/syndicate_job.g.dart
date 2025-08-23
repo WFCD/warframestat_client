@@ -38,9 +38,9 @@ Map<String, dynamic> _$SyndicateJobToJson(SyndicateJob instance) =>
     <String, dynamic>{
       'id': instance.id,
       'rewardPool': instance.rewardPool,
-      if (instance.type case final value?) 'type': value,
+      'type': ?instance.type,
       'enemyLevels': instance.enemyLevels,
       'standingStages': instance.standingStages,
-      if (instance.minMr case final value?) 'minMr': value,
+      'minMr': ?instance.minMr,
       'expiry': instance.expiry.toIso8601String(),
     };

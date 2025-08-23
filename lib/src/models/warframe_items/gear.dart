@@ -7,7 +7,7 @@ part 'gear.g.dart';
 /// Warframe gear.
 /// {@endtemplate}
 @JsonSerializable()
-class Gear extends Item {
+class Gear extends ItemCommon {
   /// {@macro gear}
   const Gear({
     required super.uniqueName,

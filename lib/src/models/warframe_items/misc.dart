@@ -7,7 +7,7 @@ part 'misc.g.dart';
 /// Misc description
 /// {@endtemplate}
 @JsonSerializable()
-class Misc extends Item {
+class Misc extends ItemCommon {
   /// {@macro misc}
   const Misc({
     required super.uniqueName,

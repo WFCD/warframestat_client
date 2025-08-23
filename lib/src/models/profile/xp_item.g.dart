@@ -11,19 +11,37 @@ part of 'xp_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-XpItem _$XpItemFromJson(Map json) => $checkedCreate('XpItem', json, (
-  $checkedConvert,
-) {
-  final val = XpItem(
-    uniqueName: $checkedConvert('uniqueName', (v) => v as String),
-    xp: $checkedConvert('xp', (v) => (v as num).toInt()),
-    item: $checkedConvert('item', (v) => _toItem(v as Map<String, dynamic>?)),
-  );
-  return val;
-});
+XpItem _$XpItemFromJson(Map json) =>
+    $checkedCreate('XpItem', json, ($checkedConvert) {
+      final val = XpItem(
+        uniqueName: $checkedConvert('uniqueName', (v) => v as String),
+        xp: $checkedConvert('xp', (v) => (v as num).toInt()),
+        item: $checkedConvert(
+          'item',
+          (v) => _$JsonConverterFromJson<Map<String, dynamic>, Item>(
+            v,
+            const ItemConverter().fromJson,
+          ),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$XpItemToJson(XpItem instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'xp': instance.xp,
-  if (instance.item?.toJson() case final value?) 'item': value,
+  'item': ?_$JsonConverterToJson<Map<String, dynamic>, Item>(
+    instance.item,
+    const ItemConverter().toJson,
+  ),
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

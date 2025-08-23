@@ -46,53 +46,44 @@ WorldEvent _$WorldEventFromJson(
     scoreLocTag: $checkedConvert('scoreLocTag', (v) => v as String?),
     rewards: $checkedConvert(
       'rewards',
-      (v) =>
-          (v as List<dynamic>)
-              .map((e) => Reward.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Reward.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     expired: $checkedConvert('expired', (v) => v as bool),
     health: $checkedConvert('health', (v) => v as num?),
     affiliatedWith: $checkedConvert('affiliatedWith', (v) => v as String?),
     jobs: $checkedConvert(
       'jobs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    SyndicateJob.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => SyndicateJob.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     previousJobs: $checkedConvert(
       'previousJobs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    SyndicateJob.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => SyndicateJob.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     interimSteps: $checkedConvert(
       'interimSteps',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    InterimStep.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map(
+            (e) => InterimStep.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     progressSteps: $checkedConvert(
       'progressSteps',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) =>
-                    ProgressStep.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) => ProgressStep.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList(),
     ),
     progressTotal: $checkedConvert(
       'progressTotal',
@@ -136,53 +127,48 @@ WorldEvent _$WorldEventFromJson(
   return val;
 });
 
-Map<String, dynamic> _$WorldEventToJson(
-  WorldEvent instance,
-) => <String, dynamic>{
-  'id': instance.id,
-  'activation': instance.activation.toIso8601String(),
-  'expiry': instance.expiry.toIso8601String(),
-  if (instance.previousId case final value?) 'previousId': value,
-  'startString': instance.startString,
-  'active': instance.active,
-  if (instance.maximumScore case final value?) 'maximumScore': value,
-  if (instance.currentScore case final value?) 'currentScore': value,
-  if (instance.smallInterval case final value?) 'smallInterval': value,
-  if (instance.largeInterval case final value?) 'largeInterval': value,
-  if (instance.faction case final value?) 'faction': value,
-  'description': instance.description,
-  if (instance.tooltip case final value?) 'tooltip': value,
-  if (instance.node case final value?) 'node': value,
-  'concurrentNodes': instance.concurrentNodes,
-  if (instance.victimNode case final value?) 'victimNode': value,
-  if (instance.scoreLocTag case final value?) 'scoreLocTag': value,
-  'rewards': instance.rewards.map((e) => e.toJson()).toList(),
-  'expired': instance.expired,
-  if (instance.health case final value?) 'health': value,
-  if (instance.affiliatedWith case final value?) 'affiliatedWith': value,
-  if (instance.jobs?.map((e) => e.toJson()).toList() case final value?)
-    'jobs': value,
-  if (instance.previousJobs?.map((e) => e.toJson()).toList() case final value?)
-    'previousJobs': value,
-  if (instance.interimSteps?.map((e) => e.toJson()).toList() case final value?)
-    'interimSteps': value,
-  'progressSteps': instance.progressSteps.map((e) => e.toJson()).toList(),
-  if (instance.progressTotal case final value?) 'progressTotal': value,
-  if (instance.showTotalAtEndOfMission case final value?)
-    'showTotalAtEndOfMission': value,
-  if (instance.isPersonal case final value?) 'isPersonal': value,
-  if (instance.isCommunity case final value?) 'isCommunity': value,
-  if (instance.regionDrops case final value?) 'regionDrops': value,
-  if (instance.archwingDrops case final value?) 'archwingDrops': value,
-  if (instance.metadata case final value?) 'metadata': value,
-  if (instance.completionBonuses case final value?) 'completionBonuses': value,
-  if (instance.scoreVar case final value?) 'scoreVar': value,
-  'asString': instance.asString,
-  'altExpiry': instance.altExpiry.toIso8601String(),
-  'altActivation': instance.altActivation.toIso8601String(),
-  'nextAlt': instance.nextAlt.toJson(),
-  if (instance.tag case final value?) 'tag': value,
-};
+Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'activation': instance.activation.toIso8601String(),
+      'expiry': instance.expiry.toIso8601String(),
+      'previousId': ?instance.previousId,
+      'startString': instance.startString,
+      'active': instance.active,
+      'maximumScore': ?instance.maximumScore,
+      'currentScore': ?instance.currentScore,
+      'smallInterval': ?instance.smallInterval,
+      'largeInterval': ?instance.largeInterval,
+      'faction': ?instance.faction,
+      'description': instance.description,
+      'tooltip': ?instance.tooltip,
+      'node': ?instance.node,
+      'concurrentNodes': instance.concurrentNodes,
+      'victimNode': ?instance.victimNode,
+      'scoreLocTag': ?instance.scoreLocTag,
+      'rewards': instance.rewards.map((e) => e.toJson()).toList(),
+      'expired': instance.expired,
+      'health': ?instance.health,
+      'affiliatedWith': ?instance.affiliatedWith,
+      'jobs': ?instance.jobs?.map((e) => e.toJson()).toList(),
+      'previousJobs': ?instance.previousJobs?.map((e) => e.toJson()).toList(),
+      'interimSteps': ?instance.interimSteps?.map((e) => e.toJson()).toList(),
+      'progressSteps': instance.progressSteps.map((e) => e.toJson()).toList(),
+      'progressTotal': ?instance.progressTotal,
+      'showTotalAtEndOfMission': ?instance.showTotalAtEndOfMission,
+      'isPersonal': ?instance.isPersonal,
+      'isCommunity': ?instance.isCommunity,
+      'regionDrops': ?instance.regionDrops,
+      'archwingDrops': ?instance.archwingDrops,
+      'metadata': ?instance.metadata,
+      'completionBonuses': ?instance.completionBonuses,
+      'scoreVar': ?instance.scoreVar,
+      'asString': instance.asString,
+      'altExpiry': instance.altExpiry.toIso8601String(),
+      'altActivation': instance.altActivation.toIso8601String(),
+      'nextAlt': instance.nextAlt.toJson(),
+      'tag': ?instance.tag,
+    };
 
 InterimStep _$InterimStepFromJson(Map json) =>
     $checkedCreate('InterimStep', json, ($checkedConvert) {
@@ -220,11 +206,11 @@ Message _$MessageFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
-  if (instance.sender case final value?) 'sender': value,
-  if (instance.subject case final value?) 'subject': value,
-  if (instance.message case final value?) 'message': value,
-  if (instance.senderIcon case final value?) 'senderIcon': value,
-  if (instance.attachments case final value?) 'attachments': value,
+  'sender': ?instance.sender,
+  'subject': ?instance.subject,
+  'message': ?instance.message,
+  'senderIcon': ?instance.senderIcon,
+  'attachments': ?instance.attachments,
 };
 
 ProgressStep _$ProgressStepFromJson(Map json) =>

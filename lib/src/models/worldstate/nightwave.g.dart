@@ -35,21 +35,15 @@ Nightwave _$NightwaveFromJson(Map json) => $checkedCreate('Nightwave', json, (
     phase: $checkedConvert('phase', (v) => (v as num).toInt()),
     possibleChallenges: $checkedConvert(
       'possibleChallenges',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => Challenge.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Challenge.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     activeChallenges: $checkedConvert(
       'activeChallenges',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => Challenge.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Challenge.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
   );
   return val;
@@ -63,10 +57,11 @@ Map<String, dynamic> _$NightwaveToJson(Nightwave instance) => <String, dynamic>{
   'params': instance.params,
   'rewardTypes': instance.rewardTypes,
   'season': instance.season,
-  if (instance.ta case final value?) 'ta': value,
+  'ta': ?instance.ta,
   'phase': instance.phase,
-  'possibleChallenges':
-      instance.possibleChallenges.map((e) => e.toJson()).toList(),
+  'possibleChallenges': instance.possibleChallenges
+      .map((e) => e.toJson())
+      .toList(),
   'activeChallenges': instance.activeChallenges.map((e) => e.toJson()).toList(),
 };
 
@@ -90,10 +85,9 @@ Challenge _$ChallengeFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$ChallengeToJson(Challenge instance) => <String, dynamic>{
-  if (instance.id case final value?) 'id': value,
-  if (instance.activation?.toIso8601String() case final value?)
-    'activation': value,
-  if (instance.expiry?.toIso8601String() case final value?) 'expiry': value,
+  'id': ?instance.id,
+  'activation': ?instance.activation?.toIso8601String(),
+  'expiry': ?instance.expiry?.toIso8601String(),
   'title': instance.title,
   'desc': instance.desc,
   'reputation': instance.reputation,

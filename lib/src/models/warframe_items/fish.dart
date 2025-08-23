@@ -7,7 +7,7 @@ part 'fish.g.dart';
 /// Fishy info.
 /// {@endtemplate}
 @JsonSerializable()
-class Fish extends Item {
+class Fish extends ItemCommon {
   /// {@macro fish}
   const Fish({
     required super.uniqueName,

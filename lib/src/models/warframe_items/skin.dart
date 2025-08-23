@@ -7,7 +7,7 @@ part 'skin.g.dart';
 /// Skin description
 /// {@endtemplate}
 @JsonSerializable()
-class Skin extends Item {
+class Skin extends ItemCommon {
   /// {@macro skin}
   const Skin({
     required super.uniqueName,

@@ -27,23 +27,17 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate('Warframe', json, (
     tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     imageName: $checkedConvert('imageName', (v) => v as String),
     masteryReq: $checkedConvert('masteryReq', (v) => (v as num?)?.toInt()),
     components: $checkedConvert(
       'components',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Component.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Component.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
     marketCost: $checkedConvert('marketCost', (v) => (v as num?)?.toInt()),
@@ -64,10 +58,9 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate('Warframe', json, (
     ),
     abilities: $checkedConvert(
       'abilities',
-      (v) =>
-          (v as List<dynamic>)
-              .map((e) => Ability.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Ability.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     aura: $checkedConvert('aura', (v) => v as String?),
     sex: $checkedConvert('sex', (v) => v as String?),
@@ -80,10 +73,9 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate('Warframe', json, (
     conclave: $checkedConvert('conclave', (v) => v as bool?),
     introduced: $checkedConvert(
       'introduced',
-      (v) =>
-          v == null
-              ? null
-              : Introduced.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Introduced.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     buildPrice: $checkedConvert('buildPrice', (v) => (v as num?)?.toInt() ?? 0),
     buildQuantity: $checkedConvert(
@@ -106,43 +98,40 @@ Warframe _$WarframeFromJson(Map json) => $checkedCreate('Warframe', json, (
 Map<String, dynamic> _$WarframeToJson(Warframe instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.releaseDate case final value?) 'releaseDate': value,
-  if (instance.wikiaThumbnail case final value?) 'wikiaThumbnail': value,
-  if (instance.wikiaUrl case final value?) 'wikiaUrl': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'releaseDate': ?instance.releaseDate,
+  'wikiaThumbnail': ?instance.wikiaThumbnail,
+  'wikiaUrl': ?instance.wikiaUrl,
   'isPrime': instance.isPrime,
-  if (instance.vaulted case final value?) 'vaulted': value,
-  if (instance.masteryReq case final value?) 'masteryReq': value,
+  'vaulted': ?instance.vaulted,
+  'masteryReq': ?instance.masteryReq,
   'buildPrice': instance.buildPrice,
   'buildQuantity': instance.buildQuantity,
   'buildTime': instance.buildTime,
   'skipBuildTimePrice': instance.skipBuildTimePrice,
   'consumeOnBuild': instance.consumeOnBuild,
-  if (instance.components?.map((e) => e.toJson()).toList() case final value?)
-    'components': value,
-  if (instance.marketCost case final value?) 'marketCost': value,
-  if (instance.bpCost case final value?) 'bpCost': value,
-  if (instance.itemCount case final value?) 'itemCount': value,
+  'components': ?instance.components?.map((e) => e.toJson()).toList(),
+  'marketCost': ?instance.marketCost,
+  'bpCost': ?instance.bpCost,
+  'itemCount': ?instance.itemCount,
   'shield': instance.shield,
   'armor': instance.armor,
   'health': instance.health,
   'stamina': instance.stamina,
   'power': instance.power,
-  if (instance.polarities case final value?) 'polarities': value,
+  'polarities': ?instance.polarities,
   'abilities': instance.abilities.map((e) => e.toJson()).toList(),
-  if (instance.aura case final value?) 'aura': value,
-  if (instance.sex case final value?) 'sex': value,
+  'aura': ?instance.aura,
+  'sex': ?instance.sex,
   'sprintSpeed': instance.sprintSpeed,
-  if (instance.passiveDescription case final value?)
-    'passiveDescription': value,
-  if (instance.color case final value?) 'color': value,
-  if (instance.conclave case final value?) 'conclave': value,
-  if (instance.introduced?.toJson() case final value?) 'introduced': value,
+  'passiveDescription': ?instance.passiveDescription,
+  'color': ?instance.color,
+  'conclave': ?instance.conclave,
+  'introduced': ?instance.introduced?.toJson(),
 };

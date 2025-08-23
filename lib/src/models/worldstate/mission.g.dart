@@ -21,10 +21,9 @@ Mission _$MissionFromJson(Map json) => $checkedCreate('Mission', json, (
     factionKey: $checkedConvert('factionKey', (v) => v as String?),
     reward: $checkedConvert(
       'reward',
-      (v) =>
-          v == null
-              ? null
-              : Reward.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : Reward.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     maxEnemyLevel: $checkedConvert(
       'maxEnemyLevel',
@@ -70,27 +69,25 @@ Mission _$MissionFromJson(Map json) => $checkedCreate('Mission', json, (
 
 Map<String, dynamic> _$MissionToJson(Mission instance) => <String, dynamic>{
   'node': instance.node,
-  if (instance.nodeKey case final value?) 'nodeKey': value,
-  if (instance.faction case final value?) 'faction': value,
-  if (instance.factionKey case final value?) 'factionKey': value,
-  if (instance.reward?.toJson() case final value?) 'reward': value,
-  if (instance.maxEnemyLevel case final value?) 'maxEnemyLevel': value,
-  if (instance.minEnemyLevel case final value?) 'minEnemyLevel': value,
-  if (instance.maxWaveNum case final value?) 'maxWaveNum': value,
+  'nodeKey': ?instance.nodeKey,
+  'faction': ?instance.faction,
+  'factionKey': ?instance.factionKey,
+  'reward': ?instance.reward?.toJson(),
+  'maxEnemyLevel': ?instance.maxEnemyLevel,
+  'minEnemyLevel': ?instance.minEnemyLevel,
+  'maxWaveNum': ?instance.maxWaveNum,
   'type': instance.type,
-  if (instance.typeKey case final value?) 'typeKey': value,
-  if (instance.nightmare case final value?) 'nightmare': value,
-  if (instance.archwingRequired case final value?) 'archwingRequired': value,
-  if (instance.isSharkwing case final value?) 'isSharkwing': value,
-  if (instance.enemySpec case final value?) 'enemySpec': value,
-  if (instance.levelOverride case final value?) 'levelOverride': value,
-  if (instance.advancedSpawners case final value?) 'advancedSpawners': value,
-  if (instance.requiredItems case final value?) 'requiredItems': value,
-  if (instance.consumeRequiredItems case final value?)
-    'consumeRequiredItems': value,
-  if (instance.leadersAlwwaysAllowed case final value?)
-    'leadersAlwwaysAllowed': value,
-  if (instance.levelAuras case final value?) 'levelAuras': value,
-  if (instance.description case final value?) 'description': value,
-  if (instance.exclusiveWeapon case final value?) 'exclusiveWeapon': value,
+  'typeKey': ?instance.typeKey,
+  'nightmare': ?instance.nightmare,
+  'archwingRequired': ?instance.archwingRequired,
+  'isSharkwing': ?instance.isSharkwing,
+  'enemySpec': ?instance.enemySpec,
+  'levelOverride': ?instance.levelOverride,
+  'advancedSpawners': ?instance.advancedSpawners,
+  'requiredItems': ?instance.requiredItems,
+  'consumeRequiredItems': ?instance.consumeRequiredItems,
+  'leadersAlwwaysAllowed': ?instance.leadersAlwwaysAllowed,
+  'levelAuras': ?instance.levelAuras,
+  'description': ?instance.description,
+  'exclusiveWeapon': ?instance.exclusiveWeapon,
 };

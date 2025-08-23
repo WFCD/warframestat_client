@@ -7,7 +7,7 @@ part 'pet_resource.g.dart';
 /// A pet resource.
 /// {@endtemplate}
 @JsonSerializable()
-class PetResources extends Item {
+class PetResources extends ItemCommon {
   /// {@macro petresource}
   const PetResources({
     required super.uniqueName,

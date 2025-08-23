@@ -27,46 +27,34 @@ Relic _$RelicFromJson(Map json) => $checkedCreate('Relic', json, (
     imageName: $checkedConvert('imageName', (v) => v as String?),
     drops: $checkedConvert(
       'drops',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Drop.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     locations: $checkedConvert(
       'locations',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) => Location.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => Location.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     marketInfo: $checkedConvert(
       'marketInfo',
-      (v) =>
-          v == null
-              ? null
-              : MarketInfo.fromJson(Map<String, dynamic>.from(v as Map)),
+      (v) => v == null
+          ? null
+          : MarketInfo.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     rewards: $checkedConvert(
       'rewards',
-      (v) =>
-          (v as List<dynamic>)
-              .map(
-                (e) =>
-                    RelicReward.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>)
+          .map((e) => RelicReward.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
     vaulted: $checkedConvert('vaulted', (v) => v as bool?),
   );
@@ -76,20 +64,18 @@ Relic _$RelicFromJson(Map json) => $checkedCreate('Relic', json, (
 Map<String, dynamic> _$RelicToJson(Relic instance) => <String, dynamic>{
   'uniqueName': instance.uniqueName,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
+  'description': ?instance.description,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
+  'productCategory': ?instance.productCategory,
   'tradable': instance.tradable,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.drops?.map((e) => e.toJson()).toList() case final value?)
-    'drops': value,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
+  'imageName': ?instance.imageName,
+  'drops': ?instance.drops?.map((e) => e.toJson()).toList(),
   'locations': instance.locations.map((e) => e.toJson()).toList(),
-  if (instance.marketInfo?.toJson() case final value?) 'marketInfo': value,
+  'marketInfo': ?instance.marketInfo?.toJson(),
   'rewards': instance.rewards.map((e) => e.toJson()).toList(),
-  if (instance.vaulted case final value?) 'vaulted': value,
+  'vaulted': ?instance.vaulted,
 };
 
 Location _$LocationFromJson(Map json) => $checkedCreate('Location', json, (
@@ -146,10 +132,9 @@ RewardItem _$RewardItemFromJson(Map json) =>
         name: $checkedConvert('name', (v) => v as String),
         warframeMarket: $checkedConvert(
           'warframeMarket',
-          (v) =>
-              v == null
-                  ? null
-                  : MarketInfo.fromJson(Map<String, dynamic>.from(v as Map)),
+          (v) => v == null
+              ? null
+              : MarketInfo.fromJson(Map<String, dynamic>.from(v as Map)),
         ),
       );
       return val;
@@ -159,6 +144,5 @@ Map<String, dynamic> _$RewardItemToJson(RewardItem instance) =>
     <String, dynamic>{
       'uniqueName': instance.uniqueName,
       'name': instance.name,
-      if (instance.warframeMarket?.toJson() case final value?)
-        'warframeMarket': value,
+      'warframeMarket': ?instance.warframeMarket?.toJson(),
     };

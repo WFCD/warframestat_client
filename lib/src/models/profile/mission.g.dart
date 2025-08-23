@@ -29,9 +29,9 @@ Map<String, dynamic> _$ProfileMissionToJson(ProfileMission instance) =>
     <String, dynamic>{
       'node': instance.node,
       'nodeKey': instance.nodeKey,
-      if (instance.missionType case final value?) 'missionType': value,
-      if (instance.faction case final value?) 'faction': value,
-      if (instance.highScore case final value?) 'highScore': value,
-      if (instance.completes case final value?) 'completes': value,
-      if (instance.tier case final value?) 'tier': value,
+      'missionType': ?instance.missionType,
+      'faction': ?instance.faction,
+      'highScore': ?instance.highScore,
+      'completes': ?instance.completes,
+      'tier': ?instance.tier,
     };

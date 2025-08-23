@@ -33,12 +33,9 @@ Node _$NodeFromJson(Map json) => $checkedCreate('Node', json, (
     systemName: $checkedConvert('systemName', (v) => v as String),
     patchlogs: $checkedConvert(
       'patchlogs',
-      (v) =>
-          (v as List<dynamic>?)
-              ?.map(
-                (e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)),
-              )
-              .toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => Patchlog.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
     ),
   );
   return val;
@@ -49,10 +46,9 @@ Map<String, dynamic> _$NodeToJson(Node instance) => <String, dynamic>{
   'name': instance.name,
   'type': const ItemTypeConverter().toJson(instance.type),
   'category': instance.category,
-  if (instance.productCategory case final value?) 'productCategory': value,
-  if (instance.imageName case final value?) 'imageName': value,
-  if (instance.patchlogs?.map((e) => e.toJson()).toList() case final value?)
-    'patchlogs': value,
+  'productCategory': ?instance.productCategory,
+  'imageName': ?instance.imageName,
+  'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
   'factionIndex': instance.factionIndex,
   'masteryReq': instance.masteryReq,
   'maxEnemyLevel': instance.maxEnemyLevel,

@@ -38,13 +38,13 @@ News _$NewsFromJson(Map json) =>
     });
 
 Map<String, dynamic> _$NewsToJson(News instance) => <String, dynamic>{
-  if (instance.id case final value?) 'id': value,
+  'id': ?instance.id,
   'message': instance.message,
   'link': instance.link,
   'priority': instance.priority,
   'imageLink': instance.imageLink,
   'date': instance.date.toIso8601String(),
-  if (instance.endDate?.toIso8601String() case final value?) 'endDate': value,
+  'endDate': ?instance.endDate?.toIso8601String(),
   'eta': instance.eta,
   'primeAccess': instance.primeAccess,
   'stream': instance.stream,
