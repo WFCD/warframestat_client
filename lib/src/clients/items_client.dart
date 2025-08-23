@@ -13,14 +13,17 @@ class WarframeItemsClient extends WarframestatHttpClient {
   /// Returns a list of all warframe items.
   Future<List<Item>> fetchAllItems<T extends Item>({
     List<ItemProps>? props,
-    List<T> Function(List<dynamic>)? convert,
+    List<T> Function(List<Map<String, dynamic>>)? convert,
   }) async {
-    final keepKeys = props?.map((e) => e.name).join(',');
-    final response = await _get<List<dynamic>>('/', query: {if (props != null) 'only': keepKeys});
+    final only = props?.map((p) => p.name).join(',');
+    final response = await _get<List<dynamic>>('/', query: {if (only != null) 'only': only});
 
-    if (props != null && convert == null) throw Exception('Using custom props require a custom Item to serialize to.');
+    if (convert != null) {
+      final results = List<Map<String, dynamic>>.from(response.data);
+      return Isolate.run(() => convert(results));
+    }
 
-    return Isolate.run(() => (convert ?? toItems)(response.data));
+    return (await Isolate.run(() => toItems(response.data))).whereType<T>().toList();
   }
 
   /// Returns all [Item]s that match the search query.
