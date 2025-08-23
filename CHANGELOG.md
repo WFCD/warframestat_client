@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/WFCD/warframestat_client/compare/v5.0.0...v5.1.0) (2025-08-23)
+
+
+### Features
+
+* align `fetchAllItems` to it's search counter part ([fa1b2bb](https://github.com/WFCD/warframestat_client/commit/fa1b2bb58c68f8f93ec983d450c06d0ba7400f4a))
+
 # [5.0.0](https://github.com/WFCD/warframestat_client/compare/v4.2.10...v5.0.0) (2025-08-23)
 
 
