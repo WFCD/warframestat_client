@@ -1,3 +1,16 @@
+# [5.0.0](https://github.com/WFCD/warframestat_client/compare/v4.2.10...v5.0.0) (2025-08-23)
+
+
+### Features
+
+* item searching now allows custom `Item` types and `Item` props ([07b8ed3](https://github.com/WFCD/warframestat_client/commit/07b8ed3888bd2ba5491c1d23e706887bf5a9e802))
+
+
+### BREAKING CHANGES
+
+* * removed `MinimalItem` as it's no longer needed
+* `ItemCommon` is not the base class for all built-in items
+
 ## [4.2.10](https://github.com/WFCD/warframestat_client/compare/v4.2.9...v4.2.10) (2025-05-29)
 
 
