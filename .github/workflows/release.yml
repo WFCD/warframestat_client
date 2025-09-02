@@ -26,7 +26,7 @@ jobs:
         run: echo "GOOGLE_SERVICE_ACCOUNT_KEY="$(echo $SERVICE_ACCOUNT | base64 --decode)"" >> $GITHUB_ENV
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
