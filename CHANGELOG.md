@@ -1,3 +1,10 @@
+## [5.1.3](https://github.com/WFCD/warframestat_client/compare/v5.1.2...v5.1.3) (2025-09-03)
+
+
+### Bug Fixes
+
+* adjusted how `active` is calculated ([0270987](https://github.com/WFCD/warframestat_client/commit/0270987a881e3d67a43ba33c7c95cd99b05a29fd))
+
 ## [5.1.2](https://github.com/WFCD/warframestat_client/compare/v5.1.1...v5.1.2) (2025-09-03)
 
 
