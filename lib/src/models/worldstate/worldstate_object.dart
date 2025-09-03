@@ -25,6 +25,9 @@ abstract class WorldstateObject extends Equatable {
   /// Will return null when [WorldstateObject] contains no [expiry]
   Duration? get remaining => expiry?.toLocal().difference(DateTime.now());
 
+  /// Whether or not the object was active after it was created.
+  bool get active => expiry?.isBefore(DateTime.timestamp()) ?? false;
+
   @override
   List<Object?> get props => [id, activation, expiry];
 }

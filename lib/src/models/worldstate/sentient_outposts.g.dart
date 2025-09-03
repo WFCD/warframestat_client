@@ -29,7 +29,6 @@ SentientOutpost _$SentientOutpostFromJson(Map json) =>
               ? null
               : Mission.fromJson(Map<String, dynamic>.from(v as Map)),
         ),
-        active: $checkedConvert('active', (v) => v as bool),
       );
       return val;
     });
@@ -40,5 +39,4 @@ Map<String, dynamic> _$SentientOutpostToJson(SentientOutpost instance) =>
       'expiry': ?instance.expiry?.toIso8601String(),
       'id': instance.id,
       'mission': ?instance.mission?.toJson(),
-      'active': instance.active,
     };
