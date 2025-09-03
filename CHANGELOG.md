@@ -1,3 +1,11 @@
+## [5.1.2](https://github.com/WFCD/warframestat_client/compare/v5.1.1...v5.1.2) (2025-09-03)
+
+
+### Bug Fixes
+
+* add `active` getter to `WorldstateObject`s ([e9cd312](https://github.com/WFCD/warframestat_client/commit/e9cd31252b86427b3ae9f7a2f4998f7b97d7022e))
+* move some api calculations to the library ([839f834](https://github.com/WFCD/warframestat_client/commit/839f8347a206f2dbd3d98f163aefdb649683c934))
+
 ## [5.1.1](https://github.com/WFCD/warframestat_client/compare/v5.1.0...v5.1.1) (2025-09-03)
 
 
