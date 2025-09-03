@@ -37,6 +37,9 @@ class Reward extends Equatable {
   /// Item color.
   final int color;
 
+  /// Get a formated string representation of the faction [Reward]
+  String get itemString => countedItems.map((r) => '${r.count}x ${r.type}').join(' + ');
+
   /// Creates a json map from [Reward].
   Map<String, dynamic> toJson() => _$RewardToJson(this);
 
