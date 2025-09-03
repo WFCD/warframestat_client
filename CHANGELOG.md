@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/WFCD/warframestat_client/compare/v5.1.0...v5.1.1) (2025-09-03)
+
+
+### Bug Fixes
+
+* update models for api breaking changes ([84474f1](https://github.com/WFCD/warframestat_client/commit/84474f1500ef707ba74f8436c8905d351ce5b6ad))
+
 # [5.1.0](https://github.com/WFCD/warframestat_client/compare/v5.0.0...v5.1.0) (2025-08-23)
 
 
