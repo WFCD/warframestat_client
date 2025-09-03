@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:warframestat_client/src/converters/converters.dart';
 import 'package:warframestat_client/src/models/worldstate/worldstate_object.dart';
-import 'package:warframestat_client/src/utils/calendar_event_converter.dart';
 
 part 'calendar.g.dart';
 
@@ -57,20 +57,17 @@ class Calendar extends WorldstateObject {
 @JsonSerializable()
 class CalendarDay {
   /// {@macro calendar_day}
-  CalendarDay({required this.day, required this.events});
+  CalendarDay({required this.date, required this.events});
 
   /// Creates a [CalendarDay] from Json map
   factory CalendarDay.fromJson(Map<String, dynamic> json) => _$CalendarDayFromJson(json);
 
   /// The day (relative to 1999)
-  final int day;
+  final DateTime date;
 
-  /// Events or rewards for the given [day]
+  /// Events or rewards for the given [date]
   @CalendarEventConverter()
   final List<CalendarEvent> events;
-
-  /// A timestamp of the [day] (relative to 1999)
-  DateTime get date => DateTime.utc(1999).add(Duration(days: day - 1));
 
   /// Creates a json map from a [CalendarDay].
   Map<String, dynamic> toJson() => _$CalendarDayToJson(this);

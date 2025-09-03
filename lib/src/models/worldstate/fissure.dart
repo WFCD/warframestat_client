@@ -13,11 +13,9 @@ class Fissure extends WorldstateObject {
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
-    required this.active,
     required this.node,
-    required this.expired,
     required this.missionType,
-    required this.missionKey,
+    required this.missionTypeKey,
     required this.tier,
     required this.tierNum,
     required this.enemy,
@@ -40,20 +38,14 @@ class Fissure extends WorldstateObject {
   @override
   DateTime get expiry => super.expiry!;
 
-  /// A description for active
-  final bool active;
-
   /// A description for node
   final String node;
-
-  /// Whether instance was expired on objects creation.
-  final bool expired;
 
   /// A description for missionType
   final String missionType;
 
   /// A description for missionKey
-  final String? missionKey;
+  final String? missionTypeKey;
 
   /// A description for tier
   final String tier;
@@ -77,7 +69,5 @@ class Fissure extends WorldstateObject {
   Map<String, dynamic> toJson() => _$FissureToJson(this);
 
   @override
-  List<Object?> get props =>
-      super.props
-        ..addAll([active, node, expired, missionType, missionKey, tier, tierNum, enemy, enemyKey, isStorm, isHard]);
+  List<Object?> get props => super.props..addAll([node, missionType, tier, tierNum, enemy, enemyKey, isStorm, isHard]);
 }

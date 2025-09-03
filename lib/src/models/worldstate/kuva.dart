@@ -15,7 +15,6 @@ class Kuva extends WorldstateObject {
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
-    required this.active,
     required this.node,
     required this.enemy,
     required this.enemyKey,
@@ -36,9 +35,6 @@ class Kuva extends WorldstateObject {
 
   @override
   DateTime get expiry => super.expiry!;
-
-  /// A description for active
-  final bool active;
 
   /// A description for node
   final String node;
@@ -66,6 +62,6 @@ class Kuva extends WorldstateObject {
 
   @override
   List<Object?> get props {
-    return super.props..addAll([active, node, enemy, enemyKey, type, typeKey, archwing, sharkwing]);
+    return super.props..addAll([node, enemy, enemyKey, type, typeKey, archwing, sharkwing]);
   }
 }

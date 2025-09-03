@@ -26,8 +26,6 @@ Reward _$RewardFromJson(Map json) => $checkedCreate('Reward', json, (
           .toList(),
     ),
     credits: $checkedConvert('credits', (v) => (v as num).toInt()),
-    asString: $checkedConvert('asString', (v) => v as String),
-    itemString: $checkedConvert('itemString', (v) => v as String),
     thumbnail: $checkedConvert('thumbnail', (v) => v as String),
     color: $checkedConvert('color', (v) => (v as num).toInt()),
   );
@@ -38,8 +36,6 @@ Map<String, dynamic> _$RewardToJson(Reward instance) => <String, dynamic>{
   'items': instance.items,
   'countedItems': instance.countedItems.map((e) => e.toJson()).toList(),
   'credits': instance.credits,
-  'asString': instance.asString,
-  'itemString': instance.itemString,
   'thumbnail': instance.thumbnail,
   'color': instance.color,
 };

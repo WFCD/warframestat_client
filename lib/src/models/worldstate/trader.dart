@@ -13,7 +13,6 @@ class Trader extends WorldstateObject {
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
-    required this.active,
     required this.character,
     required this.location,
     required this.inventory,
@@ -32,9 +31,6 @@ class Trader extends WorldstateObject {
 
   @override
   DateTime get expiry => super.expiry!;
-
-  /// Whether the instance is active at the time of creation.
-  final bool active;
 
   /// Character name.
   final String character;
@@ -55,5 +51,5 @@ class Trader extends WorldstateObject {
   Map<String, dynamic> toJson() => _$TraderToJson(this);
 
   @override
-  List<Object?> get props => super.props..addAll([active, character, location, inventory, initialStart, schedule]);
+  List<Object?> get props => super.props..addAll([character, location, inventory, initialStart, schedule]);
 }

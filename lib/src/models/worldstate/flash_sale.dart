@@ -14,7 +14,6 @@ class FlashSale extends WorldstateObject {
     required DateTime super.activation,
     required DateTime super.expiry,
     required this.item,
-    required this.expired,
     required this.discount,
     required this.regularOverride,
     required this.premiumOverride,
@@ -38,9 +37,6 @@ class FlashSale extends WorldstateObject {
   /// Item on sale
   final String item;
 
-  /// Whether this sale is expired or not
-  final bool expired;
-
   /// The discount percentage
   final int discount;
 
@@ -63,5 +59,5 @@ class FlashSale extends WorldstateObject {
   Map<String, dynamic> toJson() => _$FlashSaleToJson(this);
 
   @override
-  List<Object?> get props => super.props..addAll([item, expired, discount, premiumOverride, isPopular, isFeatured]);
+  List<Object?> get props => super.props..addAll([item, discount, premiumOverride, isPopular, isFeatured]);
 }

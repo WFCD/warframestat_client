@@ -14,11 +14,9 @@ class Nightwave extends WorldstateObject {
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
-    required this.active,
     required this.params,
-    required this.rewardTypes,
     required this.season,
-    required this.ta,
+    required this.tag,
     required this.phase,
     required this.possibleChallenges,
     required this.activeChallenges,
@@ -36,20 +34,14 @@ class Nightwave extends WorldstateObject {
   @override
   DateTime get expiry => super.expiry!;
 
-  /// A description for active
-  final bool active;
-
   /// A description for params
   final Map<String, dynamic> params;
-
-  /// A description for rewardTypes
-  final List<String> rewardTypes;
 
   /// A description for season
   final int season;
 
-  /// A description for ta
-  final String? ta;
+  /// Nightwave tag
+  final String? tag;
 
   /// A description for phase
   final int phase;
@@ -75,7 +67,7 @@ class Nightwave extends WorldstateObject {
 
   @override
   List<Object?> get props {
-    return [active, params, rewardTypes, season, ta, phase, possibleChallenges, activeChallenges];
+    return [params, season, tag, phase, possibleChallenges, activeChallenges];
   }
 }
 
@@ -92,7 +84,6 @@ class Challenge extends WorldstateObject {
     required this.title,
     required this.desc,
     required this.reputation,
-    required this.active,
     required this.isElite,
     this.isDaily = false,
   });
@@ -111,9 +102,6 @@ class Challenge extends WorldstateObject {
   /// Reputation awarded for completing this challenge.
   final int reputation;
 
-  /// Whether this challenge is a active upon object creation.
-  final bool active;
-
   /// Whether this challenge is a daily challenge.
   final bool isDaily;
 
@@ -125,6 +113,6 @@ class Challenge extends WorldstateObject {
 
   @override
   List<Object?> get props {
-    return super.props..addAll([title, desc, reputation, active, isDaily, isElite]);
+    return super.props..addAll([title, desc, reputation, isDaily, isElite]);
   }
 }

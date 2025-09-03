@@ -22,8 +22,6 @@ WorldEvent _$WorldEventFromJson(
     ),
     expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
     previousId: $checkedConvert('previousId', (v) => v as String?),
-    startString: $checkedConvert('startString', (v) => v as String),
-    active: $checkedConvert('active', (v) => v as bool),
     maximumScore: $checkedConvert('maximumScore', (v) => (v as num?)?.toInt()),
     currentScore: $checkedConvert('currentScore', (v) => (v as num?)?.toInt()),
     smallInterval: $checkedConvert(
@@ -50,7 +48,6 @@ WorldEvent _$WorldEventFromJson(
           .map((e) => Reward.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
     ),
-    expired: $checkedConvert('expired', (v) => v as bool),
     health: $checkedConvert('health', (v) => v as num?),
     affiliatedWith: $checkedConvert('affiliatedWith', (v) => v as String?),
     jobs: $checkedConvert(
@@ -112,7 +109,6 @@ WorldEvent _$WorldEventFromJson(
       (v) => (v as List<dynamic>?)?.map((e) => (e as num).toInt()).toList(),
     ),
     scoreVar: $checkedConvert('scoreVar', (v) => v as String?),
-    asString: $checkedConvert('asString', (v) => v as String),
     altExpiry: $checkedConvert('altExpiry', (v) => DateTime.parse(v as String)),
     altActivation: $checkedConvert(
       'altActivation',
@@ -133,8 +129,6 @@ Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) =>
       'activation': instance.activation.toIso8601String(),
       'expiry': instance.expiry.toIso8601String(),
       'previousId': ?instance.previousId,
-      'startString': instance.startString,
-      'active': instance.active,
       'maximumScore': ?instance.maximumScore,
       'currentScore': ?instance.currentScore,
       'smallInterval': ?instance.smallInterval,
@@ -147,7 +141,6 @@ Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) =>
       'victimNode': ?instance.victimNode,
       'scoreLocTag': ?instance.scoreLocTag,
       'rewards': instance.rewards.map((e) => e.toJson()).toList(),
-      'expired': instance.expired,
       'health': ?instance.health,
       'affiliatedWith': ?instance.affiliatedWith,
       'jobs': ?instance.jobs?.map((e) => e.toJson()).toList(),
@@ -163,7 +156,6 @@ Map<String, dynamic> _$WorldEventToJson(WorldEvent instance) =>
       'metadata': ?instance.metadata,
       'completionBonuses': ?instance.completionBonuses,
       'scoreVar': ?instance.scoreVar,
-      'asString': instance.asString,
       'altExpiry': instance.altExpiry.toIso8601String(),
       'altActivation': instance.altActivation.toIso8601String(),
       'nextAlt': instance.nextAlt.toJson(),

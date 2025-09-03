@@ -21,17 +21,12 @@ Nightwave _$NightwaveFromJson(Map json) => $checkedCreate('Nightwave', json, (
       (v) => DateTime.parse(v as String),
     ),
     expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
-    active: $checkedConvert('active', (v) => v as bool),
     params: $checkedConvert(
       'params',
       (v) => Map<String, dynamic>.from(v as Map),
     ),
-    rewardTypes: $checkedConvert(
-      'rewardTypes',
-      (v) => (v as List<dynamic>).map((e) => e as String).toList(),
-    ),
     season: $checkedConvert('season', (v) => (v as num).toInt()),
-    ta: $checkedConvert('ta', (v) => v as String?),
+    tag: $checkedConvert('tag', (v) => v as String?),
     phase: $checkedConvert('phase', (v) => (v as num).toInt()),
     possibleChallenges: $checkedConvert(
       'possibleChallenges',
@@ -53,11 +48,9 @@ Map<String, dynamic> _$NightwaveToJson(Nightwave instance) => <String, dynamic>{
   'id': instance.id,
   'activation': instance.activation.toIso8601String(),
   'expiry': instance.expiry.toIso8601String(),
-  'active': instance.active,
   'params': instance.params,
-  'rewardTypes': instance.rewardTypes,
   'season': instance.season,
-  'ta': ?instance.ta,
+  'tag': ?instance.tag,
   'phase': instance.phase,
   'possibleChallenges': instance.possibleChallenges
       .map((e) => e.toJson())
@@ -77,7 +70,6 @@ Challenge _$ChallengeFromJson(Map json) =>
         title: $checkedConvert('title', (v) => v as String),
         desc: $checkedConvert('desc', (v) => v as String),
         reputation: $checkedConvert('reputation', (v) => (v as num).toInt()),
-        active: $checkedConvert('active', (v) => v as bool),
         isElite: $checkedConvert('isElite', (v) => v as bool),
         isDaily: $checkedConvert('isDaily', (v) => v as bool? ?? false),
       );
@@ -91,7 +83,6 @@ Map<String, dynamic> _$ChallengeToJson(Challenge instance) => <String, dynamic>{
   'title': instance.title,
   'desc': instance.desc,
   'reputation': instance.reputation,
-  'active': instance.active,
   'isDaily': instance.isDaily,
   'isElite': instance.isElite,
 };

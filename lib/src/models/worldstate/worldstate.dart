@@ -51,7 +51,7 @@ class Worldstate extends Equatable {
     return _$WorldstateFromJson(json);
   }
 
-  /// The time that the worldstate was last generated.
+  /// The time that the worldstate was generated.
   final DateTime timestamp;
 
   /// List of active alerts.
@@ -61,7 +61,7 @@ class Worldstate extends Equatable {
   final Arbitration? arbitration;
 
   /// Conclave weekly challenges data.
-  final List<ConclaveChallenge> weeklyChallenges;
+  final List<ConclaveChallenge>? weeklyChallenges;
 
   /// Currently active Archon hunt.
   final Sortie archonHunt;
@@ -149,7 +149,7 @@ class Worldstate extends Equatable {
   final Archimedea? temporalArchimedea;
 
   /// Current Hex calendar information.
-  final List<Calendar> calendar;
+  final Calendar calendar;
 
   /// Creates a Json map from a Worldstate
   Map<String, dynamic> toJson() => _$WorldstateToJson(this);

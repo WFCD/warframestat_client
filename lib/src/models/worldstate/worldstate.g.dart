@@ -30,8 +30,8 @@ Worldstate _$WorldstateFromJson(
     ),
     weeklyChallenges: $checkedConvert(
       'weeklyChallenges',
-      (v) => (v as List<dynamic>)
-          .map(
+      (v) => (v as List<dynamic>?)
+          ?.map(
             (e) =>
                 ConclaveChallenge.fromJson(Map<String, dynamic>.from(e as Map)),
           )
@@ -183,9 +183,7 @@ Worldstate _$WorldstateFromJson(
     ),
     calendar: $checkedConvert(
       'calendar',
-      (v) => (v as List<dynamic>)
-          .map((e) => Calendar.fromJson(Map<String, dynamic>.from(e as Map)))
-          .toList(),
+      (v) => Calendar.fromJson(Map<String, dynamic>.from(v as Map)),
     ),
     temporalArchimedea: $checkedConvert(
       'temporalArchimedea',
@@ -197,44 +195,45 @@ Worldstate _$WorldstateFromJson(
   return val;
 });
 
-Map<String, dynamic> _$WorldstateToJson(
-  Worldstate instance,
-) => <String, dynamic>{
-  'timestamp': instance.timestamp.toIso8601String(),
-  'alerts': instance.alerts.map((e) => e.toJson()).toList(),
-  'arbitration': ?instance.arbitration?.toJson(),
-  'weeklyChallenges': instance.weeklyChallenges.map((e) => e.toJson()).toList(),
-  'archonHunt': instance.archonHunt.toJson(),
-  'cambionCycle': instance.cambionCycle.toJson(),
-  'syndicateMissions': instance.syndicateMissions
-      .map((e) => e.toJson())
-      .toList(),
-  'cetusCycle': instance.cetusCycle.toJson(),
-  'conclaveChallenges': instance.conclaveChallenges
-      .map((e) => e.toJson())
-      .toList(),
-  'constructionProgress': instance.constructionProgress.toJson(),
-  'dailyDeals': instance.dailyDeals.map((e) => e.toJson()).toList(),
-  'earthCycle': instance.earthCycle.toJson(),
-  'events': instance.events.map((e) => e.toJson()).toList(),
-  'fissures': instance.fissures.map((e) => e.toJson()).toList(),
-  'flashSales': instance.flashSales.map((e) => e.toJson()).toList(),
-  'globalUpgrades': instance.globalUpgrades.map((e) => e.toJson()).toList(),
-  'invasions': instance.invasions.map((e) => e.toJson()).toList(),
-  'kuva': instance.kuva.map((e) => e.toJson()).toList(),
-  'news': instance.news.map((e) => e.toJson()).toList(),
-  'nightwave': ?instance.nightwave?.toJson(),
-  'sortie': instance.sortie.toJson(),
-  'vallisCycle': instance.vallisCycle.toJson(),
-  'voidTraders': instance.voidTraders.map((e) => e.toJson()).toList(),
-  'vaultTrader': instance.vaultTrader.toJson(),
-  'sentientOutposts': ?instance.sentientOutposts?.toJson(),
-  'simaris': instance.simaris.toJson(),
-  'steelPath': instance.steelPath.toJson(),
-  'zarimanCycle': instance.zarimanCycle.toJson(),
-  'duviriCycle': instance.duviriCycle.toJson(),
-  'kinepage': instance.kinepage.toJson(),
-  'deepArchimedea': ?instance.deepArchimedea?.toJson(),
-  'temporalArchimedea': ?instance.temporalArchimedea?.toJson(),
-  'calendar': instance.calendar.map((e) => e.toJson()).toList(),
-};
+Map<String, dynamic> _$WorldstateToJson(Worldstate instance) =>
+    <String, dynamic>{
+      'timestamp': instance.timestamp.toIso8601String(),
+      'alerts': instance.alerts.map((e) => e.toJson()).toList(),
+      'arbitration': ?instance.arbitration?.toJson(),
+      'weeklyChallenges': ?instance.weeklyChallenges
+          ?.map((e) => e.toJson())
+          .toList(),
+      'archonHunt': instance.archonHunt.toJson(),
+      'cambionCycle': instance.cambionCycle.toJson(),
+      'syndicateMissions': instance.syndicateMissions
+          .map((e) => e.toJson())
+          .toList(),
+      'cetusCycle': instance.cetusCycle.toJson(),
+      'conclaveChallenges': instance.conclaveChallenges
+          .map((e) => e.toJson())
+          .toList(),
+      'constructionProgress': instance.constructionProgress.toJson(),
+      'dailyDeals': instance.dailyDeals.map((e) => e.toJson()).toList(),
+      'earthCycle': instance.earthCycle.toJson(),
+      'events': instance.events.map((e) => e.toJson()).toList(),
+      'fissures': instance.fissures.map((e) => e.toJson()).toList(),
+      'flashSales': instance.flashSales.map((e) => e.toJson()).toList(),
+      'globalUpgrades': instance.globalUpgrades.map((e) => e.toJson()).toList(),
+      'invasions': instance.invasions.map((e) => e.toJson()).toList(),
+      'kuva': instance.kuva.map((e) => e.toJson()).toList(),
+      'news': instance.news.map((e) => e.toJson()).toList(),
+      'nightwave': ?instance.nightwave?.toJson(),
+      'sortie': instance.sortie.toJson(),
+      'vallisCycle': instance.vallisCycle.toJson(),
+      'voidTraders': instance.voidTraders.map((e) => e.toJson()).toList(),
+      'vaultTrader': instance.vaultTrader.toJson(),
+      'sentientOutposts': ?instance.sentientOutposts?.toJson(),
+      'simaris': instance.simaris.toJson(),
+      'steelPath': instance.steelPath.toJson(),
+      'zarimanCycle': instance.zarimanCycle.toJson(),
+      'duviriCycle': instance.duviriCycle.toJson(),
+      'kinepage': instance.kinepage.toJson(),
+      'deepArchimedea': ?instance.deepArchimedea?.toJson(),
+      'temporalArchimedea': ?instance.temporalArchimedea?.toJson(),
+      'calendar': instance.calendar.toJson(),
+    };

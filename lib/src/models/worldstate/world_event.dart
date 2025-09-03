@@ -15,8 +15,6 @@ class WorldEvent extends WorldstateObject {
     required DateTime super.activation,
     required DateTime super.expiry,
     required this.previousId,
-    required this.startString,
-    required this.active,
     required this.maximumScore,
     required this.currentScore,
     required this.smallInterval,
@@ -29,7 +27,6 @@ class WorldEvent extends WorldstateObject {
     required this.victimNode,
     required this.scoreLocTag,
     required this.rewards,
-    required this.expired,
     required this.health,
     required this.affiliatedWith,
     required this.jobs,
@@ -45,7 +42,6 @@ class WorldEvent extends WorldstateObject {
     required this.metadata,
     required this.completionBonuses,
     required this.scoreVar,
-    required this.asString,
     required this.altExpiry,
     required this.altActivation,
     required this.nextAlt,
@@ -67,12 +63,6 @@ class WorldEvent extends WorldstateObject {
   /// Previous ID
   @JsonKey(includeIfNull: false)
   final String? previousId;
-
-  /// Activation as a string.
-  final String startString;
-
-  /// Whether the event is still active or not.
-  final bool active;
 
   /// Maximum global score needed for the event to be completed.
   final int? maximumScore;
@@ -113,9 +103,6 @@ class WorldEvent extends WorldstateObject {
 
   /// Reward for completing this event.
   final List<Reward> rewards;
-
-  /// Whether or not this is expired (at the time of the object creation).
-  final bool expired;
 
   /// A description for health
   @JsonKey(includeIfNull: false)
@@ -171,9 +158,6 @@ class WorldEvent extends WorldstateObject {
   @JsonKey(includeIfNull: false)
   final String? scoreVar;
 
-  /// String representation of this [WorldEvent].
-  final String asString;
-
   /// A description for altExpiry
   final DateTime altExpiry;
 
@@ -207,7 +191,7 @@ class WorldEvent extends WorldstateObject {
 
     return rewards
       ..addAll(interimSteps?.map<Reward>((i) => i.reward) ?? [])
-      ..removeWhere((r) => r.itemString.isEmpty);
+      ..removeWhere((r) => r.items.isEmpty);
   }
 
   /// Creates a Json map from a Event
@@ -217,8 +201,6 @@ class WorldEvent extends WorldstateObject {
   List<Object?> get props {
     return super.props..addAll([
       previousId,
-      startString,
-      active,
       maximumScore,
       currentScore,
       smallInterval,
@@ -231,7 +213,6 @@ class WorldEvent extends WorldstateObject {
       victimNode,
       scoreLocTag,
       rewards,
-      expired,
       health,
       affiliatedWith,
       jobs,
@@ -246,7 +227,6 @@ class WorldEvent extends WorldstateObject {
       metadata,
       completionBonuses,
       scoreVar,
-      asString,
       altExpiry,
       altActivation,
       nextAlt,

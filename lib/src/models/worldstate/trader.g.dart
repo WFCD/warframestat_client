@@ -21,7 +21,6 @@ Trader _$TraderFromJson(Map json) => $checkedCreate('Trader', json, (
       (v) => DateTime.parse(v as String),
     ),
     expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
-    active: $checkedConvert('active', (v) => v as bool),
     character: $checkedConvert('character', (v) => v as String),
     location: $checkedConvert('location', (v) => v as String),
     inventory: $checkedConvert(
@@ -50,7 +49,6 @@ Map<String, dynamic> _$TraderToJson(Trader instance) => <String, dynamic>{
   'id': instance.id,
   'activation': instance.activation.toIso8601String(),
   'expiry': instance.expiry.toIso8601String(),
-  'active': instance.active,
   'character': instance.character,
   'location': instance.location,
   'inventory': instance.inventory.map((e) => e.toJson()).toList(),

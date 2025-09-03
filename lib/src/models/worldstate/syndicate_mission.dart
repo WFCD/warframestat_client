@@ -13,7 +13,6 @@ class SyndicateMission extends WorldstateObject {
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
-    required this.active,
     required this.syndicate,
     required this.syndicateKey,
     required this.nodes,
@@ -32,9 +31,6 @@ class SyndicateMission extends WorldstateObject {
   @override
   DateTime get expiry => super.expiry!;
 
-  /// A description for active
-  final bool active;
-
   /// A description for syndicate
   final String syndicate;
 
@@ -51,5 +47,5 @@ class SyndicateMission extends WorldstateObject {
   Map<String, dynamic> toJson() => _$SyndicateMissionToJson(this);
 
   @override
-  List<Object?> get props => super.props..addAll([active, syndicate, syndicateKey, nodes, jobs]);
+  List<Object?> get props => super.props..addAll([syndicate, syndicateKey, nodes, jobs]);
 }

@@ -14,7 +14,6 @@ class Invasion extends WorldstateObject {
     required String super.id,
     required DateTime super.activation,
     required this.attacker,
-    required this.attackingFaction,
     required this.completed,
     required this.completion,
     required this.count,
@@ -23,9 +22,7 @@ class Invasion extends WorldstateObject {
     required this.node,
     required this.nodeKey,
     required this.requiredRuns,
-    required this.rewardTypes,
     required this.vsInfestation,
-    required this.eta,
   });
 
   /// Creates a Invasion from Json map
@@ -39,9 +36,6 @@ class Invasion extends WorldstateObject {
 
   /// A description for attacker
   final InvasionFaction attacker;
-
-  /// A description for attackingFaction
-  final String attackingFaction;
 
   /// A description for completed
   final bool completed;
@@ -67,14 +61,8 @@ class Invasion extends WorldstateObject {
   /// A description for requiredRuns
   final int requiredRuns;
 
-  /// A description for rewardTypes
-  final List<String> rewardTypes;
-
   /// A description for vsInfestation
   final bool vsInfestation;
-
-  /// An estimated time the [Invasion] will end.
-  final String eta;
 
   /// Creates a Json map from a Invasion
   Map<String, dynamic> toJson() => _$InvasionToJson(this);
@@ -84,7 +72,6 @@ class Invasion extends WorldstateObject {
     return super.props..addAll([
       activation,
       attacker,
-      attackingFaction,
       completed,
       completion,
       count,
@@ -93,9 +80,7 @@ class Invasion extends WorldstateObject {
       node,
       nodeKey,
       requiredRuns,
-      rewardTypes,
       vsInfestation,
-      eta,
     ]);
   }
 }
@@ -116,7 +101,7 @@ class InvasionFaction extends Equatable {
   /// Reward awarded for siding with the faction.
   final Reward? reward;
 
-  /// The faction name translated..
+  /// The faction name translated.
   final String faction;
 
   /// The faction name.

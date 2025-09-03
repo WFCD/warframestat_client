@@ -26,7 +26,6 @@ class CambionCycle extends WorldstateObject {
     required DateTime super.activation,
     required DateTime super.expiry,
     required this.state,
-    required this.active,
   });
 
   /// Creates a CambionCycle from Json map
@@ -44,12 +43,9 @@ class CambionCycle extends WorldstateObject {
   /// Represents the current state on cambion.
   final CambionState state;
 
-  /// Current state active on Cambion.
-  final String active;
-
   /// Creates a Json map from a CambionCycle
   Map<String, dynamic> toJson() => _$CambionCycleToJson(this);
 
   @override
-  List<Object?> get props => super.props..addAll([state, active]);
+  List<Object?> get props => super.props..addAll([state]);
 }

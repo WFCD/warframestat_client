@@ -52,7 +52,7 @@ CalendarDay _$CalendarDayFromJson(Map json) => $checkedCreate(
   json,
   ($checkedConvert) {
     final val = CalendarDay(
-      day: $checkedConvert('day', (v) => (v as num).toInt()),
+      date: $checkedConvert('date', (v) => DateTime.parse(v as String)),
       events: $checkedConvert(
         'events',
         (v) => (v as List<dynamic>)
@@ -71,7 +71,7 @@ CalendarDay _$CalendarDayFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$CalendarDayToJson(
   CalendarDay instance,
 ) => <String, dynamic>{
-  'day': instance.day,
+  'date': instance.date.toIso8601String(),
   'events': instance.events.map(const CalendarEventConverter().toJson).toList(),
 };
 

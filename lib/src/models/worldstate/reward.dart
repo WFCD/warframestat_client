@@ -13,8 +13,6 @@ class Reward extends Equatable {
     required this.items,
     required this.countedItems,
     required this.credits,
-    required this.asString,
-    required this.itemString,
     required this.thumbnail,
     required this.color,
   });
@@ -33,16 +31,6 @@ class Reward extends Equatable {
   /// The credits being rewarded.
   final int credits;
 
-  /// Reward as a string.
-  ///
-  /// Meaning that if [itemString] is "Exilus Weapon Adapter Blueprint" and
-  /// [credits] is 200. Then this will output:
-  /// "Exilus Weapon Adapter Blueprint + 20000cr"
-  final String asString;
-
-  /// Item as a string.
-  final String itemString;
-
   /// Item thumnail.
   final String thumbnail;
 
@@ -54,7 +42,7 @@ class Reward extends Equatable {
 
   @override
   List<Object?> get props {
-    return [countedItems, thumbnail, color, credits, items, itemString];
+    return [countedItems, thumbnail, color, credits, items];
   }
 }
 

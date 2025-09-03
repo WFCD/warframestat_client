@@ -14,9 +14,9 @@ class News extends WorldstateObject {
   /// {@macro news}
   const News({
     required super.id,
+    required super.activation,
+    required super.expiry,
     required this.date,
-    required this.endDate,
-    required this.eta,
     required this.message,
     required this.link,
     required this.imageLink,
@@ -25,7 +25,7 @@ class News extends WorldstateObject {
     required this.stream,
     required this.update,
     required this.priority,
-    required this.asString,
+    required this.mobileOnly,
   });
 
   /// Creates a News from Json map
@@ -46,13 +46,6 @@ class News extends WorldstateObject {
   /// The date the news was posted
   final DateTime date;
 
-  /// End date.
-  @JsonKey(includeIfNull: false)
-  final DateTime? endDate;
-
-  /// ETA
-  final String eta;
-
   /// Whether the current news is about a Prime Access release.
   final bool primeAccess;
 
@@ -62,13 +55,13 @@ class News extends WorldstateObject {
   /// Whether the current news is about an update.
   final bool update;
 
+  /// Whether or not this is a mobile only news.
+  final bool mobileOnly;
+
   /// Contains translated version of [message]
   ///
   /// If a message contains no translations it will default to en.
   final Map<String, String> translations;
-
-  /// String represtentation.
-  final String asString;
 
   /// Creates a Json map from a News
   Map<String, dynamic> toJson() => _$NewsToJson(this);
@@ -77,8 +70,6 @@ class News extends WorldstateObject {
   List<Object?> get props {
     return [
       date,
-      endDate,
-      eta,
       imageLink,
       primeAccess,
       stream,
@@ -87,7 +78,7 @@ class News extends WorldstateObject {
       update,
       message,
       priority,
-      asString,
+      mobileOnly,
     ];
   }
 }

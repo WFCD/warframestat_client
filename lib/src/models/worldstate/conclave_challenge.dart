@@ -15,7 +15,6 @@ class ConclaveChallenge extends WorldstateObject {
     required DateTime super.expiry,
     required this.mode,
     required this.amount,
-    required this.expired,
     required this.daily,
     required this.description,
     required this.category,
@@ -40,9 +39,6 @@ class ConclaveChallenge extends WorldstateObject {
   /// The number of times the challenge needs to be completed.
   final int amount;
 
-  /// If the challenge has expired at the time of the object's creation.
-  final bool expired;
-
   /// If the challenge is a daily challenge.
   final bool daily;
 
@@ -59,5 +55,5 @@ class ConclaveChallenge extends WorldstateObject {
   Map<String, dynamic> toJson() => _$ConclaveChallengeToJson(this);
 
   @override
-  List<Object?> get props => super.props..addAll([mode, amount, expired, daily, description, category, rootChallenge]);
+  List<Object?> get props => super.props..addAll([mode, amount, daily, description, category, rootChallenge]);
 }

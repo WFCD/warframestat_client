@@ -13,11 +13,7 @@ class Alert extends WorldstateObject {
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
-    required this.startString,
-    required this.active,
     required this.mission,
-    required this.rewardTypes,
-    required this.eta,
     required this.tag,
   });
 
@@ -33,20 +29,8 @@ class Alert extends WorldstateObject {
   @override
   DateTime get expiry => super.expiry!;
 
-  /// Start date as string.
-  final String startString;
-
-  /// Whether the aleret is active or not.
-  final bool active;
-
   /// Mission details.
   final Mission mission;
-
-  /// Alert rewards.
-  final List<String> rewardTypes;
-
-  /// The expiry date as String.
-  final String eta;
 
   /// Alert tag.
   final String? tag;
@@ -55,5 +39,5 @@ class Alert extends WorldstateObject {
   Map<String, dynamic> toJson() => _$AlertToJson(this);
 
   @override
-  List<Object?> get props => super.props..addAll([startString, active, mission, rewardTypes, tag]);
+  List<Object?> get props => super.props..addAll([mission, tag]);
 }

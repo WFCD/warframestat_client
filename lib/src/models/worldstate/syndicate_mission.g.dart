@@ -20,7 +20,6 @@ SyndicateMission _$SyndicateMissionFromJson(Map json) =>
           (v) => DateTime.parse(v as String),
         ),
         expiry: $checkedConvert('expiry', (v) => DateTime.parse(v as String)),
-        active: $checkedConvert('active', (v) => v as bool),
         syndicate: $checkedConvert('syndicate', (v) => v as String),
         syndicateKey: $checkedConvert('syndicateKey', (v) => v as String),
         nodes: $checkedConvert(
@@ -45,7 +44,6 @@ Map<String, dynamic> _$SyndicateMissionToJson(SyndicateMission instance) =>
       'id': instance.id,
       'activation': instance.activation.toIso8601String(),
       'expiry': instance.expiry.toIso8601String(),
-      'active': instance.active,
       'syndicate': instance.syndicate,
       'syndicateKey': instance.syndicateKey,
       'nodes': instance.nodes,

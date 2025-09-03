@@ -24,7 +24,6 @@ CambionCycle _$CambionCycleFromJson(Map json) =>
           'state',
           (v) => $enumDecode(_$CambionStateEnumMap, v),
         ),
-        active: $checkedConvert('active', (v) => v as String),
       );
       return val;
     });
@@ -35,7 +34,6 @@ Map<String, dynamic> _$CambionCycleToJson(CambionCycle instance) =>
       'activation': instance.activation.toIso8601String(),
       'expiry': instance.expiry.toIso8601String(),
       'state': _$CambionStateEnumMap[instance.state]!,
-      'active': instance.active,
     };
 
 const _$CambionStateEnumMap = {
