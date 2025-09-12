@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/WFCD/warframestat_client/compare/v5.2.0...v5.2.1) (2025-09-12)
+
+
+### Bug Fixes
+
+* add a quick endpoint to get just the build label ([25f4dcc](https://github.com/WFCD/warframestat_client/commit/25f4dcc7da17a911471463cba0e8dd710d6379e6))
+
 # [5.2.0](https://github.com/WFCD/warframestat_client/compare/v5.1.3...v5.2.0) (2025-09-12)
 
 
