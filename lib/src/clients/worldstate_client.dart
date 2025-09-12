@@ -15,6 +15,11 @@ class WorldstateClient extends WarframestatHttpClient {
     return Worldstate.fromJson(worldstate);
   }
 
+  /// Get a string representing the current game version
+  Future<String> fetchBuildLabel() async {
+    return (await get('pc/buildLabel')).body;
+  }
+
   /// Retrives a list of ongoing [Alert]s.
   Future<List<Alert>> fetchAlerts() async {
     final alerts = await _get<List<dynamic>>('/alerts');

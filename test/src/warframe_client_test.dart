@@ -67,6 +67,16 @@ Future<void> main() async {
       expect(state, const TypeMatcher<Worldstate>());
     });
 
+    test('Get current build label', () async {
+      when(
+        () => mockClient.get(wUri('/buildLabel')),
+      ).thenAnswer((_) async => response('2025.09.02.14.13/C1uuuxHFA5pFWj3h1OydPA'));
+
+      final label = await warframestat.worldstate.fetchBuildLabel();
+
+      expect(label, '2025.09.02.14.13/C1uuuxHFA5pFWj3h1OydPA');
+    });
+
     test('Get alerts', () async {
       when(
         () => mockClient.get(wUri('/alerts')),
