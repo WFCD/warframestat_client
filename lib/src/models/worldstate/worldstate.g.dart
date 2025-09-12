@@ -16,6 +16,7 @@ Worldstate _$WorldstateFromJson(
 ) => $checkedCreate('Worldstate', json, ($checkedConvert) {
   final val = Worldstate(
     timestamp: $checkedConvert('timestamp', (v) => DateTime.parse(v as String)),
+    buildLabel: $checkedConvert('buildLabel', (v) => v as String),
     alerts: $checkedConvert(
       'alerts',
       (v) => (v as List<dynamic>)
@@ -198,6 +199,7 @@ Worldstate _$WorldstateFromJson(
 Map<String, dynamic> _$WorldstateToJson(Worldstate instance) =>
     <String, dynamic>{
       'timestamp': instance.timestamp.toIso8601String(),
+      'buildLabel': instance.buildLabel,
       'alerts': instance.alerts.map((e) => e.toJson()).toList(),
       'arbitration': ?instance.arbitration?.toJson(),
       'weeklyChallenges': ?instance.weeklyChallenges

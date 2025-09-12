@@ -12,6 +12,7 @@ class Worldstate extends Equatable {
   /// {@macro worldstate}
   const Worldstate({
     required this.timestamp,
+    required this.buildLabel,
     required this.alerts,
     required this.arbitration,
     required this.weeklyChallenges,
@@ -53,6 +54,9 @@ class Worldstate extends Equatable {
 
   /// The time that the worldstate was generated.
   final DateTime timestamp;
+
+  /// Reflects the current game version
+  final String buildLabel;
 
   /// List of active alerts.
   final List<Alert> alerts;
@@ -157,6 +161,7 @@ class Worldstate extends Equatable {
   @override
   List<Object?> get props => [
     timestamp,
+    buildLabel,
     alerts,
     arbitration,
     weeklyChallenges,
