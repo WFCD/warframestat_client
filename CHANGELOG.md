@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/WFCD/warframestat_client/compare/v5.1.3...v5.2.0) (2025-09-12)
+
+
+### Features
+
+* expose worldstate build label prop ([20a54a6](https://github.com/WFCD/warframestat_client/commit/20a54a61a2d0f93b7012002987f5ef09810a086f))
+
 ## [5.1.3](https://github.com/WFCD/warframestat_client/compare/v5.1.2...v5.1.3) (2025-09-03)
 
 
