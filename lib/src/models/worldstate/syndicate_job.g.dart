@@ -19,6 +19,14 @@ SyndicateJob _$SyndicateJobFromJson(Map json) =>
           'rewardPool',
           (v) => (v as List<dynamic>).map((e) => e as String).toList(),
         ),
+        rewardPoolDrops: $checkedConvert(
+          'rewardPoolDrops',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) => RewardDrop.fromJson(Map<String, dynamic>.from(e as Map)),
+              )
+              .toList(),
+        ),
         type: $checkedConvert('type', (v) => v as String?),
         enemyLevels: $checkedConvert(
           'enemyLevels',
@@ -34,13 +42,44 @@ SyndicateJob _$SyndicateJobFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$SyndicateJobToJson(SyndicateJob instance) =>
+Map<String, dynamic> _$SyndicateJobToJson(
+  SyndicateJob instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'rewardPool': instance.rewardPool,
+  'rewardPoolDrops': ?instance.rewardPoolDrops?.map((e) => e.toJson()).toList(),
+  'type': ?instance.type,
+  'enemyLevels': instance.enemyLevels,
+  'standingStages': instance.standingStages,
+  'minMr': ?instance.minMr,
+  'expiry': instance.expiry.toIso8601String(),
+};
+
+RewardDrop _$RewardDropFromJson(Map json) => $checkedCreate(
+  'RewardDrop',
+  json,
+  ($checkedConvert) {
+    final val = RewardDrop(
+      item: $checkedConvert('item', (v) => v as String),
+      rarity: $checkedConvert('rarity', (v) => $enumDecode(_$RarityEnumMap, v)),
+      chance: $checkedConvert('chance', (v) => v as num),
+      count: $checkedConvert('count', (v) => (v as num?)?.toInt() ?? 1),
+    );
+    return val;
+  },
+);
+
+Map<String, dynamic> _$RewardDropToJson(RewardDrop instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'rewardPool': instance.rewardPool,
-      'type': ?instance.type,
-      'enemyLevels': instance.enemyLevels,
-      'standingStages': instance.standingStages,
-      'minMr': ?instance.minMr,
-      'expiry': instance.expiry.toIso8601String(),
+      'item': instance.item,
+      'rarity': _$RarityEnumMap[instance.rarity]!,
+      'chance': instance.chance,
+      'count': instance.count,
     };
+
+const _$RarityEnumMap = {
+  Rarity.common: 'Common',
+  Rarity.uncommon: 'Uncommon',
+  Rarity.rare: 'Rare',
+  Rarity.legendary: 'Legendary',
+};
