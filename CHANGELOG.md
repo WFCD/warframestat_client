@@ -1,3 +1,10 @@
+# [5.3.0](https://github.com/WFCD/warframestat_client/compare/v5.2.1...v5.3.0) (2025-10-02)
+
+
+### Features
+
+* add models for syndicate reward pool drops ([4895795](https://github.com/WFCD/warframestat_client/commit/48957953a777fff5c53d78e3d7549223d9a01a4b))
+
 ## [5.2.1](https://github.com/WFCD/warframestat_client/compare/v5.2.0...v5.2.1) (2025-09-12)
 
 
