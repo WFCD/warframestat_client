@@ -65,12 +65,13 @@ class Invasion extends WorldstateObject {
   final bool vsInfestation;
 
   /// Rough ETA estimate
-  Duration get eta {
+  DateTime get eta {
+    final now = DateTime.timestamp();
     final completedRuns = count.abs();
-    final elapsedMillies = activation.difference(DateTime.timestamp()).inMilliseconds;
+    final elapsedMillies = activation.difference(now).inMilliseconds;
     final remainingRuns = requiredRuns - completedRuns;
 
-    return Duration(milliseconds: remainingRuns * (elapsedMillies / completedRuns).floor());
+    return now.add(Duration(milliseconds: remainingRuns * (elapsedMillies / completedRuns).floor()));
   }
 
   /// Creates a Json map from a Invasion
