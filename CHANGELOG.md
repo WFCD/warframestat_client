@@ -1,3 +1,10 @@
+## [5.3.1](https://github.com/WFCD/warframestat_client/compare/v5.3.0...v5.3.1) (2025-10-03)
+
+
+### Bug Fixes
+
+* `Invasion.eta` should be a `Duration` not a `String` ([443608e](https://github.com/WFCD/warframestat_client/commit/443608ecc617d5b7bed2fec9c29a85a02cd0129d))
+
 # [5.3.0](https://github.com/WFCD/warframestat_client/compare/v5.2.1...v5.3.0) (2025-10-02)
 
 
