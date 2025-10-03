@@ -1,3 +1,10 @@
+## [5.3.2](https://github.com/WFCD/warframestat_client/compare/v5.3.1...v5.3.2) (2025-10-03)
+
+
+### Bug Fixes
+
+* `Invasion.eta` Datetime not duration ([ede1862](https://github.com/WFCD/warframestat_client/commit/ede1862c975e40c79a3ddd622038eff540761e78))
+
 ## [5.3.1](https://github.com/WFCD/warframestat_client/compare/v5.3.0...v5.3.1) (2025-10-03)
 
 
