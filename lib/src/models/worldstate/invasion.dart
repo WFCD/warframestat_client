@@ -65,18 +65,16 @@ class Invasion extends WorldstateObject {
   final bool vsInfestation;
 
   /// Rough ETA estimate
-  String get eta => formatDuration(Duration(milliseconds: _remainingTime.floor()));
-
-  /// Creates a Json map from a Invasion
-  Map<String, dynamic> toJson() => _$InvasionToJson(this);
-
-  double get _remainingTime {
+  Duration get eta {
     final completedRuns = count.abs();
     final elapsedMillies = activation.difference(DateTime.timestamp()).inMilliseconds;
     final remainingRuns = requiredRuns - completedRuns;
 
-    return remainingRuns * (elapsedMillies / completedRuns);
+    return Duration(milliseconds: remainingRuns * (elapsedMillies / completedRuns).floor());
   }
+
+  /// Creates a Json map from a Invasion
+  Map<String, dynamic> toJson() => _$InvasionToJson(this);
 
   @override
   List<Object?> get props {
