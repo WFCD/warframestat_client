@@ -67,7 +67,7 @@ Item toItem(Map<String, dynamic> item) {
     case ItemType.rifle:
     case ItemType.archGun:
     case ItemType.shotgun:
-      return Primary.fromJson(item);
+      return isBuildable ? PrimaryBuildable.fromJson(item) : Primary.fromJson(item);
 
     case ItemType.pistol:
     case ItemType.dualPistols:
