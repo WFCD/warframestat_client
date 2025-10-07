@@ -1,3 +1,11 @@
+## [5.3.3](https://github.com/WFCD/warframestat_client/compare/v5.3.2...v5.3.3) (2025-10-07)
+
+
+### Bug Fixes
+
+* `TraderItem.uniqueName` is no longer nullable ([1bffdad](https://github.com/WFCD/warframestat_client/commit/1bffdad3a3f3c1bf7c95cbaef32e6489a472579d))
+* handle buildable primaries properly ([4462adc](https://github.com/WFCD/warframestat_client/commit/4462adc3d0180e72deeb851546c7398078ee92dd))
+
 ## [5.3.2](https://github.com/WFCD/warframestat_client/compare/v5.3.1...v5.3.2) (2025-10-03)
 
 
