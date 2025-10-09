@@ -31,7 +31,7 @@ enum ItemType {
   fish('Fish'),
 
   /// Glyphs category.
-  glyphs('Glyph'),
+  glyph('Glyph'),
 
   /// Misc category.
   misc('Misc'),
@@ -188,4 +188,7 @@ enum ItemType {
       this == ItemType.companionWeapon ||
       this == ItemType.archGun ||
       this == ItemType.archMelee;
+
+  /// Whether or not this item is a mod.
+  bool get isMod => name.contains('Mod');
 }

@@ -48,7 +48,7 @@ Item toItem(Map<String, dynamic> item) {
       return Archwing.fromJson(item);
     case ItemType.fish:
       return Fish.fromJson(item);
-    case ItemType.glyphs:
+    case ItemType.glyph:
       return Glyph.fromJson(item);
     case ItemType.node:
       return Node.fromJson(item);
