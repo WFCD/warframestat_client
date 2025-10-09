@@ -1,3 +1,10 @@
+## [5.3.4](https://github.com/WFCD/warframestat_client/compare/v5.3.3...v5.3.4) (2025-10-09)
+
+
+### Bug Fixes
+
+* `ItemType.glyphs` should be nonplural ([b559c77](https://github.com/WFCD/warframestat_client/commit/b559c7787b3f299fc37164e7073663035c1ba83d))
+
 ## [5.3.3](https://github.com/WFCD/warframestat_client/compare/v5.3.2...v5.3.3) (2025-10-07)
 
 
