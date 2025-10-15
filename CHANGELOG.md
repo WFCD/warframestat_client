@@ -1,3 +1,10 @@
+## [5.3.5](https://github.com/WFCD/warframestat_client/compare/v5.3.4...v5.3.5) (2025-10-15)
+
+
+### Bug Fixes
+
+* **invasions:** add a 24hr eta in case `count` is 0 ([0686ce1](https://github.com/WFCD/warframestat_client/commit/0686ce1b947ee1414924f92f4b41f450e9539f1c))
+
 ## [5.3.4](https://github.com/WFCD/warframestat_client/compare/v5.3.3...v5.3.4) (2025-10-09)
 
 
