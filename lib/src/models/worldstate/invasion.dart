@@ -68,10 +68,15 @@ class Invasion extends WorldstateObject {
   DateTime get eta {
     final now = DateTime.timestamp();
     final completedRuns = count.abs();
-    final elapsedMillies = activation.difference(now).inMilliseconds;
+    final elapsedMillies = activation.difference(now).abs().inMilliseconds;
     final remainingRuns = requiredRuns - completedRuns;
+    final remainingTime = remainingRuns * (elapsedMillies / completedRuns);
 
-    return now.add(Duration(milliseconds: remainingRuns * (elapsedMillies / completedRuns).floor()));
+    if (remainingTime == double.infinity) {
+      return now.add(const Duration(hours: Duration.hoursPerDay));
+    }
+
+    return now.add(Duration(milliseconds: remainingTime.ceil()));
   }
 
   /// Creates a Json map from a Invasion

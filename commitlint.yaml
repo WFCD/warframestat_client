@@ -10,3 +10,4 @@ rules:
       - websocket
       - profile
       - deps
+      - invasions
