@@ -154,7 +154,8 @@ enum ItemType {
   zawComponent('Zaw Component'),
 
   /// Kitgun Component
-  kitGunComponent('Kitgun Component');
+  kitGunComponent('Kitgun Component')
+  ;
 
   const ItemType(this.type);
 

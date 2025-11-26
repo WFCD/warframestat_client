@@ -7,7 +7,8 @@ final Uri _baseUrl = Uri.parse('wss://api.warframestat.us/socket');
 /// Warframestat websocket event types
 enum WarframestatEvents {
   /// Worldstate update
-  update('ws:update');
+  update('ws:update')
+  ;
 
   const WarframestatEvents(this.raw);
 

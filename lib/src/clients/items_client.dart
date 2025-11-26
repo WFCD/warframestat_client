@@ -13,44 +13,43 @@ class WarframeItemsClient extends WarframestatHttpClient {
   /// Returns a list of all warframe items.
   Future<List<Item>> fetchAllItems<T extends Item>({
     List<ItemProps>? props,
-    List<T> Function(List<Map<String, dynamic>>)? convert,
+    T Function(Map<String, dynamic>)? encoder,
   }) async {
     final only = props?.map((p) => p.name).join(',');
-    final response = await _get<List<dynamic>>('/', query: {if (only != null) 'only': only});
+    final response = await _get<List<dynamic>>('/', query: {'only': ?only});
 
-    if (convert != null) {
+    if (encoder != null) {
       final results = List<Map<String, dynamic>>.from(response.data);
-      return Isolate.run(() => convert(results));
+      return Isolate.run(() => results.map(encoder).toList());
     }
 
-    return (await Isolate.run(() => toItems(response.data))).whereType<T>().toList();
+    return (await Isolate.run(() => toItems(response.data))) as List<T>;
   }
 
   /// Returns all [Item]s that match the search query.
   ///
   /// You can narrow down [T] if you want to also filter out your specfic Item type. If you'd like bare minimum you can
-  /// set [T] to [ItemCommon], be aware that the API will still pull the full item but the code will only return
-  /// [ItemCommon] props
+  /// set [T] to [ItemCommon], be aware that the API will still pull the full item unless you set [props]
   ///
-  /// Use [props] and [convert] if you want to use your own [Item] class and reduce the amount of keys/per item the API
+  /// Use [props] and [encoder] if you want to use your own [Item] class and reduce the amount of keys/per item the API
   /// returns.
   ///
   /// * [props]:  The [Item] properties you want the API to return.
-  /// * [convert]: The fromJson function to use.
+  /// * [encoder]: The fromJson function to use.
   Future<List<T>> search<T extends Item>(
     String query, {
     List<ItemProps>? props,
-    List<T> Function(List<Map<String, dynamic>>)? convert,
+    T Function(Map<String, dynamic>)? encoder,
   }) async {
     final only = props?.map((p) => p.name).join(',');
-    final response = await _get<List<dynamic>>('/search/$query', query: {if (only != null) 'only': only});
+    final response = await _get<List<dynamic>>('/search/$query', query: {'only': ?only});
 
-    if (convert != null) {
+    if (encoder != null) {
       final results = List<Map<String, dynamic>>.from(response.data);
-      return Isolate.run(() => convert(results));
+      return Isolate.run(() => results.map(encoder).toList());
     }
 
-    return (await Isolate.run(() => toItems(response.data))).whereType<T>().toList();
+    return (await Isolate.run(() => toItems(response.data))) as List<T>;
   }
 
   /// Returns a list of all mods and mod set mods.
