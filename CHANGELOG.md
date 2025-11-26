@@ -1,3 +1,10 @@
+# [5.4.0](https://github.com/WFCD/warframestat_client/compare/v5.3.5...v5.4.0) (2025-11-26)
+
+
+### Features
+
+* `fetchAllItems` and `search` no longer take a `List<Map<String, dynamic>>` for its encoder ([c65dc76](https://github.com/WFCD/warframestat_client/commit/c65dc76f7574cf02dc42d6c68aad6eb660a9e7bc))
+
 ## [5.3.5](https://github.com/WFCD/warframestat_client/compare/v5.3.4...v5.3.5) (2025-10-15)
 
 
