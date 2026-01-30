@@ -154,7 +154,10 @@ enum ItemType {
   zawComponent('Zaw Component'),
 
   /// Kitgun Component
-  kitGunComponent('Kitgun Component')
+  kitGunComponent('Kitgun Component'),
+
+  /// Rocket launchers
+  launcher('Launcher')
   ;
 
   const ItemType(this.type);
@@ -168,7 +171,7 @@ enum ItemType {
   }
 
   /// Whether the type is a primary weapon or not
-  bool get isPrimary => this == ItemType.rifle || this == ItemType.shotgun;
+  bool get isPrimary => this == ItemType.rifle || this == ItemType.shotgun || this == ItemType.launcher;
 
   /// Whether the type is a secondary weapon or not
   bool get isSecondary =>
