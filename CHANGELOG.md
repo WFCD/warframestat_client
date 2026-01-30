@@ -1,3 +1,10 @@
+## [5.4.3](https://github.com/WFCD/warframestat_client/compare/v5.4.2...v5.4.3) (2026-01-30)
+
+
+### Bug Fixes
+
+* several issues parsing worldstate and items ([90e7d8a](https://github.com/WFCD/warframestat_client/commit/90e7d8aa57d3a62de9912fe0a6b55fa63b3cfaa8))
+
 ## [5.4.2](https://github.com/WFCD/warframestat_client/compare/v5.4.1...v5.4.2) (2026-01-30)
 
 
