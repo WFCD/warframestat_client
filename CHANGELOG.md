@@ -1,3 +1,10 @@
+## [5.4.1](https://github.com/WFCD/warframestat_client/compare/v5.4.0...v5.4.1) (2026-01-30)
+
+
+### Bug Fixes
+
+* add "Launcher" to `ItemType` ([90fc8d3](https://github.com/WFCD/warframestat_client/commit/90fc8d303874ac81b2ed266a98a75c35ac2f33d5))
+
 # [5.4.0](https://github.com/WFCD/warframestat_client/compare/v5.3.5...v5.4.0) (2025-11-26)
 
 
