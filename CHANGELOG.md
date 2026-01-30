@@ -1,3 +1,10 @@
+## [5.4.2](https://github.com/WFCD/warframestat_client/compare/v5.4.1...v5.4.2) (2026-01-30)
+
+
+### Bug Fixes
+
+* add `Bow` item type ([b694606](https://github.com/WFCD/warframestat_client/commit/b694606c07e2c76aaf80f6dd4707a53edbc0c5d1))
+
 ## [5.4.1](https://github.com/WFCD/warframestat_client/compare/v5.4.0...v5.4.1) (2026-01-30)
 
 
