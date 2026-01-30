@@ -19,7 +19,7 @@ List<Item> toItems(List<dynamic> data) {
 /// Serializes giving json values into their proper [Item] type
 Item toItem(Map<String, dynamic> item) {
   final name = item['name'] as String;
-  final uniqueName = item['uniqueName'];
+  final uniqueName = item['uniqueName'] as String;
   final category = item['category'] as String;
   final isBuildable = item['components'] != null;
 
@@ -37,6 +37,14 @@ Item toItem(Map<String, dynamic> item) {
   if (type.contains('Mod')) return Mod.fromJson(item);
   if ((item['uniqueName'] as String).contains(RegExp('MoaPetParts|ZanukaPetParts'))) {
     type = 'Pet Resource';
+  }
+
+  if (uniqueName.contains('Challenges/Seasons')) {
+    return Misc.fromJson(item);
+  }
+
+  if (uniqueName == '/Lotus/Powersuits/Choir/Choir') {
+    item['aura'] = List<String>.from(item['aura'] as List<dynamic>).join(',');
   }
 
   switch (ItemType.byType(type)) {
@@ -66,6 +74,8 @@ Item toItem(Map<String, dynamic> item) {
 
     case ItemType.rifle:
     case ItemType.archGun:
+    case ItemType.bow:
+    case ItemType.launcher:
     case ItemType.shotgun:
       return isBuildable ? PrimaryBuildable.fromJson(item) : Primary.fromJson(item);
 
