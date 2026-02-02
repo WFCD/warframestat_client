@@ -1,3 +1,10 @@
+## [5.4.4](https://github.com/WFCD/warframestat_client/compare/v5.4.3...v5.4.4) (2026-02-02)
+
+
+### Bug Fixes
+
+* add sniper `ItemType` ([ea7bf00](https://github.com/WFCD/warframestat_client/commit/ea7bf008a9c21a4d7fcd4a20843d6d53e0957941))
+
 ## [5.4.3](https://github.com/WFCD/warframestat_client/compare/v5.4.2...v5.4.3) (2026-01-30)
 
 
