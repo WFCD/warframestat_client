@@ -72,6 +72,7 @@ Item toItem(Map<String, dynamic> item) {
     case ItemType.sigils:
       return Sigil.fromJson(item);
 
+    case ItemType.sniper:
     case ItemType.rifle:
     case ItemType.archGun:
     case ItemType.bow:

@@ -160,7 +160,10 @@ enum ItemType {
   launcher('Launcher'),
 
   /// Bows
-  bow('Bow')
+  bow('Bow'),
+
+  /// Sniper
+  sniper('Sniper')
   ;
 
   const ItemType(this.type);
@@ -175,7 +178,11 @@ enum ItemType {
 
   /// Whether the type is a primary weapon or not
   bool get isPrimary =>
-      this == ItemType.rifle || this == ItemType.shotgun || this == ItemType.launcher || this == ItemType.bow;
+      this == ItemType.rifle ||
+      this == ItemType.shotgun ||
+      this == ItemType.launcher ||
+      this == ItemType.bow ||
+      this == ItemType.sniper;
 
   /// Whether the type is a secondary weapon or not
   bool get isSecondary =>
