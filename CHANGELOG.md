@@ -1,3 +1,10 @@
+## [5.4.6](https://github.com/WFCD/warframestat_client/compare/v5.4.5...v5.4.6) (2026-05-15)
+
+
+### Bug Fixes
+
+* better handling for arcanes and arcane adapters ([ed4b811](https://github.com/WFCD/warframestat_client/commit/ed4b8115bed44733e767ef4bcfa247070bd3809b))
+
 ## [5.4.5](https://github.com/WFCD/warframestat_client/compare/v5.4.4...v5.4.5) (2026-05-15)
 
 
