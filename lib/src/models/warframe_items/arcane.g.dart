@@ -25,6 +25,10 @@ Arcane _$ArcaneFromJson(Map json) => $checkedCreate('Arcane', json, (
     category: $checkedConvert('category', (v) => v as String),
     productCategory: $checkedConvert('productCategory', (v) => v as String?),
     tradable: $checkedConvert('tradable', (v) => v as bool? ?? false),
+    rarity: $checkedConvert(
+      'rarity',
+      (v) => $enumDecodeNullable(_$RarityEnumMap, v),
+    ),
     imageName: $checkedConvert('imageName', (v) => v as String?),
     drops: $checkedConvert(
       'drops',
@@ -58,6 +62,14 @@ Map<String, dynamic> _$ArcaneToJson(Arcane instance) => <String, dynamic>{
   'tradable': instance.tradable,
   'patchlogs': ?instance.patchlogs?.map((e) => e.toJson()).toList(),
   'imageName': ?instance.imageName,
+  'rarity': ?_$RarityEnumMap[instance.rarity],
   'drops': ?instance.drops?.map((e) => e.toJson()).toList(),
   'levelStats': ?instance.levelStats?.map((e) => e.toJson()).toList(),
+};
+
+const _$RarityEnumMap = {
+  Rarity.common: 'Common',
+  Rarity.uncommon: 'Uncommon',
+  Rarity.rare: 'Rare',
+  Rarity.legendary: 'Legendary',
 };

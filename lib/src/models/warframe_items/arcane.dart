@@ -17,6 +17,7 @@ class Arcane extends DroppableItem {
     required super.category,
     required super.productCategory,
     required super.tradable,
+    required super.rarity,
     super.imageName,
     super.drops,
     super.patchlogs,
