@@ -1,3 +1,10 @@
+## [5.4.5](https://github.com/WFCD/warframestat_client/compare/v5.4.4...v5.4.5) (2026-05-15)
+
+
+### Bug Fixes
+
+* add `Rarity` to `Arcane` model ([590c83f](https://github.com/WFCD/warframestat_client/commit/590c83fbd958d9bb75c27556c610cb3c5076ac65))
+
 ## [5.4.4](https://github.com/WFCD/warframestat_client/compare/v5.4.3...v5.4.4) (2026-02-02)
 
 
