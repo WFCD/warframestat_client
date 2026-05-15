@@ -32,14 +32,14 @@ Item toItem(Map<String, dynamic> item) {
   }
 
   if (category == 'Enemy') return Enemy.fromJson(item);
-  if (name.contains('Arcane')) return Arcane.fromJson(item);
+  if (category == 'Arcanes') return Arcane.fromJson(item);
   if (name.contains('Gravimag')) return ResourceBuildable.fromJson(item);
   if (type.contains('Mod')) return Mod.fromJson(item);
   if ((item['uniqueName'] as String).contains(RegExp('MoaPetParts|ZanukaPetParts'))) {
     type = 'Pet Resource';
   }
 
-  if (uniqueName.contains('Challenges/Seasons')) {
+  if (uniqueName.contains('Challenges/Seasons') || name.contains('Arcane Adapter')) {
     return Misc.fromJson(item);
   }
 
