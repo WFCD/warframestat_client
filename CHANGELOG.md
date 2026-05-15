@@ -1,3 +1,10 @@
+## [5.4.7](https://github.com/WFCD/warframestat_client/compare/v5.4.6...v5.4.7) (2026-05-15)
+
+
+### Bug Fixes
+
+* more arcane type handling ([b93fa7a](https://github.com/WFCD/warframestat_client/commit/b93fa7a946d2c1d3753a30258e986b5ad9085530))
+
 ## [5.4.6](https://github.com/WFCD/warframestat_client/compare/v5.4.5...v5.4.6) (2026-05-15)
 
 
