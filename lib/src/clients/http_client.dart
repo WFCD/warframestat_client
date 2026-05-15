@@ -29,14 +29,8 @@ abstract class WarframestatHttpClient {
   /// Fetches Warframestat API endpoint.
   Future<http.Response> get(String path, {Map<String, dynamic>? query}) async {
     final requiredQueries = {'language': language.name, if (ua != null) 'ua': ua};
-
-    if (query != null) {
-      query.addAll(requiredQueries);
-    } else {
-      query = requiredQueries;
-    }
-
-    final uri = Uri(scheme: 'https', host: authority, path: path, queryParameters: query);
+    final enforcedQueries = (query?..addAll(requiredQueries)) ?? requiredQueries;
+    final uri = Uri(scheme: 'https', host: authority, path: path, queryParameters: enforcedQueries);
 
     return _client.get(uri).timeout(_timeout);
   }
