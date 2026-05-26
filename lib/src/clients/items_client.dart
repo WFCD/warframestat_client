@@ -11,45 +11,37 @@ class WarframeItemsClient extends WarframestatHttpClient {
   WarframeItemsClient({super.language, super.ua, super.client});
 
   /// Returns a list of all warframe items.
-  Future<List<Item>> fetchAllItems<T extends Item>({
-    List<ItemProps>? props,
-    T Function(Map<String, dynamic>)? encoder,
-  }) async {
+  Future<List<ItemCommon>> fetchAllItems([List<ItemProps>? props]) async {
+    final items = await fetchAllItemsRaw(props);
+    return Isolate.run(() => List<ItemCommon>.from(toItems(items)));
+  }
+
+  /// Returns the raw map results for [fetchAllItems] before encoding
+  ///
+  /// Use [props] to control what the API returns in its response
+  Future<List<Map<String, dynamic>>> fetchAllItemsRaw([List<ItemProps>? props]) async {
     final only = props?.map((p) => p.name).join(',');
     final response = await _get<List<dynamic>>('/', query: {'only': ?only});
 
-    if (encoder != null) {
-      final results = List<Map<String, dynamic>>.from(response.data);
-      return Isolate.run(() => results.map(encoder).toList());
-    }
-
-    return (await Isolate.run(() => toItems(response.data))) as List<T>;
+    return List<Map<String, dynamic>>.from(response.data);
   }
 
-  /// Returns all [Item]s that match the search query.
+  /// Returns a [List<ItemCommon>] that match the search query.
   ///
-  /// You can narrow down [T] if you want to also filter out your specfic Item type. If you'd like bare minimum you can
-  /// set [T] to [ItemCommon], be aware that the API will still pull the full item unless you set [props]
+  /// See [searchRaw] for details on [props]
+  Future<List<ItemCommon>> search(String query, {List<ItemProps>? props}) async {
+    final results = await searchRaw(query, props: props);
+    return Isolate.run(() => List<ItemCommon>.from(toItems(results)));
+  }
+
+  /// Returns the raw response of a search query
   ///
-  /// Use [props] and [encoder] if you want to use your own [Item] class and reduce the amount of keys/per item the API
-  /// returns.
-  ///
-  /// * [props]:  The [Item] properties you want the API to return.
-  /// * [encoder]: The fromJson function to use.
-  Future<List<T>> search<T extends Item>(
-    String query, {
-    List<ItemProps>? props,
-    T Function(Map<String, dynamic>)? encoder,
-  }) async {
+  /// Use [props] to control what the API returns in its response
+  Future<List<Map<String, dynamic>>> searchRaw(String query, {List<ItemProps>? props}) async {
     final only = props?.map((p) => p.name).join(',');
-    final response = await _get<List<dynamic>>('/search/$query', query: {'only': ?only});
+    final res = await _get<List<dynamic>>('/search/$query', query: {'only': ?only});
 
-    if (encoder != null) {
-      final results = List<Map<String, dynamic>>.from(response.data);
-      return Isolate.run(() => results.map(encoder).toList());
-    }
-
-    return (await Isolate.run(() => toItems(response.data))) as List<T>;
+    return List<Map<String, dynamic>>.from(res.data);
   }
 
   /// Returns a list of all mods and mod set mods.
