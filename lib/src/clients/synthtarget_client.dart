@@ -10,7 +10,7 @@ class SynthTargetClient extends WarframestatHttpClient {
   /// Retrives a list of all synthesis target.
   Future<List<SynthTarget>> fetchTargets() async {
     final response = await get('/synthtargets');
-    final data = await jsonDecode<List<dynamic>>(response.body);
+    final data = await jsonDecode<List<dynamic>>(response.bodyBytes);
 
     return data.map((e) => SynthTarget.fromJson(e as Map<String, dynamic>)).toList();
   }

@@ -1,5 +1,7 @@
+import 'dart:convert';
+
 import 'package:test/test.dart';
-import 'package:warframestat_client/warframestat_client.dart';
+import 'package:warframestat_client/warframestat_client.dart' hide jsonDecode;
 
 import '../../helpers/profile_fixture.dart';
 
@@ -8,7 +10,7 @@ void main() {
 
   setUp(() async {
     final fixture = await ProfileFixture().loadProfile();
-    json = await jsonDecode<Map<String, dynamic>>(fixture);
+    json = jsonDecode(fixture) as Map<String, dynamic>;
   });
 
   test('data => Profile()', () {

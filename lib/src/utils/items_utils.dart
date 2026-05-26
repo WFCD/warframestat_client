@@ -9,7 +9,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 const _overrides = <String, String>{'/Lotus/Types/Items/MiscItems/CodaWeaponBucks': 'Misc'};
 
 /// Helps run json parsing on a seperate thread
-Future<T> jsonDecode<T>(String data) => Isolate.run(() => json.decode(data) as T);
+Future<T> jsonDecode<T>(List<int> data) => Isolate.run(() => utf8.decoder.fuse(json.decoder).convert(data) as T);
 
 /// Converts a json decoded list into [Item] objects
 List<Item> toItems(List<dynamic> data) {

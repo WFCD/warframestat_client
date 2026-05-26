@@ -208,6 +208,6 @@ class WorldstateClient extends WarframestatHttpClient {
   Future<T> _get<T>(String path) async {
     final response = await get('pc$path');
 
-    return jsonDecode<T>(response.body);
+    return jsonDecode<T>(response.bodyBytes);
   }
 }

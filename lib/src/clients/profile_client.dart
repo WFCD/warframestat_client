@@ -38,6 +38,6 @@ class ProfileClient extends WarframestatHttpClient {
     final response = await get('profile/$playerId$path');
     if (response.statusCode != 200) throw ProfileNotFound(playerId);
 
-    return jsonDecode<T>(response.body);
+    return jsonDecode<T>(response.bodyBytes);
   }
 }

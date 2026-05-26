@@ -163,8 +163,7 @@ enum ItemType {
   bow('Bow'),
 
   /// Sniper
-  sniper('Sniper')
-  ;
+  sniper('Sniper');
 
   const ItemType(this.type);
 

@@ -73,7 +73,7 @@ class WarframeItemsClient extends WarframestatHttpClient {
   Future<List<PowerSuit>> fetchAllWarframes({bool includeMechs = true}) async {
     final response = await get('/warframes');
 
-    final json = jsonDecode(response.body) as List<dynamic>;
+    final json = jsonDecode(response.bodyBytes) as List<dynamic>;
     final items = await Isolate.run(() => toItems(json));
 
     if (includeMechs) return List<PowerSuit>.from(items);
@@ -84,7 +84,7 @@ class WarframeItemsClient extends WarframestatHttpClient {
   /// Get data for the closest matching warframe.
   Future<Warframe> fetchWarframe(String query) async {
     final response = await get('/warframes/$query');
-    final json = jsonDecode(response.body) as Map<String, dynamic>;
+    final json = jsonDecode(response.bodyBytes) as Map<String, dynamic>;
 
     return Warframe.fromJson(json);
   }
@@ -96,7 +96,7 @@ class WarframeItemsClient extends WarframestatHttpClient {
   /// return the base class of the two.
   Future<List<PowerSuit>> searchWarframes(String query) async {
     final response = await get('/warframes/search/$query');
-    final json = jsonDecode(response.body) as List<Map<String, dynamic>>;
+    final json = jsonDecode(response.bodyBytes) as List<Map<String, dynamic>>;
     final items = await Isolate.run(() => toItems(json));
 
     return items.whereType<PowerSuit>().toList();
@@ -109,7 +109,7 @@ class WarframeItemsClient extends WarframestatHttpClient {
   /// ISOLATE.
   Future<List<Item>> fetchAllWeapons() async {
     final response = await get('/weapons');
-    final json = jsonDecode(response.body) as List<dynamic>;
+    final json = jsonDecode(response.bodyBytes) as List<dynamic>;
 
     return Isolate.run(() => toItems(json));
   }
@@ -122,7 +122,7 @@ class WarframeItemsClient extends WarframestatHttpClient {
   ///   that is not a [Weapon] type
   Future<Weapon> fetchWeapon(String query) async {
     final response = await get('/weapons/$query');
-    final json = jsonDecode(response.body) as Map<String, dynamic>;
+    final json = jsonDecode(response.bodyBytes) as Map<String, dynamic>;
     final item = await Isolate.run(() => toItem(json)) as ItemCommon;
 
     return switch (item) {
@@ -154,6 +154,6 @@ class WarframeItemsClient extends WarframestatHttpClient {
   Future<({int statusCode, T data})> _get<T>(String path, {Map<String, dynamic>? query}) async {
     final response = await get('/items$path', query: query);
 
-    return (statusCode: response.statusCode, data: await jsonDecode<T>(response.body));
+    return (statusCode: response.statusCode, data: await jsonDecode<T>(response.bodyBytes));
   }
 }

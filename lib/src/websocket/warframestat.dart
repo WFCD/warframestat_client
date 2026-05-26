@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:warframestat_client/warframestat_client.dart';
 import 'package:web_socket_client/web_socket_client.dart';
 
@@ -7,8 +9,7 @@ final Uri _baseUrl = Uri.parse('wss://api.warframestat.us/socket');
 /// Warframestat websocket event types
 enum WarframestatEvents {
   /// Worldstate update
-  update('ws:update')
-  ;
+  update('ws:update');
 
   const WarframestatEvents(this.raw);
 
@@ -45,7 +46,7 @@ class WarframestatWebsocket {
   /// Complete stream of websocket events filterd down to the packets themselves
   Stream<Map<String, dynamic>> packets(WarframestatEvents event) {
     return _websocket.messages
-        .asyncMap((e) => jsonDecode<Map<String, dynamic>>(e as String))
+        .asyncMap((e) => json.decode(e as String) as Map<String, dynamic>)
         .where((e) => e['event'] == event.raw)
         .map((e) => e['packet'] as Map<String, dynamic>);
   }
