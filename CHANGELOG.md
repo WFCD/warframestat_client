@@ -1,3 +1,15 @@
+# [5.5.0](https://github.com/WFCD/warframestat_client/compare/v5.4.7...v5.5.0) (2026-05-26)
+
+
+### Features
+
+* split `fetchAllItems` and `searhc` into Item and raw functions ([bb6dda7](https://github.com/WFCD/warframestat_client/commit/bb6dda75204dda68cdf78aa0545002392cdab18e))
+
+
+### Performance Improvements
+
+* hopefully optimized json parsing a bit ([bbd65db](https://github.com/WFCD/warframestat_client/commit/bbd65db0c919df1cd8b9ce9876d0dfcc7942287e))
+
 ## [5.4.7](https://github.com/WFCD/warframestat_client/compare/v5.4.6...v5.4.7) (2026-05-15)
 
 
