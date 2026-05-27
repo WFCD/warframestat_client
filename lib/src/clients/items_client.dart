@@ -11,8 +11,8 @@ class WarframeItemsClient extends WarframestatHttpClient {
   WarframeItemsClient({super.language, super.ua, super.client});
 
   /// Returns a list of all warframe items.
-  Future<List<ItemCommon>> fetchAllItems([List<ItemProps>? props]) async {
-    final items = await fetchAllItemsRaw(props);
+  Future<List<ItemCommon>> fetchAllItems() async {
+    final items = await fetchAllItemsRaw();
     return Isolate.run(() => List<ItemCommon>.from(toItems(items)));
   }
 
@@ -27,10 +27,8 @@ class WarframeItemsClient extends WarframestatHttpClient {
   }
 
   /// Returns a [List<ItemCommon>] that match the search query.
-  ///
-  /// See [searchRaw] for details on [props]
-  Future<List<ItemCommon>> search(String query, {List<ItemProps>? props}) async {
-    final results = await searchRaw(query, props: props);
+  Future<List<ItemCommon>> search(String query) async {
+    final results = await searchRaw(query);
     return Isolate.run(() => List<ItemCommon>.from(toItems(results)));
   }
 
