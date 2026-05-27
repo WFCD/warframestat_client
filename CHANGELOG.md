@@ -1,3 +1,10 @@
+## [5.5.1](https://github.com/WFCD/warframestat_client/compare/v5.5.0...v5.5.1) (2026-05-27)
+
+
+### Bug Fixes
+
+* `search` and `allItems` should not use custom props ([4ed2998](https://github.com/WFCD/warframestat_client/commit/4ed2998c1863aed1ecac487f0d1b498802f699ec))
+
 # [5.5.0](https://github.com/WFCD/warframestat_client/compare/v5.4.7...v5.5.0) (2026-05-26)
 
 
