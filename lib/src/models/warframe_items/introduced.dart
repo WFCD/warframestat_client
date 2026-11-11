@@ -10,16 +10,10 @@ part 'introduced.g.dart';
 @JsonSerializable()
 class Introduced extends Equatable {
   /// {@macro introduced}
-  const Introduced({
-    required this.name,
-    required this.url,
-    required this.aliases,
-    required this.parent,
-    required this.date,
-  });
+  const new({required this.name, required this.url, required this.aliases, required this.parent, required this.date});
 
   /// Creates [Introduced] from a json map.
-  factory Introduced.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$IntroducedFromJson(json);
   }
 

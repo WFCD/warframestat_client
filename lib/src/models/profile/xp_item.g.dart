@@ -4,7 +4,6 @@
 
 // dart format off
 
-
 part of 'xp_item.dart';
 
 // **************************************************************************
@@ -20,7 +19,7 @@ XpItem _$XpItemFromJson(Map json) =>
           'item',
           (v) => _$JsonConverterFromJson<Map<String, dynamic>, Item>(
             v,
-            const ItemConverter().fromJson,
+            const ItemConverter<Item>().fromJson,
           ),
         ),
       );
@@ -32,7 +31,7 @@ Map<String, dynamic> _$XpItemToJson(XpItem instance) => <String, dynamic>{
   'xp': instance.xp,
   'item': ?_$JsonConverterToJson<Map<String, dynamic>, Item>(
     instance.item,
-    const ItemConverter().toJson,
+    const ItemConverter<Item>().toJson,
   ),
 };
 

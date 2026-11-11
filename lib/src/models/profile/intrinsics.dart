@@ -9,7 +9,7 @@ part 'intrinsics.g.dart';
 @JsonSerializable()
 class Intrinsics extends Equatable {
   /// {@macro intrinsics}
-  const Intrinsics({
+  const new({
     required this.railjack,
     required this.engineering,
     required this.gunnery,
@@ -24,7 +24,7 @@ class Intrinsics extends Equatable {
   });
 
   /// Get [Intrinsics] from json
-  factory Intrinsics.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$IntrinsicsFromJson(json);
   }
 

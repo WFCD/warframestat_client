@@ -9,7 +9,7 @@ part 'pet_resource.g.dart';
 @JsonSerializable()
 class PetResources extends ItemCommon {
   /// {@macro petresource}
-  const PetResources({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -26,7 +26,7 @@ class PetResources extends ItemCommon {
   });
 
   /// Creates [PetResources] from a json map.
-  factory PetResources.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$PetResourcesFromJson(json);
   }
 
@@ -41,7 +41,7 @@ class PetResources extends ItemCommon {
 @JsonSerializable()
 class PetResourcesBuildable extends BuildableItem implements PetResources {
   /// {@macro petresourcebuildable}
-  const PetResourcesBuildable({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -69,7 +69,7 @@ class PetResourcesBuildable extends BuildableItem implements PetResources {
   }) : super(isPrime: isPrime ?? false);
 
   /// Creates [PetResourcesBuildable] from a json map.
-  factory PetResourcesBuildable.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$PetResourcesBuildableFromJson(json);
   }
 

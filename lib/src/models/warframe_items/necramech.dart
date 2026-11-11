@@ -9,7 +9,7 @@ part 'necramech.g.dart';
 @JsonSerializable()
 class Necramech extends PowerSuit {
   /// {@macro necromech}
-  const Necramech({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -44,7 +44,7 @@ class Necramech extends PowerSuit {
   });
 
   /// Creates a Necromech from Json map
-  factory Necramech.fromJson(Map<String, dynamic> data) {
+  factory fromJson(Map<String, dynamic> data) {
     return _$NecramechFromJson(data);
   }
 

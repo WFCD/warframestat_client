@@ -12,7 +12,7 @@ part 'arsenal.g.dart';
 @JsonSerializable()
 class Arsenal extends Equatable {
   /// {@macro arsenal}
-  const Arsenal({
+  const new({
     required this.weaponSkins,
     required this.suits,
     required this.primary,
@@ -22,7 +22,7 @@ class Arsenal extends Equatable {
   });
 
   /// Creates an instance from json map
-  factory Arsenal.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ArsenalFromJson(json);
   }
 

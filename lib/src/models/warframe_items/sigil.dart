@@ -9,7 +9,7 @@ part 'sigil.g.dart';
 @JsonSerializable()
 class Sigil extends DroppableItem {
   /// {@macro sigil}
-  const Sigil({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -23,7 +23,7 @@ class Sigil extends DroppableItem {
   });
 
   /// Creates a Sigil from Json map
-  factory Sigil.fromJson(Map<String, dynamic> data) => _$SigilFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$SigilFromJson(data);
 
   /// Creates a Json map from a Sigil
   @override

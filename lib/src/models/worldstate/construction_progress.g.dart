@@ -4,7 +4,6 @@
 
 // dart format off
 
-
 part of 'construction_progress.dart';
 
 // **************************************************************************

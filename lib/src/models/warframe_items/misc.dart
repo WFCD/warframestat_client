@@ -9,7 +9,7 @@ part 'misc.g.dart';
 @JsonSerializable()
 class Misc extends ItemCommon {
   /// {@macro misc}
-  const Misc({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -26,7 +26,7 @@ class Misc extends ItemCommon {
   });
 
   /// Creates a Misc from Json map
-  factory Misc.fromJson(Map<String, dynamic> data) => _$MiscFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$MiscFromJson(data);
 
   /// Creates a Json map from a Misc
   @override

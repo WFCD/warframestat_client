@@ -5,7 +5,7 @@ import 'package:warframestat_client/src/utils/items_utils.dart';
 /// Converts [Item] to their proper types
 class ItemConverter<T extends Item> extends JsonConverter<Item, Map<String, dynamic>> {
   ///
-  const ItemConverter();
+  const new();
 
   @override
   Item fromJson(Map<String, dynamic> json) => toItem(json);

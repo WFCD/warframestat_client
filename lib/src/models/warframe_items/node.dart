@@ -9,7 +9,7 @@ part 'node.g.dart';
 @JsonSerializable()
 class Node implements ItemCommon {
   /// {@macro node}
-  const Node({
+  const new({
     required this.uniqueName,
     required this.name,
     required this.type,
@@ -27,7 +27,7 @@ class Node implements ItemCommon {
   });
 
   /// Creates a Node from Json map
-  factory Node.fromJson(Map<String, dynamic> data) => _$NodeFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$NodeFromJson(data);
 
   /// Unique name used within the game.
   @override

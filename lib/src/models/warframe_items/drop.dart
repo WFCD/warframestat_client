@@ -12,10 +12,10 @@ part 'drop.g.dart';
 @JsonSerializable()
 class Drop extends Equatable {
   /// {@macro drop}
-  const Drop({required this.location, required this.type, this.uniqueName, this.rarity, this.chance, this.rotation});
+  const new({required this.location, required this.type, this.uniqueName, this.rarity, this.chance, this.rotation});
 
   /// Creates a [Drop] from a json map.
-  factory Drop.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$DropFromJson(json);
   }
 

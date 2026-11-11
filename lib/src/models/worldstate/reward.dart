@@ -9,7 +9,7 @@ part 'reward.g.dart';
 @JsonSerializable()
 class Reward extends Equatable {
   /// {@macro reward}
-  const Reward({
+  const new({
     required this.items,
     required this.countedItems,
     required this.credits,
@@ -18,7 +18,7 @@ class Reward extends Equatable {
   });
 
   /// Creates a [Reward] from json map.
-  factory Reward.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$RewardFromJson(json);
   }
 
@@ -56,10 +56,10 @@ class Reward extends Equatable {
 @JsonSerializable()
 class CountedItem extends Equatable {
   /// {@macro counted_item}
-  const CountedItem({required this.count, required this.type, required this.key});
+  const new({required this.count, required this.type, required this.key});
 
   /// [CountedItem] from a json map
-  factory CountedItem.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$CountedItemFromJson(json);
   }
 

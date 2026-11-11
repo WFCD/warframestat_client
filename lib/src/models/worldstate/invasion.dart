@@ -10,7 +10,7 @@ part 'invasion.g.dart';
 @JsonSerializable()
 class Invasion extends WorldstateObject {
   /// {@macro invasion}
-  const Invasion({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required this.attacker,
@@ -26,7 +26,7 @@ class Invasion extends WorldstateObject {
   });
 
   /// Creates a Invasion from Json map
-  factory Invasion.fromJson(Map<String, dynamic> json) => _$InvasionFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$InvasionFromJson(json);
 
   @override
   String get id => super.id!;
@@ -106,10 +106,10 @@ class Invasion extends WorldstateObject {
 @JsonSerializable()
 class InvasionFaction extends Equatable {
   /// {@macro invasionfaction}
-  const InvasionFaction({required this.reward, required this.faction, required this.factionKey});
+  const new({required this.reward, required this.faction, required this.factionKey});
 
   /// Creates an [InvasionFaction] from a json map.
-  factory InvasionFaction.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$InvasionFactionFromJson(json);
   }
 

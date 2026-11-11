@@ -9,7 +9,7 @@ part 'sortie.g.dart';
 @JsonSerializable()
 class Sortie extends WorldstateObject {
   /// {@macro sortie}
-  const Sortie({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -22,7 +22,7 @@ class Sortie extends WorldstateObject {
   });
 
   /// Creates a [Sortie] from Json map
-  factory Sortie.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$SortieFromJson(json);
   }
 

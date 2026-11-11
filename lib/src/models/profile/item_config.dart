@@ -10,7 +10,7 @@ part 'item_config.g.dart';
 @JsonSerializable()
 class ItemConfig extends Equatable {
   /// {@macro item_config}
-  const ItemConfig({
+  const new({
     required this.skins,
     required this.conclaveUpgrades,
     required this.primaryColor,
@@ -20,7 +20,7 @@ class ItemConfig extends Equatable {
   });
 
   /// Creates an [ItemConfig] from a json map
-  factory ItemConfig.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ItemConfigFromJson(json);
   }
 

@@ -9,7 +9,7 @@ part 'daily_deal.g.dart';
 @JsonSerializable()
 class DailyDeal extends WorldstateObject {
   /// {@macro daily_deals}
-  const DailyDeal({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -23,7 +23,7 @@ class DailyDeal extends WorldstateObject {
   });
 
   /// Creates a DailyDeals from Json map
-  factory DailyDeal.fromJson(Map<String, dynamic> json) => _$DailyDealFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$DailyDealFromJson(json);
 
   @override
   String get id => super.id!;

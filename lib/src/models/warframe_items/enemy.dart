@@ -10,7 +10,7 @@ part 'enemy.g.dart';
 @JsonSerializable()
 class Enemy extends DroppableItem {
   /// {@macro enemy}
-  const Enemy({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -29,7 +29,7 @@ class Enemy extends DroppableItem {
   });
 
   /// Creates an [Enemy] from a json map.
-  factory Enemy.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$EnemyFromJson(json);
   }
 
@@ -61,10 +61,10 @@ class Enemy extends DroppableItem {
 @JsonSerializable()
 class Resistance extends Equatable {
   /// {@macro resistance}
-  const Resistance({required this.amount, required this.type, required this.affectors});
+  const new({required this.amount, required this.type, required this.affectors});
 
   /// Creates [Resistance] from json map.
-  factory Resistance.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ResistanceFromJson(json);
   }
 
@@ -90,10 +90,10 @@ class Resistance extends Equatable {
 @JsonSerializable()
 class Affector extends Equatable {
   /// {@macro affector}
-  const Affector({required this.element, required this.modifier});
+  const new({required this.element, required this.modifier});
 
   /// Creates [Affector] from json map.
-  factory Affector.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$AffectorFromJson(json);
   }
 

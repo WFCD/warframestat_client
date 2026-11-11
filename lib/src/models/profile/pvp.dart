@@ -9,10 +9,10 @@ part 'pvp.g.dart';
 @JsonSerializable()
 class Pvp extends Equatable {
   /// {@macro conclave}
-  const Pvp({required this.uniqueName, required this.suitDeaths, required this.suitKills, required this.weaponKills});
+  const new({required this.uniqueName, required this.suitDeaths, required this.suitKills, required this.weaponKills});
 
   /// Creates an instance of [Pvp]
-  factory Pvp.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$PvpFromJson(json);
   }
 

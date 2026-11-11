@@ -18,7 +18,7 @@ enum ZarimanState {
 @JsonSerializable()
 class ZarimanCycle extends WorldstateObject {
   /// {@macro zariman_cycle}
-  const ZarimanCycle({
+  const new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -27,7 +27,7 @@ class ZarimanCycle extends WorldstateObject {
   });
 
   /// Creates a ZarimanCycle from Json map
-  factory ZarimanCycle.fromJson(Map<String, dynamic> json) => _$ZarimanCycleFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$ZarimanCycleFromJson(json);
 
   @override
   String get id => super.id!;

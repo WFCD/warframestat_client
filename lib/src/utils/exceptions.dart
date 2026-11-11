@@ -5,7 +5,7 @@ import 'package:warframestat_client/src/utils/item_type.dart';
 /// {@endtemplate}
 class ItemNotFound implements Exception {
   /// {@macro item_not_found}
-  const ItemNotFound(this.name);
+  const new(this.name);
 
   /// Item name or uniqueName.
   final String name;
@@ -19,7 +19,7 @@ class ItemNotFound implements Exception {
 /// {@endtemplate}
 class WeaponNotValid implements Exception {
   /// {@macro weapon_not_valid}
-  const WeaponNotValid(this.name, this.type);
+  const new(this.name, this.type);
 
   /// Item name
   final String name;
@@ -36,7 +36,7 @@ class WeaponNotValid implements Exception {
 /// {@endtemplate}
 class ProfileNotFound implements Exception {
   /// {@macro profile_not_found}
-  const ProfileNotFound(this.playerId);
+  const new(this.playerId);
 
   /// The player ID that was not found.
   final String playerId;

@@ -8,7 +8,7 @@ part 'mod.g.dart';
 /// {@endtemplate}
 abstract class BaseMod extends DroppableItem {
   /// {@macro basemod}
-  const BaseMod({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -40,7 +40,7 @@ abstract class BaseMod extends DroppableItem {
 @JsonSerializable()
 class Mod extends BaseMod {
   /// {@macro mod}
-  const Mod({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -67,7 +67,7 @@ class Mod extends BaseMod {
   });
 
   /// Creates a Mod from Json map
-  factory Mod.fromJson(Map<String, dynamic> data) => _$ModFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$ModFromJson(data);
 
   /// The polarity of the given [Mod].
   final String? polarity;
@@ -110,7 +110,7 @@ class Mod extends BaseMod {
 @JsonSerializable()
 class ModSet extends BaseMod {
   /// {@macro modset}
-  const ModSet({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -129,7 +129,7 @@ class ModSet extends BaseMod {
   });
 
   /// Creates a [ModSet] from json.
-  factory ModSet.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ModSetFromJson(json);
   }
 

@@ -8,7 +8,7 @@ part 'gun.g.dart';
 /// {@endtemplate}
 abstract class Gun extends Weapon {
   /// {@macro gun}
-  const Gun({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -72,7 +72,7 @@ abstract class Gun extends Weapon {
 @JsonSerializable()
 class GunAttack extends Attack {
   /// {@macro gunattack}
-  const GunAttack({
+  const new({
     required super.name,
     required super.critChance,
     required super.critMult,
@@ -85,7 +85,7 @@ class GunAttack extends Attack {
   });
 
   /// Create a GunAttack from a json map
-  factory GunAttack.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$GunAttackFromJson(json);
   }
 

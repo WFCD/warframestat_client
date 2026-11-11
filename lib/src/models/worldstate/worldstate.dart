@@ -10,7 +10,7 @@ part 'worldstate.g.dart';
 @JsonSerializable()
 class Worldstate extends Equatable {
   /// {@macro worldstate}
-  const Worldstate({
+  const new({
     required this.timestamp,
     required this.buildLabel,
     required this.alerts,
@@ -48,7 +48,7 @@ class Worldstate extends Equatable {
   });
 
   /// Creates a Worldstate from Json map
-  factory Worldstate.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$WorldstateFromJson(json);
   }
 

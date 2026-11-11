@@ -7,7 +7,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 abstract class Item extends Equatable {
   /// {@macro item}
-  const Item();
+  const new();
 }
 
 /// {@template item_common}
@@ -15,7 +15,7 @@ abstract class Item extends Equatable {
 /// {@endtemplate}
 abstract class ItemCommon extends Item {
   /// {@macro item_common}
-  const ItemCommon({
+  const new({
     required this.uniqueName,
     required this.name,
     required this.description,
@@ -100,7 +100,7 @@ abstract class ItemCommon extends Item {
 /// {@endtemplate}
 abstract class EquipableItem extends ItemCommon {
   /// {@macro equipableitem}
-  const EquipableItem({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -134,7 +134,7 @@ abstract class EquipableItem extends ItemCommon {
 /// {@endtemplate}
 abstract class DroppableItem extends ItemCommon {
   /// {@macro droppableitem}
-  const DroppableItem({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -172,7 +172,7 @@ abstract class DroppableItem extends ItemCommon {
 /// {@endtemplate}
 abstract class BuildableItem extends EquipableItem {
   /// {@macro buildableitem}
-  const BuildableItem({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,

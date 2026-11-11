@@ -4,7 +4,6 @@
 
 // dart format off
 
-
 part of 'skin.dart';
 
 // **************************************************************************
@@ -19,7 +18,7 @@ ArsenalSkin _$ArsenalSkinFromJson(Map json) =>
           'item',
           (v) => _$JsonConverterFromJson<Map<String, dynamic>, Item>(
             v,
-            const ItemConverter().fromJson,
+            const ItemConverter<Item>().fromJson,
           ),
         ),
       );
@@ -31,7 +30,7 @@ Map<String, dynamic> _$ArsenalSkinToJson(ArsenalSkin instance) =>
       'uniqueName': instance.uniqueName,
       'item': ?_$JsonConverterToJson<Map<String, dynamic>, Item>(
         instance.item,
-        const ItemConverter().toJson,
+        const ItemConverter<Item>().toJson,
       ),
     };
 

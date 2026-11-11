@@ -10,7 +10,7 @@ part 'nightwave.g.dart';
 @JsonSerializable()
 class Nightwave extends WorldstateObject {
   /// {@macro nightwave}
-  const Nightwave({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -23,7 +23,7 @@ class Nightwave extends WorldstateObject {
   });
 
   /// Creates a Nightwave from Json map
-  factory Nightwave.fromJson(Map<String, dynamic> json) => _$NightwaveFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$NightwaveFromJson(json);
 
   @override
   String get id => super.id!;
@@ -77,7 +77,7 @@ class Nightwave extends WorldstateObject {
 @JsonSerializable()
 class Challenge extends WorldstateObject {
   /// {@macro challenge}
-  const Challenge({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -89,7 +89,7 @@ class Challenge extends WorldstateObject {
   });
 
   /// Creates a Challenge from Json map.
-  factory Challenge.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ChallengeFromJson(json);
   }
 

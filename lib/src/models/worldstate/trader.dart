@@ -9,7 +9,7 @@ part 'trader.g.dart';
 @JsonSerializable()
 class Trader extends WorldstateObject {
   /// {@macro void_trader}
-  const Trader({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -21,7 +21,7 @@ class Trader extends WorldstateObject {
   });
 
   /// Creates a VoidTrader from Json map
-  factory Trader.fromJson(Map<String, dynamic> json) => _$TraderFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$TraderFromJson(json);
 
   @override
   String get id => super.id!;

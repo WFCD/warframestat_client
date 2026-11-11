@@ -10,7 +10,7 @@ part 'world_event.g.dart';
 @JsonSerializable()
 class WorldEvent extends WorldstateObject {
   /// {@macro event}
-  const WorldEvent({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -49,7 +49,7 @@ class WorldEvent extends WorldstateObject {
   });
 
   /// Creates a Event from Json map
-  factory WorldEvent.fromJson(Map<String, dynamic> json) => _$WorldEventFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$WorldEventFromJson(json);
 
   @override
   String get id => super.id!;
@@ -240,10 +240,10 @@ class WorldEvent extends WorldstateObject {
 @JsonSerializable()
 class InterimStep extends Equatable {
   /// {@macro interimstep}
-  const InterimStep({required this.goal, required this.reward, required this.message});
+  const new({required this.goal, required this.reward, required this.message});
 
   /// Creates an InterimStep from a json map.
-  factory InterimStep.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$InterimStepFromJson(json);
   }
 
@@ -269,7 +269,7 @@ class InterimStep extends Equatable {
 @JsonSerializable()
 class Message extends Equatable {
   /// {@macro interimstep}
-  const Message({
+  const new({
     required this.sender,
     required this.subject,
     required this.message,
@@ -278,7 +278,7 @@ class Message extends Equatable {
   });
 
   /// Creates a [Message] from a JSON map.
-  factory Message.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$MessageFromJson(json);
   }
 
@@ -315,10 +315,10 @@ class Message extends Equatable {
 @JsonSerializable()
 class ProgressStep extends Equatable {
   /// {@macro progressstep}
-  const ProgressStep({required this.type, required this.progressAmt});
+  const new({required this.type, required this.progressAmt});
 
   /// Creates [ProgressStep] from a json map.
-  factory ProgressStep.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ProgressStepFromJson(json);
   }
 
@@ -340,10 +340,10 @@ class ProgressStep extends Equatable {
 @JsonSerializable()
 class NextAlt extends Equatable {
   /// {@macro nextalt}
-  const NextAlt({required this.activation, required this.expiry});
+  const new({required this.activation, required this.expiry});
 
   /// Creates [NextAlt] from json map.
-  factory NextAlt.fromJson(Map<String, dynamic> json) => _$NextAltFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$NextAltFromJson(json);
 
   /// The next alt activation time.
   final DateTime activation;

@@ -9,7 +9,7 @@ part 'pet.g.dart';
 @JsonSerializable()
 class Pet extends Companion {
   /// {@macro pet}
-  const Pet({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -30,7 +30,7 @@ class Pet extends Companion {
   });
 
   /// Creates a Pet from Json map
-  factory Pet.fromJson(Map<String, dynamic> data) => _$PetFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$PetFromJson(data);
 
   /// Armor health.
   final int armor;

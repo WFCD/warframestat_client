@@ -9,7 +9,7 @@ part 'fish.g.dart';
 @JsonSerializable()
 class Fish extends ItemCommon {
   /// {@macro fish}
-  const Fish({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -26,7 +26,7 @@ class Fish extends ItemCommon {
   });
 
   /// Create [Fish] from json map.
-  factory Fish.fromJson(Map<String, dynamic> json) => _$FishFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$FishFromJson(json);
 
   /// Create a json map from [Fish].
   @override

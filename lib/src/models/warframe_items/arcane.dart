@@ -9,7 +9,7 @@ part 'arcane.g.dart';
 @JsonSerializable()
 class Arcane extends DroppableItem {
   /// {@macro arcane}
-  const Arcane({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -25,7 +25,7 @@ class Arcane extends DroppableItem {
   });
 
   /// Creates an [Arcane] from a json map.
-  factory Arcane.fromJson(Map<String, dynamic> json) => _$ArcaneFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$ArcaneFromJson(json);
 
   /// Rank information on an [Arcane]'s levels.
   final List<LevelStat>? levelStats;

@@ -9,7 +9,7 @@ part 'flash_sale.g.dart';
 @JsonSerializable()
 class FlashSale extends WorldstateObject {
   /// {@macro flash_sale}
-  const FlashSale({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -23,7 +23,7 @@ class FlashSale extends WorldstateObject {
   });
 
   /// Creates a FlashSale from Json map
-  factory FlashSale.fromJson(Map<String, dynamic> json) => _$FlashSaleFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$FlashSaleFromJson(json);
 
   @override
   String get id => super.id!;

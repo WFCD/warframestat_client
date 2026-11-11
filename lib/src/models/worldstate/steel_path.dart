@@ -10,7 +10,7 @@ part 'steel_path.g.dart';
 @JsonSerializable()
 class SteelPath extends WorldstateObject {
   /// {@macro steel_path}
-  const SteelPath({
+  const new({
     required DateTime super.activation,
     required DateTime super.expiry,
     required this.currentReward,
@@ -20,7 +20,7 @@ class SteelPath extends WorldstateObject {
   }) : super(id: '');
 
   /// Creates a SteelPath from Json map
-  factory SteelPath.fromJson(Map<String, dynamic> json) => _$SteelPathFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$SteelPathFromJson(json);
 
   @override
   DateTime get activation => super.activation!;
@@ -53,10 +53,10 @@ class SteelPath extends WorldstateObject {
 @JsonSerializable()
 class SteelPathReward extends Equatable {
   /// {@macro steelpathreward}
-  const SteelPathReward({required this.name, required this.cost});
+  const new({required this.name, required this.cost});
 
   /// Creates a [SteelPathReward] from a json map.
-  factory SteelPathReward.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$SteelPathRewardFromJson(json);
   }
 
@@ -79,10 +79,10 @@ class SteelPathReward extends Equatable {
 @JsonSerializable()
 class Incursion extends WorldstateObject {
   /// {@macro incursion}
-  const Incursion({required String super.id, required DateTime super.activation, required DateTime super.expiry});
+  const new({required String super.id, required DateTime super.activation, required DateTime super.expiry});
 
   /// Creates a [Incursion] from a json map.
-  factory Incursion.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$IncursionFromJson(json);
   }
 

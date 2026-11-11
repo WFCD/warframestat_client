@@ -9,7 +9,7 @@ part 'warframe.g.dart';
 @JsonSerializable()
 class Warframe extends PowerSuit {
   /// {@macro warframe}
-  const Warframe({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -51,7 +51,7 @@ class Warframe extends PowerSuit {
   });
 
   /// Creates a Warframe from Json map
-  factory Warframe.fromJson(Map<String, dynamic> data) => _$WarframeFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$WarframeFromJson(data);
 
   /// Aura slot polarity
   final String? aura;

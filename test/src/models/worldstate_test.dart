@@ -9,7 +9,7 @@ void main() {
   late Map<String, dynamic> jsonMap;
 
   setUp(() async {
-    final fixture = await WarframestatFixture().loadWorldstate();
+    final fixture = WarframestatFixture().loadWorldstate();
 
     jsonMap = json.decode(fixture) as Map<String, dynamic>;
   });

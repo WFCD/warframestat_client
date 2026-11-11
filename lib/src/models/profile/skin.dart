@@ -11,10 +11,10 @@ part 'skin.g.dart';
 @JsonSerializable()
 class ArsenalSkin extends Equatable {
   /// {@macro weapon_skin}
-  const ArsenalSkin({required this.uniqueName, required this.item});
+  const new({required this.uniqueName, required this.item});
 
   /// Creates an instance from a json map
-  factory ArsenalSkin.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ArsenalSkinFromJson(json);
   }
 

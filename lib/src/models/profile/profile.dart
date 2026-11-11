@@ -39,7 +39,7 @@ typedef Syndicate = ({String name, int standing, int title});
 @JsonSerializable()
 class Profile extends Equatable {
   /// {@macro profile_data}
-  const Profile({
+  const new({
     required this.accountId,
     required this.username,
     required this.masteryRank,
@@ -70,7 +70,7 @@ class Profile extends Equatable {
   });
 
   /// Get [Profile] from json
-  factory Profile.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ProfileFromJson(json);
   }
 

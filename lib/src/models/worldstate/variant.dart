@@ -9,15 +9,10 @@ part 'variant.g.dart';
 @JsonSerializable()
 class Variant extends Equatable {
   /// {@macro variant}
-  const Variant({
-    required this.missionType,
-    required this.modifier,
-    required this.modifierDescription,
-    required this.node,
-  });
+  const new({required this.missionType, required this.modifier, required this.modifierDescription, required this.node});
 
   /// Creates a Variant from Json map
-  factory Variant.fromJson(Map<String, dynamic> data) => _$VariantFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$VariantFromJson(data);
 
   /// A description for missionType
   final String missionType;

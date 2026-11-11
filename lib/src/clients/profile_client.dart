@@ -7,7 +7,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 class ProfileClient extends WarframestatHttpClient {
   /// {@macro profile_client}
-  ProfileClient({required this.playerId, super.language, super.ua, super.client});
+  new({required this.playerId, super.language, super.ua, super.client});
 
   /// Player username
   final String playerId;
@@ -38,6 +38,6 @@ class ProfileClient extends WarframestatHttpClient {
     final response = await get('profile/$playerId$path');
     if (response.statusCode != 200) throw ProfileNotFound(playerId);
 
-    return jsonDecode<T>(response.bodyBytes);
+    return await jsonDecode<T>(response.bodyBytes);
   }
 }

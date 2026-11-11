@@ -165,7 +165,7 @@ enum ItemType {
   /// Sniper
   sniper('Sniper');
 
-  const ItemType(this.type);
+  new(this.type);
 
   /// Item Category name.
   final String type;

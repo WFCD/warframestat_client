@@ -9,7 +9,7 @@ part 'amp.g.dart';
 @JsonSerializable()
 class Amp extends Secondary {
   /// {@macro amp}
-  const Amp({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -50,7 +50,7 @@ class Amp extends Secondary {
   });
 
   /// Creates [Amp] from json data.
-  factory Amp.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$AmpFromJson(json);
   }
 
@@ -66,7 +66,7 @@ class Amp extends Secondary {
 @JsonSerializable()
 class AmpBuildable extends BuildableItem implements Amp {
   /// {@macro amp_buildable}
-  const AmpBuildable({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -114,7 +114,7 @@ class AmpBuildable extends BuildableItem implements Amp {
   });
 
   /// Creates [Amp] from json data.
-  factory AmpBuildable.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$AmpBuildableFromJson(json);
   }
 

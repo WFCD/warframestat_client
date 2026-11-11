@@ -6,7 +6,7 @@ import 'package:warframestat_client/src/models/worldstate/calendar.dart';
 /// {@endtemplate}
 class CalendarEventConverter extends JsonConverter<CalendarEvent, Map<String, dynamic>> {
   /// {@macro calendar_event_converter}
-  const CalendarEventConverter();
+  const new();
 
   @override
   CalendarEvent fromJson(Map<String, dynamic> json) {

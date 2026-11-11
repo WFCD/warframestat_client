@@ -9,7 +9,7 @@ void main() {
   late Map<String, dynamic> json;
 
   setUp(() async {
-    final fixture = await ProfileFixture().loadProfile();
+    final fixture = ProfileFixture().loadProfile();
     json = jsonDecode(fixture) as Map<String, dynamic>;
   });
 

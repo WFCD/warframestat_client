@@ -10,7 +10,7 @@ part 'relic.g.dart';
 @JsonSerializable()
 class Relic extends DroppableItem {
   /// {@macro relic}
-  const Relic({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -28,7 +28,7 @@ class Relic extends DroppableItem {
   });
 
   /// Creates a Relic from Json map
-  factory Relic.fromJson(Map<String, dynamic> data) => _$RelicFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$RelicFromJson(data);
 
   /// Relic drop locations.
   final List<Location> locations;
@@ -56,10 +56,10 @@ class Relic extends DroppableItem {
 @JsonSerializable()
 class Location extends Equatable {
   /// {@macro location}
-  const Location({required this.location, required this.rarity, required this.chance});
+  const new({required this.location, required this.rarity, required this.chance});
 
   /// Creates a Location from Json map
-  factory Location.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$LocationFromJson(json);
   }
 
@@ -85,10 +85,10 @@ class Location extends Equatable {
 @JsonSerializable()
 class RelicReward extends Equatable {
   /// {@macro reward}
-  const RelicReward({required this.rarity, required this.chance, required this.item});
+  const new({required this.rarity, required this.chance, required this.item});
 
   /// Creates a Reward from Json map.
-  factory RelicReward.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$RelicRewardFromJson(json);
   }
 
@@ -114,10 +114,10 @@ class RelicReward extends Equatable {
 @JsonSerializable()
 class RewardItem extends Equatable {
   /// {@macro rewarditem}
-  const RewardItem({required this.uniqueName, required this.name, required this.warframeMarket});
+  const new({required this.uniqueName, required this.name, required this.warframeMarket});
 
   /// Creates a RewardItem from Json map.
-  factory RewardItem.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$RewardItemFromJson(json);
   }
 

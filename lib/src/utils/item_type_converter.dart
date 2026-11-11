@@ -6,7 +6,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 class ItemTypeConverter extends JsonConverter<ItemType, String> {
   /// {@macro item_category_converter}
-  const ItemTypeConverter();
+  const new();
 
   @override
   ItemType fromJson(String json) {

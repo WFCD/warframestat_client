@@ -12,7 +12,7 @@ part 'news.g.dart';
 @JsonSerializable()
 class News extends WorldstateObject {
   /// {@macro news}
-  const News({
+  const new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -29,7 +29,7 @@ class News extends WorldstateObject {
   });
 
   /// Creates a News from Json map
-  factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
 
   /// The news title.
   final String message;
@@ -68,17 +68,6 @@ class News extends WorldstateObject {
 
   @override
   List<Object?> get props {
-    return [
-      date,
-      imageLink,
-      primeAccess,
-      stream,
-      translations,
-      link,
-      update,
-      message,
-      priority,
-      mobileOnly,
-    ];
+    return [date, imageLink, primeAccess, stream, translations, link, update, message, priority, mobileOnly];
   }
 }

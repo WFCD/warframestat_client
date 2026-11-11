@@ -10,7 +10,7 @@ part 'mission.g.dart';
 @JsonSerializable()
 class Mission extends Equatable {
   /// {@macro mission}
-  const Mission({
+  const new({
     required this.node,
     required this.nodeKey,
     required this.faction,
@@ -36,7 +36,7 @@ class Mission extends Equatable {
   });
 
   /// Creates a Mission from Json map
-  factory Mission.fromJson(Map<String, dynamic> data) => _$MissionFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$MissionFromJson(data);
 
   /// The node the mission is taking place in.
   ///

@@ -9,7 +9,7 @@ part 'alert.g.dart';
 @JsonSerializable()
 class Alert extends WorldstateObject {
   /// {@macro alert}
-  const Alert({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -18,7 +18,7 @@ class Alert extends WorldstateObject {
   });
 
   /// Creates a Alert from Json map
-  factory Alert.fromJson(Map<String, dynamic> json) => _$AlertFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$AlertFromJson(json);
 
   @override
   String get id => super.id!;

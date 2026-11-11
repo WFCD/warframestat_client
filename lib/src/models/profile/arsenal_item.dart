@@ -14,7 +14,7 @@ typedef Polarity = ({String polarity, int slot});
 @JsonSerializable()
 class ArsenalItem extends Equatable {
   /// {@macro iventory_item}
-  const ArsenalItem({
+  const new({
     required this.id,
     required this.uniqueName,
     required this.name,
@@ -38,7 +38,7 @@ class ArsenalItem extends Equatable {
   });
 
   /// Creates an instance from json map
-  factory ArsenalItem.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ArsenalItemFromJson(json);
   }
 

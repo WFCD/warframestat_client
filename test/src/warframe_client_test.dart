@@ -8,12 +8,12 @@ import 'package:warframestat_client/warframestat_client.dart';
 import '../helpers/fixtures.dart';
 import '../helpers/profile_fixture.dart';
 
-class MockHttpClient extends Mock implements Client {}
+class MockHttpClient extends Mock implements Client;
 
-class FakeUri extends Fake implements Uri {}
+class FakeUri extends Fake implements Uri;
 
 Future<void> main() async {
-  final skipArbi = await WarframestatFixture().loadArbitration() == null;
+  final skipArbi = WarframestatFixture().loadArbitration() == null;
 
   late Client mockClient;
   late WarframestatClient warframestat;
@@ -35,9 +35,8 @@ Future<void> main() async {
     setUp(() => profileFixture = ProfileFixture());
 
     test('Get player profile', () async {
-      when(
-        () => mockClient.get(pUri('572b6e1a3ade7fa43b58d9c4')),
-      ).thenAnswer((_) async => response(await profileFixture.loadProfile()));
+      when(() => mockClient.get(pUri('572b6e1a3ade7fa43b58d9c4')))
+          .thenAnswer((_) async => response(profileFixture.loadProfile()));
 
       final profile = await warframestat.profile('572b6e1a3ade7fa43b58d9c4').fetchProfile();
 
@@ -60,7 +59,7 @@ Future<void> main() async {
     setUp(() => worldstateFixtures = WarframestatFixture());
 
     test('Get the current worldstate', () async {
-      when(() => mockClient.get(wUri(''))).thenAnswer((_) async => response(await worldstateFixtures.loadWorldstate()));
+      when(() => mockClient.get(wUri(''))).thenAnswer((_) async => response(worldstateFixtures.loadWorldstate()));
 
       final state = await warframestat.worldstate.fetchWorldstate();
 
@@ -68,9 +67,8 @@ Future<void> main() async {
     });
 
     test('Get current build label', () async {
-      when(
-        () => mockClient.get(wUri('/buildLabel')),
-      ).thenAnswer((_) async => response('2025.09.02.14.13/C1uuuxHFA5pFWj3h1OydPA'));
+      when(() => mockClient.get(wUri('/buildLabel')))
+          .thenAnswer((_) async => response('2025.09.02.14.13/C1uuuxHFA5pFWj3h1OydPA'));
 
       final label = await warframestat.worldstate.fetchBuildLabel();
 
@@ -78,9 +76,7 @@ Future<void> main() async {
     });
 
     test('Get alerts', () async {
-      when(
-        () => mockClient.get(wUri('/alerts')),
-      ).thenAnswer((_) async => response(await worldstateFixtures.loadAlert()));
+      when(() => mockClient.get(wUri('/alerts'))).thenAnswer((_) async => response(worldstateFixtures.loadAlert()));
 
       final alerts = await warframestat.worldstate.fetchAlerts();
 
@@ -90,9 +86,8 @@ Future<void> main() async {
     test(
       'Get arbitration',
       () async {
-        when(
-          () => mockClient.get(wUri('/arbitration')),
-        ).thenAnswer((_) async => response((await worldstateFixtures.loadArbitration())!));
+        when(() => mockClient.get(wUri('/arbitration')))
+            .thenAnswer((_) async => response(worldstateFixtures.loadArbitration()!));
 
         final arbitration = await warframestat.worldstate.fetchArbitration();
 
@@ -103,9 +98,8 @@ Future<void> main() async {
     );
 
     test('Get archon hunt', () async {
-      when(
-        () => mockClient.get(wUri('/archonHunt')),
-      ).thenAnswer((_) async => response(await worldstateFixtures.loadArchonHunt()));
+      when(() => mockClient.get(wUri('/archonHunt')))
+          .thenAnswer((_) async => response(worldstateFixtures.loadArchonHunt()));
 
       final archonHunt = await warframestat.worldstate.fetchArchonHunt();
 
@@ -113,9 +107,8 @@ Future<void> main() async {
     });
 
     test('Get cambion cycle', () async {
-      when(
-        () => mockClient.get(wUri('/cambionCycle')),
-      ).thenAnswer((_) async => response(await worldstateFixtures.loadCambionCycle()));
+      when(() => mockClient.get(wUri('/cambionCycle')))
+          .thenAnswer((_) async => response(worldstateFixtures.loadCambionCycle()));
 
       final cambionCycle = await warframestat.worldstate.fetchCambionCycle();
 
@@ -123,9 +116,8 @@ Future<void> main() async {
     });
 
     test('Get cetus cycle', () async {
-      when(
-        () => mockClient.get(wUri('/cetusCycle')),
-      ).thenAnswer((_) async => response(await worldstateFixtures.loadCetusCycle()));
+      when(() => mockClient.get(wUri('/cetusCycle')))
+          .thenAnswer((_) async => response(worldstateFixtures.loadCetusCycle()));
 
       final cetusCycle = await warframestat.worldstate.fetchCetusCycle();
 
@@ -133,9 +125,8 @@ Future<void> main() async {
     });
 
     test('Get conclave challenges', () async {
-      when(
-        () => mockClient.get(wUri('/conclaveChallenges')),
-      ).thenAnswer((_) async => response(await worldstateFixtures.loadConclaveChallenges()));
+      when(() => mockClient.get(wUri('/conclaveChallenges')))
+          .thenAnswer((_) async => response(worldstateFixtures.loadConclaveChallenges()));
 
       final conclaveChallenges = await warframestat.worldstate.fetchConclaveChallenges();
 
@@ -143,9 +134,8 @@ Future<void> main() async {
     });
 
     test('Get construction progress', () async {
-      when(
-        () => mockClient.get(wUri('/constructionProgress')),
-      ).thenAnswer((_) async => response(await worldstateFixtures.loadConstructionProgress()));
+      when(() => mockClient.get(wUri('/constructionProgress')))
+          .thenAnswer((_) async => response(worldstateFixtures.loadConstructionProgress()));
 
       final constructionProgress = await warframestat.worldstate.fetchConstrcutionProgress();
 
@@ -153,9 +143,8 @@ Future<void> main() async {
     });
 
     test('Get daily deals', () async {
-      when(
-        () => mockClient.get(wUri('/dailyDeals')),
-      ).thenAnswer((_) async => response(await worldstateFixtures.loadDailyDeals()));
+      when(() => mockClient.get(wUri('/dailyDeals')))
+          .thenAnswer((_) async => response(worldstateFixtures.loadDailyDeals()));
 
       final dailyDeals = await warframestat.worldstate.fetchDailyDeals();
 

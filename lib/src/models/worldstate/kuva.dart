@@ -11,7 +11,7 @@ part 'kuva.g.dart';
 @JsonSerializable()
 class Kuva extends WorldstateObject {
   /// {@macro kuva}
-  const Kuva({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -25,7 +25,7 @@ class Kuva extends WorldstateObject {
   });
 
   /// Creates a Kuva from Json map
-  factory Kuva.fromJson(Map<String, dynamic> json) => _$KuvaFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$KuvaFromJson(json);
 
   @override
   String get id => super.id!;

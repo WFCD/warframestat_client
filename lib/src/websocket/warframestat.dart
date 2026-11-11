@@ -11,7 +11,7 @@ enum WarframestatEvents {
   /// Worldstate update
   update('ws:update');
 
-  const WarframestatEvents(this.raw);
+  new(this.raw);
 
   /// Event string
   final String raw;
@@ -22,7 +22,7 @@ enum WarframestatEvents {
 /// {@endtemplate}
 class WarframestatWebsocket {
   /// {@macro warframestat_websocket}
-  WarframestatWebsocket([this.language = Language.en]) : _websocket = WebSocket(_baseUrl, pingInterval: _pingInterval);
+  new([this.language = Language.en]) : _websocket = WebSocket(_baseUrl, pingInterval: _pingInterval);
 
   /// The language code to filter by
   final Language language;

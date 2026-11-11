@@ -10,8 +10,8 @@ void main() {
   late List<Map<String, dynamic>> enemies;
 
   setUp(() async {
-    final itemFixture = await ItemsFixture().loadWarframeItems();
-    final enemyFixture = await ItemsFixture().loadEnemies();
+    final itemFixture = ItemsFixture().loadWarframeItems();
+    final enemyFixture = ItemsFixture().loadEnemies();
 
     items = List<Map<String, dynamic>>.from(json.decode(itemFixture) as List<dynamic>).toList();
 

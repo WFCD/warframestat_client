@@ -18,7 +18,7 @@ enum VallisState {
 @JsonSerializable()
 class VallisCycle extends WorldstateObject {
   /// {@macro vallis_cycle}
-  const VallisCycle({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -27,7 +27,7 @@ class VallisCycle extends WorldstateObject {
   });
 
   /// Creates a VallisCycle from Json map
-  factory VallisCycle.fromJson(Map<String, dynamic> json) => _$VallisCycleFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$VallisCycleFromJson(json);
 
   @override
   String get id => super.id!;

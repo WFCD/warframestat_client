@@ -9,7 +9,7 @@ part 'archimedea.g.dart';
 @JsonSerializable()
 class Archimedea extends WorldstateObject {
   /// {@macro deep_archimedea}
-  const Archimedea({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -18,7 +18,7 @@ class Archimedea extends WorldstateObject {
   });
 
   /// Creates a [Archimedea] from Json map
-  factory Archimedea.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ArchimedeaFromJson(json);
   }
 
@@ -41,10 +41,10 @@ typedef Modifier = ({String key, String name, String description});
 @JsonSerializable()
 class ArchimedeaMission {
   /// {@macro Deep_archimedea_mission}
-  ArchimedeaMission({required this.mission, required this.deviation, required this.riskVariables});
+  new({required this.mission, required this.deviation, required this.riskVariables});
 
   /// Creates a [ArchimedeaMission] from Json map
-  factory ArchimedeaMission.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ArchimedeaMissionFromJson(json);
   }
 

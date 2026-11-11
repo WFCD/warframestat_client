@@ -9,7 +9,7 @@ part 'helminth.g.dart';
 @JsonSerializable()
 class Helminth extends DroppableItem {
   /// {@macro helminth}
-  const Helminth({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -28,7 +28,7 @@ class Helminth extends DroppableItem {
   });
 
   /// Creates an instance from a json map
-  factory Helminth.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$HelminthFromJson(json);
   }
 

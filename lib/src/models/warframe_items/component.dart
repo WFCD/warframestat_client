@@ -9,7 +9,7 @@ part 'component.g.dart';
 @JsonSerializable()
 class Component extends DroppableItem {
   /// {@macro component}
-  const Component({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -20,7 +20,7 @@ class Component extends DroppableItem {
   }) : super(patchlogs: const <Patchlog>[], type: ItemType.misc, category: '', productCategory: '');
 
   /// Creates [Component] from json map.
-  factory Component.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ComponentFromJson(json);
   }
 

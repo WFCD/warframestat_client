@@ -10,7 +10,7 @@ part 'patchlog.g.dart';
 @JsonSerializable()
 class Patchlog extends Equatable {
   /// {@macro patchlog}
-  const Patchlog({
+  const new({
     required this.name,
     required this.imgUrl,
     required this.date,
@@ -21,7 +21,7 @@ class Patchlog extends Equatable {
   });
 
   /// Creates a [Patchlog] from a json map.
-  factory Patchlog.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$PatchlogFromJson(json);
   }
 

@@ -9,7 +9,7 @@ part 'fissure.g.dart';
 @JsonSerializable()
 class Fissure extends WorldstateObject {
   /// {@macro fissure}
-  const Fissure({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -25,7 +25,7 @@ class Fissure extends WorldstateObject {
   });
 
   /// Creates a Event from Json map
-  factory Fissure.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$FissureFromJson(json);
   }
 

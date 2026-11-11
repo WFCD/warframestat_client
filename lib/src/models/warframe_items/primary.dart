@@ -9,7 +9,7 @@ part 'primary.g.dart';
 @JsonSerializable()
 class Primary extends Gun {
   /// {@macro primary}
-  const Primary({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -46,7 +46,7 @@ class Primary extends Gun {
   });
 
   /// Creates [Primary] from json data.
-  factory Primary.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$PrimaryFromJson(json);
   }
 
@@ -62,7 +62,7 @@ class Primary extends Gun {
 @JsonSerializable()
 class PrimaryBuildable extends BuildableItem implements Primary {
   /// {@macro primary}
-  const PrimaryBuildable({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -110,7 +110,7 @@ class PrimaryBuildable extends BuildableItem implements Primary {
   });
 
   /// Creates [Primary] from json data.
-  factory PrimaryBuildable.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$PrimaryBuildableFromJson(json);
   }
 

@@ -21,7 +21,7 @@ enum CambionState {
 @JsonSerializable()
 class CambionCycle extends WorldstateObject {
   /// {@macro cambion_cycle}
-  const CambionCycle({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -29,7 +29,7 @@ class CambionCycle extends WorldstateObject {
   });
 
   /// Creates a CambionCycle from Json map
-  factory CambionCycle.fromJson(Map<String, dynamic> json) => _$CambionCycleFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$CambionCycleFromJson(json);
 
   @override
   String get id => super.id!;

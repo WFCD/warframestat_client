@@ -9,7 +9,7 @@ import 'package:meta/meta.dart';
 @immutable
 abstract class WorldstateObject extends Equatable {
   /// {@macro worldstateobject}
-  const WorldstateObject({this.id, this.activation, this.expiry});
+  const new({this.id, this.activation, this.expiry});
 
   /// ID of the instance.
   final String? id;

@@ -8,7 +8,7 @@ part 'location.g.dart';
 @JsonSerializable()
 class TargetLocation {
   /// {@macro location}
-  const TargetLocation({
+  const new({
     required this.lastVerified,
     required this.level,
     required this.faction,
@@ -19,7 +19,7 @@ class TargetLocation {
   });
 
   /// Creates a Location from Json map
-  factory TargetLocation.fromJson(Map<String, dynamic> data) => _$TargetLocationFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$TargetLocationFromJson(data);
 
   /// Last time the target was verified.
   @JsonKey(name: 'last_verified')

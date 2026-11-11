@@ -9,7 +9,7 @@ part 'gear.g.dart';
 @JsonSerializable()
 class Gear extends ItemCommon {
   /// {@macro gear}
-  const Gear({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -26,7 +26,7 @@ class Gear extends ItemCommon {
   });
 
   /// Creates [Gear] from a json map.
-  factory Gear.fromJson(Map<String, dynamic> json) => _$GearFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$GearFromJson(json);
 
   /// Creates a json map from [Gear].
   @override
@@ -39,7 +39,7 @@ class Gear extends ItemCommon {
 @JsonSerializable()
 class GearBuildable extends BuildableItem implements Gear {
   /// {@macro gear}
-  const GearBuildable({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -67,7 +67,7 @@ class GearBuildable extends BuildableItem implements Gear {
   });
 
   /// Creates [Gear] from a json map.
-  factory GearBuildable.fromJson(Map<String, dynamic> json) => _$GearBuildableFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$GearBuildableFromJson(json);
 
   /// Creates a json map from [Gear].
   @override

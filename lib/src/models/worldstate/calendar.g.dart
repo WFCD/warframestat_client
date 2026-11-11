@@ -4,7 +4,6 @@
 
 // dart format off
 
-
 part of 'calendar.dart';
 
 // **************************************************************************
@@ -47,26 +46,23 @@ Map<String, dynamic> _$CalendarToJson(Calendar instance) => <String, dynamic>{
   'requirements': instance.requirements,
 };
 
-CalendarDay _$CalendarDayFromJson(Map json) => $checkedCreate(
-  'CalendarDay',
-  json,
-  ($checkedConvert) {
-    final val = CalendarDay(
-      date: $checkedConvert('date', (v) => DateTime.parse(v as String)),
-      events: $checkedConvert(
-        'events',
-        (v) => (v as List<dynamic>)
-            .map(
-              (e) => const CalendarEventConverter().fromJson(
-                e as Map<String, dynamic>,
-              ),
-            )
-            .toList(),
-      ),
-    );
-    return val;
-  },
-);
+CalendarDay _$CalendarDayFromJson(Map json) =>
+    $checkedCreate('CalendarDay', json, ($checkedConvert) {
+      final val = CalendarDay(
+        date: $checkedConvert('date', (v) => DateTime.parse(v as String)),
+        events: $checkedConvert(
+          'events',
+          (v) => (v as List<dynamic>)
+              .map(
+                (e) => const CalendarEventConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$CalendarDayToJson(
   CalendarDay instance,

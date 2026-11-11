@@ -6,7 +6,7 @@ import 'package:warframestat_client/src/clients/clients.dart';
 /// {@endtemplate}
 class WarframestatClient {
   /// {@macro warframestat_client}
-  WarframestatClient({Client? client}) : _client = client ?? Client();
+  new({Client? client}) : _client = client ?? Client();
 
   final Client _client;
 

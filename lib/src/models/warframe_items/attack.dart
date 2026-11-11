@@ -7,7 +7,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 abstract class Attack extends Equatable {
   /// {@macro attack}
-  const Attack({
+  const new({
     required this.name,
     required this.speed,
     required this.critChance,

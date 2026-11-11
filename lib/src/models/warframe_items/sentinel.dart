@@ -9,7 +9,7 @@ part 'sentinel.g.dart';
 @JsonSerializable()
 class Sentinel extends Companion {
   /// {@macro sentinal}
-  const Sentinel({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -30,7 +30,7 @@ class Sentinel extends Companion {
   });
 
   /// Creates a Sentinal from Json map
-  factory Sentinel.fromJson(Map<String, dynamic> data) => _$SentinelFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$SentinelFromJson(data);
 
   /// Armor health.
   final int armor;
@@ -58,7 +58,7 @@ class Sentinel extends Companion {
 @JsonSerializable()
 class SentinelBuildable extends BuildableItem implements Sentinel {
   /// {@macro sentinal_buildable}
-  const SentinelBuildable({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -90,7 +90,7 @@ class SentinelBuildable extends BuildableItem implements Sentinel {
   });
 
   /// Creates a Sentinal from Json map
-  factory SentinelBuildable.fromJson(Map<String, dynamic> data) => _$SentinelBuildableFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$SentinelBuildableFromJson(data);
 
   /// Armor health.
   @override
@@ -122,7 +122,7 @@ class SentinelBuildable extends BuildableItem implements Sentinel {
 @JsonSerializable()
 class SentinelWeapon extends Weapon {
   /// {@macro sentinel_weapon}
-  const SentinelWeapon({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -153,7 +153,7 @@ class SentinelWeapon extends Weapon {
   });
 
   /// JSON Map to [SentinelWeapon]
-  factory SentinelWeapon.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$SentinelWeaponFromJson(json);
   }
 

@@ -9,10 +9,10 @@ part 'kinepage.g.dart';
 @JsonSerializable()
 class Kinepage {
   /// {@macro kinepage}
-  Kinepage({required this.timestamp, required this.message, required this.translations});
+  new({required this.timestamp, required this.message, required this.translations});
 
   /// Creates a [Kinepage] instance from a json map
-  factory Kinepage.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$KinepageFromJson(json);
   }
 

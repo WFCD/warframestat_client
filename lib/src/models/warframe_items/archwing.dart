@@ -9,7 +9,7 @@ part 'archwing.g.dart';
 @JsonSerializable()
 class Archwing extends PowerSuit {
   /// {@macro archwing}
-  const Archwing({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -44,7 +44,7 @@ class Archwing extends PowerSuit {
   });
 
   /// Creates a Warframe from Json map
-  factory Archwing.fromJson(Map<String, dynamic> data) {
+  factory fromJson(Map<String, dynamic> data) {
     return _$ArchwingFromJson(data);
   }
 

@@ -9,7 +9,7 @@ part 'quest.g.dart';
 @JsonSerializable()
 class Quest extends ItemCommon {
   /// {@macro quest}
-  const Quest({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -26,7 +26,7 @@ class Quest extends ItemCommon {
   });
 
   /// Creates a Quest from Json map
-  factory Quest.fromJson(Map<String, dynamic> data) => _$QuestFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$QuestFromJson(data);
 
   /// Creates a Json map from a Quest
   @override

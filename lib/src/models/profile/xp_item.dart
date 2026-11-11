@@ -11,10 +11,10 @@ part 'xp_item.g.dart';
 @JsonSerializable()
 class XpItem extends Equatable {
   /// {@macro xp_item}
-  const XpItem({required this.uniqueName, required this.xp, this.item});
+  const new({required this.uniqueName, required this.xp, this.item});
 
   /// Creates an instance from json map
-  factory XpItem.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$XpItemFromJson(json);
   }
 

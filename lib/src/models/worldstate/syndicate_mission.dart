@@ -9,7 +9,7 @@ part 'syndicate_mission.g.dart';
 @JsonSerializable()
 class SyndicateMission extends WorldstateObject {
   /// {@macro syndicatemission}
-  const SyndicateMission({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -20,7 +20,7 @@ class SyndicateMission extends WorldstateObject {
   });
 
   /// Creates a Syndicatemission from Json map
-  factory SyndicateMission.fromJson(Map<String, dynamic> json) => _$SyndicateMissionFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$SyndicateMissionFromJson(json);
 
   @override
   String get id => super.id!;

@@ -28,7 +28,7 @@ enum DuviriState {
 @JsonSerializable()
 class DuviriCycle extends WorldstateObject {
   /// {@macro duviri_cycle}
-  const DuviriCycle({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -37,7 +37,7 @@ class DuviriCycle extends WorldstateObject {
   });
 
   /// Creates a [DuviriCycle] object from json.
-  factory DuviriCycle.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$DuviriCycleFromJson(json);
   }
 
@@ -69,10 +69,10 @@ class DuviriCycle extends WorldstateObject {
 @JsonSerializable()
 class Choice extends Equatable {
   /// {@macro choice}
-  const Choice({required this.category, required this.categoryKey, required this.choices});
+  const new({required this.category, required this.categoryKey, required this.choices});
 
   /// Creates a [Choice] object from json.
-  factory Choice.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ChoiceFromJson(json);
   }
 

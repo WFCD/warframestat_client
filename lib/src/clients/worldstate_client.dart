@@ -6,7 +6,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 class WorldstateClient extends WarframestatHttpClient {
   /// {@macro warframestat_client}
-  WorldstateClient({super.language, super.ua, super.client});
+  new({super.language, super.ua, super.client});
 
   /// Retrives a fully translated [Worldstate].
   Future<Worldstate> fetchWorldstate() async {
@@ -208,6 +208,6 @@ class WorldstateClient extends WarframestatHttpClient {
   Future<T> _get<T>(String path) async {
     final response = await get('pc$path');
 
-    return jsonDecode<T>(response.bodyBytes);
+    return await jsonDecode<T>(response.bodyBytes);
   }
 }

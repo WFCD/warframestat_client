@@ -5,7 +5,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 class SynthTargetClient extends WarframestatHttpClient {
   /// {@macro synthrargetclient}
-  SynthTargetClient({super.client, super.language, super.ua});
+  new({super.client, super.language, super.ua});
 
   /// Retrives a list of all synthesis target.
   Future<List<SynthTarget>> fetchTargets() async {

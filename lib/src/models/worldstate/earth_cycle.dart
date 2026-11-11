@@ -18,7 +18,7 @@ enum EarthState {
 @JsonSerializable()
 class EarthCycle extends WorldstateObject {
   /// {@macro earth_cycle}
-  const EarthCycle({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -27,7 +27,7 @@ class EarthCycle extends WorldstateObject {
   });
 
   /// Creates a EarthCycle from Json map
-  factory EarthCycle.fromJson(Map<String, dynamic> json) => _$EarthCycleFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$EarthCycleFromJson(json);
 
   @override
   String get id => super.id!;

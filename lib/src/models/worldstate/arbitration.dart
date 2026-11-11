@@ -11,7 +11,7 @@ part 'arbitration.g.dart';
 @experimental
 class Arbitration extends WorldstateObject {
   /// {@macro alert}
-  const Arbitration({
+  const new({
     required super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -26,7 +26,7 @@ class Arbitration extends WorldstateObject {
   });
 
   /// Creates a Arbitration from Json map
-  factory Arbitration.fromJson(Map<String, dynamic> json) => _$ArbitrationFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$ArbitrationFromJson(json);
 
   @override
   DateTime get activation => super.activation!;

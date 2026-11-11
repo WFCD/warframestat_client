@@ -3,14 +3,14 @@ import 'dart:io';
 import 'abstract_fixture.dart';
 
 class ItemsFixture extends Fixture {
-  ItemsFixture() : super(Directory('test/fixtures'));
+  new() : super(Directory('test/fixtures'));
 
   // Loading every item to test against everything.
-  Future<String> loadWarframeItems() {
+  String loadWarframeItems() {
     return fixture('warframe-items.json');
   }
 
-  Future<String> loadEnemies() {
+  String loadEnemies() {
     return fixture('enemy.json');
   }
 }

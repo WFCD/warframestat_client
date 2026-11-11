@@ -9,7 +9,7 @@ part 'cetus_cycle.g.dart';
 @JsonSerializable()
 class CetusCycle extends WorldstateObject {
   /// {@macro cetus_cycle}
-  const CetusCycle({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -19,7 +19,7 @@ class CetusCycle extends WorldstateObject {
   });
 
   /// Creates a CetusCycle from Json map
-  factory CetusCycle.fromJson(Map<String, dynamic> json) => _$CetusCycleFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$CetusCycleFromJson(json);
 
   @override
   String get id => super.id!;

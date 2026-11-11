@@ -10,7 +10,7 @@ part 'syndicate_job.g.dart';
 @JsonSerializable()
 class SyndicateJob extends Equatable {
   /// {@macro syndicatejob}
-  const SyndicateJob({
+  const new({
     required this.id,
     required this.rewardPool,
     required this.rewardPoolDrops,
@@ -22,7 +22,7 @@ class SyndicateJob extends Equatable {
   });
 
   /// Creates a Syndicatemission from Json map
-  factory SyndicateJob.fromJson(Map<String, dynamic> json) => _$SyndicateJobFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$SyndicateJobFromJson(json);
 
   /// Job id.
   final String id;
@@ -64,7 +64,7 @@ class SyndicateJob extends Equatable {
 @JsonSerializable()
 class RewardDrop extends Equatable {
   /// {@macro reward_drop}
-  const RewardDrop({
+  const new({
     required this.item,
     required this.rarity,
     required this.chance,
@@ -73,7 +73,7 @@ class RewardDrop extends Equatable {
   });
 
   /// Creates a Syndicatemission from Json map
-  factory RewardDrop.fromJson(Map<String, dynamic> json) => _$RewardDropFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$RewardDropFromJson(json);
 
   /// Item name
   final String item;

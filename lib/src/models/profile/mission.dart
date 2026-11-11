@@ -9,7 +9,7 @@ part 'mission.g.dart';
 @JsonSerializable()
 class ProfileMission extends Equatable {
   /// {@macro profile_missions}
-  const ProfileMission({
+  const new({
     required this.node,
     required this.nodeKey,
     required this.missionType,
@@ -20,7 +20,7 @@ class ProfileMission extends Equatable {
   });
 
   /// Get [ProfileMission] from json
-  factory ProfileMission.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$ProfileMissionFromJson(json);
   }
 

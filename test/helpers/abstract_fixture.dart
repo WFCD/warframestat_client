@@ -11,11 +11,11 @@ import 'package:path/path.dart';
 typedef JsonMap = Map<String, dynamic>;
 
 abstract class Fixture {
-  Fixture(this.directory);
+  new(this.directory);
 
   final Directory directory;
 
-  Future<String> fixture(String name) async {
-    return File(join(directory.path, name)).readAsString();
+  String fixture(String name) {
+    return File(join(directory.path, name)).readAsStringSync();
   }
 }

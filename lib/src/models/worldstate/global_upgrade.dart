@@ -9,7 +9,7 @@ part 'global_upgrade.g.dart';
 @JsonSerializable()
 class GlobalUpgrade extends Equatable {
   /// {@macro global_upgrade}
-  const GlobalUpgrade({
+  const new({
     required this.upgrade,
     required this.operation,
     required this.operationSymbol,
@@ -17,7 +17,7 @@ class GlobalUpgrade extends Equatable {
   });
 
   /// Creates a GlobalUpgrade from Json map
-  factory GlobalUpgrade.fromJson(Map<String, dynamic> json) => _$GlobalUpgradeFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$GlobalUpgradeFromJson(json);
 
   /// A description for upgrade
   final String upgrade;

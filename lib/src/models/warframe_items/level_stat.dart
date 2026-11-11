@@ -12,10 +12,10 @@ part 'level_stat.g.dart';
 @JsonSerializable()
 class LevelStat extends Equatable {
   /// {@macro levelstats}
-  const LevelStat({required this.stats});
+  const new({required this.stats});
 
   /// Creates a [ItemCommon] from a json map.
-  factory LevelStat.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$LevelStatFromJson(json);
   }
 

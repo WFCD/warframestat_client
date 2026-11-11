@@ -9,7 +9,7 @@ part 'skin.g.dart';
 @JsonSerializable()
 class Skin extends ItemCommon {
   /// {@macro skin}
-  const Skin({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -26,7 +26,7 @@ class Skin extends ItemCommon {
   });
 
   /// Creates a Skin from Json map
-  factory Skin.fromJson(Map<String, dynamic> data) => _$SkinFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$SkinFromJson(data);
 
   /// Creates a Json map from a Skin
   @override
@@ -39,7 +39,7 @@ class Skin extends ItemCommon {
 @JsonSerializable()
 class SkinBuildable extends BuildableItem implements Skin {
   /// {@macro skin}
-  const SkinBuildable({
+  const new({
     required super.uniqueName,
     required super.description,
     required super.name,
@@ -67,7 +67,7 @@ class SkinBuildable extends BuildableItem implements Skin {
   }) : super(isPrime: isPrime ?? false);
 
   /// Creates a Skin from Json map
-  factory SkinBuildable.fromJson(Map<String, dynamic> data) => _$SkinBuildableFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$SkinBuildableFromJson(data);
 
   /// Creates a Json map from a Skin
   @override

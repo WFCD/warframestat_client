@@ -4,7 +4,6 @@
 
 // dart format off
 
-
 part of 'archimedea.dart';
 
 // **************************************************************************
@@ -49,23 +48,22 @@ Archimedea _$ArchimedeaFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$ArchimedeaToJson(
-  Archimedea instance,
-) => <String, dynamic>{
-  'id': ?instance.id,
-  'activation': ?instance.activation?.toIso8601String(),
-  'expiry': ?instance.expiry?.toIso8601String(),
-  'missions': instance.missions.map((e) => e.toJson()).toList(),
-  'personalModifiers': instance.personalModifiers
-      .map(
-        (e) => <String, dynamic>{
-          'description': e.description,
-          'key': e.key,
-          'name': e.name,
-        },
-      )
-      .toList(),
-};
+Map<String, dynamic> _$ArchimedeaToJson(Archimedea instance) =>
+    <String, dynamic>{
+      'id': ?instance.id,
+      'activation': ?instance.activation?.toIso8601String(),
+      'expiry': ?instance.expiry?.toIso8601String(),
+      'missions': instance.missions.map((e) => e.toJson()).toList(),
+      'personalModifiers': instance.personalModifiers
+          .map(
+            (e) => <String, dynamic>{
+              'description': e.description,
+              'key': e.key,
+              'name': e.name,
+            },
+          )
+          .toList(),
+    };
 
 $Rec _$recordConvertAny<$Rec>(Object? value, $Rec Function(Map) convert) =>
     convert(value as Map);
@@ -104,22 +102,21 @@ ArchimedeaMission _$ArchimedeaMissionFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$ArchimedeaMissionToJson(
-  ArchimedeaMission instance,
-) => <String, dynamic>{
-  'mission': instance.mission,
-  'deviation': <String, dynamic>{
-    'description': instance.deviation.description,
-    'key': instance.deviation.key,
-    'name': instance.deviation.name,
-  },
-  'riskVariables': instance.riskVariables
-      .map(
-        (e) => <String, dynamic>{
-          'description': e.description,
-          'key': e.key,
-          'name': e.name,
-        },
-      )
-      .toList(),
-};
+Map<String, dynamic> _$ArchimedeaMissionToJson(ArchimedeaMission instance) =>
+    <String, dynamic>{
+      'mission': instance.mission,
+      'deviation': <String, dynamic>{
+        'description': instance.deviation.description,
+        'key': instance.deviation.key,
+        'name': instance.deviation.name,
+      },
+      'riskVariables': instance.riskVariables
+          .map(
+            (e) => <String, dynamic>{
+              'description': e.description,
+              'key': e.key,
+              'name': e.name,
+            },
+          )
+          .toList(),
+    };

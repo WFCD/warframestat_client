@@ -9,7 +9,7 @@ part 'power_suit.g.dart';
 /// {@endtemplate}
 abstract class PowerSuit extends BuildableItem {
   /// {@macro warframe}
-  const PowerSuit({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -74,10 +74,10 @@ abstract class PowerSuit extends BuildableItem {
 @JsonSerializable()
 class Ability extends Equatable {
   /// {@macro ability}
-  const Ability({required this.name, required this.description, required this.imageName});
+  const new({required this.name, required this.description, required this.imageName});
 
   /// Creats an [Ability] from a json map.
-  factory Ability.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$AbilityFromJson(json);
   }
 

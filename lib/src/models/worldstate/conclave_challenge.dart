@@ -9,7 +9,7 @@ part 'conclave_challenge.g.dart';
 @JsonSerializable()
 class ConclaveChallenge extends WorldstateObject {
   /// {@macro conclave_challenge}
-  const ConclaveChallenge({
+  const new({
     required String super.id,
     required DateTime super.activation,
     required DateTime super.expiry,
@@ -22,7 +22,7 @@ class ConclaveChallenge extends WorldstateObject {
   });
 
   /// Creates a ConclaveChallenge from Json map
-  factory ConclaveChallenge.fromJson(Map<String, dynamic> json) => _$ConclaveChallengeFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$ConclaveChallengeFromJson(json);
 
   @override
   String get id => super.id!;

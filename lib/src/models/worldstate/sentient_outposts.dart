@@ -9,15 +9,10 @@ part 'sentient_outposts.g.dart';
 @JsonSerializable()
 class SentientOutpost extends WorldstateObject {
   /// {@macro sentient_outposts}
-  const SentientOutpost({
-    required String super.id,
-    required super.activation,
-    required super.expiry,
-    required this.mission,
-  });
+  const new({required String super.id, required super.activation, required super.expiry, required this.mission});
 
   /// Creates a SentientOutposts from Json map
-  factory SentientOutpost.fromJson(Map<String, dynamic> data) {
+  factory fromJson(Map<String, dynamic> data) {
     return _$SentientOutpostFromJson(data);
   }
 

@@ -9,7 +9,7 @@ part 'resource.g.dart';
 @JsonSerializable()
 class Resource extends DroppableItem {
   /// {@macro resource}
-  const Resource({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -23,7 +23,7 @@ class Resource extends DroppableItem {
   });
 
   /// Creates a Resource from Json map
-  factory Resource.fromJson(Map<String, dynamic> data) => _$ResourceFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$ResourceFromJson(data);
 
   /// Creates a Json map from a Resource
   @override
@@ -36,7 +36,7 @@ class Resource extends DroppableItem {
 @JsonSerializable()
 class ResourceBuildable extends BuildableItem implements Resource {
   /// {@macro resourcebuildable}
-  const ResourceBuildable({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -63,7 +63,7 @@ class ResourceBuildable extends BuildableItem implements Resource {
   }) : super(isPrime: false);
 
   /// Creates a Resource from Json map
-  factory ResourceBuildable.fromJson(Map<String, dynamic> data) => _$ResourceBuildableFromJson(data);
+  factory fromJson(Map<String, dynamic> data) => _$ResourceBuildableFromJson(data);
 
   /// Creates a Json map from a Resource
   @override

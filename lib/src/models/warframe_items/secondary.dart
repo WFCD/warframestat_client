@@ -9,7 +9,7 @@ part 'secondary.g.dart';
 @JsonSerializable()
 class Secondary extends BuildableItem implements Gun {
   /// {@macro secondary}
-  const Secondary({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -57,7 +57,7 @@ class Secondary extends BuildableItem implements Gun {
   });
 
   /// Creates [Secondary] from json data.
-  factory Secondary.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$SecondaryFromJson(json);
   }
 

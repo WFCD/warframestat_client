@@ -9,7 +9,7 @@ part 'construction_progress.g.dart';
 @JsonSerializable()
 class ConstructionProgress extends WorldstateObject {
   /// {@macro construction_progress}
-  const ConstructionProgress({
+  const new({
     required super.id,
     required this.fomorianProgress,
     required this.razorbackProgress,
@@ -17,7 +17,7 @@ class ConstructionProgress extends WorldstateObject {
   });
 
   /// Creates a ConstructionProgress from Json map
-  factory ConstructionProgress.fromJson(Map<String, dynamic> json) => _$ConstructionProgressFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$ConstructionProgressFromJson(json);
 
   @override
   String get id => super.id!;

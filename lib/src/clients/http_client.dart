@@ -13,8 +13,7 @@ const _timeout = Duration(seconds: 60);
 /// {@endtemplate}
 abstract class WarframestatHttpClient {
   /// {@macro wfcdclient}
-  WarframestatHttpClient({http.Client? client, this.language = Language.en, this.ua})
-    : _client = client ?? http.Client();
+  new({http.Client? client, this.language = Language.en, this.ua}) : _client = client ?? http.Client();
 
   final http.Client _client;
 
@@ -32,6 +31,6 @@ abstract class WarframestatHttpClient {
     final enforcedQueries = (query?..addAll(requiredQueries)) ?? requiredQueries;
     final uri = Uri(scheme: 'https', host: authority, path: path, queryParameters: enforcedQueries);
 
-    return _client.get(uri).timeout(_timeout);
+    return await _client.get(uri).timeout(_timeout);
   }
 }

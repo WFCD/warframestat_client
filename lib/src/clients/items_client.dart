@@ -8,12 +8,12 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 class WarframeItemsClient extends WarframestatHttpClient {
   /// {@macro warframeitemsclient}
-  WarframeItemsClient({super.language, super.ua, super.client});
+  new({super.language, super.ua, super.client});
 
   /// Returns a list of all warframe items.
   Future<List<ItemCommon>> fetchAllItems() async {
     final items = await fetchAllItemsRaw();
-    return Isolate.run(() => List<ItemCommon>.from(toItems(items)));
+    return await Isolate.run(() => List<ItemCommon>.from(toItems(items)));
   }
 
   /// Returns the raw map results for [fetchAllItems] before encoding
@@ -29,7 +29,7 @@ class WarframeItemsClient extends WarframestatHttpClient {
   /// Returns a [List<ItemCommon>] that match the search query.
   Future<List<ItemCommon>> search(String query) async {
     final results = await searchRaw(query);
-    return Isolate.run(() => List<ItemCommon>.from(toItems(results)));
+    return await Isolate.run(() => List<ItemCommon>.from(toItems(results)));
   }
 
   /// Returns the raw response of a search query
@@ -101,7 +101,7 @@ class WarframeItemsClient extends WarframestatHttpClient {
     final response = await get('/weapons');
     final json = jsonDecode(response.bodyBytes) as List<dynamic>;
 
-    return Isolate.run(() => toItems(json));
+    return await Isolate.run(() => toItems(json));
   }
 
   /// Get data for the closest matching weapon.

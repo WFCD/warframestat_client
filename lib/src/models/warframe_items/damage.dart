@@ -10,7 +10,7 @@ part 'damage.g.dart';
 @JsonSerializable()
 class Damage extends Equatable {
   /// {@macro damage}
-  const Damage({
+  const new({
     required this.total,
     required this.impact,
     required this.puncture,
@@ -35,7 +35,7 @@ class Damage extends Equatable {
   });
 
   /// Creates [Damage] from json map.
-  factory Damage.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$DamageFromJson(json);
   }
 

@@ -10,7 +10,7 @@ part 'calendar.g.dart';
 @JsonSerializable()
 class Calendar extends WorldstateObject {
   /// {@macro calendar}
-  const Calendar({
+  const new({
     required DateTime super.activation,
     required DateTime super.expiry,
     required this.days,
@@ -21,7 +21,7 @@ class Calendar extends WorldstateObject {
   });
 
   /// Creates a [Calendar] from Json map
-  factory Calendar.fromJson(Map<String, dynamic> json) => _$CalendarFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$CalendarFromJson(json);
 
   @override
   DateTime get activation => super.activation!;
@@ -57,10 +57,10 @@ class Calendar extends WorldstateObject {
 @JsonSerializable()
 class CalendarDay {
   /// {@macro calendar_day}
-  CalendarDay({required this.date, required this.events});
+  new({required this.date, required this.events});
 
   /// Creates a [CalendarDay] from Json map
-  factory CalendarDay.fromJson(Map<String, dynamic> json) => _$CalendarDayFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$CalendarDayFromJson(json);
 
   /// The day (relative to 1999)
   final DateTime date;
@@ -79,7 +79,7 @@ class CalendarDay {
 
 sealed class CalendarEvent {
   /// {@macro calendar_event}
-  CalendarEvent({required this.type});
+  new({required this.type});
 
   /// Type of event
   final String type;
@@ -92,10 +92,10 @@ sealed class CalendarEvent {
 @JsonSerializable()
 final class CalendarChallenge extends CalendarEvent {
   /// {@macro calendar_event}
-  CalendarChallenge({required super.type, required this.challenge});
+  new({required super.type, required this.challenge});
 
   /// Creates a [CalendarChallenge] from Json map
-  factory CalendarChallenge.fromJson(Map<String, dynamic> json) => _$CalendarChallengeFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$CalendarChallengeFromJson(json);
 
   /// Challenge title and description
   final ({String title, String description}) challenge;
@@ -109,10 +109,10 @@ final class CalendarChallenge extends CalendarEvent {
 @JsonSerializable()
 final class CalendarUpgrade extends CalendarEvent {
   /// {@macro calendar_event}
-  CalendarUpgrade({required super.type, required this.upgrade});
+  new({required super.type, required this.upgrade});
 
   /// Creates a [CalendarEvent] from Json map
-  factory CalendarUpgrade.fromJson(Map<String, dynamic> json) => _$CalendarUpgradeFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$CalendarUpgradeFromJson(json);
 
   /// Upgrade title and description
   final ({String title, String description}) upgrade;
@@ -126,10 +126,10 @@ final class CalendarUpgrade extends CalendarEvent {
 @JsonSerializable()
 final class CalendarReward extends CalendarEvent {
   /// {@macro calendar_event}
-  CalendarReward({required super.type, required this.reward});
+  new({required super.type, required this.reward});
 
   /// Creates a [CalendarEvent] from Json map
-  factory CalendarReward.fromJson(Map<String, dynamic> json) => _$CalendarRewardFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$CalendarRewardFromJson(json);
 
   /// Reward name
   final String reward;
@@ -143,10 +143,10 @@ final class CalendarReward extends CalendarEvent {
 @JsonSerializable()
 final class CalendarBirthday extends CalendarEvent {
   /// {@macro calendar_event}
-  CalendarBirthday({required super.type, required this.name, required this.conversation});
+  new({required super.type, required this.name, required this.conversation});
 
   /// Creates a [CalendarEvent] from Json map
-  factory CalendarBirthday.fromJson(Map<String, dynamic> json) => _$CalendarBirthdayFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$CalendarBirthdayFromJson(json);
 
   /// Dialogue name
   @JsonKey(name: 'dialogueName')

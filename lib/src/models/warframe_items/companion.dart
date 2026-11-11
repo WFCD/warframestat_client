@@ -5,7 +5,7 @@ import 'package:warframestat_client/warframestat_client.dart';
 /// {@endtemplate}
 abstract class Companion extends ItemCommon {
   /// {@macro companion}
-  const Companion({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,

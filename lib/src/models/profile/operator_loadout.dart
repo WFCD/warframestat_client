@@ -10,7 +10,7 @@ part 'operator_loadout.g.dart';
 @JsonSerializable()
 class OperatorLoadout extends Equatable {
   /// {@macro operator_loadout}
-  const OperatorLoadout({
+  const new({
     required this.skins,
     required this.operatorAmp,
     required this.upgrades,
@@ -24,7 +24,7 @@ class OperatorLoadout extends Equatable {
   });
 
   /// Creates an instance from a json map
-  factory OperatorLoadout.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     return _$OperatorLoadoutFromJson(json);
   }
 

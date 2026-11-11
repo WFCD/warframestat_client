@@ -9,7 +9,7 @@ part 'glyph.g.dart';
 @JsonSerializable()
 class Glyph extends ItemCommon {
   /// {@macro glyph}
-  const Glyph({
+  const new({
     required super.uniqueName,
     required super.name,
     required super.description,
@@ -26,7 +26,7 @@ class Glyph extends ItemCommon {
   });
 
   /// Create an instance of [Glyph] from a json map.
-  factory Glyph.fromJson(Map<String, dynamic> json) => _$GlyphFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$GlyphFromJson(json);
 
   /// Creates a json map from an instance of [Glyph].
   @override
