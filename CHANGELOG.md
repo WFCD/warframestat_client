@@ -1,3 +1,10 @@
+## [5.5.2](https://github.com/WFCD/warframestat_client/compare/v5.5.1...v5.5.2) (2026-11-11)
+
+
+### Bug Fixes
+
+* update code for SDK `3.13.0` ([642a143](https://github.com/WFCD/warframestat_client/commit/642a14390841178821d0d6b3ca991825f3fdc835))
+
 ## [5.5.1](https://github.com/WFCD/warframestat_client/compare/v5.5.0...v5.5.1) (2026-05-27)
 
 
