@@ -1,3 +1,10 @@
+## [5.5.3](https://github.com/WFCD/warframestat_client/compare/v5.5.2...v5.5.3) (2026-11-12)
+
+
+### Bug Fixes
+
+* update SDK constraints ([79d0d9a](https://github.com/WFCD/warframestat_client/commit/79d0d9a0f7ed1aca3e8b8dc6b7f2acab07828625))
+
 ## [5.5.2](https://github.com/WFCD/warframestat_client/compare/v5.5.1...v5.5.2) (2026-11-11)
 
 
